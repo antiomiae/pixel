@@ -4,7 +4,8 @@
 #include <string>
 #include <cstdint>
 
-namespace pixel::graphics {
+namespace pixel {
+namespace graphics {
 
 struct ImageData {
     int width, height, bpp;
@@ -14,7 +15,7 @@ struct ImageData {
 
     ImageData(int width, int height, int bpp, uint8_t *data);
 
-    ImageData(ImageData && other) noexcept;
+    ImageData(ImageData &&other) noexcept;
 
     ~ImageData();
 
@@ -23,6 +24,7 @@ struct ImageData {
 
 ImageData load_png(std::string);
 
+}
 };
 
 #endif //GRAPHICS_IMAGE_H

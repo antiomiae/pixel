@@ -8,4 +8,5 @@ add_library(tinypng tinypng/png.cc tinypng/pixel.cc)
 
 target_link_libraries(tinypng png)
 
-target_include_directories(tinypng INTERFACE .)
+target_include_directories(tinypng INTERFACE .
+                                    PRIVATE ../libpng-1.6.34)

@@ -81,7 +81,7 @@ void pixel::graphics::Buffer::bindToProgramAttribute(const Shader &program, cons
             type,
             GL_FALSE,
             stride,
-            (void *) offset
+            reinterpret_cast<void *>(offset)
     );
 
     glEnableVertexAttribArray(attr.index);

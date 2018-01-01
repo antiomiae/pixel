@@ -9,8 +9,13 @@
 #include <unordered_map>
 #include <cstdint>
 
+namespace pixel::util {
 
-std::unordered_map<uint64_t, std::vector<std::string> > populateSymbolMap();
+using SymbolMap = std::unordered_map<uint64_t, std::vector<std::string> >;
+
+const SymbolMap& symbolMap();
+
+};
 
 
 #endif //MAIN_SYMBOL_MAP_CPP_H
