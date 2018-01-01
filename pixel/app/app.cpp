@@ -33,6 +33,8 @@ void App::init(int flags)
 
     glfwMakeContextCurrent(_window);
 
+    glfwSwapInterval(1);
+
     auto err = glewInit();
     if (err != GLEW_OK) {
         cout << "glewInit failed!" << endl;

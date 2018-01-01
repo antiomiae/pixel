@@ -25,6 +25,7 @@ string Attribute::debugPrint() const
 
     out << "Attribute(" << endl;
     out << "  name = " << this->name << endl;
+    out << "  location = " << this->location << endl;
     out << "  index = " << this->index << endl;
     out << "  size = " << this->size << endl;
     out << "  type = " << symbols.at(this->type)[0] << endl;
@@ -133,6 +134,8 @@ AttributeMap enumerateProgramAttributes(GLuint program)
 
         memset(attr.name, 0, 30);
         memcpy(&attr.name[0], buffer.data(), min(29, length));
+
+        attr.location = glGetAttribLocation(program, attr.name);
 
         map[name] = attr;
     }
@@ -243,8 +246,13 @@ Attribute Shader::attribute(const string &name) const
 
 Attribute Shader::uniform(const string &name) const
 {
-    auto attr = _uniformMap.at(name);
-    return attr;
+    try {
+        auto attr = _uniformMap.at(name);
+        return attr;
+    } catch (exception& ex) {
+        error("Unable to find uniform named `" + name + "`");
+        throw ex;
+    }
 }
 
 void Shader::setUniform(const std::string &name, int v0)

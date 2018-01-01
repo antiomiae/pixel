@@ -21,7 +21,7 @@ public:
     explicit Buffer(const GLenum usageHint);
 
     void bindToProgramAttribute(const Shader &program, const std::string &name, const int stride = 0, const int offset = 0);
-    void loadData(void *data, const size_t length);
+    void loadData(const void *data, const size_t length);
 };
 
 };
