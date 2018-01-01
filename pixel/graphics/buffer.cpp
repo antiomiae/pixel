@@ -158,7 +158,7 @@ void pixel::graphics::Buffer::bindToProgramAttribute(const Shader &program, cons
         );
         logGlErrors();
 
-        glEnableVertexAttribArray(loc);
+        glEnableVertexAttribArray(loc + layout.baseLocation);
         logGlErrors();
     }
 
