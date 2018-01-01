@@ -41,29 +41,20 @@ int main()
     buffer.loadData(vertices, 6 * sizeof(vertex));
 
     shader.activate();
-    logGlErrors();
-
-    glUseProgram(shader._programId);
-    logGlErrors();
 
     vao.activate();
-    logGlErrors();
 
     buffer.bindToProgramAttribute(shader, "vertex_position", sizeof(vertex));
-    logGlErrors();
 
     buffer.bindToProgramAttribute(shader, "vertex_texture_coord", sizeof(vertex), offsetof(vertex, texture_coord));
-    logGlErrors();
 
     shader.setUniform("projection", glm::ortho(0.0f, (float)w, 0.0f, (float)h));
-    logGlErrors();
 
     auto view = glm::scale(glm::mat4(1.0f), {100.0f, 100.0f, 1.0f});
     //view = glm::translate(view, {-(float)w/2, -(float)h/2, 1.0f});
     view = glm::translate(glm::mat4(1.0f), {w / 2.0f, h / 2.0f, 0.0f}) * view;
 
     shader.setUniform("view", view);
-    logGlErrors();
 
     vao.deactivate();
 
