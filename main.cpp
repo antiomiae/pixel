@@ -49,23 +49,40 @@ int main()
     buffer.bindToProgramAttribute(shader, "vertex_texture_coord", sizeof(vertex),
                                   static_cast<int>(offsetof(vertex, texture_coord)));
 
-//    {
-//        Buffer model_mat;
-//        glm::mat4 mats[6];
-//        model_mat.loadData(glm::value_ptr(mats[0]), sizeof(mats));
-//        logGlErrors();
-//
-//        model_mat.bindToProgramAttribute(shader, "model_mat");
-//        logGlErrors();
-//
-//        Buffer some_var;
-//        int some_vars[6];
-//        some_var.loadData(some_vars, sizeof(some_vars));
-//        logGlErrors();
-//
-//        some_var.bindToProgramAttribute(shader, "some_var");
-//        logGlErrors();
-//    }
+    {
+        Buffer model_mat;
+        glm::mat2x3 mats[6][2];
+        model_mat.loadData(glm::value_ptr(mats[0][0]), sizeof(mats));
+        logGlErrors();
+
+        model_mat.bindToProgramAttribute(shader, "model_mat");
+        logGlErrors();
+
+        Buffer some_var;
+        int some_vars[6];
+        some_var.loadData(some_vars, sizeof(some_vars));
+        logGlErrors();
+
+        some_var.bindToProgramAttribute(shader, "some_var");
+        logGlErrors();
+
+        Buffer single_mat;
+        glm::mat2 single_mats[6];
+        single_mat.loadData(glm::value_ptr(single_mats[0]), sizeof(single_mats));
+        logGlErrors();
+
+        single_mat.bindToProgramAttribute(shader, "single_mat");
+        logGlErrors();
+
+
+        Buffer int_arr;
+        int int_arrs[6][4];
+        int_arr.loadData(int_arrs, sizeof(single_mats));
+        logGlErrors();
+
+        int_arr.bindToProgramAttribute(shader, "int_arr");
+        logGlErrors();
+    }
 
     shader.setUniform("projection", glm::ortho(0.0f, (float) w, 0.0f, (float) h));
     logGlErrors();

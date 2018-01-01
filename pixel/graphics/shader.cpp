@@ -241,7 +241,14 @@ void Shader::deactivate()
 
 Attribute Shader::attribute(const string &name) const
 {
-    return _attributeMap.at(name);
+    try {
+        auto attr = _attributeMap.at(name);
+        return attr;
+    } catch (exception& ex) {
+        error("Unable to find attribute named `" + name + "`");
+        throw ex;
+    }
+
 }
 
 Attribute Shader::uniform(const string &name) const

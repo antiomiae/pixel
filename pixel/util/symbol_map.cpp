@@ -776,6 +776,12 @@ const SymbolMap &symbolMap() {
         symbolMap[35682] = {"GL_SAMPLER_2D_SHADOW"};
         symbolMap[35683] = {"GL_SAMPLER_2D_RECT"};
         symbolMap[35684] = {"GL_SAMPLER_2D_RECT_SHADOW"};
+        symbolMap[35685] = {"GL_FLOAT_MAT_2x3"};
+        symbolMap[35686] = {"GL_FLOAT_MAT_2x4"};
+        symbolMap[35687] = {"GL_FLOAT_MAT_3x2"};
+        symbolMap[35688] = {"GL_FLOAT_MAT_3x4"};
+        symbolMap[35689] = {"GL_FLOAT_MAT_4x2"};
+        symbolMap[35690] = {"GL_FLOAT_MAT_4x3"};
         symbolMap[35712] = {"GL_DELETE_STATUS"};
         symbolMap[35713] = {"GL_COMPILE_STATUS"};
         symbolMap[35714] = {"GL_LINK_STATUS"};

@@ -147,7 +147,7 @@ void pixel::graphics::Buffer::bindToProgramAttribute(const Shader &program, cons
 
     const Layout layout(attr);
 
-    for (GLuint loc = 0; loc < layout.locationSpan; ++loc) {
+    for (GLuint loc = 0; loc < layout.locationSpan * attr.size; ++loc) {
         glVertexAttribPointer(
                 loc + layout.baseLocation,
                 layout.size,
