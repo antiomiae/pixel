@@ -3,13 +3,15 @@
 //
 
 #include "app.h"
+#include <iostream>
 
 using namespace pixel;
 using namespace std;
 
-App::App()
-{
-
+void glfw_error_callback(int err, const char *description) {
+    cerr << "GLFW error encountered: " << err << endl;
+    cerr << "Error description from glfw:" << endl;
+    cerr << description << endl << endl;
 }
 
 void App::init(int flags)
@@ -18,6 +20,8 @@ void App::init(int flags)
         cout << "glwInit failed!" << endl;
         throw;
     }
+
+    glfwSetErrorCallback(glfw_error_callback);
 
     glfwWindowHint(GLFW_CLIENT_API, GLFW_OPENGL_API);
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GLFW_TRUE);

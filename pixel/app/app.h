@@ -11,8 +11,7 @@ public:
     GLFWwindow * _window;
     std::function<void(void)> _tickCallback;
 
-
-    App();
+    App() = default;
 
     void init(int flags = 0);
 
