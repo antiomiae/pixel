@@ -25,6 +25,6 @@ int main(int argc, char *argv[]) {
     Shader shader(argv[1], argv[2], "shadercheck shader under test");
 
     cout << shader.debugPrint() << endl;
-    
+
     return 0;
 }
