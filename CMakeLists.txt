@@ -13,10 +13,10 @@ include(ExternalProject)
 
 include(pixel/cmake/GoogleTest.cmake)
 
-ExternalProject_Add(pixel
-        SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/pixel
-        BINARY_DIR ${CMAKE_BINARY_DIR}/
-        DEPENDS googletest
-        )
+#ExternalProject_Add(pixel
+#        SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/pixel
+#        BINARY_DIR ${PROJECT_BINARY_DIR}/pixel
+#        DEPENDS googletest
+#        )
 
-#add_subdirectory(pixel)
+add_subdirectory(pixel)

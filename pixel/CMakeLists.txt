@@ -4,15 +4,12 @@ project(pixel CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_library(pixel SHARED pixel/app/app.cpp pixel/app/app.h pixel/graphics/common.h pixel/graphics/texture.cpp pixel/graphics/texture.h pixel/graphics/graphics.h pixel/graphics/image.h pixel/graphics/image.cpp pixel/graphics/shader.cpp pixel/graphics/shader.h pixel/graphics/buffer.cpp pixel/graphics/buffer.h pixel/util/symbol_map.h pixel/util/symbol_map.cpp pixel/graphics/vao.cpp pixel/graphics/vao.h pixel/util/util.cpp pixel/util/util.h pixel/pixel.h pixel/math.h pixel/util/collections.h pixel/tools/shadercheck.cpp pixel/tools/shadercheck.h pixel/graphics/sprite.cpp pixel/graphics/sprite.h pixel/time/frame_counter.cpp pixel/time/frame_counter.h pixel/time/frame_rate_limiter.cpp pixel/time/frame_rate_limiter.h)
+add_library(pixel SHARED pixel/app/app.cpp pixel/app/app.h pixel/graphics/common.h pixel/graphics/texture.cpp pixel/graphics/texture.h pixel/graphics/graphics.h pixel/graphics/image.h pixel/graphics/image.cpp pixel/graphics/shader.cpp pixel/graphics/shader.h pixel/graphics/buffer.cpp pixel/graphics/buffer.h pixel/util/symbol_map.h pixel/util/symbol_map.cpp pixel/graphics/vao.cpp pixel/graphics/vao.h pixel/util/util.cpp pixel/util/util.h pixel/pixel.h pixel/math.h pixel/util/collections.h pixel/graphics/sprite.cpp pixel/graphics/sprite.h pixel/time/frame_counter.cpp pixel/time/frame_counter.h pixel/time/frame_rate_limiter.cpp pixel/time/frame_rate_limiter.h)
 target_include_directories(pixel PUBLIC .)
 
-
-#add_subdirectory(${PROJECT_BINARY_DIR}/googletest-src)
-target_link_libraries(pixel PUBLIC gtest)
-
 add_subdirectory(demos)
-add_subdirectory(pixel/tools)
+add_subdirectory(tools)
+add_subdirectory(test)
 
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)

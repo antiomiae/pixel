@@ -4,14 +4,23 @@
 #ifndef PIXEL_SPRITE_H
 #define PIXEL_SPRITE_H
 
+#include <pixel/graphics/texture_region.h>
+
 namespace pixel::graphics
 {
 
 class Sprite
 {
 public:
-    float x, y, z;
-
+    union {
+        float position[3];
+        struct {
+            float x, y, z;
+        };
+    };
+    float center[2];
+    float angle;
+    TextureRegion texture_region;
 };
 
 };
