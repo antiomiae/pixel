@@ -92,7 +92,7 @@ void App::tick()
 
 void App::lateTick()
 {
-    pixel::time::FrameRateLimiter limiter(1/60.0, (1/60.0) / 100);
+    pixel::time::FrameRateLimiter limiter(1/60.0, (1/60.0) / 1000);
 
     limiter.delay(_fps_counter.timeSinceFrameStart());
 }

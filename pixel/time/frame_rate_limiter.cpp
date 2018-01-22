@@ -19,7 +19,7 @@ void pixel::time::FrameRateLimiter::delay(const double used) const
     while (elapsed_time < _frame_rate && (_frame_rate - elapsed_time) > _error) {
         double sleep_start = glfwGetTime();
 
-        this_thread::sleep_for(seconds(max((_frame_rate - elapsed_time) / 2 - _error, _error)));
+        this_thread::sleep_for(seconds(max((_frame_rate - elapsed_time) / 2 - _error, _error / 2)));
 
         elapsed_time += glfwGetTime() - sleep_start;
     }
