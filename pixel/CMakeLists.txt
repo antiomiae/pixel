@@ -15,10 +15,6 @@ set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
-set(PNG_STATIC ON CACHE BOOL "" FORCE)
-set(PNG_SHARED OFF CACHE BOOL "" FORCE)
-set(PNG_FRAMEWORK OFF CACHE BOOL "" FORCE)
-
 set(GLM_STATIC_LIBRARY_ENABLE OFF CACHE BOOL "" FORCE)
 set(GLM_DYNAMIC_LIBRARY_ENABLE OFF CACHE BOOL "" FORCE)
 set(GLM_TEST_ENABLE OFF CACHE BOOL "" FORCE)
@@ -29,10 +25,7 @@ set(GLM_TEST_ENABLE OFF CACHE BOOL "" FORCE)
 add_subdirectory(lib/glfw)
 target_link_libraries(pixel PUBLIC glfw)
 
-add_subdirectory(lib/glew-2.1.0/build/cmake)
 target_link_libraries(pixel PUBLIC glew)
-
-add_subdirectory(lib/libpng-1.6.34)
 
 add_subdirectory(lib/tinypng)
 target_link_libraries(pixel PUBLIC tinypng)

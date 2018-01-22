@@ -12,11 +12,18 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
 include(ExternalProject)
 
 include(pixel/cmake/GoogleTest.cmake)
+include(pixel/cmake/GLEW.cmake)
+include(pixel/cmake/LibPNG.cmake)
 
-#ExternalProject_Add(pixel
+add_custom_target(setup_deps)
+
+# ExternalProject_Add(pixel
+#        PREFIX ""
 #        SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/pixel
 #        BINARY_DIR ${PROJECT_BINARY_DIR}/pixel
-#        DEPENDS googletest
+#        DEPENDS png-external glew-external googletest
 #        )
 
 add_subdirectory(pixel)
+
+#add_dependencies(setup_deps png-external pixel)
