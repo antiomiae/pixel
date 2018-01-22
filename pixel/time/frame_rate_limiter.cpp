@@ -4,6 +4,7 @@
 #include "frame_rate_limiter.h"
 #include <pixel/util/util.h>
 #include <GLFW/glfw3.h>
+#include <cmath>
 #include <chrono>
 #include <thread>
 
@@ -18,7 +19,7 @@ void pixel::time::FrameRateLimiter::delay(const double used) const
     while (elapsed_time < _frame_rate && (_frame_rate - elapsed_time) > _error) {
         double sleep_start = glfwGetTime();
 
-        this_thread::sleep_for(seconds(_error));
+        this_thread::sleep_for(seconds(max((_frame_rate - elapsed_time) / 2 - _error, _error)));
 
         elapsed_time += glfwGetTime() - sleep_start;
     }
