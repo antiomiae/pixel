@@ -38,17 +38,27 @@ void _logGlErrors(const int line, const char *file) {
     }
 }
 
-namespace pixel::util {
+namespace pixel::util
+{
 
-bool file_exists(const std::string &path) {
+bool file_exists(const std::string &path)
+{
     ifstream file(path);
     return file.good();
 }
 
-void _error(const int line, const char *file, const std::string &msg) {
+void _error(const int line, const char *file, const std::string &msg)
+{
     string prefix = string(file) + ":" + std::to_string(line) + ":";
     cout << prefix << msg << endl;
     throw msg;
+}
+
+void _error_if(const int line, const char *file, bool expr, const std::string &msg)
+{
+   if (expr) {
+       _error(line, file, msg);
+   }
 }
 
 };

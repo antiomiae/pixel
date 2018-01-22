@@ -3,10 +3,15 @@
 
 #include "../graphics/graphics.h"
 #include <functional>
+#include <pixel/time/frame_counter.h>
 
 namespace pixel {
 
 class App {
+    pixel::time::FrameCounter _fps_counter;
+    int _frames;
+
+    void tick();
 public:
     GLFWwindow * _window;
     std::function<void(void)> _tickCallback;
@@ -18,6 +23,8 @@ public:
     void run();
 
     void setTickCallback(std::function<void(void)> cb);
+
+    void lateTick();
 };
 
 };

@@ -8,7 +8,7 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-add_library(pixel SHARED pixel/app/app.cpp pixel/app/app.h pixel/graphics/common.h pixel/graphics/texture.cpp pixel/graphics/texture.h pixel/graphics/graphics.h pixel/graphics/image.h pixel/graphics/image.cpp pixel/graphics/shader.cpp pixel/graphics/shader.h pixel/graphics/buffer.cpp pixel/graphics/buffer.h pixel/util/symbol_map.h pixel/util/symbol_map.cpp pixel/graphics/vao.cpp pixel/graphics/vao.h pixel/util/util.cpp pixel/util/util.h pixel/pixel.h pixel/math.h pixel/util/collections.h pixel/tools/shadercheck.cpp pixel/tools/shadercheck.h)
+add_library(pixel SHARED pixel/app/app.cpp pixel/app/app.h pixel/graphics/common.h pixel/graphics/texture.cpp pixel/graphics/texture.h pixel/graphics/graphics.h pixel/graphics/image.h pixel/graphics/image.cpp pixel/graphics/shader.cpp pixel/graphics/shader.h pixel/graphics/buffer.cpp pixel/graphics/buffer.h pixel/util/symbol_map.h pixel/util/symbol_map.cpp pixel/graphics/vao.cpp pixel/graphics/vao.h pixel/util/util.cpp pixel/util/util.h pixel/pixel.h pixel/math.h pixel/util/collections.h pixel/tools/shadercheck.cpp pixel/tools/shadercheck.h pixel/graphics/sprite.cpp pixel/graphics/sprite.h pixel/time/frame_counter.cpp pixel/time/frame_counter.h pixel/time/frame_rate_limiter.cpp pixel/time/frame_rate_limiter.h)
 target_include_directories(pixel PUBLIC .)
 
 add_subdirectory(demos)
@@ -44,3 +44,9 @@ target_link_libraries(pixel PUBLIC tinypng)
 #target_link_libraries(pixel box2d)
 
 target_include_directories(pixel PUBLIC lib/glm-0.9.9-a2)
+
+if(CMAKE_C_FLAGS_DEBUG)
+    target_compile_definitions(pixel PUBLIC PIXEL_DEBUG=1)
+else(CMAKE_C_FLAGS_DEBUG)
+    target_compile_definitions(pixel PUBLIC PIXEL_DEBUG=0)
+endif(CMAKE_C_FLAGS_DEBUG)

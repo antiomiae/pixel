@@ -3,6 +3,8 @@
 //
 
 #include "app.h"
+#include <pixel/time/frame_rate_limiter.h>
+#include <pixel/util/util.h>
 #include <iostream>
 
 using namespace pixel;
@@ -30,10 +32,8 @@ void App::init(int flags)
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 
     _window = glfwCreateWindow(640, 448, "pixel", nullptr, nullptr);
-    if (!_window) {
-        cout << "glfwCreateWindow failed!" << endl;
-        throw;
-    }
+
+    error_unless(_window, "glfwCreateWindow failed!");
 
     glfwMakeContextCurrent(_window);
 
@@ -58,6 +58,8 @@ void App::run()
     glClearColor(0.95, 0, 0, 1);
 
     while (!glfwWindowShouldClose(_window)) {
+        tick();
+
         glClear(GL_COLOR_BUFFER_BIT);
 
         glfwPollEvents();
@@ -68,9 +70,29 @@ void App::run()
 
         glfwSwapBuffers(_window);
 
+        lateTick();
     }
 }
 
 void App::setTickCallback(std::function<void(void)> cb) {
     _tickCallback = std::move(cb);
+}
+
+void App::tick()
+{
+    _fps_counter.tick();
+    ++_frames;
+
+    #if PIXEL_DEBUG
+        if (_frames % 10 == 0) {
+            cout << _fps_counter.fps() << " FPS" << endl;
+        }
+    #endif
+}
+
+void App::lateTick()
+{
+    pixel::time::FrameRateLimiter limiter(1/60.0, (1/60.0) / 100);
+
+    limiter.delay(_fps_counter.timeSinceFrameStart());
 }
