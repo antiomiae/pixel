@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 
-include(pixel/cmake/HunterGate.cmake)
+include(cmake/HunterGate.cmake)
 
 HunterGate(
         URL "https://github.com/ruslo/hunter/archive/v0.19.232.tar.gz"
@@ -9,26 +9,29 @@ HunterGate(
 
 project(pixel)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+#set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
+#set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
+#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
 
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
-
-include(ExternalProject)
+hunter_config(glfw
+  VERSION 3.3.0
+  CMAKE_ARGS GLFW_BUILD_EXAMPLES=OFF GLFW_BUILD_TESTS=OFF
+  )
 
 hunter_add_package(GTest)
-find_package(GTest CONFIG REQUIRED)
-
 hunter_add_package(glew)
-find_package(glew CONFIG REQUIRED)
-
 hunter_add_package(PNG)
-find_package(PNG CONFIG REQUIRED)
-
 hunter_add_package(glfw)
-find_package(glfw CONFIG REQUIRED)
+
+set(BUILD_SHARED_LIBS ON)
+
+find_package(PNG CONFIG REQUIRED)
+find_package(glew CONFIG REQUIRED)
+find_package(GTest CONFIG REQUIRED)
+find_package(glfw3 CONFIG REQUIRED)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 #include(pixel/cmake/GoogleTest.cmake)
 #include(pixel/cmake/GLEW.cmake)
