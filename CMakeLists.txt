@@ -20,10 +20,15 @@ include(ExternalProject)
 
 hunter_add_package(GTest)
 find_package(GTest CONFIG REQUIRED)
+
 hunter_add_package(glew)
 find_package(glew CONFIG REQUIRED)
+
 hunter_add_package(PNG)
 find_package(PNG CONFIG REQUIRED)
+
+hunter_add_package(glfw)
+find_package(glfw CONFIG REQUIRED)
 
 #include(pixel/cmake/GoogleTest.cmake)
 #include(pixel/cmake/GLEW.cmake)

@@ -22,10 +22,10 @@ set(GLM_TEST_ENABLE OFF CACHE BOOL "" FORCE)
 #set(BOX2D_BUILD_SHARED ON CACHE BOOL "" FORCE)
 #set(BOX2D_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
-add_subdirectory(lib/glfw)
+#add_subdirectory(lib/glfw)
 target_link_libraries(pixel PUBLIC glfw)
 
-target_link_libraries(pixel PUBLIC glew::glew)
+target_link_libraries(pixel PUBLIC glew)
 
 add_subdirectory(lib/tinypng)
 target_link_libraries(pixel PUBLIC tinypng)
