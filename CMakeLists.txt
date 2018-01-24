@@ -18,6 +18,13 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
 
 include(ExternalProject)
 
+hunter_add_package(GTest)
+find_package(GTest CONFIG REQUIRED)
+hunter_add_package(glew)
+find_package(glew CONFIG REQUIRED)
+hunter_add_package(PNG)
+find_package(PNG CONFIG REQUIRED)
+
 #include(pixel/cmake/GoogleTest.cmake)
 #include(pixel/cmake/GLEW.cmake)
 #include(pixel/cmake/LibPNG.cmake)
@@ -35,6 +42,6 @@ include(ExternalProject)
 #        DEPENDS png-external glew-external googletest
 #        )
 
-#add_subdirectory(pixel)
+add_subdirectory(pixel)
 
 #add_dependencies(setup_deps png-external pixel)
