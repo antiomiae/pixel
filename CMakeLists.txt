@@ -13,17 +13,15 @@ project(pixel)
 #set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
 #set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
 
-hunter_config(glfw
-  VERSION 3.3.0
-  CMAKE_ARGS GLFW_BUILD_EXAMPLES=OFF GLFW_BUILD_TESTS=OFF
-  )
+set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "")
+set(GLFW_BUILD_TESTS OFF CACHE BOOL "")
+
+set(HUNTER_BUILD_SHARED_LIBS ON)
 
 hunter_add_package(GTest)
 hunter_add_package(glew)
 hunter_add_package(PNG)
 hunter_add_package(glfw)
-
-set(BUILD_SHARED_LIBS ON)
 
 find_package(PNG CONFIG REQUIRED)
 find_package(glew CONFIG REQUIRED)
