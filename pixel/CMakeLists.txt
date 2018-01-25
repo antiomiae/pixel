@@ -25,7 +25,7 @@ set(GLM_TEST_ENABLE OFF CACHE BOOL "" FORCE)
 #add_subdirectory(lib/glfw)
 target_link_libraries(pixel PUBLIC glfw)
 
-target_link_libraries(pixel PUBLIC glew)
+target_link_libraries(pixel PUBLIC glew::glew)
 
 add_subdirectory(lib/tinypng)
 target_link_libraries(pixel PUBLIC tinypng)
