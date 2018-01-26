@@ -17,6 +17,7 @@ set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "")
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "")
 
 set(HUNTER_BUILD_SHARED_LIBS ON)
+set(BUILD_SHARED_LIBS ON)
 
 hunter_add_package(GTest)
 hunter_add_package(glew)

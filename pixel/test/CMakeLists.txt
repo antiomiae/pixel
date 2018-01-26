@@ -4,5 +4,5 @@ project(pixel_test CXX)
 add_executable(pixel_test test_sprite.cpp)
 
 target_link_libraries(pixel_test PUBLIC pixel)
-target_link_libraries(pixel_test PUBLIC gtest)
-target_link_libraries(pixel_test PUBLIC gtest_main)
+target_link_libraries(pixel_test PUBLIC GTest::gtest)
+target_link_libraries(pixel_test PUBLIC GTest::main)
