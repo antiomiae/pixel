@@ -32,23 +32,4 @@ find_package(glfw3 CONFIG REQUIRED)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-#include(pixel/cmake/GoogleTest.cmake)
-#include(pixel/cmake/GLEW.cmake)
-#include(pixel/cmake/LibPNG.cmake)
-
-#add_custom_target(setup_deps)
-#
-#add_dependencies(setup_deps glew-external png-external)
-#
-
-
-# ExternalProject_Add(pixel
-#        PREFIX ""
-#        SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/pixel
-#        BINARY_DIR ${PROJECT_BINARY_DIR}/pixel
-#        DEPENDS png-external glew-external googletest
-#        )
-
 add_subdirectory(pixel)
-
-#add_dependencies(setup_deps png-external pixel)
