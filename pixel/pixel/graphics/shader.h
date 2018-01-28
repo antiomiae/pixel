@@ -4,11 +4,10 @@
 #ifndef GL_SHADER_H
 #define GL_SHADER_H
 
+#include "common.h"
+#include "../math/math.h"
 #include <unordered_map>
 #include <string>
-#include "common.h"
-#include "../math.h"
-
 
 namespace pixel::graphics {
 
@@ -17,7 +16,8 @@ struct Attribute {
     GLint size;
     GLint location;
     GLenum type;
-    char name[30];
+    std::string name;
+
     std::string debugPrint() const;
 };
 

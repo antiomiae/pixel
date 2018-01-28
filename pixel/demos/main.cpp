@@ -17,6 +17,8 @@ int main(int argc, char *argv[])
         chdir(argv[1]);
     }
 
+    pixel::print_version_information();
+
     pixel::App app;
 
     app.init();

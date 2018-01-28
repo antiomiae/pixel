@@ -130,14 +130,12 @@ AttributeMap enumerateProgramAttributes(GLuint program)
         );
 
         buffer[length + 1] = '\0';
-        string name(buffer.data());
 
-        memset(attr.name, 0, 30);
-        memcpy(&attr.name[0], buffer.data(), min(29, length));
+        attr.name = buffer.data();
 
-        attr.location = glGetAttribLocation(program, attr.name);
+        attr.location = glGetAttribLocation(program, attr.name.c_str());
 
-        map[name] = attr;
+        map[attr.name] = attr;
     }
 
     return map;
@@ -168,14 +166,12 @@ AttributeMap enumerateProgramUniforms(GLuint program)
         );
 
         buffer[length + 1] = '\0';
-        string name(buffer.data());
 
-        memset(attr.name, 0, 30);
-        memcpy(&attr.name[0], buffer.data(), min(29, length));
+        attr.name = buffer.data();
 
-        attr.location = glGetUniformLocation(program, attr.name);
+        attr.location = glGetUniformLocation(program, attr.name.c_str());
 
-        attributeMap[name] = attr;
+        attributeMap[attr.name] = attr;
     }
 
     int count = attributeMap.size();
