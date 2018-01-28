@@ -1,6 +1,3 @@
-cmake_minimum_required(VERSION 3.8)
-project(pixel CXX)
-
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -8,30 +5,19 @@ add_library(pixel pixel/app/app.cpp pixel/app/app.h pixel/graphics/common.h pixe
 target_include_directories(pixel PUBLIC .)
 
 add_subdirectory(demos)
-#add_subdirectory(tools)
+add_subdirectory(tools)
 add_subdirectory(test)
-
-set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
-set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
-set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
 set(GLM_STATIC_LIBRARY_ENABLE OFF CACHE BOOL "" FORCE)
 set(GLM_DYNAMIC_LIBRARY_ENABLE OFF CACHE BOOL "" FORCE)
 set(GLM_TEST_ENABLE OFF CACHE BOOL "" FORCE)
 
-#set(BOX2D_BUILD_SHARED ON CACHE BOOL "" FORCE)
-#set(BOX2D_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-
-#add_subdirectory(lib/glfw)
 target_link_libraries(pixel PUBLIC glfw)
 
 target_link_libraries(pixel PUBLIC glew::glew)
 
 add_subdirectory(lib/tinypng)
 target_link_libraries(pixel PUBLIC tinypng)
-
-#add_subdirectory(lib/Box2D)
-#target_link_libraries(pixel box2d)
 
 target_include_directories(pixel PUBLIC lib/glm-0.9.9-a2)
 
