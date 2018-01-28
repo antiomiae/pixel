@@ -10,6 +10,8 @@ namespace pixel {
 class App {
     pixel::time::FrameCounter _fps_counter;
     int _frames;
+    int _window_width;
+    int _window_height;
 
     void tick();
 public:
@@ -25,6 +27,10 @@ public:
     void setTickCallback(std::function<void(void)> cb);
 
     void lateTick();
+
+    void updateViewport();
+
+    std::pair<int,int> windowSize() const;
 };
 
 };

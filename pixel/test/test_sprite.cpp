@@ -1,14 +1,10 @@
-//
-//
 #include <pixel/graphics/sprite.h>
-#include <cassert>
 #include <gtest/gtest.h>
-
 
 namespace {
 
 TEST(SpriteTest, PositionIsAUnion) {
-pixel::graphics::Sprite sprite;
+pixel::graphics::Sprite sprite{};
 
 sprite.x = 0;
 sprite.y = 1;

@@ -23,10 +23,6 @@ int main(int argc, char *argv[])
 
     app.init();
 
-    int w, h;
-    glfwGetWindowSize(app._window, &w, &h);
-    glViewport(0, 0, w, h);
-
     pixel::graphics::Texture t1(GL_TEXTURE_2D);
 
     pixel::graphics::ImageData ground_tile = pixel::graphics::load_png("assets/ground1.png");
@@ -92,6 +88,9 @@ int main(int argc, char *argv[])
         int_arr.bindToProgramAttribute(shader, "int_arr");
         logGlErrors();
     }
+
+    int w, h;
+    std::tie(w, h) = app.windowSize();
 
     shader.setUniform("projection", glm::ortho(0.0f, (float) w, 0.0f, (float) h));
     logGlErrors();

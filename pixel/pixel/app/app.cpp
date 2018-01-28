@@ -6,6 +6,7 @@
 #include <pixel/time/frame_rate_limiter.h>
 #include <pixel/util/util.h>
 #include <iostream>
+#include <tuple>
 
 using namespace pixel;
 using namespace std;
@@ -15,6 +16,12 @@ void glfw_error_callback(int err, const char *description) {
     cerr << "Error description from glfw:" << endl;
     cerr << description << endl << endl;
 }
+
+std::pair<int,int> windowDimensions(GLFWwindow *window) {
+    int w, h;
+    glfwGetWindowSize(window, &w, &h);
+    return {w, h};
+};
 
 void App::init(int flags)
 {
@@ -51,6 +58,19 @@ void App::init(int flags)
         cout << "OpenGL version 4.1 is not available according to GLEW" << endl;
         throw;
     }
+
+    updateViewport();
+}
+
+void App::updateViewport() {
+    int w, h;
+    std::tie(w, h) = windowDimensions(_window);
+
+    if (_window_width != w || _window_height != h) {
+        glViewport(0, 0, w, h);
+        _window_width = w;
+        _window_height = h;
+    }
 }
 
 void App::run()
@@ -60,6 +80,7 @@ void App::run()
     while (!glfwWindowShouldClose(_window)) {
         tick();
 
+        updateViewport();
         glClear(GL_COLOR_BUFFER_BIT);
 
         glfwPollEvents();
@@ -95,4 +116,9 @@ void App::lateTick()
     pixel::time::FrameRateLimiter limiter(1/60.0, (1/60.0) / 1000);
 
     limiter.delay(_fps_counter.timeSinceFrameStart());
+}
+
+std::pair<int, int> App::windowSize() const
+{
+    return {_window_width, _window_height};
 }
