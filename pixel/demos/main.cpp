@@ -1,4 +1,6 @@
 #include "../pixel/pixel.h"
+#include <iostream>
+#include <unistd.h>
 
 using pixel::graphics::Buffer;
 
@@ -8,8 +10,13 @@ struct vertex
     GLfloat texture_coord[2];
 };
 
-int main()
+int main(int argc, char *argv[])
 {
+    if (argc >= 2) {
+        std::cout << "Changing to directory " << argv[1] << std::endl;
+        chdir(argv[1]);
+    }
+
     pixel::App app;
 
     app.init();
