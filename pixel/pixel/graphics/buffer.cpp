@@ -1,6 +1,7 @@
 //
 //
 
+#include <iostream>
 #include "buffer.h"
 #include "../util/util.h"
 
@@ -12,6 +13,7 @@ GLenum basicTypeForAttributeType(GLenum e)
         case GL_FLOAT:
         case GL_FLOAT_VEC2:
         case GL_FLOAT_VEC3:
+        case GL_FLOAT_VEC4:
         case GL_FLOAT_MAT2:
         case GL_FLOAT_MAT3:
         case GL_FLOAT_MAT4:
@@ -25,10 +27,12 @@ GLenum basicTypeForAttributeType(GLenum e)
         case GL_INT:
         case GL_INT_VEC2:
         case GL_INT_VEC3:
+        case GL_INT_VEC4:
             return GL_INT;
         default:
-            return GL_DOUBLE;
+            error("Unknown enum");
     }
+    return 0;
 }
 
 int sizeForBasicType(GLenum e) {
@@ -49,10 +53,12 @@ int sizeForBasicType(GLenum e) {
         case GL_INT:
         case GL_INT_VEC2:
         case GL_INT_VEC3:
+        case GL_INT_VEC4:
             return sizeof(GLint);
         default:
-            return sizeof(GLdouble);
+            error("Unknown enum");
     }
+    return 0;
 }
 
 int componentsForAttributeType(GLenum e)
@@ -72,12 +78,15 @@ int componentsForAttributeType(GLenum e)
         case GL_FLOAT_MAT2x3:
         case GL_FLOAT_MAT4x3:
             return 3;
+        case GL_FLOAT_VEC4:
+        case GL_INT_VEC4:
         case GL_FLOAT_MAT4:
         case GL_FLOAT_MAT3x4:
             return 4;
         default:
-            return 1;
+            error("Unknown enum");
     }
+    return 0;
 }
 
 int locationSpanForAttributeType(GLenum e)
@@ -103,8 +112,9 @@ int locationSpanForAttributeType(GLenum e)
         case GL_FLOAT_MAT4x3:
             return 4;
         default:
-            return 1;
+            error("Unknown enum");
     }
+    return 0;
 }
 
 struct Layout
@@ -138,39 +148,66 @@ pixel::graphics::Buffer::Buffer(const GLenum usageHint)
 }
 
 void pixel::graphics::Buffer::bindToProgramAttribute(const Shader &program, const std::string &name, const int stride,
-                                                     const int offset)
+                                                     const int offset, const int divisor)
 {
-    glBindBuffer(GL_ARRAY_BUFFER, _bufferId);
+    bind();
     logGlErrors();
 
-    auto attr = program.attribute(name);
+    Attribute attr;
+
+    try {
+        attr = program.attribute(name);
+    } catch (std::exception& e) {
+        std::cout << "bindToProgramAttribute: attribute not found" << std::endl;
+        return;
+    }
 
     const Layout layout(attr);
 
     for (GLuint loc = 0; loc < layout.locationSpan * attr.size; ++loc) {
-        glVertexAttribPointer(
-                loc + layout.baseLocation,
-                layout.size,
-                layout.type,
-                GL_FALSE,
-                stride,
-                reinterpret_cast<void *>(offset + loc * (sizeForBasicType(layout.type) * layout.size))
-        );
+        if (layout.type == GL_INT) {
+            glVertexAttribIPointer(
+                    loc + layout.baseLocation,
+                    layout.size,
+                    layout.type,
+                    stride,
+                    reinterpret_cast<void *>(offset + loc * (sizeForBasicType(layout.type) * layout.size))
+            );
+        } else {
+            glVertexAttribPointer(
+                    loc + layout.baseLocation,
+                    layout.size,
+                    layout.type,
+                    GL_FALSE,
+                    stride,
+                    reinterpret_cast<void *>(offset + loc * (sizeForBasicType(layout.type) * layout.size))
+            );
+        }
         logGlErrors();
 
         glEnableVertexAttribArray(loc + layout.baseLocation);
         logGlErrors();
+
+        glVertexAttribDivisor(loc + layout.baseLocation, divisor);
+        logGlErrors();
     }
 
-    //glBindBuffer(GL_ARRAY_BUFFER, 0);
-    logGlErrors();
+    unbind();
 }
 
 void pixel::graphics::Buffer::loadData(const void *data, const size_t length)
 {
-    glBindBuffer(GL_ARRAY_BUFFER, _bufferId);
-
+    bind();
     glBufferData(GL_ARRAY_BUFFER, length, data, _usageHint);
+    unbind();
+}
 
+void pixel::graphics::Buffer::bind()
+{
+    glBindBuffer(GL_ARRAY_BUFFER, _bufferId);
+}
+
+void pixel::graphics::Buffer::unbind()
+{
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 }

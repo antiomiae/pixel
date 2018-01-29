@@ -7,5 +7,6 @@
 #include "shader.h"
 #include "buffer.h"
 #include "vao.h"
+#include "sprite.h"
 
 #endif //GRAPHICS_GRAPHICS_H

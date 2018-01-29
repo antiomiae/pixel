@@ -41,6 +41,19 @@ void _logGlErrors(const int line, const char *file) {
 namespace pixel::util
 {
 
+struct pixelerror : std::exception
+{
+    std::string _msg;
+    explicit pixelerror(std::string msg) : _msg(std::move(msg))
+    {
+    }
+
+    const char* what() const noexcept override
+    {
+        return _msg.c_str();
+    }
+};
+
 bool file_exists(const std::string &path)
 {
     ifstream file(path);
@@ -51,7 +64,7 @@ void _error(const int line, const char *file, const std::string &msg)
 {
     string prefix = string(file) + ":" + std::to_string(line) + ":";
     cout << prefix << msg << endl;
-    throw msg;
+    throw pixelerror(msg);
 }
 
 void _error_if(const int line, const char *file, bool expr, const std::string &msg)

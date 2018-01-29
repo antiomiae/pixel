@@ -7,7 +7,7 @@ out vec4 fragColor;
 uniform sampler2D tex;
 
 void main() {
-  fragColor = texture(tex, texture_coord, 0);
+  fragColor = texelFetch(tex, texture_coord, 0);
   if (fragColor.a == 0.0) {
     discard;
   }

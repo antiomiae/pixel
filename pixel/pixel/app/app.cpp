@@ -5,8 +5,6 @@
 #include "app.h"
 #include <pixel/time/frame_rate_limiter.h>
 #include <pixel/util/util.h>
-#include <iostream>
-#include <tuple>
 
 using namespace pixel;
 using namespace std;
@@ -17,9 +15,9 @@ void glfw_error_callback(int err, const char *description) {
     cerr << description << endl << endl;
 }
 
-std::pair<int,int> windowDimensions(GLFWwindow *window) {
+std::pair<int,int> framebufferSize(GLFWwindow *window) {
     int w, h;
-    glfwGetWindowSize(window, &w, &h);
+    glfwGetFramebufferSize(window, &w, &h);
     return {w, h};
 };
 
@@ -64,7 +62,7 @@ void App::init(int flags)
 
 void App::updateViewport() {
     int w, h;
-    std::tie(w, h) = windowDimensions(_window);
+    std::tie(w, h) = framebufferSize(_window);
 
     if (_window_width != w || _window_height != h) {
         glViewport(0, 0, w, h);
@@ -75,7 +73,7 @@ void App::updateViewport() {
 
 void App::run()
 {
-    glClearColor(0.95, 0, 0, 1);
+    glClearColor(0.1, 0.1, 0.1, 1);
 
     while (!glfwWindowShouldClose(_window)) {
         tick();
