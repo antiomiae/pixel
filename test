@@ -1,0 +1,6 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+(cd build-ninja && ninja pixel_test)
+build-ninja/bin/pixel_test

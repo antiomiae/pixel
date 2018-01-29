@@ -1,5 +1,5 @@
+#include "setup.h"
 #include <pixel/graphics/sprite.h>
-#include <gtest/gtest.h>
 
 namespace {
 

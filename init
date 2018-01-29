@@ -1,0 +1,9 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+mkdir -p build-ninja 
+cd build-ninja
+cmake -G Ninja ..
+ninja
+
