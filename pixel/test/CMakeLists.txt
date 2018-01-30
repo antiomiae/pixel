@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 #project(pixel_test CXX)
 
-add_executable(pixel_test test_sprite.cpp setup.h main.cpp test_setup.cpp setup.cpp)
+add_executable(pixel_test test_sprite.cpp setup.h main.cpp test_setup.cpp setup.cpp test_tilemap.cpp)
 
 target_link_libraries(pixel_test PUBLIC pixel)
 target_link_libraries(pixel_test PUBLIC GTest::gtest)

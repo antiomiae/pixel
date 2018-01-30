@@ -9,5 +9,6 @@
 #include "util/util.h"
 #include "math/math.h"
 #include "system/system.h"
+#include "tilemap/tilemap.h"
 
 #endif //PIXEL_PIXEL_H
