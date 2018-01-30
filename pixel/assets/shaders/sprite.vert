@@ -14,24 +14,15 @@ flat out int _texture_layer;
 
 uniform mat4 projection;
 
-vec2 rotate(vec2 v, float a) {
-	float s = sin(a);
-	float c = cos(a);
-	mat2 m = mat2(c, -s, s, c);
-	return m * v;
-}
-
 mat2 rotate(float r) {
     float s = sin(r);
     float c = cos(r);
-    return mat2(c, -s, s, c);
+    return mat2(c, s, -s, c);
 }
 
 void main() {
-    vec2 rotated_vertex = rotate(angle) * (vertex - vec2(0.5)) + vec2(0.5);
-    gl_Position = projection * vec4(position.xy + texture_region.zw * (rotated_vertex - center), position.z, 1.0);
-
-    //gl_Position = projection * vec4(position.xy + vertex * texture_region.zw, position.z, 1);
+    vec2 rotated_vertex = rotate(angle) * (texture_region.zw * (vertex - vec2(0.5))) + texture_region.zw * 0.5;
+    gl_Position = projection * vec4(position.xy + rotated_vertex - center * texture_region.zw, position.z, 1.0);
 
     _texture_coord = texture_region.xy + texture_coord * texture_region.zw;
     _texture_layer = texture_layer;

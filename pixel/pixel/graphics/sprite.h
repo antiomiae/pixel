@@ -4,7 +4,7 @@
 #ifndef PIXEL_SPRITE_H
 #define PIXEL_SPRITE_H
 
-#include <pixel/graphics/texture_region.h>
+#include "texture_region.h"
 
 namespace pixel::graphics
 {

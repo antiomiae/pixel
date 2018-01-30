@@ -17,7 +17,7 @@ void glfw_error_callback(int err, const char *description) {
 
 std::pair<int,int> framebufferSize(GLFWwindow *window) {
     int w, h;
-    glfwGetFramebufferSize(window, &w, &h);
+    glfwGetWindowSize(window, &w, &h);
     return {w, h};
 };
 
