@@ -1,5 +1,6 @@
 #include "../pixel/pixel.h"
 #include <unistd.h>
+#include <cmath>
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wconversion"
@@ -38,7 +39,7 @@ void updateSprite(Sprite *sprites, int length, GLFWwindow *window)
     }
 
     if (v[0] != 0 || v[1] != 0) {
-        float inv_length = 1 / std::sqrtf(v[0] * v[0] + v[1] * v[1]);
+        float inv_length = 1 / std::sqrt(v[0] * v[0] + v[1] * v[1]);
 
         for (int i = 0; i < length; ++i) {
             sprites[i].x += v[0] * inv_length * 5;

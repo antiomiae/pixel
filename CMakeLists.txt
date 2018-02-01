@@ -1,10 +1,15 @@
 cmake_minimum_required(VERSION 3.8)
 
-cmake_policy(SET CMP0042 OLD)
+cmake_policy(SET CMP0042 NEW)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 if(APPLE)
   set(CMAKE_MACOSX_RPATH ON)
 endif(APPLE)
+
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 include(cmake/HunterGate.cmake)
 
