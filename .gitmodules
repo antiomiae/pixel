@@ -1,0 +1,3 @@
+[submodule "pixel/lib/tmxlite"]
+	path = pixel/lib/tmxlite
+	url = https://github.com/fallahn/tmxlite.git
