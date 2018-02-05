@@ -61,8 +61,7 @@ void App::init(int flags)
 }
 
 void App::updateViewport() {
-    int w, h;
-    std::tie(w, h) = framebufferSize(_window);
+    auto [w, h] = framebufferSize(_window);
 
     if (_window_width != w || _window_height != h) {
         glViewport(0, 0, w, h);

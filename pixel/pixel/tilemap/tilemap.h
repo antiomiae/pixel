@@ -4,11 +4,16 @@
 #ifndef PIXEL_TILESET_H
 #define PIXEL_TILESET_H
 
+#include <tmxlite/Map.hpp>
+#include <tmxlite/TileLayer.hpp>
 #include <cstdint>
 #include <unordered_map>
 #include <vector>
 #include <iostream>
+#include "../graphics/texture.h"
+
 using namespace std;
+using pixel::graphics::Texture;
 
 namespace pixel
 {
@@ -20,13 +25,12 @@ class TileMap
     struct Tile
     {
         TileId tile_id;
-        uint16_t flags;
     };
 
     struct Properties
     {
         uint32_t flags;
-        uint8_t *height_map;
+        uint8_t* height_map;
     };
 
     using PropertyMap = std::unordered_map<TileId, Properties>;
@@ -36,10 +40,10 @@ private:
     std::vector<Tile> _tiles;
     unsigned int _width;
     unsigned int _height;
+    Texture _tex;
 
 public:
-    TileMap(unsigned int width, unsigned int height) : _width(width), _height(height), _tiles(width * height)
-    {};
+    TileMap(const tmx::Map& map, const tmx::TileLayer& layer);
 
     Tile& at(unsigned int x, unsigned int y)
     {

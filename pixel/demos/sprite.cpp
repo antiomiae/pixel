@@ -64,14 +64,13 @@ int main(int argc, char *argv[])
     pixel::graphics::Texture t1(GL_TEXTURE_2D);
 
     pixel::graphics::ImageData ground_tile = pixel::graphics::load_png("assets/sonic.png");
-    t1.load(ground_tile.width, ground_tile.height, ground_tile.data);
+    t1.load(ground_tile._width, ground_tile._height, ground_tile.data);
 
     pixel::graphics::Shader sprite_shader("assets/shaders/sprite.vert", "assets/shaders/sprite.frag");
     cout << sprite_shader.debugPrint() << endl;
 
     {
-        int w, h;
-        std::tie(w, h) = app.windowSize();
+        auto [w, h] = app.windowSize();
 
         sprite_shader.activate();
         sprite_shader.setUniform("projection", glm::ortho(0.0f, (float) w, 0.0f, (float) h));

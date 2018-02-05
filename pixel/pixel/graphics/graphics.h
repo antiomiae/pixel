@@ -8,6 +8,7 @@
 #include "buffer.h"
 #include "vao.h"
 #include "sprite.h"
+#include "texture.h"
 #include "texture_region.h"
 #include "sprite_renderer.h"
 

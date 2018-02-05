@@ -14,7 +14,9 @@ TEST(TileMap, ReferenceTile) {
     auto tile = ((const TileMap)tilemap).at(0, 0);
 
     ASSERT_TRUE(tile.tile_id == 0x101);
-}
+};
+
+
 
 };
 

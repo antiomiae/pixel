@@ -1,4 +1,4 @@
-#include "../pixel/pixel.h"
+#include <pixel/pixel.h>
 #include <iostream>
 #include <unistd.h>
 
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     pixel::graphics::Texture t1(GL_TEXTURE_2D);
 
     pixel::graphics::ImageData ground_tile = pixel::graphics::load_png("assets/ground1.png");
-    t1.load(ground_tile.width, ground_tile.height, ground_tile.data);
+    t1.load(ground_tile._width, ground_tile._height, ground_tile.data);
 
     pixel::graphics::Shader shader("assets/shaders/shader.vert", "assets/shaders/shader.frag");
     cout << shader.debugPrint() << endl;
@@ -89,8 +89,7 @@ int main(int argc, char *argv[])
         logGlErrors();
     }
 
-    int w, h;
-    std::tie(w, h) = app.windowSize();
+    auto [w, h] = app.windowSize();
 
     shader.setUniform("projection", glm::ortho(0.0f, (float) w, 0.0f, (float) h));
     logGlErrors();
