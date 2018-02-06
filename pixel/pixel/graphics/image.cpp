@@ -67,7 +67,7 @@ ImageData::~ImageData()
 
 size_t ImageData::length()
 {
-    return static_cast<size_t>(_width * _height * bpp);
+    return size_t{(_width * _height * bpp)};
 }
 
 ImageData ImageData::subregion(int x0, int y0, int width, int height)

@@ -33,7 +33,7 @@ const unsigned FLAGS_SHIFT = 12;
 
 /**
  * Combines one or more tilesets into a single texture array and maintains
- * a mapping between original tileset IDs and optimized
+ * a mapping between original tileset IDs and optimized IDs
  */
 class TileAtlas
 {

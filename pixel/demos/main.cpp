@@ -52,7 +52,7 @@ int main(int argc, char *argv[])
     buffer.bindToProgramAttribute(shader, "vertex_position", sizeof(vertex));
 
     buffer.bindToProgramAttribute(shader, "vertex_texture_coord", sizeof(vertex),
-                                  static_cast<int>(offsetof(vertex, texture_coord)));
+                                  int{offsetof(vertex, texture_coord)});
 
     {
         Buffer model_mat;

@@ -1,7 +1,5 @@
 #include "setup.h"
 
-namespace
-{
 
 //// The fixture for testing class Foo.
 //class FooTest : public ::testing::Test {
@@ -41,21 +39,17 @@ namespace
 //    EXPECT_EQ(0, f.Bar(input_filepath, output_filepath));
 //}
 
-};
-
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
 
-    using namespace pixeltest;
+    pixeltest::setup();
 
-    setup();
-
-    app().updateViewport();
+    pixeltest::app().updateViewport();
 
     int ret = RUN_ALL_TESTS();
 
-    teardown();
+    pixeltest::teardown();
 
     return ret;
 }

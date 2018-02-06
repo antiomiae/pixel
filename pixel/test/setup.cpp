@@ -6,9 +6,9 @@
 namespace pixeltest
 {
 
-static pixel::App *_app = nullptr;
+static pixel::App* _app = nullptr;
 
-pixel::App &app()
+pixel::App& app()
 {
     if (_app == nullptr) {
         throw "must call setup() to initialize pixel::App instance!";

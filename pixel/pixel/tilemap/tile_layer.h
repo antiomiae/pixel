@@ -18,13 +18,12 @@ using pixel::graphics::Texture;
 namespace pixel
 {
 
-class TileMap
+class TileLayer
 {
-    using TileId = uint16_t;
-
+public:
     struct Tile
     {
-        TileId tile_id;
+        uint16_t tile_id;
     };
 
     struct Properties
@@ -33,17 +32,13 @@ class TileMap
         uint8_t* height_map;
     };
 
-    using PropertyMap = std::unordered_map<TileId, Properties>;
+    using PropertyMap = std::unordered_map<uint16_t, Properties>;
 
-private:
-    PropertyMap _props;
-    std::vector<Tile> _tiles;
-    unsigned int _width;
-    unsigned int _height;
-    Texture _tex;
+    TileLayer(unsigned width, unsigned height);
 
-public:
-    TileMap(const tmx::Map& map, const tmx::TileLayer& layer);
+    TileLayer(TileLayer&& rhs) noexcept;
+
+    void init();
 
     Tile& at(unsigned int x, unsigned int y)
     {
@@ -54,6 +49,13 @@ public:
     {
         return _tiles.at(x + y * _height);
     }
+
+private:
+    PropertyMap _props;
+    std::vector<Tile> _tiles;
+    unsigned int _width;
+    unsigned int _height;
+    unique_ptr<Texture> _texture;
 };
 
 };
