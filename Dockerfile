@@ -1,4 +1,4 @@
-FROM eugenwintersberger/docker-ubuntu-17.10
+FROM ubuntu:17.10
 
 RUN apt-get update && apt-get upgrade -y
 
