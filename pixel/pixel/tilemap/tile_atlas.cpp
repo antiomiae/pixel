@@ -3,10 +3,13 @@
 
 #include "tile_atlas.h"
 #include <algorithm>
+#include <boost/filesystem.hpp>
 
 using namespace pixel;
 
 using namespace std;
+
+using boost::filesystem::create_directories;
 
 using graphics::load_png;
 using graphics::ImageData;
@@ -118,9 +121,9 @@ uint16_t TileAtlas::nextId()
 
 void TileAtlas::debugSave(const std::string& prefix)
 {
-    auto l = _texture.storageSize();
+    create_directories(prefix);
 
-    std::vector<uint8_t> pixels(l);
+    std::vector<uint8_t> pixels(_texture.storageSize());
 
     _texture.read(pixels.data());
 

@@ -12,10 +12,10 @@ namespace pixel::graphics
 class Texture
 {
 public:
-    GLuint _textureId;
-    GLenum _textureType;
-    GLenum _format;
-    GLenum _dataType;
+    GLuint _textureId{};
+    GLenum _textureType{};
+    GLenum _format{};
+    GLenum _dataType{};
 
     int _width;
     int _height;
@@ -24,6 +24,12 @@ public:
     bool _allocated;
 
     explicit Texture(GLenum textureType = GL_TEXTURE_2D, GLenum format = GL_RGBA, GLenum dataType = GL_UNSIGNED_BYTE);
+    ~Texture();
+
+    Texture(const Texture&) = delete;
+    Texture& operator=(Texture&) = delete;
+
+    Texture(Texture&& rhs) noexcept;
 
     unsigned width() const { return _width; };
     unsigned height() const { return _height; };

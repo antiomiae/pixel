@@ -182,3 +182,24 @@ void Texture::read(void* buf)
     glGetTexImage(_textureType, 0, _format, _dataType, buf);
     unbind();
 }
+
+pixel::graphics::Texture::~Texture()
+{
+    if (_textureId > 0) {
+        glDeleteTextures(1, &_textureId);
+        _textureId = 0;
+    }
+}
+
+pixel::graphics::Texture::Texture(Texture&& rhs) noexcept
+  : _textureId(rhs._textureId),
+    _textureType(rhs._textureType),
+    _format(rhs._format),
+    _dataType(rhs._dataType),
+    _width(rhs._width),
+    _height(rhs._height),
+    _depth(rhs._depth),
+    _allocated(rhs._allocated)
+{
+    rhs._textureId = 0;
+}

@@ -23,6 +23,6 @@ TileLayer::TileLayer(TileLayer&& rhs) noexcept
   : _texture(std::move(rhs._texture)),
     _width(rhs._width),
     _height(rhs._height),
-    _tiles(_width * _height)
+    _tiles(rhs._width * rhs._height)
 {
 }

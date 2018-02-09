@@ -12,11 +12,10 @@ add_subdirectory(lib/tinypng)
 set(TMXLITE_STATIC_LIB ON)
 add_subdirectory(lib/tmxlite/tmxlite)
 
-target_link_libraries(pixel PUBLIC glfw)
-target_link_libraries(pixel PUBLIC glew::glew)
-target_link_libraries(pixel PUBLIC glm)
-target_link_libraries(pixel PRIVATE tinypng)
-target_link_libraries(pixel PUBLIC tmxlite)
+target_link_libraries(pixel
+        PRIVATE Boost::filesystem tinypng glfw glew::glew
+        PUBLIC glm tmxlite
+        )
 
 #target_include_directories(pixel PUBLIC lib/glm-0.9.9-a2)
 
