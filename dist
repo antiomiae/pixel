@@ -1,0 +1,9 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+rm -rf _dist && mkdir _dist
+cp build-ninja/bin/* _dist
+cp -r pixel/assets _dist
+
+(cd _dist && zip -r pixel.zip * && mv pixel.zip ..)
