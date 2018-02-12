@@ -12,7 +12,7 @@
 
 namespace pixel
 {
-
+using namespace std;
 using graphics::Texture;
 
 const unsigned MAX_ATLAS_WIDTH = 2048;
@@ -45,22 +45,27 @@ private:
 public:
     TileAtlas(unsigned tile_width, unsigned tile_height, unsigned max_tiles);
 
+    /* Atlas state */
     void addTileset(const tmx::Tileset&);
+    uint16_t genNextId();
 
-    unsigned tileWidth() const { return _tile_width; };
-    unsigned tileHeight() const { return _tile_height; };
-    unsigned maxTiles() const { return _max_tiles; };
-    unsigned atlasColumns() const { return _atlas_cols; };
-    unsigned atlasRows() const { return _atlas_rows; };
-    unsigned atlasLayers() const { return _atlas_layers; };
-    uint16_t maxId() const { return _max_id; };
-    uint16_t nextId();
-
+    /* Helpers */
+    const uint16_t atlasId(uint32_t tmx_id) const;
+    uint16_t encodeId(uint8_t column, uint8_t row, uint8_t layer, uint8_t flags) const;
     tuple<unsigned, unsigned, unsigned, unsigned> decodeId(uint16_t) const;
 
-    uint16_t encodeId(uint8_t column, uint8_t row, uint8_t layer, uint8_t flags);
+    /* Debugging */
+    void debugSave(const std::string& prefix, const std::string& dir = "debug");
 
-    void debugSave(const std::string& prefix);
+    /* Getters */
+    uint16_t maxId() const;
+    unsigned tileWidth() const;
+    unsigned tileHeight() const;
+    unsigned maxTiles() const;
+    unsigned atlasColumns() const;
+    unsigned atlasRows() const;
+    unsigned atlasLayers() const;
+
 };
 
 }

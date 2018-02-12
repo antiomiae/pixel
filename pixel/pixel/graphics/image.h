@@ -15,9 +15,9 @@ struct ImageData
 
     explicit ImageData(const std::string& path);
 
-    ImageData(int width, int height);
+    ImageData(unsigned int width, unsigned int height);
 
-    ImageData(int width, int height, uint8_t* data);
+    ImageData(unsigned int width, unsigned int height, uint8_t* data);
 
     ImageData(ImageData&& other) noexcept;
 
@@ -30,7 +30,7 @@ struct ImageData
 
     size_t length();
 
-    ImageData subregion(int x0, int y0, int width, int height);
+    ImageData subregion(unsigned int x0, unsigned int y0, unsigned int width, unsigned int height);
 
     bool save(const std::string& path);
 

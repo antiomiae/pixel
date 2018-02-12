@@ -2,18 +2,21 @@
 
 using namespace pixel::graphics;
 
-Texture::Texture(GLenum texture_type, GLenum format, GLenum data_type) :
-        _textureType(texture_type),
-        _format(format),
-        _dataType(data_type),
-        _allocated(false)
+
+Texture::Texture(GLenum texture_type, GLenum format, GLenum internal_format, GLenum data_type)
+    :
+    _textureType(texture_type),
+    _format(format),
+    _internalFormat(internal_format),
+    _dataType(data_type),
+    _allocated(false)
 {
     glGenTextures(1, &_textureId);
     bind();
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexParameteri(texture_type, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(texture_type, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+    glTexParameteri(texture_type, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(texture_type, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     unbind();
 }
 
@@ -21,23 +24,46 @@ Texture::Texture(GLenum texture_type, GLenum format, GLenum data_type) :
 void Texture::load(const int width, const int height, const uint8_t* data)
 {
     if (_textureType == GL_TEXTURE_2D || _textureType == GL_TEXTURE_1D_ARRAY) {
-        bind();
-        glTexImage2D(_textureType, 0, _format, width, height, 0, _format, _dataType, data);
-        unbind();
-
         _width = width;
         _height = height;
+
+        bind();
+
+        /* TODO: REPLACE THIS */
+        glTexImage2D(_textureType, 0, _internalFormat, width, height, 0, _format, _dataType, data);
+        logGlErrors();
+        /* WITH THIS:
+        if (data != nullptr) {
+            glTexImage2D(_textureType, 0, _format, width, height, 0, _format, _dataType, data);
+        } else {
+            // Determine the sized format from our format and data type
+            auto f = getSizedFormat(_format, _dataType);
+            // Or require this class uses only sized formats and discard our datatype field
+            glTexStorage2D(_textureType, 1, f, width, height);
+        }
+        */
+
+        unbind();
+
         _allocated = true;
     } else {
         throw "Invalid overload of load() called for texture type";
     }
 }
 
+
 void Texture::unbind() const
-{ glBindTexture(_textureType, 0); }
+{
+    glBindTexture(_textureType, 0);
+    logGlErrors();
+}
+
 
 void Texture::bind() const
-{ glBindTexture(_textureType, _textureId); }
+{
+    glBindTexture(_textureType, _textureId);
+    logGlErrors();
+}
 
 
 void Texture::load(const int width, const int height, const int depth, const uint8_t* data)
@@ -55,6 +81,7 @@ void Texture::load(const int width, const int height, const int depth, const uin
         throw "Invalid overload of load() called for texture type";
     }
 }
+
 
 void debugPrint(const Texture& t)
 {
@@ -76,7 +103,8 @@ void debugPrint(const Texture& t)
     t.unbind();
 }
 
-void Texture::loadSubregion(int x, int y, int width, int height, int layer, const uint8_t* data)
+
+void Texture::loadSubregion(int x, int y, int width, int height, int layer, const void* data)
 {
     if (!_allocated) {
         throw "Texture memory not allocated. Call load() to initialize texture memory.";
@@ -101,7 +129,8 @@ void Texture::loadSubregion(int x, int y, int width, int height, int layer, cons
     }
 }
 
-void Texture::loadSubregion(int x, int y, int width, int height, const uint8_t* data)
+
+void Texture::loadSubregion(int x, int y, int width, int height, const void* data)
 {
     if (!_allocated) {
         throw "Texture memory not allocated. Call load() to initialize texture memory.";
@@ -115,6 +144,7 @@ void Texture::loadSubregion(int x, int y, int width, int height, const uint8_t* 
         throw "Invalid overload of loadSubregion() called for texture typed";
     }
 }
+
 
 unsigned formatComponents(GLenum format)
 {
@@ -144,6 +174,7 @@ unsigned formatComponents(GLenum format)
     }
 }
 
+
 unsigned sizeofGLType(GLenum type)
 {
     switch (type) {
@@ -164,6 +195,7 @@ unsigned sizeofGLType(GLenum type)
     }
 }
 
+
 size_t Texture::storageSize() const
 {
     if (_dataType < GL_BYTE || _dataType > GL_FLOAT) {
@@ -176,30 +208,36 @@ size_t Texture::storageSize() const
     return pixels * components * component_size;
 }
 
+
 void Texture::read(void* buf)
 {
     bind();
     glGetTexImage(_textureType, 0, _format, _dataType, buf);
+    logGlErrors();
     unbind();
 }
+
 
 pixel::graphics::Texture::~Texture()
 {
     if (_textureId > 0) {
         glDeleteTextures(1, &_textureId);
+        logGlErrors();
         _textureId = 0;
     }
 }
 
+
 pixel::graphics::Texture::Texture(Texture&& rhs) noexcept
-  : _textureId(rhs._textureId),
-    _textureType(rhs._textureType),
-    _format(rhs._format),
-    _dataType(rhs._dataType),
-    _width(rhs._width),
-    _height(rhs._height),
-    _depth(rhs._depth),
-    _allocated(rhs._allocated)
+    : _textureId(rhs._textureId),
+      _textureType(rhs._textureType),
+      _format(rhs._format),
+      _internalFormat(rhs._internalFormat),
+      _dataType(rhs._dataType),
+      _width(rhs._width),
+      _height(rhs._height),
+      _depth(rhs._depth),
+      _allocated(rhs._allocated)
 {
     rhs._textureId = 0;
 }

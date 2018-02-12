@@ -11,6 +11,7 @@
 #include <vector>
 #include <iostream>
 #include "../graphics/texture.h"
+#include "tile_atlas.h"
 
 using namespace std;
 using pixel::graphics::Texture;
@@ -34,21 +35,24 @@ public:
 
     using PropertyMap = std::unordered_map<uint16_t, Properties>;
 
+    TileLayer(const tmx::Map& m, const tmx::TileLayer& t, const pixel::TileAtlas& atlas);
     TileLayer(unsigned width, unsigned height);
-
     TileLayer(TileLayer&& rhs) noexcept;
-
     void init();
+    bool load(const tmx::Map& m, const tmx::TileLayer& t, const pixel::TileAtlas& atlas);
+
 
     Tile& at(unsigned int x, unsigned int y)
     {
         return _tiles.at(x + y * _height);
     }
 
+
     const Tile& at(unsigned int x, unsigned int y) const
     {
         return _tiles.at(x + y * _height);
     }
+
 
 private:
     PropertyMap _props;

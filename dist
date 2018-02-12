@@ -2,8 +2,13 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-rm -rf _dist && mkdir _dist
-cp build-ninja/bin/* _dist
-cp -r pixel/assets _dist
+./init
 
-(cd _dist && zip -r pixel.zip * && mv pixel.zip ..)
+tmpdir=`mktemp -d 2>/dev/null || mktemp -d -t 'pixel'`
+
+cp build-ninja/bin/* $tmpdir
+cp -r pixel/assets $tmpdir
+
+(cd $tmpdir && zip -r pixel.zip * )
+mv $tmpdir/pixel.zip .
+rm -rf $tmpdir

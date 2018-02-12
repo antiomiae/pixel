@@ -6,22 +6,10 @@
 
 #include "common.h"
 #include "../math/math.h"
+#include "attribute.h"
 #include <unordered_map>
-#include <string>
 
 namespace pixel::graphics {
-
-struct Attribute {
-    GLuint index;
-    GLint size;
-    GLint location;
-    GLenum type;
-    std::string name;
-
-    std::string debugPrint() const;
-};
-
-using AttributeMap = std::unordered_map<std::string, Attribute>;
 
 class Shader {
 public:

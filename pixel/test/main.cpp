@@ -43,6 +43,11 @@ int main(int argc, char** argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
 
+    if (argc >= 2) {
+        std::cout << "Changing to directory " << argv[1] << std::endl;
+        chdir(argv[1]);
+    }
+
     pixeltest::setup();
 
     pixeltest::app().updateViewport();

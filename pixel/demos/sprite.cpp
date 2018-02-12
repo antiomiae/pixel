@@ -61,6 +61,10 @@ int main(int argc, char *argv[])
 
     app.init();
 
+    //if (GLEW_ARB_texture_storage) {
+        std::cout << "Should have glTexStorage3D: " << &glTexStorage3D << std::endl;
+    //}
+
     pixel::graphics::Texture t1(GL_TEXTURE_2D);
 
     pixel::graphics::ImageData ground_tile = pixel::graphics::load_png("assets/sonic.png");
@@ -109,5 +113,3 @@ int main(int argc, char *argv[])
 }
 
 #pragma clang diagnostic pop
-
-// fa5c4b2bjk

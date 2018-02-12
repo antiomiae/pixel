@@ -1,4 +1,4 @@
-#include "setup.h"
+#include "test/setup.h"
 
 namespace
 {

@@ -102,7 +102,7 @@ void App::tick()
     ++_frames;
 
     #if PIXEL_DEBUG
-        if (_frames % 10 == 0) {
+        if (_frames % 60 == 0) {
             cout << _fps_counter.fps() << " FPS" << endl;
         }
     #endif

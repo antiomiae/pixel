@@ -7,6 +7,7 @@
 
 using pixel::graphics::Attribute;
 
+
 GLenum basicTypeForAttributeType(GLenum e)
 {
     switch (e) {
@@ -35,7 +36,9 @@ GLenum basicTypeForAttributeType(GLenum e)
     return 0;
 }
 
-int sizeForBasicType(GLenum e) {
+
+int sizeForBasicType(GLenum e)
+{
     switch (e) {
         case GL_FLOAT:
         case GL_FLOAT_VEC2:
@@ -60,6 +63,7 @@ int sizeForBasicType(GLenum e) {
     }
     return 0;
 }
+
 
 int componentsForAttributeType(GLenum e)
 {
@@ -89,6 +93,7 @@ int componentsForAttributeType(GLenum e)
     return 0;
 }
 
+
 int locationSpanForAttributeType(GLenum e)
 {
     switch (e) {
@@ -117,6 +122,7 @@ int locationSpanForAttributeType(GLenum e)
     return 0;
 }
 
+
 struct Layout
 {
     int baseLocation;
@@ -124,34 +130,38 @@ struct Layout
     int size;
     GLenum type;
 
-    explicit Layout(const Attribute &attr);
+    explicit Layout(const Attribute& attr);
 };
 
-Layout::Layout(const Attribute &attr)
-        : baseLocation(attr.location),
-          locationSpan(locationSpanForAttributeType(attr.type)),
-          size(componentsForAttributeType(attr.type)),
-          type(basicTypeForAttributeType(attr.type))
+
+Layout::Layout(const Attribute& attr)
+    : baseLocation(attr.location),
+      locationSpan(locationSpanForAttributeType(attr.type)),
+      size(componentsForAttributeType(attr.type)),
+      type(basicTypeForAttributeType(attr.type))
 {
 }
 
+
 pixel::graphics::Buffer::Buffer()
-        : Buffer(GL_STATIC_DRAW)
+    : Buffer(GL_STATIC_DRAW)
 {
 }
 
 
 pixel::graphics::Buffer::Buffer(const GLenum usageHint)
-        : _usageHint(usageHint)
+    : _usageHint(usageHint)
 {
     glGenBuffers(1, &_bufferId);
 }
 
-void pixel::graphics::Buffer::bindToProgramAttribute(const Shader &program, const std::string &name, const int stride,
-                                                     const int offset, const int divisor)
+
+void pixel::graphics::Buffer::bindToProgramAttribute(
+    const Shader& program, const std::string& name, const int stride,
+    const int offset, const int divisor
+)
 {
     bind();
-    logGlErrors();
 
     Attribute attr;
 
@@ -167,20 +177,20 @@ void pixel::graphics::Buffer::bindToProgramAttribute(const Shader &program, cons
     for (GLuint loc = 0; loc < layout.locationSpan * attr.size; ++loc) {
         if (layout.type == GL_INT) {
             glVertexAttribIPointer(
-                    loc + layout.baseLocation,
-                    layout.size,
-                    layout.type,
-                    stride,
-                    reinterpret_cast<void *>(offset + loc * (sizeForBasicType(layout.type) * layout.size))
+                loc + layout.baseLocation,
+                layout.size,
+                layout.type,
+                stride,
+                reinterpret_cast<void*>(offset + loc * (sizeForBasicType(layout.type) * layout.size))
             );
         } else {
             glVertexAttribPointer(
-                    loc + layout.baseLocation,
-                    layout.size,
-                    layout.type,
-                    GL_FALSE,
-                    stride,
-                    reinterpret_cast<void *>(offset + loc * (sizeForBasicType(layout.type) * layout.size))
+                loc + layout.baseLocation,
+                layout.size,
+                layout.type,
+                GL_FALSE,
+                stride,
+                reinterpret_cast<void*>(offset + loc * (sizeForBasicType(layout.type) * layout.size))
             );
         }
         logGlErrors();
@@ -195,19 +205,24 @@ void pixel::graphics::Buffer::bindToProgramAttribute(const Shader &program, cons
     unbind();
 }
 
-void pixel::graphics::Buffer::loadData(const void *data, const size_t length)
+
+void pixel::graphics::Buffer::loadData(const void* data, const size_t length)
 {
     bind();
     glBufferData(GL_ARRAY_BUFFER, length, data, _usageHint);
     unbind();
 }
 
+
 void pixel::graphics::Buffer::bind()
 {
     glBindBuffer(GL_ARRAY_BUFFER, _bufferId);
+    logGlErrors();
 }
+
 
 void pixel::graphics::Buffer::unbind()
 {
     glBindBuffer(GL_ARRAY_BUFFER, 0);
+    logGlErrors();
 }

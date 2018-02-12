@@ -2,7 +2,6 @@
 //
 
 #include "tile_atlas.h"
-#include <algorithm>
 #include <boost/filesystem.hpp>
 
 using namespace pixel;
@@ -10,10 +9,11 @@ using namespace pixel;
 using namespace std;
 
 using boost::filesystem::create_directories;
+using boost::filesystem::path;
 
 using graphics::load_png;
 using graphics::ImageData;
-using std::to_string;
+
 
 TileAtlas::TileAtlas(unsigned tile_width, unsigned tile_height, unsigned max_tiles)
   : _tile_width(tile_width),
@@ -42,6 +42,7 @@ TileAtlas::TileAtlas(unsigned tile_width, unsigned tile_height, unsigned max_til
     _texture.load(_tile_width * _atlas_cols, _tile_height * _atlas_rows, _atlas_layers);
 }
 
+
 void TileAtlas::addTileset(const tmx::Tileset& tileset)
 {
     cout << "addTileset() begin" << endl;
@@ -54,7 +55,7 @@ void TileAtlas::addTileset(const tmx::Tileset& tileset)
     auto last_id = tileset.getLastGID();
 
     for (auto tile_idx = 0; tile_idx < tileset.getTileCount(); ++tile_idx) {
-        auto atlas_id = nextId();
+        auto atlas_id = genNextId();
         auto tmx_id = first_id + tile_idx;
 
         _id_map[tmx_id] = atlas_id;
@@ -73,7 +74,8 @@ void TileAtlas::addTileset(const tmx::Tileset& tileset)
     cout << "addTileset() end" << endl;
 }
 
-std::tuple<unsigned, unsigned, unsigned, unsigned> TileAtlas::decodeId(uint16_t id) const
+
+tuple<unsigned, unsigned, unsigned, unsigned> TileAtlas::decodeId(uint16_t id) const
 {
     return {
       (id & COLUMN_MASK) >> COLUMN_SHIFT,
@@ -83,7 +85,8 @@ std::tuple<unsigned, unsigned, unsigned, unsigned> TileAtlas::decodeId(uint16_t 
     };
 }
 
-uint16_t TileAtlas::encodeId(uint8_t column, uint8_t row, uint8_t layer, uint8_t flags)
+
+uint16_t TileAtlas::encodeId(uint8_t column, uint8_t row, uint8_t layer, uint8_t flags) const
 {
     return static_cast<uint16_t>(
       ((column << COLUMN_SHIFT) & COLUMN_MASK) |
@@ -93,7 +96,8 @@ uint16_t TileAtlas::encodeId(uint8_t column, uint8_t row, uint8_t layer, uint8_t
     );
 }
 
-uint16_t TileAtlas::nextId()
+
+uint16_t TileAtlas::genNextId()
 {
     auto n = _max_id + 1;
 
@@ -119,18 +123,59 @@ uint16_t TileAtlas::nextId()
     return _max_id;
 }
 
-void TileAtlas::debugSave(const std::string& prefix)
+
+void TileAtlas::debugSave(const string& prefix, const string& dir)
 {
-    create_directories(prefix);
+    if (dir != ".") {
+        create_directories(dir);
+    }
 
-    std::vector<uint8_t> pixels(_texture.storageSize());
+    vector<uint8_t> pixels(_texture.storageSize());
 
+    /* Copy pixel data from texture to our buffer */
     _texture.read(pixels.data());
 
     auto stride = _texture.width() * _texture.height() * 4;
 
     for (auto layer = 0u; layer < _atlas_layers; ++layer) {
-        ImageData img(_texture.width(), _texture.height(), pixels.data() + layer * stride);
-        img.save(prefix + to_string(layer) + ".png");
+        ImageData img{_texture.width(), _texture.height(), pixels.data() + layer * stride};
+
+        auto filename{prefix + to_string(layer) + ".png"};
+
+        img.save((path(dir) / filename).string());
     }
+}
+
+
+uint16_t TileAtlas::maxId() const
+{ return _max_id; }
+
+
+unsigned TileAtlas::tileWidth() const
+{ return _tile_width; }
+
+
+unsigned TileAtlas::tileHeight() const
+{ return _tile_height; }
+
+
+unsigned TileAtlas::maxTiles() const
+{ return _max_tiles; }
+
+
+unsigned TileAtlas::atlasColumns() const
+{ return _atlas_cols; }
+
+
+unsigned TileAtlas::atlasRows() const
+{ return _atlas_rows; }
+
+
+unsigned TileAtlas::atlasLayers() const
+{ return _atlas_layers; }
+
+
+const uint16_t TileAtlas::atlasId(uint32_t tmx_id) const
+{
+    return (tmx_id == 0 ? 0 : _id_map.at(tmx_id));
 }

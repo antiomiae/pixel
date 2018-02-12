@@ -1,5 +1,4 @@
-#include "setup.h"
-#include <pixel/tilemap/tile_atlas.h>
+#include "test/setup.h"
 
 namespace
 {
