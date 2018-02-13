@@ -6,7 +6,9 @@ RUN apt-get install -y libgl1-mesa-dev mesa-common-dev pkg-config ninja-build cm
 WORKDIR /root
 
 COPY . ./
+
 RUN ./init
 
-RUN ./build-ninja/bin/pixel_test pixel
+RUN ./dist
 
+#RUN ./build-ninja/bin/pixel_test pixel
