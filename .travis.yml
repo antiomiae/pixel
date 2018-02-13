@@ -1,0 +1,8 @@
+services: docker
+sudo: required
+
+install: true
+
+script:
+  - docker build -t pixel-$TRAVIS_BRANCH .
+  - docker run pixel-$TRAVIS_BRANCH build-ninja/bin/pixel_test pixel
