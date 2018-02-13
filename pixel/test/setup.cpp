@@ -1,12 +1,10 @@
-//
-//
-
 #include "setup.h"
 
 namespace pixeltest
 {
 
 static pixel::App* _app = nullptr;
+
 
 pixel::App& app()
 {
@@ -17,6 +15,7 @@ pixel::App& app()
     return *_app;
 }
 
+
 void setup()
 {
     pixel::print_version_information();
@@ -25,6 +24,7 @@ void setup()
 
     _app->init();
 }
+
 
 void teardown()
 {

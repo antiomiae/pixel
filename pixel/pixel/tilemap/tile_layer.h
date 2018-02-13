@@ -38,6 +38,7 @@ public:
     TileLayer(const tmx::Map& m, const tmx::TileLayer& t, const pixel::TileAtlas& atlas);
     TileLayer(unsigned width, unsigned height);
     TileLayer(TileLayer&& rhs) noexcept;
+    Texture& texture() const;
     void init();
     bool load(const tmx::Map& m, const tmx::TileLayer& t, const pixel::TileAtlas& atlas);
 

@@ -241,3 +241,10 @@ pixel::graphics::Texture::Texture(Texture&& rhs) noexcept
 {
     rhs._textureId = 0;
 }
+
+
+void pixel::graphics::Texture::activate(unsigned unit) const
+{
+    glActiveTexture(GL_TEXTURE0 + unit);
+    bind();
+}

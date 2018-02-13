@@ -16,6 +16,9 @@ int main(int argc, char* argv[])
     pixel::App app;
     app.init();
 
+    auto [w, h] = app.windowSize();
+    auto projection = glm::ortho(0.0f, (float) w, 0.0f, (float) h);
+
     pixel::TileMapRenderer renderer(
         {"assets/shaders/tilemap.vert",
          "assets/shaders/tilemap.frag"}
@@ -28,7 +31,13 @@ int main(int argc, char* argv[])
     tile_map.load(tmx_map);
     tile_map.atlas().debugSave("atlas");
 
-    renderer.render(tile_map);
+    app.setTickCallback(
+        [&] {
+            renderer.render(tile_map, projection);
+        }
+    );
+
+    app.run();
 
     return 0;
 }

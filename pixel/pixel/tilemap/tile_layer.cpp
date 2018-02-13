@@ -58,3 +58,9 @@ bool TileLayer::load(const tmx::Map& m, const tmx::TileLayer& t, const pixel::Ti
 
     return true;
 }
+
+
+Texture& TileLayer::texture() const
+{
+    return *_texture;
+}

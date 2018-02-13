@@ -64,10 +64,27 @@ void TileMapRenderer::setBufferData(float w, float h, float tw, float th)
 }
 
 
-void pixel::TileMapRenderer::render(pixel::TileMap& t)
+void pixel::TileMapRenderer::render(pixel::TileMap& t, const glm::mat4& projection)
 {
     auto quad_size = t.tileSize() * t.tileCount();
     auto map_size = t.tileCount();
 
     setBufferData(quad_size.x, quad_size.y, map_size.x, map_size.y);
+
+    _program->activate();
+    _vao.activate();
+
+    _program->setUniform("projection", projection);
+    _program->setUniform("tile_size", t.tileSize());
+
+    /* Bind atlas texture to unit 0 */
+    t.atlas().activate(0);
+    _program->setUniform("atlas_tex", 0);
+
+    for (auto& layer : t.layers()) {
+        layer.texture().activate(1);
+        _program->setUniform("map_tex", 1);
+
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+    }
 }

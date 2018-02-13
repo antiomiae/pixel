@@ -53,6 +53,7 @@ public:
     void loadSubregion(int x, int y, int width, int height, int layer, const void* data);
     void bind() const;
     void unbind() const;
+    void activate(unsigned unit) const;
 
     size_t storageSize() const;
 

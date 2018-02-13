@@ -26,7 +26,7 @@ public:
     explicit TileMapRenderer(Shader&& p);
     void setProgram(Shader&& p);
     void init();
-    void render(TileMap& t);
+    void render(pixel::TileMap& t, const glm::mat4& projection);
     void setBufferData(float w, float h, float tw, float th);
 };
 

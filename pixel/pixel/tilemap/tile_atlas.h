@@ -66,6 +66,7 @@ public:
     unsigned atlasRows() const;
     unsigned atlasLayers() const;
 
+    void activate(unsigned texture_unit);
 };
 
 }
