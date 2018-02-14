@@ -1,7 +1,7 @@
 FROM ubuntu:17.10
 
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y libgl1-mesa-dev mesa-common-dev pkg-config ninja-build cmake python2.7 zip
+RUN apt-get install -y libgl1-mesa-dev mesa-common-dev pkg-config ninja-build cmake python2.7 zip clang-5.0
 
 ENV HUNTER_ROOT=/hunter
 
@@ -9,7 +9,7 @@ WORKDIR /src
 
 COPY . ./
 
-RUN ./init
+RUN CC=clang-5.0 CXX=clang++-5.0 ./init
 
 RUN ./build
 

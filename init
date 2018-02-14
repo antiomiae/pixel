@@ -5,5 +5,4 @@ IFS=$'\n\t'
 mkdir -p build-ninja 
 cd build-ninja
 cmake -G Ninja ..
-ninja -j 6
 

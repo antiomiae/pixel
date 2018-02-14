@@ -2,5 +2,5 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-./init
+./build
 build-ninja/bin/pixel_test pixel
