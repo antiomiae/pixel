@@ -9,21 +9,15 @@ using namespace pixel;
 pixel::TileMapRenderer::TileMapRenderer()
     : _buffer(GL_STATIC_DRAW)
 {
-
-}
-
-
-pixel::TileMapRenderer::TileMapRenderer(pixel::Shader&& p)
-    : TileMapRenderer{}
-{
-    _program = make_unique<Shader>(p);
+    _program = make_unique<Shader>("assets/shaders/tilemap.vert", "assets/shaders/tilemap.frag");
     init();
 }
 
 
-void pixel::TileMapRenderer::setProgram(pixel::Shader&& p)
+void pixel::TileMapRenderer::set_program(pixel::Shader&& p)
 {
     _program = make_unique<Shader>(p);
+    init();
 }
 
 
@@ -51,31 +45,34 @@ void pixel::TileMapRenderer::init()
 }
 
 
-void TileMapRenderer::setBufferData(float w, float h, float tw, float th)
+void TileMapRenderer::set_buffer_data(float map_width, float map_height, float table_width, float table_height)
 {
     float data[] = {
-        0, 0, 0, 0,
-        0, h, 0, th,
-        w, 0, tw, 0,
-        w, h, tw, th
+        0, 0, 0, table_height,
+        0, map_height, 0, 0,
+        map_width, 0, table_width, table_height,
+        map_width, map_height, table_width, 0
     };
 
     _buffer.loadData(data, sizeof(data));
 }
 
 
-void pixel::TileMapRenderer::render(pixel::TileMap& t, const glm::mat4& projection)
+void pixel::TileMapRenderer::render(pixel::TileMap& t, RenderContext render_context)
 {
-    auto quad_size = t.tileSize() * t.tileCount();
-    auto map_size = t.tileCount();
+    auto map_size = t.tile_size() * t.tile_count();
+    auto table_size = t.tile_count();
 
-    setBufferData(quad_size.x, quad_size.y, map_size.x, map_size.y);
+    auto projection = render_context.projection() *
+                      glm::scale(glm::mat4(), {render_context.base_scale, render_context.base_scale, 1.0});
+
+    set_buffer_data(map_size.x, map_size.y, table_size.x, table_size.y);
 
     _program->activate();
     _vao.activate();
 
     _program->setUniform("projection", projection);
-    _program->setUniform("tile_size", t.tileSize());
+    _program->setUniform("tile_size", t.tile_size());
 
     /* Bind atlas texture to unit 0 */
     t.atlas().activate(0);

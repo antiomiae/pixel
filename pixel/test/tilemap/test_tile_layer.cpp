@@ -7,7 +7,6 @@ using pixel::TileLayer;
 
 TEST(TileLayer, ReferenceTile)
 {
-
     TileLayer t{10, 10};
 
     t.at(0, 0).tile_id = 0x101;

@@ -8,29 +8,22 @@
 namespace pixel {
 
 class App {
-    pixel::time::FrameCounter _fps_counter;
-    int _frames;
-    int _window_width;
-    int _window_height;
+    pixel::time::FrameCounter fps_counter_;
+    int frames_;
+    RenderContext render_context_;
 
     void tick();
 public:
-    GLFWwindow * _window;
-    std::function<void(void)> _tickCallback;
+    GLFWwindow * window_;
+    std::function<void(void)> tick_callback_;
 
     App() = default;
-
     void init(int flags = 0);
-
     void run();
-
     void setTickCallback(std::function<void(void)> cb);
-
     void lateTick();
-
-    void updateViewport();
-
-    std::pair<int,int> windowSize() const;
+    void update_render_context();
+    RenderContext render_context() const;
 };
 
 };

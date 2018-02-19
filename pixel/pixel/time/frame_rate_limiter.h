@@ -9,8 +9,8 @@ namespace pixel::time
 
 class FrameRateLimiter
 {
-    double _frame_rate;
-    double _error;
+    double frame_rate_;
+    double error_;
 
 public:
     FrameRateLimiter(const double frame_rate, const double error);

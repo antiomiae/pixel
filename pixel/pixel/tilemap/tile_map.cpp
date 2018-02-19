@@ -9,21 +9,21 @@ using namespace pixel;
 bool TileMap::load(const tmx::Map& map)
 {
     auto[tw, th] = map.getTileSize();
-    _atlas = make_unique<TileAtlas>(tw, th, 4096);
+    atlas_ = make_unique<TileAtlas>(tw, th, 4096);
 
-    _tileSize = {tw, th};
+    tile_size_ = {tw, th};
     {
         auto [x, y] = map.getTileCount();
-        _tileCount = {x, y};
+        tile_count_ = {x, y};
     }
 
     for (auto& tileset : map.getTilesets()) {
-        _atlas->addTileset(tileset);
+        atlas_->addTileset(tileset);
     }
 
     for (auto const& tmx_layer : map.getLayers()) {
         if (const auto layer = dynamic_cast<tmx::TileLayer*>(tmx_layer.get())) {
-            _layers.emplace_back(map, *layer, *_atlas);
+            layers_.emplace_back(map, *layer, *atlas_);
         }
     }
 
@@ -38,23 +38,23 @@ pixel::TileMap::TileMap()
 
 TileAtlas& TileMap::atlas() const
 {
-    return *_atlas;
+    return *atlas_;
 }
 
 
 const vector<TileLayer>& TileMap::layers() const
 {
-    return _layers;
+    return layers_;
 }
 
 
-glm::vec2 TileMap::tileCount() const
+glm::vec2 TileMap::tile_count() const
 {
-    return _tileCount;
+    return tile_count_;
 }
 
 
-glm::vec2 TileMap::tileSize() const
+glm::vec2 TileMap::tile_size() const
 {
-    return _tileSize;
+    return tile_size_;
 }

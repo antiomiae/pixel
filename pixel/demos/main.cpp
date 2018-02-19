@@ -1,5 +1,4 @@
 #include <pixel/pixel.h>
-#include <iostream>
 #include <unistd.h>
 
 using pixel::graphics::Buffer;
@@ -10,7 +9,8 @@ struct vertex
     GLfloat texture_coord[2];
 };
 
-int main(int argc, char *argv[])
+
+int main(int argc, char* argv[])
 {
     if (argc >= 2) {
         std::cout << "Changing to directory " << argv[1] << std::endl;
@@ -35,12 +35,12 @@ int main(int argc, char *argv[])
     pixel::graphics::Buffer buffer(GL_STREAM_DRAW);
 
     vertex vertices[] = {
-            {-1, -1, 0, 0, 0},
-            {1,  -1, 0, 1, 0},
-            {-1, 1,  0, 0, 1},
-            {1,  -1, 0, 1, 0},
-            {-1, 1,  0, 0, 1},
-            {1,  1,  0, 1, 1}
+        {-1, -1, 0, 0, 0},
+        {1,  -1, 0, 1, 0},
+        {-1, 1,  0, 0, 1},
+        {1,  -1, 0, 1, 0},
+        {-1, 1,  0, 0, 1},
+        {1,  1,  0, 1, 1}
     };
 
     buffer.loadData(vertices, 6 * sizeof(vertex));
@@ -51,8 +51,10 @@ int main(int argc, char *argv[])
 
     buffer.bindToProgramAttribute(shader, "vertex_position", sizeof(vertex));
 
-    buffer.bindToProgramAttribute(shader, "vertex_texture_coord", sizeof(vertex),
-                                  int{offsetof(vertex, texture_coord)});
+    buffer.bindToProgramAttribute(
+        shader, "vertex_texture_coord", sizeof(vertex),
+        int{offsetof(vertex, texture_coord)}
+    );
 
     {
         Buffer model_mat;
@@ -89,12 +91,12 @@ int main(int argc, char *argv[])
         logGlErrors();
     }
 
-    auto [w, h] = app.windowSize();
+    auto window_size = glm::vec2(app.render_context().window_size);
 
-    shader.setUniform("projection", glm::ortho(0.0f, (float) w, 0.0f, (float) h));
+    shader.setUniform("projection", glm::ortho(0.0f, (float) window_size.x, 0.0f, (float) window_size.y));
     logGlErrors();
 
-    auto view = glm::translate(glm::mat4(1.0f), {w / 2.0f, h / 2.0f, 0.0f});
+    auto view = glm::translate(glm::mat4(1.0f), glm::vec3(window_size / 2.0f, 0.0f));
     auto model = glm::scale(glm::mat4(1.0f), {100.0f, 100.0f, 1.0f});
 
     shader.setUniform("view", view);
@@ -110,17 +112,19 @@ int main(int argc, char *argv[])
     shader.setUniform("tex", 0);
     logGlErrors();
 
-    app.setTickCallback([&] {
-        shader.activate();
-        vao.activate();
+    app.setTickCallback(
+        [&] {
+            shader.activate();
+            vao.activate();
 
-        glDrawArrays(GL_TRIANGLES, 0, 6);
+            glDrawArrays(GL_TRIANGLES, 0, 6);
 
-        shader.deactivate();
-        vao.deactivate();
+            shader.deactivate();
+            vao.deactivate();
 
-        logGlErrors();
-    });
+            logGlErrors();
+        }
+    );
 
     app.run();
 

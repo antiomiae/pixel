@@ -16,10 +16,10 @@ namespace pixel
 class TileMap
 {
 private:
-    unique_ptr<TileAtlas> _atlas;
-    vector<TileLayer> _layers;
-    glm::vec2 _tileSize;
-    glm::vec2 _tileCount;
+    unique_ptr<TileAtlas> atlas_;
+    vector<TileLayer> layers_;
+    glm::vec2 tile_size_;
+    glm::vec2 tile_count_;
 
 public:
     TileMap();
@@ -28,8 +28,8 @@ public:
 
     TileAtlas& atlas() const;
     const vector<TileLayer>& layers() const;
-    glm::vec2 tileCount() const;
-    glm::vec2 tileSize() const;
+    glm::vec2 tile_count() const;
+    glm::vec2 tile_size() const;
 };
 
 };

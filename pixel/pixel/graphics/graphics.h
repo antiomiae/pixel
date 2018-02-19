@@ -11,5 +11,6 @@
 #include "texture.h"
 #include "texture_region.h"
 #include "sprite_renderer.h"
+#include "render_context.h"
 
 #endif //GRAPHICS_GRAPHICS_H

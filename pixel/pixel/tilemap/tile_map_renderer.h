@@ -23,11 +23,10 @@ private:
     Vao _vao;
 public:
     TileMapRenderer();
-    explicit TileMapRenderer(Shader&& p);
-    void setProgram(Shader&& p);
+    void set_program(Shader&& p);
     void init();
-    void render(pixel::TileMap& t, const glm::mat4& projection);
-    void setBufferData(float w, float h, float tw, float th);
+    void render(pixel::TileMap& t, RenderContext projection);
+    void set_buffer_data(float map_width, float map_height, float table_width, float table_height);
 };
 
 };

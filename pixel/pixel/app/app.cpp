@@ -1,7 +1,3 @@
-//
-// Created by Kevin Ward on 12/23/17.
-//
-
 #include "app.h"
 #include <pixel/time/frame_rate_limiter.h>
 #include <pixel/util/util.h>
@@ -15,7 +11,7 @@ void glfw_error_callback(int err, const char *description) {
     cerr << description << endl << endl;
 }
 
-std::pair<int,int> framebufferSize(GLFWwindow *window) {
+glm::ivec2 window_size(GLFWwindow* window) {
     int w, h;
     glfwGetWindowSize(window, &w, &h);
     return {w, h};
@@ -36,11 +32,11 @@ void App::init(int flags)
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 
-    _window = glfwCreateWindow(640, 448, "pixel", nullptr, nullptr);
+    window_ = glfwCreateWindow(640, 448, "pixel", nullptr, nullptr);
 
-    error_unless(_window, "glfwCreateWindow failed!");
+    error_unless(window_, "glfwCreateWindow failed!");
 
-    glfwMakeContextCurrent(_window);
+    glfwMakeContextCurrent(window_);
 
     glfwSwapInterval(1);
 
@@ -57,65 +53,59 @@ void App::init(int flags)
         throw;
     }
 
-    updateViewport();
+    update_render_context();
 }
 
-void App::updateViewport() {
-    auto [w, h] = framebufferSize(_window);
-
-    if (_window_width != w || _window_height != h) {
-        glViewport(0, 0, w, h);
-        _window_width = w;
-        _window_height = h;
-    }
+void App::update_render_context() {
+   render_context_.window_size = window_size(window_);
 }
 
 void App::run()
 {
     glClearColor(0.1, 0.1, 0.1, 1);
 
-    while (!glfwWindowShouldClose(_window)) {
+    while (!glfwWindowShouldClose(window_)) {
         tick();
 
-        updateViewport();
+        render_context_.update_viewport();
         glClear(GL_COLOR_BUFFER_BIT);
 
         glfwPollEvents();
 
-        if (_tickCallback) {
-            _tickCallback();
+        if (tick_callback_) {
+            tick_callback_();
         }
 
-        glfwSwapBuffers(_window);
+        glfwSwapBuffers(window_);
 
         lateTick();
     }
 }
 
 void App::setTickCallback(std::function<void(void)> cb) {
-    _tickCallback = std::move(cb);
+    tick_callback_ = std::move(cb);
 }
 
 void App::tick()
 {
-    _fps_counter.tick();
-    ++_frames;
+    fps_counter_.tick();
+    ++frames_;
 
     #if PIXEL_DEBUG
-        if (_frames % 60 == 0) {
-            cout << _fps_counter.fps() << " FPS" << endl;
+        if (frames_ % 60 == 0) {
+            cout << fps_counter_.fps() << " FPS" << endl;
         }
     #endif
 }
 
 void App::lateTick()
 {
-    pixel::time::FrameRateLimiter limiter(1/60.0, (1/60.0) / 1000);
+    static pixel::time::FrameRateLimiter limiter(1/60.0, (1/60.0) / 1000);
 
-    limiter.delay(_fps_counter.timeSinceFrameStart());
+    limiter.delay(fps_counter_.timeSinceFrameStart());
 }
 
-std::pair<int, int> App::windowSize() const
+RenderContext App::render_context() const
 {
-    return {_window_width, _window_height};
+    return render_context_;
 }

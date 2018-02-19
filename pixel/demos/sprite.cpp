@@ -1,6 +1,5 @@
 #include "../pixel/pixel.h"
 #include <unistd.h>
-#include <cmath>
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wconversion"
@@ -11,7 +10,8 @@ using pixel::graphics::Sprite;
 using pixel::graphics::TextureRegion;
 using pixel::graphics::SpriteRenderer;
 
-void updateSprite(Sprite *sprites, int length, GLFWwindow *window)
+
+void updateSprite(Sprite* sprites, int length, GLFWwindow* window)
 {
     float v[2] = {0};
     float angle = 0;
@@ -48,7 +48,8 @@ void updateSprite(Sprite *sprites, int length, GLFWwindow *window)
     }
 }
 
-int main(int argc, char *argv[])
+
+int main(int argc, char* argv[])
 {
     if (argc >= 2) {
         std::cout << "Changing to directory " << argv[1] << std::endl;
@@ -62,7 +63,7 @@ int main(int argc, char *argv[])
     app.init();
 
     //if (GLEW_ARB_texture_storage) {
-        std::cout << "Should have glTexStorage3D: " << &glTexStorage3D << std::endl;
+    std::cout << "Should have glTexStorage3D: " << &glTexStorage3D << std::endl;
     //}
 
     pixel::graphics::Texture t1(GL_TEXTURE_2D);
@@ -74,10 +75,10 @@ int main(int argc, char *argv[])
     cout << sprite_shader.debugPrint() << endl;
 
     {
-        auto [w, h] = app.windowSize();
+        auto window_size = app.render_context().window_size;
 
         sprite_shader.activate();
-        sprite_shader.setUniform("projection", glm::ortho(0.0f, (float) w, 0.0f, (float) h));
+        sprite_shader.setUniform("projection", glm::ortho(0.0f, (float) window_size.x, 0.0f, (float) window_size.y));
         sprite_shader.setUniform("tex", 0);
         logGlErrors();
         sprite_shader.deactivate();
@@ -101,15 +102,16 @@ int main(int argc, char *argv[])
     glBindTexture(GL_TEXTURE_2D, t1._textureId);
 
     app.setTickCallback(
-            [&] {
-                updateSprite(sprites, 4, app._window);
-                renderer.render(sprites, 4);
-            }
+        [&] {
+            updateSprite(sprites, 4, app.window_);
+            renderer.render(sprites, 4);
+        }
     );
 
     app.run();
 
     return 0;
 }
+
 
 #pragma clang diagnostic pop

@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
     App app;
     app.init();
 
-    glfwHideWindow(app._window);
+    glfwHideWindow(app.window_);
 
     Shader shader(argv[1], argv[2], "shadercheck shader under test");
 

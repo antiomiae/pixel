@@ -12,12 +12,7 @@ TEST(TileMapRenderer, DefaultConstructor)
 
 TEST(TileMapRenderer, ConstructWithShader)
 {
-    pixel::TileMapRenderer r1{
-        {
-            "assets/shaders/tilemap.vert",
-            "assets/shaders/tilemap.frag"
-        }
-    };
+    pixel::TileMapRenderer r1{};
 }
 
 };
