@@ -67,7 +67,9 @@ void App::run()
     while (!glfwWindowShouldClose(window_)) {
         tick();
 
+        update_render_context();
         render_context_.update_viewport();
+
         glClear(GL_COLOR_BUFFER_BIT);
 
         glfwPollEvents();
