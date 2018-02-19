@@ -25,6 +25,7 @@ glm::mat4 RenderContext::projection() const
     return glm::ortho(0.0f, (float) window_size.x, 0.0f, (float) window_size.y);
 }
 
+
 float RenderContext::base_scale_from_virtual_resolution(const glm::vec2& res)
 {
     auto frame = glm::vec2(window_size);
@@ -35,6 +36,7 @@ float RenderContext::base_scale_from_virtual_resolution(const glm::vec2& res)
         return frame.y / res.y;
     }
 }
+
 
 void RenderContext::set_base_scale_from_virtual_resolution(const glm::vec2& res)
 {
