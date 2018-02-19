@@ -25,8 +25,8 @@ class Buffer : public AbstractBuffer
 
 public:
 
-    GLuint _bufferId{};
-    GLenum _usageHint{};
+    GLuint buffer_id_{};
+    GLenum usage_hint_{};
 
     Buffer();
 
@@ -54,9 +54,10 @@ class IndexBuffer : public AbstractBuffer
         "Only unsigned char, short, and int types allowed"
     );
 
-public:
-    GLuint _bufferId{};
+private:
+    GLuint buffer_id_{};
 
+public:
     IndexBuffer();
     GLenum elementType() const;
     void loadData(const T* data, const int size);
@@ -64,13 +65,14 @@ public:
     void load(std::array<T, length> data);
     void bind() override;
     void unbind() override;
+    GLuint buffer_id() const;
 };
 
 
 template<typename T>
 IndexBuffer<T>::IndexBuffer()
 {
-    glGenBuffers(1, &_bufferId);
+    glGenBuffers(1, &buffer_id_);
 }
 
 
@@ -109,7 +111,7 @@ GLenum IndexBuffer<T>::elementType() const
 template<typename T>
 void IndexBuffer<T>::bind()
 {
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _bufferId);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, buffer_id_);
 }
 
 
@@ -117,6 +119,13 @@ template<typename T>
 void IndexBuffer<T>::unbind()
 {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+}
+
+
+template<typename T>
+GLuint IndexBuffer<T>::buffer_id() const
+{
+    return buffer_id_;
 }
 
 };

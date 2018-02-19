@@ -150,9 +150,9 @@ pixel::graphics::Buffer::Buffer()
 
 
 pixel::graphics::Buffer::Buffer(const GLenum usageHint)
-    : _usageHint(usageHint)
+    : usage_hint_(usageHint)
 {
-    glGenBuffers(1, &_bufferId);
+    glGenBuffers(1, &buffer_id_);
 }
 
 
@@ -209,14 +209,14 @@ void pixel::graphics::Buffer::bindToProgramAttribute(
 void pixel::graphics::Buffer::loadData(const void* data, const size_t length)
 {
     bind();
-    glBufferData(GL_ARRAY_BUFFER, length, data, _usageHint);
+    glBufferData(GL_ARRAY_BUFFER, length, data, usage_hint_);
     unbind();
 }
 
 
 void pixel::graphics::Buffer::bind()
 {
-    glBindBuffer(GL_ARRAY_BUFFER, _bufferId);
+    glBindBuffer(GL_ARRAY_BUFFER, buffer_id_);
     logGlErrors();
 }
 

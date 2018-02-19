@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
     pixel::graphics::Texture t1(GL_TEXTURE_2D);
 
     pixel::graphics::ImageData ground_tile = pixel::graphics::load_png("assets/ground1.png");
-    t1.load(ground_tile.width_, ground_tile.height_, ground_tile.data);
+    t1.load(ground_tile.width, ground_tile.height, ground_tile.data);
 
     pixel::graphics::Shader shader("assets/shaders/shader.vert", "assets/shaders/shader.frag");
     cout << shader.debugPrint() << endl;

@@ -9,15 +9,15 @@ namespace pixel::graphics
 
 struct ImageData
 {
-    unsigned width_, height_;
+    unsigned width, height;
     uint8_t* data;
-    bool _external_data;
+    bool external_data;
 
     explicit ImageData(const std::string& path);
 
     ImageData(unsigned int width, unsigned int height);
 
-    ImageData(unsigned int width, unsigned int height, uint8_t* data);
+    ImageData(unsigned int _width, unsigned int _height, uint8_t* _data);
 
     ImageData(ImageData&& other) noexcept;
 
@@ -30,7 +30,7 @@ struct ImageData
 
     size_t length();
 
-    ImageData subregion(unsigned int x0, unsigned int y0, unsigned int width, unsigned int height);
+    ImageData subregion(unsigned int x0, unsigned int y0, unsigned int _width, unsigned int _height);
 
     bool save(const std::string& path);
 

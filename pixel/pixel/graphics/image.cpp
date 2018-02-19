@@ -25,7 +25,7 @@ ImageData pixel::graphics::load_png(const string& path)
 
 bool pixel::graphics::save_png(const ImageData& img, const std::string& path)
 {
-    tinypng::PNG png(img.width_, img.height_, img.data);
+    tinypng::PNG png(img.width, img.height, img.data);
 
     return png.writeToFile(path);
 }
@@ -37,22 +37,22 @@ ImageData::ImageData(const std::string& path)
 };
 
 
-ImageData::ImageData(unsigned int width, unsigned int height)
-  : ImageData(width, height, nullptr)
+ImageData::ImageData(unsigned int _width, unsigned int _height)
+  : ImageData(_width, _height, nullptr)
 {
     data = new uint8_t[width * height * bpp];
-    _external_data = false;
+    external_data = false;
 };
 
 
-ImageData::ImageData(unsigned int width, unsigned int height, uint8_t* data)
-  : width_(width), height_(height), data(data), _external_data(data != nullptr)
+ImageData::ImageData(unsigned int _width, unsigned int _height, uint8_t* _data)
+  : width(_width), height(_height), data(_data), external_data(_data != nullptr)
 {
 };
 
 
 ImageData::ImageData(ImageData&& o) noexcept
-  : width_(o.width_), height_(o.height_), _external_data(o._external_data)
+  : width(o.width), height(o.height), external_data(o.external_data)
 {
     data = o.data;
     o.data = nullptr;
@@ -61,7 +61,7 @@ ImageData::ImageData(ImageData&& o) noexcept
 
 ImageData::~ImageData()
 {
-    if (data && !_external_data) {
+    if (data && !external_data) {
         delete[] data;
         data = nullptr;
     }
@@ -70,18 +70,18 @@ ImageData::~ImageData()
 
 size_t ImageData::length()
 {
-    return size_t{(width_ * height_ * bpp)};
+    return size_t{(width * height * bpp)};
 }
 
 
-ImageData ImageData::subregion(unsigned int x0, unsigned int y0, unsigned int width, unsigned int height)
+ImageData ImageData::subregion(unsigned int x0, unsigned int y0, unsigned int _width, unsigned int _height)
 {
-    ImageData temp(width, height);
+    ImageData temp(_width, _height);
 
-    for (auto y_ = 0; y_ < height; ++y_) {
-        for (auto x_ = 0; x_ < width; ++x_) {
-            auto local_pixel = (y_ + y0) * width_ + x_ + x0;
-            auto temp_pixel = y_ * width + x_;
+    for (auto y_ = 0; y_ < _height; ++y_) {
+        for (auto x_ = 0; x_ < _width; ++x_) {
+            auto local_pixel = (y_ + y0) * width + x_ + x0;
+            auto temp_pixel = y_ * _width + x_;
 
             for (auto b = 0u; b < bpp; ++b) {
                 temp.data[temp_pixel * bpp + b] = data[local_pixel * bpp + b];
