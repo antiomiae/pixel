@@ -9,7 +9,7 @@ namespace pixel::graphics
 
 struct ImageData
 {
-    unsigned _width, _height;
+    unsigned width_, height_;
     uint8_t* data;
     bool _external_data;
 

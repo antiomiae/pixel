@@ -10,74 +10,74 @@ struct Vertex
 };
 
 pixel::graphics::SpriteRenderer::SpriteRenderer(Shader program)
-        : _program(std::move(program)),
-          _vertex_buffer(GL_STATIC_DRAW),
-          _sprite_buffer(GL_STREAM_DRAW)
+        : program_(std::move(program)),
+          vertex_buffer_(GL_STATIC_DRAW),
+          sprite_buffer_(GL_STREAM_DRAW)
 {
     init();
 }
 
 void pixel::graphics::SpriteRenderer::bindAttributes()
 {
-    _program.activate();
-    _vao.activate();
+    program_.activate();
+    vao_.activate();
 
     /* Bind attributes to buffers */
-    _vertex_buffer.bindToProgramAttribute(
-            _program,
+    vertex_buffer_.bindToProgramAttribute(
+            program_,
             "vertex",
             sizeof(Vertex),
             offsetof(Vertex, position)
     );
 
-    _vertex_buffer.bindToProgramAttribute(
-            _program,
+    vertex_buffer_.bindToProgramAttribute(
+            program_,
             "texture_coord",
             sizeof(Vertex),
             offsetof(Vertex, texture_coord)
     );
 
-    _sprite_buffer.bindToProgramAttribute(
-            _program,
+    sprite_buffer_.bindToProgramAttribute(
+            program_,
             "position",
             sizeof(Sprite),
             offsetof(Sprite, position),
             1
     );
 
-    _sprite_buffer.bindToProgramAttribute(
-            _program,
+    sprite_buffer_.bindToProgramAttribute(
+            program_,
             "center",
             sizeof(Sprite),
             offsetof(Sprite, center),
             1
     );
 
-    _sprite_buffer.bindToProgramAttribute(
-            _program,
+    sprite_buffer_.bindToProgramAttribute(
+            program_,
             "angle",
             sizeof(Sprite),
             offsetof(Sprite, angle),
             1
     );
 
-    _sprite_buffer.bindToProgramAttribute(
-            _program,
+    sprite_buffer_.bindToProgramAttribute(
+            program_,
             "texture_region",
             sizeof(Sprite),
             offsetof(Sprite, texture_region) + offsetof(TextureRegion, rect),
             1
     );
 
-    _sprite_buffer.bindToProgramAttribute(
-            _program,
+    sprite_buffer_.bindToProgramAttribute(
+            program_,
             "texture_layer",
             sizeof(Sprite),
             offsetof(Sprite, texture_region) + offsetof(TextureRegion, layer),
             1
     );
 
-    _vao.deactivate();
+    vao_.deactivate();
 }
 
 void pixel::graphics::SpriteRenderer::init()
@@ -95,7 +95,7 @@ void pixel::graphics::SpriteRenderer::initVertexBuffer() {
             {0, 1, 0, 0}
     };
 
-    _vertex_buffer.loadData(vertices, sizeof(vertices));
+    vertex_buffer_.loadData(vertices, sizeof(vertices));
 }
 
 void pixel::graphics::SpriteRenderer::initIndexBuffer() {
@@ -104,16 +104,16 @@ void pixel::graphics::SpriteRenderer::initIndexBuffer() {
             2, 3, 0
     };
 
-    _index_buffer.loadData(indices, sizeof(indices));
+    index_buferr_.loadData(indices, sizeof(indices));
 }
 
 void pixel::graphics::SpriteRenderer::render(pixel::graphics::Sprite *sprites, int count)
 {
-    _sprite_buffer.loadData(sprites, count * sizeof(Sprite));
+    sprite_buffer_.loadData(sprites, count * sizeof(Sprite));
 
-    _program.activate();
-    _vao.activate();
-    _index_buffer.bind();
+    program_.activate();
+    vao_.activate();
+    index_buferr_.bind();
 
-    glDrawElementsInstanced(GL_TRIANGLES, 6, _index_buffer.elementType(), 0, count);
+    glDrawElementsInstanced(GL_TRIANGLES, 6, index_buferr_.elementType(), 0, count);
 }

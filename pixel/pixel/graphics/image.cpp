@@ -25,7 +25,7 @@ ImageData pixel::graphics::load_png(const string& path)
 
 bool pixel::graphics::save_png(const ImageData& img, const std::string& path)
 {
-    tinypng::PNG png(img._width, img._height, img.data);
+    tinypng::PNG png(img.width_, img.height_, img.data);
 
     return png.writeToFile(path);
 }
@@ -46,13 +46,13 @@ ImageData::ImageData(unsigned int width, unsigned int height)
 
 
 ImageData::ImageData(unsigned int width, unsigned int height, uint8_t* data)
-  : _width(width), _height(height), data(data), _external_data(data != nullptr)
+  : width_(width), height_(height), data(data), _external_data(data != nullptr)
 {
 };
 
 
 ImageData::ImageData(ImageData&& o) noexcept
-  : _width(o._width), _height(o._height), _external_data(o._external_data)
+  : width_(o.width_), height_(o.height_), _external_data(o._external_data)
 {
     data = o.data;
     o.data = nullptr;
@@ -70,7 +70,7 @@ ImageData::~ImageData()
 
 size_t ImageData::length()
 {
-    return size_t{(_width * _height * bpp)};
+    return size_t{(width_ * height_ * bpp)};
 }
 
 
@@ -80,7 +80,7 @@ ImageData ImageData::subregion(unsigned int x0, unsigned int y0, unsigned int wi
 
     for (auto y_ = 0; y_ < height; ++y_) {
         for (auto x_ = 0; x_ < width; ++x_) {
-            auto local_pixel = (y_ + y0) * _width + x_ + x0;
+            auto local_pixel = (y_ + y0) * width_ + x_ + x0;
             auto temp_pixel = y_ * width + x_;
 
             for (auto b = 0u; b < bpp; ++b) {

@@ -13,11 +13,11 @@ namespace pixel::graphics {
 
 class Shader {
 public:
-    GLuint _programId;
-    AttributeMap _attributeMap;
-    AttributeMap _uniformMap;
+    GLuint program_id_;
+    AttributeMap attribute_map_;
+    AttributeMap uniform_map_;
 
-    std::string _debugName;
+    std::string debug_name_;
 
     Shader();
     Shader(const char *vs, const char *fs, const char *debugName = "unnamed shader");

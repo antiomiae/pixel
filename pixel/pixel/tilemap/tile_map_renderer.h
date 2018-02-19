@@ -18,9 +18,9 @@ using graphics::Vao;
 class TileMapRenderer
 {
 private:
-    unique_ptr<Shader> _program;
-    Buffer _buffer;
-    Vao _vao;
+    unique_ptr<Shader> program_;
+    Buffer buffer_;
+    Vao vao_;
 public:
     TileMapRenderer();
     void set_program(Shader&& p);

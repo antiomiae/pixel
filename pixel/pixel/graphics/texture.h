@@ -12,17 +12,17 @@ using namespace std;
 class Texture
 {
 public:
-    GLuint _textureId{};
-    GLenum _textureType{};
-    GLenum _format{};
-    GLenum _internalFormat;
-    GLenum _dataType{};
+    GLuint texture_id_{};
+    GLenum texture_type_{};
+    GLenum format_{};
+    GLenum internal_format_;
+    GLenum data_type_{};
 
-    int _width;
-    int _height;
-    int _depth;
+    int width_;
+    int height_;
+    int depth_;
 
-    bool _allocated;
+    bool allocated_;
 
     explicit Texture(
         GLenum textureType = GL_TEXTURE_2D, GLenum format = GL_RGBA, GLenum internal_format = GL_RGBA,
@@ -37,15 +37,15 @@ public:
 
 
     unsigned width() const
-    { return _width; };
+    { return width_; };
 
 
     unsigned height() const
-    { return _height; };
+    { return height_; };
 
 
     unsigned depth() const
-    { return _depth; };
+    { return depth_; };
 
     void load(int width, int height, const uint8_t* data = nullptr);
     void load(int width, int height, int depth, const uint8_t* data = nullptr);

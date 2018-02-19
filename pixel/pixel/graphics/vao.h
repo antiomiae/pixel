@@ -10,8 +10,8 @@ namespace pixel::graphics {
 
 class Vao {
 public:
-    GLuint _vaoId;
-    bool _active;
+    GLuint vao_id_;
+    bool active_;
     Vao();
     Vao(const Vao& other);
 

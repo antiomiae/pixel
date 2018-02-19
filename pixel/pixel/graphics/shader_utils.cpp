@@ -17,7 +17,7 @@ using namespace pixel;
 using namespace std;
 
 
-bool compileShader(GLuint shader)
+bool compile_shader(GLuint shader)
 {
     glCompileShader(shader);
     logGlErrors();
@@ -30,7 +30,7 @@ bool compileShader(GLuint shader)
 }
 
 
-void logShaderError(GLuint shader)
+void log_shader_error(GLuint shader)
 {
     GLint maxLength = 0;
     glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &maxLength);
@@ -50,7 +50,7 @@ void logShaderError(GLuint shader)
 }
 
 
-void logProgramError(GLuint program)
+void log_program_error(GLuint program)
 {
     GLint maxLength = 0;
     glGetProgramiv(program, GL_INFO_LOG_LENGTH, &maxLength);
@@ -66,7 +66,7 @@ void logProgramError(GLuint program)
 }
 
 
-bool linkProgram(GLuint program)
+bool link_program(GLuint program)
 {
     glLinkProgram(program);
     logGlErrors();
@@ -79,7 +79,7 @@ bool linkProgram(GLuint program)
 }
 
 
-void loadShader(GLuint shader, const char* path)
+void load_shader(GLuint shader, const char* path)
 {
     ifstream file(path);
     string text, line;
@@ -98,11 +98,11 @@ void loadShader(GLuint shader, const char* path)
 
     glShaderSource(shader, 1, &c_str, &length);
     logGlErrors();
-    logShaderError(shader);
+    log_shader_error(shader);
 }
 
 
-int programParameter(GLuint program, GLenum attribute)
+int program_parameter(GLuint program, GLenum attribute)
 {
     int value;
     glGetProgramiv(program, attribute, &value);
@@ -111,14 +111,14 @@ int programParameter(GLuint program, GLenum attribute)
 }
 
 
-AttributeMap enumerateProgramAttributes(GLuint program)
+AttributeMap enumerate_program_attributes(GLuint program)
 {
     AttributeMap map;
 
-    vector<GLchar> buffer((unsigned) programParameter(program, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH));
+    vector<GLchar> buffer((unsigned) program_parameter(program, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH));
     logGlErrors();
 
-    const int attr_count = programParameter(program, GL_ACTIVE_ATTRIBUTES);
+    const int attr_count = program_parameter(program, GL_ACTIVE_ATTRIBUTES);
     logGlErrors();
 
     for (int i = 0; i < attr_count; ++i) {
@@ -152,14 +152,14 @@ AttributeMap enumerateProgramAttributes(GLuint program)
 }
 
 
-AttributeMap enumerateProgramUniforms(GLuint program)
+AttributeMap enumerate_program_uniforms(GLuint program)
 {
     std::unordered_map<std::string, Attribute> attributeMap;
 
-    vector<GLchar> buffer((unsigned) programParameter(program, GL_ACTIVE_UNIFORM_MAX_LENGTH));
+    vector<GLchar> buffer((unsigned) program_parameter(program, GL_ACTIVE_UNIFORM_MAX_LENGTH));
     logGlErrors();
 
-    const int uniform_count = programParameter(program, GL_ACTIVE_UNIFORMS);
+    const int uniform_count = program_parameter(program, GL_ACTIVE_UNIFORMS);
     logGlErrors();
 
     for (auto i = 0u; i < uniform_count; ++i) {

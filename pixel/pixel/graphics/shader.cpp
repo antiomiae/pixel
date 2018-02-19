@@ -25,21 +25,21 @@ Shader::Shader()
 
 
 Shader::Shader(const char* vsPath, const char* fsPath, const char* debugName)
-    : _debugName(debugName)
+    : debug_name_(debugName)
 {
     auto vs = glCreateShader(GL_VERTEX_SHADER);
     auto fs = glCreateShader(GL_FRAGMENT_SHADER);
 
-    loadShader(vs, vsPath);
-    loadShader(fs, fsPath);
+    load_shader(vs, vsPath);
+    load_shader(fs, fsPath);
 
-    if (!compileShader(vs)) {
-        logShaderError(vs);
+    if (!compile_shader(vs)) {
+        log_shader_error(vs);
         error("Failed to compile vertex shader");
     };
 
-    if (!compileShader(fs)) {
-        logShaderError(fs);
+    if (!compile_shader(fs)) {
+        log_shader_error(fs);
         error("Failed to compile fragment shader");
     };
 
@@ -48,23 +48,23 @@ Shader::Shader(const char* vsPath, const char* fsPath, const char* debugName)
     glAttachShader(program, vs);
     glAttachShader(program, fs);
 
-    if (!linkProgram(program)) {
-        logProgramError(program);
+    if (!link_program(program)) {
+        log_program_error(program);
         error("Failed to link program");
     }
 
     glDeleteShader(vs);
     glDeleteShader(fs);
 
-    _programId = program;
-    _attributeMap = enumerateProgramAttributes(_programId);
-    _uniformMap = enumerateProgramUniforms(_programId);
+    program_id_ = program;
+    attribute_map_ = enumerate_program_attributes(program_id_);
+    uniform_map_ = enumerate_program_uniforms(program_id_);
 }
 
 
 void Shader::activate()
 {
-    glUseProgram(_programId);
+    glUseProgram(program_id_);
 }
 
 
@@ -77,7 +77,7 @@ void Shader::deactivate()
 Attribute Shader::attribute(const string& name) const
 {
     try {
-        auto attr = _attributeMap.at(name);
+        auto attr = attribute_map_.at(name);
         return attr;
     } catch (exception& ex) {
         error("Unable to find attribute named `" + name + "`");
@@ -90,7 +90,7 @@ Attribute Shader::attribute(const string& name) const
 Attribute Shader::uniform(const string& name) const
 {
     try {
-        auto attr = _uniformMap.at(name);
+        auto attr = uniform_map_.at(name);
         return attr;
     } catch (exception& ex) {
         error("Unable to find uniform named `" + name + "`");
@@ -101,7 +101,7 @@ Attribute Shader::uniform(const string& name) const
 
 void Shader::setUniform(const std::string& name, int v0)
 {
-    glProgramUniform1i(_programId, uniform(name).location, v0);
+    glProgramUniform1i(program_id_, uniform(name).location, v0);
     //glUniform1i(uniform(name).location, v0);
 }
 
@@ -230,8 +230,8 @@ void Shader::setUniformArray(const std::string& name, const int count, const glm
 
 std::string Shader::debugPrint() const
 {
-    auto uniforms = entries(_uniformMap);
-    std::vector<Attribute> attributes = entries(_attributeMap);
+    auto uniforms = entries(uniform_map_);
+    std::vector<Attribute> attributes = entries(attribute_map_);
 
     std::sort(begin(uniforms), end(uniforms), [](auto a, auto b) { return a.location < b.location; });
     std::sort(begin(attributes), end(attributes), [](auto a, auto b) { return a.index < b.index; });

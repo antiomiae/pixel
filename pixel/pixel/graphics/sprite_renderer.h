@@ -12,11 +12,11 @@ namespace pixel::graphics
 class SpriteRenderer
 {
 private:
-    Vao _vao;
-    Buffer _sprite_buffer;
-    Buffer _vertex_buffer;
-    IndexBuffer <GLubyte> _index_buffer;
-    Shader _program;
+    Vao vao_;
+    Buffer sprite_buffer_;
+    Buffer vertex_buffer_;
+    IndexBuffer <GLubyte> index_buferr_;
+    Shader program_;
 
     void init();
 
