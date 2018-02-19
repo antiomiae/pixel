@@ -16,9 +16,6 @@ int main(int argc, char* argv[])
     pixel::App app;
     app.init();
 
-    auto render_context = app.render_context();
-    render_context.set_base_scale_from_virtual_resolution({320, 224});
-
     pixel::TileMapRenderer renderer{};
 
     tmx::Map tmx_map;
@@ -30,7 +27,9 @@ int main(int argc, char* argv[])
 
     app.setTickCallback(
         [&] {
-            renderer.render(tile_map, render_context);
+            auto rc = app.render_context();
+            rc.base_scale = 1;
+            renderer.render(tile_map, rc);
         }
     );
 
@@ -38,4 +37,3 @@ int main(int argc, char* argv[])
 
     return 0;
 }
-
