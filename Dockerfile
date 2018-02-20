@@ -12,9 +12,9 @@ WORKDIR /src
 COPY CMakeLists.txt init ./
 COPY cmake cmake
 
-COPY . ./
+RUN mkdir pixel && touch pixel/CMakeLists.txt && ./init > /dev/null
 
-RUN ./init > /dev/null
+COPY . ./
 
 RUN ./build
 
