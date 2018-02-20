@@ -5,17 +5,17 @@ cmake_policy(SET CMP0042 NEW)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-if(APPLE)
-  set(CMAKE_MACOSX_RPATH ON)
-endif(APPLE)
+if (APPLE)
+    set(CMAKE_MACOSX_RPATH ON)
+endif (APPLE)
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 include(cmake/HunterGate.cmake)
 
 HunterGate(
-        URL "https://github.com/ruslo/hunter/archive/v0.19.232.tar.gz"
-        SHA1 "a412c45fe4c5a72fed386f62dd8d753bd4fd3d11"
+        URL "https://github.com/ruslo/hunter/archive/v0.20.9.tar.gz"
+        SHA1 "8f7cf6d719d05c49224a4ebeba90c6bb90b90f4a"
         LOCAL
 )
 
@@ -25,19 +25,20 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
-if(UNIX AND NOT APPLE)
-set(HUNTER_BUILD_SHARED_LIBS OFF)
-set(BUILD_SHARED_LIBS OFF)
-else(UNIX AND NOT APPLE)
-set(HUNTER_BUILD_SHARED_LIBS ON)
-set(BUILD_SHARED_LIBS ON)
-endif(UNIX AND NOT APPLE)
+if (UNIX AND NOT APPLE)
+    set(HUNTER_BUILD_SHARED_LIBS OFF)
+    set(BUILD_SHARED_LIBS OFF)
+else (UNIX AND NOT APPLE)
+    set(HUNTER_BUILD_SHARED_LIBS ON)
+    set(BUILD_SHARED_LIBS ON)
+endif (UNIX AND NOT APPLE)
 
 hunter_add_package(GTest)
 hunter_add_package(glew)
 hunter_add_package(glfw)
 hunter_add_package(glm)
 hunter_add_package(PNG)
+hunter_add_package(Lua)
 #hunter_add_package(Box2D)
 hunter_add_package(Boost COMPONENTS system filesystem)
 
@@ -46,6 +47,7 @@ find_package(glew CONFIG REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
 find_package(glm CONFIG REQUIRED)
 find_package(PNG CONFIG REQUIRED)
+find_package(Lua CONFIG REQUIRED)
 #find_package(Box2D CONFIG REQUIRED)
 find_package(Boost CONFIG REQUIRED system filesystem)
 

@@ -1,3 +1,6 @@
 [submodule "pixel/lib/tmxlite"]
 	path = pixel/lib/tmxlite
 	url = https://github.com/fallahn/tmxlite.git
+[submodule "pixel/lib/sol2"]
+	path = pixel/lib/sol2
+	url = https://github.com/ThePhD/sol2.git
