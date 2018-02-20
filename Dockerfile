@@ -5,7 +5,7 @@ RUN apt-get install -y libgl1-mesa-dev mesa-common-dev pkg-config ninja-build cm
 
 ENV HUNTER_ROOT=/hunter
 
-VOLUME /hunter
+VOLUME ["/hunter"]
 
 WORKDIR /src
 
@@ -16,8 +16,8 @@ RUN mkdir pixel && touch pixel/CMakeLists.txt && ./init > /dev/null
 
 COPY . ./
 
-RUN ./build
-
-RUN ./dist
+#RUN ./build
+#
+#RUN ./dist
 
 #RUN ./build-ninja/bin/pixel_test pixel
