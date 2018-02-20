@@ -5,9 +5,12 @@ RUN apt-get install -y libgl1-mesa-dev mesa-common-dev pkg-config ninja-build cm
 
 ENV HUNTER_ROOT=/hunter
 
+VOLUME /hunter
+
 WORKDIR /src
 
-COPY . ./
+COPY CMakeLists.txt init ./
+COPY cmake cmake
 
 RUN ./init
 
