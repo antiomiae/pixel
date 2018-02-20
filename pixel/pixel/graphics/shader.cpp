@@ -35,12 +35,12 @@ Shader::Shader(const char* vsPath, const char* fsPath, const char* debugName)
 
     if (!compile_shader(vs)) {
         log_shader_error(vs);
-        error("Failed to compile vertex shader");
+        pixel_error("Failed to compile vertex shader");
     };
 
     if (!compile_shader(fs)) {
         log_shader_error(fs);
-        error("Failed to compile fragment shader");
+        pixel_error("Failed to compile fragment shader");
     };
 
     auto program = glCreateProgram();
@@ -50,7 +50,7 @@ Shader::Shader(const char* vsPath, const char* fsPath, const char* debugName)
 
     if (!link_program(program)) {
         log_program_error(program);
-        error("Failed to link program");
+        pixel_error("Failed to link program");
     }
 
     glDeleteShader(vs);
@@ -80,7 +80,7 @@ Attribute Shader::attribute(const string& name) const
         auto attr = attribute_map_.at(name);
         return attr;
     } catch (exception& ex) {
-        error("Unable to find attribute named `" + name + "`");
+        pixel_error("Unable to find attribute named `" + name + "`");
         throw ex;
     }
 
@@ -93,7 +93,7 @@ Attribute Shader::uniform(const string& name) const
         auto attr = uniform_map_.at(name);
         return attr;
     } catch (exception& ex) {
-        error("Unable to find uniform named `" + name + "`");
+        pixel_error("Unable to find uniform named `" + name + "`");
         throw ex;
     }
 }

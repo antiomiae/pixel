@@ -10,10 +10,5 @@ TEST(TileMapRenderer, DefaultConstructor)
     pixel::TileMapRenderer r2;
 };
 
-TEST(TileMapRenderer, ConstructWithShader)
-{
-    pixel::TileMapRenderer r1{};
-}
-
 };
 

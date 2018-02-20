@@ -10,7 +10,7 @@ using namespace pixel::util;
 ImageData pixel::graphics::load_png(const string& path)
 {
     if (!file_exists(path)) {
-        error("file does not exist at path: " + path);
+        pixel_error("file does not exist at path: " + path);
     }
 
     tinypng::PNG png(path);

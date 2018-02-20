@@ -111,13 +111,13 @@ void Texture::loadSubregion(int x, int y, int width, int height, int layer, cons
     }
 
     if (x + width > width_) {
-        error("subregion exceeds width of texture");
+        pixel_error("subregion exceeds width of texture");
     }
     if (y + height > height_) {
-        error("subregion exceeds height of texture");
+        pixel_error("subregion exceeds height of texture");
     }
     if (layer >= depth_) {
-        error("layer exceeds depth of texture");
+        pixel_error("layer exceeds depth of texture");
     }
 
     if (texture_type_ == GL_TEXTURE_3D || texture_type_ == GL_TEXTURE_2D_ARRAY) {
@@ -169,7 +169,7 @@ unsigned formatComponents(GLenum format)
         case GL_BGRA_INTEGER:
             return 4;
         default:
-            error("Unknown format");
+            pixel_error("Unknown format");
             return 0;
     }
 }
@@ -190,7 +190,7 @@ unsigned sizeofGLType(GLenum type)
         case GL_FLOAT:
             return sizeof(GLfloat);
         default:
-            error("Invalid GL type");
+            pixel_error("Invalid GL type");
             return 0;
     }
 }
@@ -199,7 +199,7 @@ unsigned sizeofGLType(GLenum type)
 size_t Texture::storageSize() const
 {
     if (data_type_ < GL_BYTE || data_type_ > GL_FLOAT) {
-        error("Only GL_UNSIGNED_BYTE, GL_BYTE, GL_UNSIGNED_SHORT, GL_SHORT, GL_UNSIGNED_INT, GL_INT, GL_FLOAT allowed");
+        pixel_error("Only GL_UNSIGNED_BYTE, GL_BYTE, GL_UNSIGNED_SHORT, GL_SHORT, GL_UNSIGNED_INT, GL_INT, GL_FLOAT allowed");
     }
     /* Don't try to handle packed formats */
     auto pixels = width_ * height_ * depth_;

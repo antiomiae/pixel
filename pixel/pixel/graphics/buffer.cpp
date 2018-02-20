@@ -31,7 +31,7 @@ GLenum basicTypeForAttributeType(GLenum e)
         case GL_INT_VEC4:
             return GL_INT;
         default:
-            error("Unknown enum");
+            pixel_error("Unknown enum");
     }
     return 0;
 }
@@ -59,7 +59,7 @@ int sizeForBasicType(GLenum e)
         case GL_INT_VEC4:
             return sizeof(GLint);
         default:
-            error("Unknown enum");
+            pixel_error("Unknown enum");
     }
     return 0;
 }
@@ -88,7 +88,7 @@ int componentsForAttributeType(GLenum e)
         case GL_FLOAT_MAT3x4:
             return 4;
         default:
-            error("Unknown enum");
+            pixel_error("Unknown enum");
     }
     return 0;
 }
@@ -117,7 +117,7 @@ int locationSpanForAttributeType(GLenum e)
         case GL_FLOAT_MAT4x3:
             return 4;
         default:
-            error("Unknown enum");
+            pixel_error("Unknown enum");
     }
     return 0;
 }

@@ -9,7 +9,7 @@
 void _logGlErrors(const int line, const char *file);
 
 #define logGlErrors() _logGlErrors(__LINE__, __FILE__)
-#define error(str) pixel::util::_error(__LINE__, __FILE__, str)
+#define pixel_error(str) pixel::util::_error(__LINE__, __FILE__, str)
 #define error_if(expr, str) pixel::util::_error_if(__LINE__, __FILE__, expr, str);
 #define error_unless(expr, str) pixel::util::_error_if(__LINE__, __FILE__, !(expr), str);
 

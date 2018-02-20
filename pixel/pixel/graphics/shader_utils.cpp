@@ -85,7 +85,7 @@ void load_shader(GLuint shader, const char* path)
     string text, line;
 
     if (!file.is_open()) {
-        error("Unable to open shader source file: " + string(path));
+        pixel_error("Unable to open shader source file: " + string(path));
     };
 
     while (getline(file, line)) {

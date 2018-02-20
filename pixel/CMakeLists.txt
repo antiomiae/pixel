@@ -28,7 +28,9 @@ add_library(pixel
         pixel/graphics/shader_utils.cpp pixel/graphics/shader_utils.h
         pixel/graphics/attribute.cpp pixel/graphics/attribute.h
         pixel/graphics/render_context.cpp pixel/graphics/render_context.h
-        pixel/error.h)
+        pixel/error.h
+        pixel/lua/lua.h)
+
 target_include_directories(pixel PUBLIC .)
 
 add_subdirectory(demos)
@@ -43,6 +45,8 @@ add_subdirectory(lib/sol2)
 
 target_link_libraries(pixel
         PUBLIC Boost::system Boost::filesystem tinypng glfw glew::glew glm tmxlite
+        Lua::lua_lib
+        sol2
         )
 
 #target_include_directories(pixel PUBLIC lib/glm-0.9.9-a2)
