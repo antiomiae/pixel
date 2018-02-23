@@ -1,8 +1,35 @@
-services: docker
-sudo: required
+language: c++
+dist: trusty
+sudo: false
 
-install: true
+env:
+  matrix:
+    - TRAVIS_NO_EMPTY_JOB=true
+
+matrix:
+  exclude:
+    - env: TRAVIS_NO_EMPTY_JOB=true
+
+  include:
+    - env: COMPILER=clang++-6.0 JOBS=1 TEST_TYPE=configure-gl TEST_LEVEL=minimal GL_LIBS=all-apis
+      addons: &clang6
+        apt:
+          packages:
+            - clang-6.0
+            - cmake-3.9
+            - mesa-common-dev
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-trusty-6.0
+            - george-edison55/cmake-3.x
+
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3
 
 script:
-  - docker build -t pixel-$TRAVIS_BRANCH .
-  #- docker run pixel-$TRAVIS_BRANCH build-ninja/bin/pixel_test pixel
+  - tools/run_tests.py --max-jobs ${JOBS} --test-type=${TEST_TYPE} --test-level=${TEST_LEVEL} --gl-libs=${GL_LIBS} --config ${NO_ENUM_TESTS} --cmake -DCMAKE_CXX_COMPILER=${COMPILER}
+
+notifications:
+email: false
