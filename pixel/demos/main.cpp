@@ -112,7 +112,7 @@ int main(int argc, char* argv[])
     shader.setUniform("tex", 0);
     logGlErrors();
 
-    app.setTickCallback(
+    app.set_tick_callback(
         [&] {
             shader.activate();
             vao.activate();

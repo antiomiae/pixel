@@ -1,3 +1,4 @@
+#include <string>
 #include "app.h"
 #include <pixel/time/frame_rate_limiter.h>
 #include <pixel/util/util.h>
@@ -32,7 +33,7 @@ void App::init(int flags)
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 
-    window_ = glfwCreateWindow(640, 448, "pixel", nullptr, nullptr);
+    window_ = glfwCreateWindow(render_context_.window_size.x, render_context_.window_size.y, "pixel", nullptr, nullptr);
 
     error_unless(window_, "glfwCreateWindow failed!");
 
@@ -41,17 +42,9 @@ void App::init(int flags)
     glfwSwapInterval(1);
 
     auto err = glewInit();
-    if (err != GLEW_OK) {
-        cout << "glewInit failed!" << endl;
-        fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
-        throw;
-    }
 
-    if (!GLEW_VERSION_4_1)
-    {
-        cout << "OpenGL version 4.1 is not available according to GLEW" << endl;
-        throw;
-    }
+    error_unless(err == GLEW_OK, string("glewInit failed!") + reinterpret_cast<const char*>(glewGetErrorString(err)));
+    error_unless(GLEW_VERSION_4_1, "OpenGL version 4.1 is not available according to GLEW");
 
     update_render_context();
 }
@@ -68,7 +61,11 @@ void App::run()
         tick();
 
         update_render_context();
-        render_context_.update_viewport();
+
+        {
+            auto ws = render_context_.window_size;
+            glViewport(0, 0, ws.x, ws.y);
+        }
 
         glClear(GL_COLOR_BUFFER_BIT);
 
@@ -80,11 +77,11 @@ void App::run()
 
         glfwSwapBuffers(window_);
 
-        lateTick();
+        late_tick();
     }
 }
 
-void App::setTickCallback(std::function<void(void)> cb) {
+void App::set_tick_callback(std::function<void(void)> cb) {
     tick_callback_ = std::move(cb);
 }
 
@@ -100,14 +97,26 @@ void App::tick()
     #endif
 }
 
-void App::lateTick()
+void App::late_tick()
 {
     static pixel::time::FrameRateLimiter limiter(1/60.0, (1/60.0) / 1000);
 
     limiter.delay(fps_counter_.timeSinceFrameStart());
 }
 
-RenderContext App::render_context() const
+RenderContext& App::render_context()
 {
     return render_context_;
+}
+
+
+App::App(glm::ivec2 window_size, glm::vec4 clear_color, float pixel_scale)
+    : render_context_{window_size, clear_color, pixel_scale}
+{
+}
+
+
+GLFWwindow& App::window()
+{
+    return *window_;
 }

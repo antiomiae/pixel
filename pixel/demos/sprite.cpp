@@ -11,8 +11,9 @@ using pixel::graphics::TextureRegion;
 using pixel::graphics::SpriteRenderer;
 
 
-void updateSprite(Sprite* sprites, int length, GLFWwindow* window)
+void updateSprite(Sprite* sprites, int length, GLFWwindow& window_)
 {
+    auto window = &window_;
     float v[2] = {0};
     float angle = 0;
 
@@ -101,9 +102,9 @@ int main(int argc, char* argv[])
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, t1.texture_id_);
 
-    app.setTickCallback(
+    app.set_tick_callback(
         [&] {
-            updateSprite(sprites, 4, app.window_);
+            updateSprite(sprites, 4, app.window());
             renderer.render(sprites, 4);
         }
     );

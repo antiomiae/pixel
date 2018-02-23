@@ -25,10 +25,10 @@ int main(int argc, char* argv[])
     tile_map.load(tmx_map);
     tile_map.atlas().debugSave("atlas");
 
-    app.setTickCallback(
+    app.set_tick_callback(
         [&] {
             auto rc = app.render_context();
-            rc.base_scale = 1;
+            rc.pixel_scale = 1;
             renderer.render(tile_map, rc);
         }
     );

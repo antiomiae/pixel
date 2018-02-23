@@ -5,20 +5,31 @@
 
 namespace pixel
 {
-// Information about the global rendering setup
+/**
+ * Information about the global rendering setup
+ */
 struct RenderContext
 {
-    // assume we draw in our whole window
+    /**
+     * Dimensions of drawing area
+     */
     glm::ivec2 window_size{0, 0};
+
+    /**
+     * Number of screen pixels per internal pixel
+     */
+    float pixel_scale{1.0};
+
     glm::vec4 default_clear_color{0.0, 0.0, 0.0, 1.0};
-    float base_scale{1};
 
     RenderContext() = default;
-    RenderContext(glm::ivec2 size, glm::vec4 color);
+    RenderContext(glm::ivec2 size, glm::vec4 color, float scale);
 
-    float base_scale_from_virtual_resolution(const glm::vec2& res);
-    void set_base_scale_from_virtual_resolution(const glm::vec2& res);
-    void update_viewport() const;
+    /**
+     * Orthographic projection matrix derived from `window_size` and `pixel_scale`
+     * Transforms the region [(0, 0), (window_size / pixel_scale)] to [(-1, -1), (1, 1)]
+     * @return projection matrix
+     */
     glm::mat4 projection() const;
 
 };

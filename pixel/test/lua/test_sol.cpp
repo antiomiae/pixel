@@ -11,19 +11,20 @@ TEST(SolTest, State)
 }
 
 
-TEST(SolTest, Binding)
+TEST(SolTest, bind_pixel)
 {
     sol::state lua;
     lua.open_libraries();
 
     auto binding = pixel::bind_pixel(lua);
 
-    binding.set("app", &pixeltest::app());
+    binding.set("app", &pixeltest::app);
 
-    lua.script(R"(
-        print(pixel.app)
-    )");
+    ASSERT_NO_THROW(
+        lua.script("pixel.app()")
+    );
 }
+
 
 };
 
