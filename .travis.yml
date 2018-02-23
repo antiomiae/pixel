@@ -1,6 +1,6 @@
 language: c++
 dist: trusty
-sudo: false
+sudo: required
 
 env:
   matrix:
@@ -11,17 +11,7 @@ matrix:
     - env: TRAVIS_NO_EMPTY_JOB=true
 
   include:
-    - env: COMPILER=clang++-6.0 JOBS=1 TEST_TYPE=configure-gl TEST_LEVEL=minimal GL_LIBS=all-apis
-      addons: &clang6
-        apt:
-          packages:
-            - clang-6.0
-            - cmake-3.9
-            - mesa-common-dev
-          sources:
-            - ubuntu-toolchain-r-test
-            - llvm-toolchain-trusty-6.0
-            - george-edison55/cmake-3.x
+    - env: COMPILER=clang++-5.0 JOBS=1 TEST_TYPE=configure-gl TEST_LEVEL=minimal GL_LIBS=all-apis
 
 before_install:
   - sudo add-apt-repository ppa:george-edison55/cmake-3.x
