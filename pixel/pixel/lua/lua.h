@@ -28,7 +28,7 @@ sol::table bind_pixel(sol::state& lua)
 void bind_app(sol::table& lua, string type_name)
 {
 
-    auto app_factory1 = [](sol::table args) -> unique_ptr<App> {
+    auto app_from_table = [](sol::table args) -> unique_ptr<App> {
         int w = args["width"];
         int h = args["height"];
 
@@ -44,18 +44,14 @@ void bind_app(sol::table& lua, string type_name)
         return std::make_unique<App>(glm::ivec2{w, h}, bg_color, pixel_scale);
     };
 
-    auto app_factory2 = []() -> unique_ptr<App> {
-        cout << "app_factory2" << endl;
-        return std::make_unique<App>();
-    };
-
     auto type = lua.new_usertype<App>(
         type_name,
         "new", sol::constructors<App(), App(glm::ivec2, glm::vec4, float)>(),
         "init", &App::init,
         "run", &App::run,
         "set_tick_callback", &App::set_tick_callback,
-        "render_context", &App::render_context
+        "render_context", &App::render_context,
+        "create", app_from_table
     );
 }
 

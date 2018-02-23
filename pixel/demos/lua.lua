@@ -2,19 +2,13 @@
 
 debug = require('debug')
 
-local app2 = pixel.App.new()
-print(app2)
+local app = pixel.App.create({
+    width = 320,
+    height = 240,
+    background_color = { 0.5, 0.5, 0.5, 1.0 },
+    pixel_scale = 1.0
+})
 
-local app = pixel.App.new(
-    {320, 240},
-    {0.5, 0.5, 0.5, 1.0},
-    1.0
-)
+app:init(0)
 
-
-
-print(app)
-
-
-
-
+app:run()
