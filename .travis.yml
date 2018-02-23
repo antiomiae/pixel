@@ -23,13 +23,23 @@ matrix:
             - llvm-toolchain-trusty-6.0
             - george-edison55/cmake-3.x
 
+before_install:
+  - sudo add-apt-repository ppa:george-edison55/cmake-3.x
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+  - wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+  - sudo add-apt-repository "deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty main"
+  - sudo apt-get -qq update
+
 before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3
 
 script:
-  - tools/run_tests.py --max-jobs ${JOBS} --test-type=${TEST_TYPE} --test-level=${TEST_LEVEL} --gl-libs=${GL_LIBS} --config ${NO_ENUM_TESTS} --cmake -DCMAKE_CXX_COMPILER=${COMPILER}
+  - git submodule init && git submodule update
+  - ./init
+  - ./build
+  - ./test
 
 notifications:
 email: false
