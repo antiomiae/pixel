@@ -22,4 +22,6 @@ local app = pixel.App.create {
 
 app:init(0)
 
+app:set_tick_callback(function () print("Frame") end)
+
 app:run()
