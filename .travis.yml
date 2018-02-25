@@ -31,10 +31,7 @@ before_script:
   - sleep 3
 
 script:
-  - git submodule init && git submodule update
-  - ./init
-  - ./build
-  - ./test
+  - CC=clang-5.0 CXX=clang++-5.0 ./init && ./build && ./test
 
 notifications:
 email: false
