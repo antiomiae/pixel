@@ -22,6 +22,7 @@ before_install:
   - sudo add-apt-repository -y "deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty main"
   - sudo apt -o Acquire::AllowInsecureRepositories=true update
   - sudo apt-get -qq update
+  - apt-get search clang
   - sudo apt-get -y install clang-5.0 clang++-5.0
 
 before_script:
