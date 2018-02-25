@@ -46,21 +46,21 @@ public:
 
     Tile& at(unsigned int x, unsigned int y)
     {
-        return _tiles.at(x + y * _height);
+        return tiles_.at(x + y * height_);
     }
 
 
     const Tile& at(unsigned int x, unsigned int y) const
     {
-        return _tiles.at(x + y * _height);
+        return tiles_.at(x + y * height_);
     }
 
 
 private:
     PropertyMap _props;
-    std::vector<Tile> _tiles;
-    unsigned int _width;
-    unsigned int _height;
+    std::vector<Tile> tiles_;
+    unsigned int width_;
+    unsigned int height_;
     unique_ptr<Texture> texture_;
 };
 

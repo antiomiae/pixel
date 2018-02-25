@@ -5,9 +5,9 @@ using namespace std;
 
 
 TileLayer::TileLayer(unsigned width, unsigned height)
-    : _width(width),
-      _height(height),
-      _tiles(width * height)
+    : width_(width),
+      height_(height),
+      tiles_(width * height)
 {
     init();
 }
@@ -16,15 +16,15 @@ TileLayer::TileLayer(unsigned width, unsigned height)
 void TileLayer::init()
 {
     texture_ = make_unique<Texture>(GL_TEXTURE_2D, GL_RED_INTEGER, GL_R16UI, GL_UNSIGNED_SHORT);
-    (*texture_).load(_width, _height, nullptr);
+    (*texture_).load(width_, height_, nullptr);
 }
 
 
 TileLayer::TileLayer(TileLayer&& rhs) noexcept
     : texture_(std::move(rhs.texture_)),
-      _width(rhs._width),
-      _height(rhs._height),
-      _tiles(move(rhs._tiles))
+      width_(rhs.width_),
+      height_(rhs.height_),
+      tiles_(move(rhs.tiles_))
 {
 }
 
@@ -41,16 +41,16 @@ bool TileLayer::load(const tmx::Map& m, const tmx::TileLayer& t, const pixel::Ti
 
     auto tile_count = m.getTileCount();
 
-    if (_width > 0 || _height > 0) {
+    if (width_ > 0 || height_ > 0) {
         argument_error_if(
-            tile_count.x != _width || tile_count.y != _height,
+            tile_count.x != width_ || tile_count.y != height_,
             "TileLayer was initialized with different map size than supplied tmx::Map"
         );
 
     } else {
-        _width = tile_count.x;
-        _height = tile_count.y;
-        _tiles.resize(_width * _height);
+        width_ = tile_count.x;
+        height_ = tile_count.y;
+        tiles_.resize(width_ * height_);
     }
 
     if (!texture_) {
@@ -58,18 +58,18 @@ bool TileLayer::load(const tmx::Map& m, const tmx::TileLayer& t, const pixel::Ti
     }
 
     auto tmx_tiles = t.getTiles();
-    error_if(tmx_tiles.size() != _tiles.size(), "tmx::TileLayer t contains different number of tiles than expected");
+    error_if(tmx_tiles.size() != tiles_.size(), "tmx::TileLayer t contains different number of tiles than expected");
 
     transform(
         begin(tmx_tiles),
         end(tmx_tiles),
-        begin(_tiles),
+        begin(tiles_),
         [&](auto tmx_tile) {
             return Tile{atlas.atlas_id_from_tmx_id(tmx_tile.ID, tmx_tile.flipFlags)};
         }
     );
 
-    (*texture_).loadSubregion(0, 0, _width, _height, _tiles.data());
+    (*texture_).loadSubregion(0, 0, width_, height_, tiles_.data());
 
     return true;
 }
