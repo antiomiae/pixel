@@ -22,7 +22,7 @@ private:
     glm::vec2 tile_count_;
 
 public:
-    TileMap();
+    TileMap() = default;
 
     bool load(const tmx::Map& map);
 

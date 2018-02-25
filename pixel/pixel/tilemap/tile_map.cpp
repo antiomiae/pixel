@@ -31,11 +31,6 @@ bool TileMap::load(const tmx::Map& map)
 }
 
 
-pixel::TileMap::TileMap()
-{
-}
-
-
 TileAtlas& TileMap::atlas() const
 {
     return *atlas_;

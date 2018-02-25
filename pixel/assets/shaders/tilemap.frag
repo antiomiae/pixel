@@ -26,16 +26,18 @@ void main() {
     ivec4 atlas_coord = decode_id(ID);
     int flip_flags = atlas_coord.w;
 
-    if ((FLIP_H & flip_flags) > 0) {
-        tile_pixel.x = tile_size.x - tile_pixel.x;
-    }
+    if (flip_flags > 0x1) {
+        if ((FLIP_H & flip_flags) > 0) {
+            tile_pixel.x = tile_size.x - tile_pixel.x;
+        }
 
-    if ((FLIP_V & flip_flags) > 0) {
-            tile_pixel.y = tile_size.y - tile_pixel.y;
-    }
+        if ((FLIP_V & flip_flags) > 0) {
+                tile_pixel.y = tile_size.y - tile_pixel.y;
+        }
 
-    if ((FLIP_D & flip_flags) > 0) {
-        tile_pixel = tile_pixel.yx;
+        if ((FLIP_D & flip_flags) > 0) {
+            tile_pixel = tile_pixel.yx;
+        }
     }
 
     fragColor = texelFetch(atlas_tex, ivec3(tile_pixel + atlas_coord.xy * tile_size, atlas_coord.z), 0);

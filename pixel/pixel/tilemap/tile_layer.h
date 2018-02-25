@@ -35,6 +35,7 @@ public:
 
     using PropertyMap = std::unordered_map<uint16_t, Properties>;
 
+    TileLayer() = default;
     TileLayer(const tmx::Map& m, const tmx::TileLayer& t, const pixel::TileAtlas& atlas);
     TileLayer(unsigned width, unsigned height);
     TileLayer(TileLayer&& rhs) noexcept;
@@ -60,7 +61,7 @@ private:
     std::vector<Tile> _tiles;
     unsigned int _width;
     unsigned int _height;
-    unique_ptr<Texture> _texture;
+    unique_ptr<Texture> texture_;
 };
 
 };
