@@ -23,7 +23,7 @@ before_install:
   - sudo apt -o Acquire::AllowInsecureRepositories=true update
   - sudo apt-get -qq update
   - apt search clang
-  - sudo apt-get -y install clang-5.0
+  - sudo apt-get -y install clang-5.0 ninja-build
 
 before_script:
   - "export DISPLAY=:99.0"
