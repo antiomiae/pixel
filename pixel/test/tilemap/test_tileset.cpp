@@ -31,6 +31,12 @@ TEST(Tileset, add_tileset)
             if (id_map.find(tmx_tile.ID + first_id) != end(id_map)) {
                 const auto& stored_tile = id_map.at(tmx_tile.ID + first_id);
                 EXPECT_TRUE(stored_tile.animation.frames.size() == tmx_tile.animation.frames.size());
+                EXPECT_TRUE(
+                    std::any_of(
+                        cbegin(tiles), cend(tiles),
+                        [&](const Tileset::Tile& t) { return t.tile_id == stored_tile.tile_id; }
+                    )
+                );
             } else {
                 ADD_FAILURE() << "id not found in id_map";
             }
