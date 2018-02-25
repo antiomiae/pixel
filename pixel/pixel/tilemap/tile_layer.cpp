@@ -79,3 +79,14 @@ Texture& TileLayer::texture() const
 {
     return *texture_;
 }
+
+
+const vector<TileLayer::Tile>& TileLayer::tiles() const
+{
+    return tiles_;
+}
+
+vector<TileLayer::Tile>& TileLayer::tiles()
+{
+    return tiles_;
+}

@@ -23,7 +23,6 @@ TEST(TileLayer, DefaultConstructible)
 
 TEST(TileLayer, Load)
 {
-
     string map_file = "assets/traps_1.tmx";
 
     tmx::Map tmx_map;
@@ -35,19 +34,32 @@ TEST(TileLayer, Load)
         atlas.add_tileset(tileset);
     }
 
-    TileLayer layer{};
-
     const auto& tmx_layers = tmx_map.getLayers();
 
-    const auto& tmx_tile_layer = *std::find_if(
-        begin(tmx_layers),
-        end(tmx_layers),
+    const auto& tmx_tile_layer = dynamic_cast<tmx::TileLayer&>(**std::find_if(
+        cbegin(tmx_layers),
+        cend(tmx_layers),
         [](const unique_ptr<tmx::Layer>& layer) {
             return layer->getType() == tmx::Layer::Type::Tile;
         }
-    );
+    ));
 
-    layer.load(tmx_map, dynamic_cast<tmx::TileLayer&>(*tmx_tile_layer), atlas);
+    TileLayer layer{};
+    layer.load(tmx_map, tmx_tile_layer, atlas);
+
+    const auto& tmx_tiles = tmx_tile_layer.getTiles();
+    // Check that our map has any non-zero data. Sanity check.
+    ASSERT_TRUE(any_of(cbegin(tmx_tiles), cend(tmx_tiles), [](auto t) { return t.ID > 0; }));
+
+    ASSERT_TRUE(layer.tiles().size() == tmx_tiles.size());
+
+    for (auto i = 0u; i < layer.tiles().size(); ++i) {
+        auto tmx_tile = tmx_tiles[i];
+
+        ASSERT_TRUE(
+            layer.tiles()[i].tile_id == atlas.atlas_id_from_tmx_id(tmx_tile.ID, tmx_tile.flipFlags)
+        );
+    }
 };
 
 };

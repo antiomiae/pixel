@@ -40,6 +40,8 @@ public:
     TileLayer(unsigned width, unsigned height);
     TileLayer(TileLayer&& rhs) noexcept;
     Texture& texture() const;
+    const std::vector<Tile>& tiles() const;
+    std::vector<Tile>& tiles();
     void init();
     bool load(const tmx::Map& m, const tmx::TileLayer& t, const pixel::TileAtlas& atlas);
 
