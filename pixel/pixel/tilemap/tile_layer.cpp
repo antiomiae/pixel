@@ -65,11 +65,15 @@ bool TileLayer::load(const tmx::Map& m, const tmx::TileLayer& t, const pixel::Ti
         end(tmx_tiles),
         begin(tiles_),
         [&](auto tmx_tile) {
-            return Tile{atlas.atlas_id_from_tmx_id(tmx_tile.ID, tmx_tile.flipFlags)};
+            return Tile{
+                tmx_tile.ID,
+                tmx_tile.flipFlags,
+                atlas.atlas_id_from_tmx_id(tmx_tile.ID, tmx_tile.flipFlags)
+            };
         }
     );
 
-    (*texture_).loadSubregion(0, 0, width_, height_, tiles_.data());
+    this->update_texture();
 
     return true;
 }
@@ -86,7 +90,22 @@ const vector<TileLayer::Tile>& TileLayer::tiles() const
     return tiles_;
 }
 
+
 vector<TileLayer::Tile>& TileLayer::tiles()
 {
     return tiles_;
+}
+
+
+void TileLayer::update_texture()
+{
+    vector<uint16_t> tex_data(tiles_.size());
+    std::transform(
+        begin(tiles_),
+        end(tiles_),
+        begin(tex_data),
+        [](auto& tile) { return tile.atlas_id; }
+    );
+    (*texture_).loadSubregion(0, 0, width_, height_, tex_data.data());
+
 }

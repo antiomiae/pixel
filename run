@@ -2,5 +2,8 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+CMD=$1
+shift
+
 ./build
-build-ninja/bin/$1 pixel $2
+build-ninja/bin/$CMD pixel "$@"

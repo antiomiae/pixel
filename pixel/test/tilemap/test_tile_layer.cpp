@@ -9,11 +9,11 @@ TEST(TileLayer, ReferenceTile)
 {
     TileLayer t{10, 10};
 
-    t.at(0, 0).tile_id = 0x101;
+    t.at(0, 0).atlas_id = 0x101;
 
     auto tile = t.at(0, 0);
 
-    ASSERT_TRUE(tile.tile_id == 0x101);
+    ASSERT_TRUE(tile.atlas_id == 0x101);
 };
 
 TEST(TileLayer, DefaultConstructible)
@@ -57,7 +57,7 @@ TEST(TileLayer, Load)
         auto tmx_tile = tmx_tiles[i];
 
         ASSERT_TRUE(
-            layer.tiles()[i].tile_id == atlas.atlas_id_from_tmx_id(tmx_tile.ID, tmx_tile.flipFlags)
+            layer.tiles()[i].atlas_id == atlas.atlas_id_from_tmx_id(tmx_tile.ID, tmx_tile.flipFlags)
         );
     }
 };

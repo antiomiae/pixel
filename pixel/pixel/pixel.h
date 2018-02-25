@@ -10,6 +10,7 @@
 #include "pixel/error.h"
 #include "math/math.h"
 #include "system/system.h"
+#include "pixel/tilemap/tileset.h"
 #include "pixel/tilemap/tile_layer.h"
 #include "pixel/tilemap/tile_atlas.h"
 #include "pixel/tilemap/tile_map.h"

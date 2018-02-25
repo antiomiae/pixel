@@ -29,7 +29,7 @@ add_library(pixel
         pixel/graphics/attribute.cpp pixel/graphics/attribute.h
         pixel/graphics/render_context.cpp pixel/graphics/render_context.h
         pixel/error.h
-        pixel/lua/lua.h)
+        pixel/lua/lua.h pixel/tilemap/tileset.cpp pixel/tilemap/tileset.h)
 
 target_include_directories(pixel PUBLIC .)
 
