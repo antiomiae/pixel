@@ -75,7 +75,7 @@ void pixel::TileMapRenderer::render(pixel::TileMap& t, RenderContext render_cont
     program_->setUniform("tile_size", t.tile_size());
 
     /* Bind atlas texture to unit 0 */
-    t.atlas().activate(0);
+    t.atlas().activate_texture(0);
     program_->setUniform("atlas_tex", 0);
 
     for (auto& layer : t.layers()) {

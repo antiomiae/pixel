@@ -50,7 +50,7 @@ bool TileLayer::load(const tmx::Map& m, const tmx::TileLayer& t, const pixel::Ti
       end(tmx_tiles),
       begin(_tiles),
       [&](auto tmx_tile) {
-          return Tile{atlas.atlasId(tmx_tile.ID)};
+          return Tile{atlas.atlas_id_from_tmx_id(tmx_tile.ID, tmx_tile.flipFlags)};
       }
     );
 

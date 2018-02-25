@@ -53,9 +53,14 @@ void App::update_render_context() {
    render_context_.window_size = window_size(window_);
 }
 
+void clear_color(const glm::vec4& color)
+{
+    glClearColor(color.r, color.g, color.b, color.a);
+}
+
 void App::run()
 {
-    glClearColor(0.1, 0.1, 0.1, 1);
+    clear_color(render_context_.default_clear_color);
 
     while (!glfwWindowShouldClose(window_)) {
         tick();

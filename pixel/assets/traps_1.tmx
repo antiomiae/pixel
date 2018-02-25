@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.0.3" orientation="orthogonal" renderorder="right-down" width="10" height="10" tilewidth="8" tileheight="8" nextobjectid="1">
+ <tileset firstgid="1" source="traps.tsx"/>
+ <layer name="Tile Layer 1" width="10" height="10">
+  <data encoding="csv">
+3,1,1,1,1,1,1,1,1,2147483651,
+4,0,0,0,0,0,0,0,0,4,
+4,0,0,0,0,0,0,0,0,4,
+4,0,0,0,0,0,0,0,0,4,
+4,0,2,2147483650,1073741826,3221225474,2684354562,536870914,1610612738,4,
+4,0,0,0,0,0,0,0,0,4,
+4,0,0,0,0,0,0,0,0,4,
+4,0,2,2,2,2,2,2,5,4,
+3,1,1,1,1,1,1,1,1,2147483651,
+4,0,0,0,0,0,0,0,0,4
+</data>
+ </layer>
+</map>

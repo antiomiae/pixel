@@ -3,4 +3,4 @@ set -euo pipefail
 IFS=$'\n\t'
 
 ./build
-build-ninja/bin/$1 pixel
+build-ninja/bin/$1 pixel $2

@@ -7,7 +7,7 @@ function vec4(v)
 end
 
 local app = pixel.App.create {
-    width = 620,
+    width = 640,
     height = 480,
     background_color = { 0.5, 0.5, 0.5, 1.0 },
     pixel_scale = 2.0

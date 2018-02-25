@@ -18,7 +18,7 @@ bool TileMap::load(const tmx::Map& map)
     }
 
     for (auto& tileset : map.getTilesets()) {
-        atlas_->addTileset(tileset);
+        atlas_->add_tileset(tileset);
     }
 
     for (auto const& tmx_layer : map.getLayers()) {

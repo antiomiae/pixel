@@ -16,62 +16,64 @@ using graphics::ImageData;
 
 
 TileAtlas::TileAtlas(unsigned tile_width, unsigned tile_height, unsigned max_tiles)
-    : _tile_width(tile_width),
-      _tile_height(tile_height),
-      _max_tiles(max_tiles),
-      _max_id(0),
-      _texture(GL_TEXTURE_2D_ARRAY)
+    : tile_width_(tile_width),
+      tile_height_(tile_height),
+      max_tiles_(max_tiles),
+      max_id_(0),
+      texture_(GL_TEXTURE_2D_ARRAY)
 {
-    if (_tile_width * MAX_ATLAS_COLUMNS <= MAX_ATLAS_WIDTH) {
-        _atlas_cols = MAX_ATLAS_COLUMNS;
+    if (tile_width_ * MAX_ATLAS_COLUMNS <= MAX_ATLAS_WIDTH) {
+        atlas_cols_ = MAX_ATLAS_COLUMNS;
     } else {
-        _atlas_cols = MAX_ATLAS_WIDTH / _tile_width;
+        atlas_cols_ = MAX_ATLAS_WIDTH / tile_width_;
     }
 
-    if (_tile_height * MAX_ATLAS_ROWS <= MAX_ATLAS_HEIGHT) {
-        _atlas_rows = MAX_ATLAS_ROWS;
+    if (tile_height_ * MAX_ATLAS_ROWS <= MAX_ATLAS_HEIGHT) {
+        atlas_rows_ = MAX_ATLAS_ROWS;
     } else {
-        _atlas_rows = MAX_ATLAS_HEIGHT / _tile_height;
+        atlas_rows_ = MAX_ATLAS_HEIGHT / tile_height_;
     }
 
-    _atlas_layers = max(
+    atlas_layers_ = max(
         1u,
-        min(MAX_ATLAS_LAYERS, _max_tiles / (_atlas_cols * _atlas_rows))
+        min(MAX_ATLAS_LAYERS, max_tiles_ / (atlas_cols_ * atlas_rows_))
     );
 
-    _texture.load(_tile_width * _atlas_cols, _tile_height * _atlas_rows, _atlas_layers);
+    texture_.load(tile_width_ * atlas_cols_, tile_height_ * atlas_rows_, atlas_layers_);
 }
 
 
-void TileAtlas::addTileset(const tmx::Tileset& tileset)
+void TileAtlas::add_tileset(const tmx::Tileset& tileset)
 {
     ImageData img = load_png(tileset.getImagePath());
-
-    auto tiles = tileset.getTiles();
 
     auto first_id = tileset.getFirstGID();
     auto last_id = tileset.getLastGID();
 
-    for (auto tile_idx = 0; tile_idx < tileset.getTileCount(); ++tile_idx) {
-        auto atlas_id = genNextId();
-        auto tmx_id = first_id + tile_idx;
-
-        _id_map[tmx_id] = atlas_id;
+    for (auto& tile : tileset.getTiles()) {
+        auto atlas_id = next_atlas_id();
+        _id_map[tile.ID + first_id] = atlas_id;
 
         unsigned col, row, layer, flags;
-        tie(col, row, layer, flags) = decodeId(atlas_id);
+        tie(col, row, layer, flags) = decode_atlas_id(atlas_id);
 
-        auto src_col = tile_idx % tileset.getColumnCount();
-        auto src_row = tile_idx / tileset.getColumnCount();
+        auto image_size = tile.imageSize;
 
-        auto subregion = img.subregion(src_col * _tile_width, src_row * _tile_height, _tile_width, _tile_height);
+        if (image_size.x != tile_width_ || image_size.y != tile_height_) {
+            cout << "Warning: The tile size of this atlas is configured with does not match the tileset it is loading"
+                 << endl;
+        }
 
-        _texture.loadSubregion(col * _tile_width, row * _tile_height, _tile_width, _tile_height, layer, subregion.data);
-    }
+        auto image_position = tile.imagePosition;
+        auto type = tile.type;
+
+        auto subregion = img.subregion(image_position.x, image_position.y, tile_width_, tile_height_);
+        texture_.loadSubregion(col * tile_width_, row * tile_height_, tile_width_, tile_height_, layer, subregion.data);
+    };
 }
 
 
-tuple<unsigned, unsigned, unsigned, unsigned> TileAtlas::decodeId(uint16_t id) const
+tuple<unsigned, unsigned, unsigned, unsigned> TileAtlas::decode_atlas_id(uint16_t id) const
 {
     return {
         (id & COLUMN_MASK) >> COLUMN_SHIFT,
@@ -82,7 +84,7 @@ tuple<unsigned, unsigned, unsigned, unsigned> TileAtlas::decodeId(uint16_t id) c
 }
 
 
-uint16_t TileAtlas::encodeId(uint8_t column, uint8_t row, uint8_t layer, uint8_t flags) const
+uint16_t TileAtlas::encode_atlas_id(uint8_t column, uint8_t row, uint8_t layer, uint8_t flags) const
 {
     return static_cast<uint16_t>(
         ((column << COLUMN_SHIFT) & COLUMN_MASK) |
@@ -93,46 +95,46 @@ uint16_t TileAtlas::encodeId(uint8_t column, uint8_t row, uint8_t layer, uint8_t
 }
 
 
-uint16_t TileAtlas::genNextId()
+uint16_t TileAtlas::next_atlas_id()
 {
     unsigned col, row, layer, flags;
-    tie(col, row, layer, flags) = decodeId(_max_id + 1);
+    tie(col, row, layer, flags) = decode_atlas_id(max_id_ + 1);
 
-    if (col >= _atlas_cols) {
+    if (col >= atlas_cols_) {
         col = 0;
         ++row;
     }
 
-    if (row >= _atlas_rows) {
+    if (row >= atlas_rows_) {
         row = 0;
         ++layer;
     }
 
-    if (layer >= _atlas_layers) {
+    if (layer >= atlas_layers_) {
         throw "Texture atlas out of space";
     }
 
-    _max_id = encodeId(col, row, layer, flags);
+    max_id_ = encode_atlas_id(col, row, layer, flags);
 
-    return _max_id;
+    return max_id_;
 }
 
 
-void TileAtlas::debugSave(const string& prefix, const string& dir)
+void TileAtlas::debug_save(const string& prefix, const string& dir)
 {
     if (dir != ".") {
         create_directories(dir);
     }
 
-    vector<uint8_t> pixels(_texture.storageSize());
+    vector<uint8_t> pixels(texture_.storageSize());
 
     /* Copy pixel data from texture to our buffer */
-    _texture.read(pixels.data());
+    texture_.read(pixels.data());
 
-    auto stride = _texture.width() * _texture.height() * 4;
+    auto stride = texture_.width() * texture_.height() * 4;
 
-    for (auto layer = 0u; layer < _atlas_layers; ++layer) {
-        ImageData img{_texture.width(), _texture.height(), pixels.data() + layer * stride};
+    for (auto layer = 0u; layer < atlas_layers_; ++layer) {
+        ImageData img{texture_.width(), texture_.height(), pixels.data() + layer * stride};
 
         auto filename{prefix + to_string(layer) + ".png"};
 
@@ -141,42 +143,54 @@ void TileAtlas::debugSave(const string& prefix, const string& dir)
 }
 
 
-uint16_t TileAtlas::maxId() const
-{ return _max_id; }
+uint16_t TileAtlas::max_atlas_id() const
+{ return max_id_; }
 
 
-unsigned TileAtlas::tileWidth() const
-{ return _tile_width; }
+unsigned TileAtlas::tile_width() const
+{ return tile_width_; }
 
 
-unsigned TileAtlas::tileHeight() const
-{ return _tile_height; }
+unsigned TileAtlas::tile_height() const
+{ return tile_height_; }
 
 
-unsigned TileAtlas::maxTiles() const
-{ return _max_tiles; }
+unsigned TileAtlas::max_tiles() const
+{ return max_tiles_; }
 
 
-unsigned TileAtlas::atlasColumns() const
-{ return _atlas_cols; }
+unsigned TileAtlas::atlas_columns() const
+{ return atlas_cols_; }
 
 
-unsigned TileAtlas::atlasRows() const
-{ return _atlas_rows; }
+unsigned TileAtlas::atlas_rows() const
+{ return atlas_rows_; }
 
 
-unsigned TileAtlas::atlasLayers() const
-{ return _atlas_layers; }
+unsigned TileAtlas::atlas_layers() const
+{ return atlas_layers_; }
 
 
-const uint16_t TileAtlas::atlasId(uint32_t tmx_id) const
+const uint16_t TileAtlas::atlas_id_from_tmx_id(uint32_t tmx_id) const
 {
-    return (tmx_id == 0 ? uint16_t{0} : _id_map.at(tmx_id));
+    return (tmx_id == 0 ? 0 : _id_map.at(tmx_id));
 }
 
+const uint16_t TileAtlas::atlas_id_from_tmx_id(uint32_t tmx_id, uint8_t flags) const
+{
+    if (tmx_id != 0) {
+        auto parts = decode_atlas_id(atlas_id_from_tmx_id(tmx_id));
+        return encode_atlas_id(get<0>(parts), get<1>(parts), get<2>(parts), flags);
+    }
 
-void TileAtlas::activate(unsigned texture_unit)
+    return 0;
+}
+
+void TileAtlas::activate_texture(unsigned texture_unit)
 {
     glActiveTexture(GL_TEXTURE0 + texture_unit);
-    _texture.bind();
+    texture_.bind();
 }
+
+
+

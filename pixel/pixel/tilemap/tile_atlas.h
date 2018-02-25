@@ -39,34 +39,35 @@ class TileAtlas
 {
 private:
     std::unordered_map<uint32_t, uint16_t> _id_map;
-    unsigned _tile_width, _tile_height, _max_tiles, _atlas_rows, _atlas_cols, _atlas_layers;
-    uint16_t _max_id;
-    Texture _texture;
+    unsigned tile_width_, tile_height_, max_tiles_, atlas_rows_, atlas_cols_, atlas_layers_;
+    uint16_t max_id_;
+    Texture texture_;
 public:
     TileAtlas(unsigned tile_width, unsigned tile_height, unsigned max_tiles);
 
     /* Atlas state */
-    void addTileset(const tmx::Tileset&);
-    uint16_t genNextId();
+    void add_tileset(const tmx::Tileset&);
+    uint16_t next_atlas_id();
 
     /* Helpers */
-    const uint16_t atlasId(uint32_t tmx_id) const;
-    uint16_t encodeId(uint8_t column, uint8_t row, uint8_t layer, uint8_t flags) const;
-    tuple<unsigned, unsigned, unsigned, unsigned> decodeId(uint16_t) const;
+    const uint16_t atlas_id_from_tmx_id(uint32_t tmx_id) const;
+    const uint16_t atlas_id_from_tmx_id(uint32_t tmx_id, uint8_t flags) const;
+    uint16_t encode_atlas_id(uint8_t column, uint8_t row, uint8_t layer, uint8_t flags) const;
+    tuple<unsigned, unsigned, unsigned, unsigned> decode_atlas_id(uint16_t) const;
 
     /* Debugging */
-    void debugSave(const std::string& prefix, const std::string& dir = "debug");
+    void debug_save(const std::string& prefix, const std::string& dir = "debug");
 
     /* Getters */
-    uint16_t maxId() const;
-    unsigned tileWidth() const;
-    unsigned tileHeight() const;
-    unsigned maxTiles() const;
-    unsigned atlasColumns() const;
-    unsigned atlasRows() const;
-    unsigned atlasLayers() const;
+    uint16_t max_atlas_id() const;
+    unsigned tile_width() const;
+    unsigned tile_height() const;
+    unsigned max_tiles() const;
+    unsigned atlas_columns() const;
+    unsigned atlas_rows() const;
+    unsigned atlas_layers() const;
 
-    void activate(unsigned texture_unit);
+    void activate_texture(unsigned texture_unit);
 };
 
 }
