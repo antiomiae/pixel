@@ -14,9 +14,11 @@ void pixel::Tileset::add_tileset(const tmx::Tileset& tmx_tileset)
         tile.type = tmx_tile.type;
         tile.tile_id = tmx_tile.ID + first_id;
 
-        if (!tile.animation.frames.empty()) {
-            for (auto& frame : tile.animation.frames) {
-                tile.animation.add_frame(frame.tile_id + first_id, frame.duration);
+        auto has_animation = !tmx_tile.animation.frames.empty();
+
+        if (has_animation) {
+            for (auto& frame : tmx_tile.animation.frames) {
+                tile.animation.add_frame(frame.tileID + first_id, frame.duration);
             }
         }
 
