@@ -38,3 +38,19 @@ const std::unordered_map<uint32_t, pixel::Tileset::Tile> pixel::Tileset::id_map(
 {
     return id_map_;
 }
+
+
+bool pixel::Tileset::tile_has_animation(uint32_t id) const
+{
+    if (id_map_.find(id) != cend(id_map_)) {
+        return !id_map_.at(id).animation.frames.empty();
+    }
+
+    return false;
+}
+
+
+const pixel::Tileset::Tile& pixel::Tileset::tile(uint32_t id) const
+{
+    return id_map_.at(id);
+}

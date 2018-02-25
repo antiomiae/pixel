@@ -23,7 +23,8 @@ bool TileMap::load(const tmx::Map& map)
 
     for (auto const& tmx_layer : map.getLayers()) {
         if (const auto layer = dynamic_cast<tmx::TileLayer*>(tmx_layer.get())) {
-            layers_.emplace_back(map, *layer, *atlas_);
+            layers_.emplace_back();
+            layers_.back().load(map, *layer, tileset_, *atlas_);
         }
     }
 

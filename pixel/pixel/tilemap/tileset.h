@@ -49,9 +49,10 @@ public:
     Tileset() = default;
 
     void add_tileset(const tmx::Tileset& tmx_tileset);
-
+    bool tile_has_animation(uint32_t id) const;
     const std::vector<Tile> tiles() const;
     const std::unordered_map<uint32_t, Tile> id_map() const;
+    const Tile& tile(uint32_t id) const;
 
 private:
     std::vector<Tile> tiles_;

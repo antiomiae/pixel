@@ -4,11 +4,12 @@
 #ifndef PIXEL_TILE_MAP_H
 #define PIXEL_TILE_MAP_H
 
+#include <vector>
 #include <tmxlite/Map.hpp>
+#include <pixel/math/math.h>
 #include "tile_layer.h"
 #include "tile_atlas.h"
-#include <pixel/math/math.h>
-#include <vector>
+#include "tileset.h"
 
 namespace pixel
 {
@@ -17,6 +18,7 @@ class TileMap
 {
 private:
     unique_ptr<TileAtlas> atlas_;
+    Tileset tileset_;
     vector<TileLayer> layers_;
     glm::vec2 tile_size_;
     glm::vec2 tile_count_;

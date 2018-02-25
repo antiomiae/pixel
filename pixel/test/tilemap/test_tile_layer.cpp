@@ -29,14 +29,16 @@ TEST(TileLayer, Load)
     tmx_map.load(map_file);
 
     pixel::TileAtlas atlas{tmx_map.getTileSize().x, tmx_map.getTileSize().y, 100};
+    pixel::Tileset tileset;
 
-    for (auto& tileset : tmx_map.getTilesets()) {
-        atlas.add_tileset(tileset);
+    for (auto& tmx_tileset : tmx_map.getTilesets()) {
+        atlas.add_tileset(tmx_tileset);
+        tileset.add_tileset(tmx_tileset);
     }
 
     const auto& tmx_layers = tmx_map.getLayers();
 
-    const auto& tmx_tile_layer = dynamic_cast<tmx::TileLayer&>(**std::find_if(
+    const auto& reference_layer = dynamic_cast<tmx::TileLayer&>(**std::find_if(
         cbegin(tmx_layers),
         cend(tmx_layers),
         [](const unique_ptr<tmx::Layer>& layer) {
@@ -44,22 +46,39 @@ TEST(TileLayer, Load)
         }
     ));
 
-    TileLayer layer{};
-    layer.load(tmx_map, tmx_tile_layer, atlas);
+    TileLayer our_layer{};
+    our_layer.load(tmx_map, reference_layer, tileset, atlas);
 
-    const auto& tmx_tiles = tmx_tile_layer.getTiles();
+    const auto& reference_tiles = reference_layer.getTiles();
     // Check that our map has any non-zero data. Sanity check.
-    ASSERT_TRUE(any_of(cbegin(tmx_tiles), cend(tmx_tiles), [](auto t) { return t.ID > 0; }));
+    ASSERT_TRUE(any_of(cbegin(reference_tiles), cend(reference_tiles), [](auto t) { return t.ID > 0; }));
+    /* Check that our layer contents are the same size */
+    ASSERT_TRUE(our_layer.tiles().size() == reference_tiles.size());
 
-    ASSERT_TRUE(layer.tiles().size() == tmx_tiles.size());
 
-    for (auto i = 0u; i < layer.tiles().size(); ++i) {
-        auto tmx_tile = tmx_tiles[i];
+    auto our_tiles = our_layer.tiles();
+
+    /* Counter to help ensure we exercise animation loading */
+    int anim_count = 0;
+
+    for (auto i = 0u; i < our_layer.tiles().size(); ++i) {
+        auto tmx_tile = reference_tiles[i];
 
         ASSERT_TRUE(
-            layer.tiles()[i].atlas_id == atlas.atlas_id_from_tmx_id(tmx_tile.ID, tmx_tile.flipFlags)
+            our_tiles[i].atlas_id == atlas.atlas_id_from_tmx_id(tmx_tile.ID, tmx_tile.flipFlags)
         );
+
+        if (tileset.tile_has_animation(tmx_tile.ID)) {
+            /* Expect to have loaded an animation */
+            EXPECT_NO_THROW(
+                our_layer.animations().at(tmx_tile.ID)
+            );
+            anim_count++;
+        }
     }
+
+    /* Assert that we tested animations */
+    ASSERT_TRUE(anim_count > 0);
 };
 
 };

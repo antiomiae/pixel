@@ -28,15 +28,7 @@ TileLayer::TileLayer(TileLayer&& rhs) noexcept
 {
 }
 
-
-TileLayer::TileLayer(const tmx::Map& m, const tmx::TileLayer& t, const TileAtlas& atlas)
-    : TileLayer(m.getTileCount().x, m.getTileCount().y)
-{
-    load(m, t, atlas);
-}
-
-
-bool TileLayer::load(const tmx::Map& m, const tmx::TileLayer& t, const pixel::TileAtlas& atlas)
+bool TileLayer::load(const tmx::Map& m, const tmx::TileLayer& t, const pixel::Tileset& tileset, const pixel::TileAtlas& atlas)
 {
 
     auto tile_count = m.getTileCount();
@@ -72,6 +64,15 @@ bool TileLayer::load(const tmx::Map& m, const tmx::TileLayer& t, const pixel::Ti
             };
         }
     );
+
+    for (auto i = 0u; i < tiles_.size(); ++i) {
+        auto& tile = tiles_[i];
+        if (tileset.tile_has_animation(tile.tile_id)) {
+            animations_[tile.tile_id].tile_id = tile.tile_id;
+            animations_[tile.tile_id].animation_definition = tileset.tile(tile.tile_id).animation;
+            animations_[tile.tile_id].tiles.push_back(i);
+        }
+    }
 
     this->update_texture();
 
@@ -109,3 +110,11 @@ void TileLayer::update_texture()
     (*texture_).loadSubregion(0, 0, width_, height_, tex_data.data());
 
 }
+
+
+unordered_map<uint32_t, TileLayer::TileAnimation> TileLayer::animations()
+{
+    return animations_;
+}
+
+
