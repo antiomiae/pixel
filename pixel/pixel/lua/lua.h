@@ -47,7 +47,7 @@ void bind_app(sol::state& lua, sol::table& binding, string type_name)
 
     binding.new_usertype<App>(
         type_name,
-        "new", sol::constructors<App::App(void), App::App(glm::ivec2, glm::vec4, float)>(),
+        "new", sol::constructors<App(), App(glm::ivec2, glm::vec4, float)>(),
         "init", &App::init,
         "run", &App::run,
         "set_tick_callback", &App::set_tick_callback,
