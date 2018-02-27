@@ -1,5 +1,5 @@
 #include "lua.h"
-
+#include "../pixel.h"
 namespace pixel
 {
 
@@ -11,7 +11,7 @@ sol::table bind_pixel(sol::state& lua)
     bind_app(lua, binding);
     bind_tile_map(lua, binding);
     bind_tile_map_renderer(lua, binding);
-
+    bind_tile_sprite_renderer(lua, binding);
 
     return binding;
 }
@@ -48,42 +48,47 @@ void bind_app(sol::state& lua, sol::table& binding, const string& type_name)
 }
 
 
-void bind_glm(sol::state& lua, sol::table& binding, const string& module_name);
-
-
-void bind_tile_map(sol::state& lua, sol::table& binding, const string& type_name)
-{
-    binding.new_usertype<TileMap>(
-        type_name,
-        "new", sol::constructors<TileMap()>(),
-        "load", sol::resolve<const std::string&>(&TileMap::load),
-        "update", &TileMap::update
-    );
-}
-
-
 void bind_glm(sol::state& lua, sol::table& binding, const string& module_name)
 {
     sol::table _glm = binding[module_name] = lua.create_table();
 
     _glm.new_usertype<glm::ivec2>(
-        "ivec2",
-        "new", sol::constructors<glm::ivec2(), glm::ivec2(int, int)>()
+            "ivec2",
+            "new", sol::constructors<glm::ivec2(), glm::ivec2(int, int)>()
     );
 
     _glm.new_usertype<glm::vec4>(
-        "vec4",
-        "new", sol::constructors<glm::vec4(void), glm::vec4(float, float, float, float)>()
+            "vec4",
+            "new", sol::constructors<glm::vec4(void), glm::vec4(float, float, float, float)>()
     );
 }
 
 
+void bind_tile_map(sol::state& lua, sol::table& binding, const string& type_name)
+{
+    binding.new_usertype<TileMap>(
+            type_name,
+            "new", sol::constructors<TileMap()>(),
+            "load", sol::resolve<const std::string&>(&TileMap::load),
+            "update", &TileMap::update
+    );
+}
+
 void bind_tile_map_renderer(sol::state& lua, sol::table& binding, const string& type_name)
 {
     binding.new_usertype<TileMapRenderer>(
-        type_name,
-        "new", sol::constructors<TileMapRenderer()>(),
-        "render", &TileMapRenderer::render
+            type_name,
+            "new", sol::constructors<TileMapRenderer()>(),
+            "render", &TileMapRenderer::render
+    );
+}
+
+void bind_tile_sprite_renderer(sol::state& lua, sol::table& binding, const string& type_name)
+{
+    binding.new_usertype<graphics::SpriteRenderer>(
+            type_name,
+            "new", sol::constructors<graphics::SpriteRenderer()>(),
+            "render", &graphics::SpriteRenderer::render
     );
 }
 

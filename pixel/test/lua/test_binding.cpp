@@ -9,7 +9,6 @@ class BindingTest : public ::testing::Test
 public:
     sol::state lua;
 
-
     BindingTest()
     {
         lua.open_libraries();
@@ -21,18 +20,22 @@ public:
 
 TEST_F(BindingTest, TileMap)
 {
-    lua.script(
-        R"(
-local tile_map = pixel.TileMap.new()
-assert(tile_map)
+    lua.script(R"(
+        local tile_map = pixel.TileMap.new()
+        assert(tile_map)
 
-tile_map = pixel.load_map("assets/traps_1.tmx");
-assert(tile_map)
+        tile_map = pixel.load_map("assets/traps_1.tmx");
+        assert(tile_map)
 
-)"
-    );
+    )");
+}
 
-
+TEST_F(BindingTest, SpriteRenderer)
+{
+    lua.script(R"(
+        local sprite_renderer = pixel.SpriteRenderer.new()
+        assert(sprite_renderer)
+    )");
 };
 
 };

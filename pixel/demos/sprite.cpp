@@ -72,20 +72,16 @@ int main(int argc, char* argv[])
     pixel::graphics::ImageData ground_tile = pixel::graphics::load_png("assets/sonic.png");
     t1.load(ground_tile.width, ground_tile.height, ground_tile.data);
 
-    pixel::graphics::Shader sprite_shader("assets/shaders/sprite.vert", "assets/shaders/sprite.frag");
-    cout << sprite_shader.debugPrint() << endl;
-
+    SpriteRenderer renderer{};
     {
         auto window_size = app.render_context().window_size;
 
-        sprite_shader.activate();
-        sprite_shader.setUniform("projection", glm::ortho(0.0f, (float) window_size.x, 0.0f, (float) window_size.y));
-        sprite_shader.setUniform("tex", 0);
+        renderer.program().activate();
+        renderer.program().setUniform("projection", glm::ortho(0.0f, (float) window_size.x, 0.0f, (float) window_size.y));
+        renderer.program().setUniform("tex", 0);
         logGlErrors();
-        sprite_shader.deactivate();
+        renderer.program().deactivate();
     }
-
-    SpriteRenderer renderer(sprite_shader);
 
     Sprite sp{};
 

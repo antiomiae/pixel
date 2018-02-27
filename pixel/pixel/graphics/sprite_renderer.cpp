@@ -9,11 +9,11 @@ struct Vertex
     GLfloat texture_coord[2];
 };
 
-pixel::graphics::SpriteRenderer::SpriteRenderer(Shader program)
-        : program_(std::move(program)),
-          vertex_buffer_(GL_STATIC_DRAW),
+pixel::graphics::SpriteRenderer::SpriteRenderer()
+        : vertex_buffer_(GL_STATIC_DRAW),
           sprite_buffer_(GL_STREAM_DRAW)
 {
+    program_ = Shader("assets/shaders/sprite.vert", "assets/shaders/sprite.frag");
     init();
 }
 
@@ -104,7 +104,7 @@ void pixel::graphics::SpriteRenderer::initIndexBuffer() {
             2, 3, 0
     };
 
-    index_buferr_.loadData(indices, sizeof(indices));
+    index_buffer_.loadData(indices, sizeof(indices));
 }
 
 void pixel::graphics::SpriteRenderer::render(pixel::graphics::Sprite *sprites, int count)
@@ -113,7 +113,12 @@ void pixel::graphics::SpriteRenderer::render(pixel::graphics::Sprite *sprites, i
 
     program_.activate();
     vao_.activate();
-    index_buferr_.bind();
+    index_buffer_.bind();
 
-    glDrawElementsInstanced(GL_TRIANGLES, 6, index_buferr_.elementType(), 0, count);
+    glDrawElementsInstanced(GL_TRIANGLES, 6, index_buffer_.elementType(), 0, count);
+}
+
+pixel::graphics::Shader &pixel::graphics::SpriteRenderer::program()
+{
+    return program_;
 }
