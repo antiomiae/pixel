@@ -24,7 +24,6 @@ before_install:
   - sudo add-apt-repository -y "deb http://ppa.launchpad.net/ubuntu-toolchain-r/test/ubuntu trusty main"
   - sudo apt -o Acquire::AllowInsecureRepositories=true update
   - sudo apt-get -qq update
-  - apt search clang
   - sudo apt-get -y install clang-5.0 ninja-build mesa-common-dev libgl1-mesa-dev #make
 
 before_script:
