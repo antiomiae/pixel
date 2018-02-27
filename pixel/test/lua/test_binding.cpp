@@ -14,6 +14,8 @@ public:
     {
         lua.open_libraries();
         pixel::bind_pixel(lua);
+        lua.script("package.path = package.path .. ';pixel/lua/?.lua'");
+        lua.script("require 'pixel'");
     }
 };
 
@@ -23,12 +25,6 @@ TEST_F(BindingTest, TileMap)
         R"(
 local tile_map = pixel.TileMap.new()
 assert(tile_map)
-
-function pixel.load_map(p)
-    tm = pixel.TileMap.new()
-    tm:load(p)
-    return tm
-end
 
 tile_map = pixel.load_map("assets/traps_1.tmx");
 assert(tile_map)
