@@ -16,13 +16,6 @@ namespace pixel
 
 class TileMap
 {
-private:
-    unique_ptr<TileAtlas> atlas_;
-    Tileset tileset_;
-    vector<TileLayer> layers_;
-    glm::vec2 tile_size_;
-    glm::vec2 tile_count_;
-
 public:
     TileMap() = default;
 
@@ -34,7 +27,13 @@ public:
     glm::vec2 tile_size() const;
 
     void update(float dt);
-};
 
+private:
+    unique_ptr<TileAtlas> atlas_;
+    Tileset tileset_;
+    vector<TileLayer> layers_;
+    glm::vec2 tile_size_;
+    glm::vec2 tile_count_;
+};
 };
 #endif //PIXEL_TILE_MAP_H

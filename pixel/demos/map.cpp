@@ -24,10 +24,11 @@ int main(int argc, char* argv[])
     pixel::print_version_information();
 
     pixel::App app{
-        {10 * 8 * 5, 10 * 8 * 5},
-        {1.0, 1.0, 1.0, 1.0},
-        5.0
+        {500, 500},
+        {0.1, 0.1, 0.8, 1.0},
+        2
     };
+
     app.init();
 
     pixel::TileMapRenderer renderer{};
@@ -35,18 +36,29 @@ int main(int argc, char* argv[])
     tmx::Map tmx_map;
     error_if(!tmx_map.load(map_file), "Unable to load map file");
 
-    pixel::TileMap tile_map;
-    tile_map.load(tmx_map);
+    auto tile_map = make_unique<pixel::TileMap>();
+    tile_map->load(tmx_map);
 
-    tile_map.atlas().debug_save("atlas");
+    int i = 0;
 
     app.set_tick_callback(
         [&] {
-            tile_map.update(1 / 60.0);
+            ++i;
+            if (i == 200) {
+                {
+                    tmx::Map tmx_map;
+                    error_if(!tmx_map.load("assets/traps_2.tmx"), "Unable to load map file");
+                    /* replace map */
+                    tile_map = make_unique<pixel::TileMap>();
+                    tile_map->load(tmx_map);
+                }
+            }
+
+            tile_map->update(1 / 60.0);
 
             auto rc = app.render_context();
             //rc.pixel_scale = 1;
-            renderer.render(tile_map, rc);
+            renderer.render(*tile_map, rc);
         }
     );
 
