@@ -33,14 +33,17 @@ int main(int argc, char* argv[])
     pixel::TileMapRenderer renderer{};
 
     tmx::Map tmx_map;
-    pixel::TileMap tile_map;
-
     error_if(!tmx_map.load(map_file), "Unable to load map file");
+
+    pixel::TileMap tile_map;
     tile_map.load(tmx_map);
+
     tile_map.atlas().debug_save("atlas");
 
     app.set_tick_callback(
         [&] {
+            tile_map.update(1 / 60.0);
+
             auto rc = app.render_context();
             //rc.pixel_scale = 1;
             renderer.render(tile_map, rc);

@@ -11,7 +11,6 @@
 #include <tmxlite/Map.hpp>
 #include <tmxlite/TileLayer.hpp>
 #include <pixel/graphics/graphics.h>
-#include "tile_atlas.h"
 #include "tileset.h"
 
 using namespace std;
@@ -53,19 +52,13 @@ public:
          * Orientation of tile, according to `Tile::FlipFlag`
          */
         uint8_t flip_flags{};
-        /*
-         * ID that encodes the `pixel::TileAtlas` ID for this tile's texture atlas section
-         * along with `flip_flags`.
-         */
-        uint16_t atlas_id{};
 
         Tile() = default;
 
 
-        Tile(uint32_t tile_id, uint8_t flip_flags, uint16_t atlas_id)
+        Tile(uint32_t tile_id, uint8_t flip_flags)
             : tile_id{tile_id},
-              flip_flags{flip_flags},
-              atlas_id{atlas_id}
+              flip_flags{flip_flags}
         { }
     };
 
@@ -78,7 +71,7 @@ public:
     struct TileAnimation
     {
         TileAnimation(uint32_t id, pixel::Tileset::Tile::Animation animation)
-            : tile_id{id},
+            : base_tile_id{id},
               animation_definition{animation}
         {
         }
@@ -97,7 +90,39 @@ public:
         /**
          * ID of tile this animation is derived from
          */
-        uint32_t tile_id;
+        uint32_t base_tile_id;
+        /**
+         * Timer
+         */
+        float timer{0};
+        /**
+         * Current frame in sequence
+         */
+        unsigned frame{0};
+
+
+        void update(float dt)
+        {
+            timer += dt * 1000;
+            update_frame();
+        }
+
+
+        void update_frame()
+        {
+            while (timer >= animation_definition.frames[frame].duration) {
+                timer -= animation_definition.frames[frame].duration;
+                frame++;
+                if (frame >= animation_definition.frames.size()) {
+                    frame = 0;
+                }
+            }
+        }
+
+        uint32_t tile_id()
+        {
+            return animation_definition.frames[frame].tile_id;
+        }
     };
 
     using PropertyMap = std::unordered_map<uint16_t, Properties>;
@@ -105,12 +130,16 @@ public:
     TileLayer() = default;
     TileLayer(unsigned width, unsigned height);
     TileLayer(TileLayer&& rhs) noexcept;
-    Texture& texture() const;
+
+    void update(float dt);
+
+    bool load(const tmx::Map& m, const tmx::TileLayer& t, const pixel::Tileset& tileset);
+
     const std::vector<Tile>& tiles() const;
     std::vector<Tile>& tiles();
     std::unordered_map<uint32_t, TileAnimation> animations();
-    void init();
-    bool load(const tmx::Map& m, const tmx::TileLayer& t, const pixel::Tileset& tileset, const pixel::TileAtlas& atlas);
+    unsigned width() const;
+    unsigned height() const;
 
 
     Tile& at(unsigned int x, unsigned int y)
@@ -131,8 +160,6 @@ private:
     std::vector<Tile> tiles_;
     unsigned int width_;
     unsigned int height_;
-    unique_ptr<Texture> texture_;
-    void update_texture();
 };
 
 };

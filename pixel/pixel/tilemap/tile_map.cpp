@@ -19,12 +19,13 @@ bool TileMap::load(const tmx::Map& map)
 
     for (auto& tileset : map.getTilesets()) {
         atlas_->add_tileset(tileset);
+        tileset_.add_tileset(tileset);
     }
 
     for (auto const& tmx_layer : map.getLayers()) {
         if (const auto layer = dynamic_cast<tmx::TileLayer*>(tmx_layer.get())) {
             layers_.emplace_back();
-            layers_.back().load(map, *layer, tileset_, *atlas_);
+            layers_.back().load(map, *layer, tileset_);
         }
     }
 
@@ -53,4 +54,12 @@ glm::vec2 TileMap::tile_count() const
 glm::vec2 TileMap::tile_size() const
 {
     return tile_size_;
+}
+
+
+void TileMap::update(float dt)
+{
+    for (auto& layer : layers_) {
+        layer.update(dt);
+    }
 }

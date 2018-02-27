@@ -9,11 +9,11 @@ TEST(TileLayer, ReferenceTile)
 {
     TileLayer t{10, 10};
 
-    t.at(0, 0).atlas_id = 0x101;
+    t.at(0, 0).tile_id = 0x101;
 
     auto tile = t.at(0, 0);
 
-    ASSERT_TRUE(tile.atlas_id == 0x101);
+    ASSERT_TRUE(tile.tile_id == 0x101);
 };
 
 TEST(TileLayer, DefaultConstructible)
@@ -47,7 +47,7 @@ TEST(TileLayer, Load)
     ));
 
     TileLayer our_layer{};
-    our_layer.load(tmx_map, reference_layer, tileset, atlas);
+    our_layer.load(tmx_map, reference_layer, tileset);
 
     const auto& reference_tiles = reference_layer.getTiles();
     // Check that our map has any non-zero data. Sanity check.
@@ -61,17 +61,15 @@ TEST(TileLayer, Load)
     /* Counter to help ensure we exercise animation loading */
     int anim_count = 0;
 
-    for (auto i = 0u; i < our_layer.tiles().size(); ++i) {
-        auto tmx_tile = reference_tiles[i];
+    for (auto i = 0u; i < our_tiles.size(); ++i) {
+        auto reference_tile = reference_tiles[i];
 
-        ASSERT_TRUE(
-            our_tiles[i].atlas_id == atlas.atlas_id_from_tmx_id(tmx_tile.ID, tmx_tile.flipFlags)
-        );
+        EXPECT_EQ(reference_tile.ID, our_tiles[i].tile_id);
 
-        if (tileset.tile_has_animation(tmx_tile.ID)) {
+        if (tileset.tile_has_animation(reference_tile.ID)) {
             /* Expect to have loaded an animation */
             EXPECT_NO_THROW(
-                our_layer.animations().at(tmx_tile.ID)
+                our_layer.animations().at(reference_tile.ID)
             );
             anim_count++;
         }

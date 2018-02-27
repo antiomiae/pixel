@@ -10,6 +10,7 @@ pixel::TileMapRenderer::TileMapRenderer()
     : buffer_(GL_STATIC_DRAW)
 {
     program_ = make_unique<Shader>("assets/shaders/tilemap.vert", "assets/shaders/tilemap.frag");
+    tile_layer_texture_ = make_unique<TileLayerTexture>();
     init();
 }
 
@@ -76,11 +77,15 @@ void pixel::TileMapRenderer::render(pixel::TileMap& t, RenderContext render_cont
 
     /* Bind atlas texture to unit 0 */
     t.atlas().activate_texture(0);
+    /* Bind map texture to unit 1 */
+
+
     program_->setUniform("atlas_tex", 0);
+    program_->setUniform("map_tex", 1);
 
     for (auto& layer : t.layers()) {
-        layer.texture().activate(1);
-        program_->setUniform("map_tex", 1);
+        tile_layer_texture_->load(layer, t.atlas());
+        tile_layer_texture_->texture().activate(1);
 
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
     }

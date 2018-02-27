@@ -32,6 +32,8 @@ public:
     const vector<TileLayer>& layers() const;
     glm::vec2 tile_count() const;
     glm::vec2 tile_size() const;
+
+    void update(float dt);
 };
 
 };
