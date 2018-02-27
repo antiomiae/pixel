@@ -1,16 +1,4 @@
-function ivec2(v)
-    return pixel.glm.ivec2.new(v[1], v[2])
-end
-
-function vec4(v)
-    return pixel.glm.vec4.new(v[1], v[2], v[3], v[4])
-end
-
-function pixel.load_map(s)
-    tm = pixel.TileMap.new()
-    tm:load(s)
-    return tm
-end
+require 'pixel'
 
 local app = pixel.App.create {
     width = 640,

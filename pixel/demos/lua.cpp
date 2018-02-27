@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
     sol::state lua;
     lua.open_libraries();
     pixel::bind_pixel(lua);
-
+    lua.script("package.path = package.path .. ';pixel/lua/?.lua'");
     lua.script_file("demos/lua.lua");
 
     return 0;
