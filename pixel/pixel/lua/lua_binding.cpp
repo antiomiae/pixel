@@ -7,9 +7,11 @@ sol::table bind_pixel(sol::state& lua)
 {
     sol::table binding = lua["pixel"] = lua.create_table();
 
+    bind_glm(lua, binding);
     bind_app(lua, binding);
     bind_tile_map(lua, binding);
-    bind_glm(lua, binding);
+    bind_tile_map_renderer(lua, binding);
+
 
     return binding;
 }
@@ -71,6 +73,16 @@ void bind_glm(sol::state& lua, sol::table& binding, const string& module_name)
     _glm.new_usertype<glm::vec4>(
         "vec4",
         "new", sol::constructors<glm::vec4(void), glm::vec4(float, float, float, float)>()
+    );
+}
+
+
+void bind_tile_map_renderer(sol::state& lua, sol::table& binding, const string& type_name)
+{
+    binding.new_usertype<TileMapRenderer>(
+        type_name,
+        "new", sol::constructors<TileMapRenderer()>(),
+        "render", &TileMapRenderer::render
     );
 }
 
