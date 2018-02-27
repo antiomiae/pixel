@@ -56,7 +56,8 @@ void bind_tile_map(sol::state& lua, sol::table& binding, const string& type_name
     binding.new_usertype<TileMap>(
         type_name,
         "new", sol::constructors<TileMap()>(),
-        "load", sol::resolve<const std::string&>(&TileMap::load)
+        "load", sol::resolve<const std::string&>(&TileMap::load),
+        "update", &TileMap::update
     );
 }
 

@@ -32,7 +32,14 @@ local map = pixel.load_map("assets/traps_1.tmx")
 
 local renderer = pixel.TileMapRenderer.new()
 
+local obs = {}
+table.insert(obs, map)
+
 app:set_tick_callback(function ()
+    for i, o in pairs(obs) do
+        o:update(1/60.0)
+    end
+
     renderer:render(map, app:render_context())
 end)
 
