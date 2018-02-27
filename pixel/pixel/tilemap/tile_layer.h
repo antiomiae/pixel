@@ -68,8 +68,9 @@ public:
         uint8_t* height_map;
     };
 
-    struct TileAnimation
+    class TileAnimation
     {
+    public:
         TileAnimation(uint32_t id, pixel::Tileset::Tile::Animation animation)
             : base_tile_id{id},
               animation_definition{animation}
@@ -94,11 +95,11 @@ public:
         /**
          * Timer
          */
-        float timer{0};
+        float timer;
         /**
          * Current frame in sequence
          */
-        unsigned frame{0};
+        unsigned frame;
 
 
         void update(float dt)

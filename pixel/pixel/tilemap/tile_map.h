@@ -20,6 +20,7 @@ public:
     TileMap() = default;
 
     bool load(const tmx::Map& map);
+    bool load(const std::string& tmx_path);
 
     TileAtlas& atlas() const;
     const vector<TileLayer>& layers() const;

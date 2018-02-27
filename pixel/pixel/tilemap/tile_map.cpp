@@ -1,6 +1,7 @@
 //
 //
 
+#include <pixel/error.h>
 #include "tile_map.h"
 
 using namespace pixel;
@@ -62,4 +63,12 @@ void TileMap::update(float dt)
     for (auto& layer : layers_) {
         layer.update(dt);
     }
+}
+
+
+bool TileMap::load(const std::string& tmx_path)
+{
+    tmx::Map m;
+    argument_error_unless(m.load(tmx_path), "Unable to load tmx map file at path " + tmx_path);
+    return load(m);
 }

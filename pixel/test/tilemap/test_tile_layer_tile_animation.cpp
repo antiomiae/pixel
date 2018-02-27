@@ -4,34 +4,35 @@ namespace
 {
 TEST(TileAnimation, Animation)
 {
-    pixel::TileLayer::TileAnimation ta;
+    pixel::TileLayer::TileAnimation ta{};
 
     ta.animation_definition.frames = {
-        {1, 32},
-        {2, 32},
-        {3, 32}
+        {1, 2000/60.0},
+        {2, 2000/60.0},
+        {3, 2000/60.0}
     };
 
     /* Should start at beginning of sequence */
     ASSERT_EQ(0, ta.frame);
-    ASSERT_EQ(0, ta.timer);
+    ASSERT_EQ(0.0, ta.timer);
+    ASSERT_EQ(1, ta.tile_id()) << to_string(ta.timer);
 
-    ta.update(16);
+    ta.update(1/60.0);
     /* Should still be on first frame */
-    ASSERT_EQ(0, ta.frame);
+    ASSERT_EQ(1, ta.tile_id()) << to_string(ta.timer);
 
-    ta.update(16);
+    ta.update(1/60.0);
     /* Frame should have advanced */
-    ASSERT_EQ(1, ta.frame);
+    ASSERT_EQ(2, ta.tile_id()) << "Timer = " << to_string(ta.timer);
 
-    ta.update(16);
-    ta.update(16);
-    ASSERT_EQ(2, ta.frame);
+    ta.update(1/60.0);
+    ta.update(1/60.0);
+    ASSERT_EQ(3, ta.tile_id());
 
     /* Should reset to 0 at end of animation */
-    ta.update(16);
-    ta.update(16);
-    ASSERT_EQ(0, ta.frame);
+    ta.update(1/60.0);
+    ta.update(1/60.0);
+    ASSERT_EQ(1, ta.tile_id());
 
 
 };
