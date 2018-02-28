@@ -4,15 +4,14 @@
 namespace
 {
 
-
-}
-
-TEST(Pack, pack_rects_array)
+struct Rect
 {
-    struct Rect
-    {
-        unsigned w, h, id;
-    };
+    unsigned w, h, id;
+};
+
+TEST(pack_rects_array, pack_rects_array)
+{
+
 
     vector<Rect> test_data = {
         {100, 100, 1},
@@ -42,6 +41,27 @@ TEST(Pack, pack_rects_array)
         cout << "{w = " << rect.w << ", h = " << rect.h << ", id = " << rect.id << "} => ";
         cout << "{ x = " << coord.x << ", y = " << coord.y << ", z = " << coord.z << "}" << endl;
     }
+}
+
+TEST(pack_rects_array, throws_with_bad_arguments)
+{
+    auto test_data = vector<Rect>{};
+
+    EXPECT_ANY_THROW(
+        pixel::pack::pack_rects_array(test_data, 0, 1, 1)
+    );
+
+    EXPECT_ANY_THROW(
+        pixel::pack::pack_rects_array(test_data, 1, 0, 1)
+    );
+
+    EXPECT_ANY_THROW(
+        pixel::pack::pack_rects_array(test_data, 1, 1, 0)
+    );
+
+    EXPECT_ANY_THROW(
+        pixel::pack::pack_rects_array(test_data, 0, 0, 0)
+    );
 }
 
 };

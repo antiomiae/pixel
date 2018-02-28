@@ -5,6 +5,7 @@
 
 #include <unordered_map>
 #include <vector>
+#include <pixel/error.h>
 
 namespace pixel::pack
 {
@@ -135,6 +136,8 @@ PackNode* find_rect(PackNode* tree, const R& block)
 template<typename R>
 pair<vector<pair<R, PackParams> >, vector<R> > pack_rects_array(vector<R>& blocks, unsigned w, unsigned h, unsigned d)
 {
+    argument_error_if(w == 0 || h == 0 || d == 0, "Only non-zero dimensions allowed");
+
     vector<PackNode> trees(d);
 
     for (auto& node : trees) {

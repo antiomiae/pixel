@@ -29,7 +29,7 @@ add_library(pixel
         pixel/graphics/attribute.cpp pixel/graphics/attribute.h
         pixel/graphics/render_context.cpp pixel/graphics/render_context.h
         pixel/error.h
-        pixel/lua/lua.h pixel/tilemap/tileset.cpp pixel/tilemap/tileset.h pixel/tilemap/tile_layer_texture.cpp pixel/tilemap/tile_layer_texture.h pixel/lua/lua_binding.cpp pixel/graphics/pack.cpp pixel/graphics/pack.h)
+        pixel/lua/lua.h pixel/tilemap/tileset.cpp pixel/tilemap/tileset.h pixel/tilemap/tile_layer_texture.cpp pixel/tilemap/tile_layer_texture.h pixel/lua/lua_binding.cpp pixel/graphics/pack.cpp pixel/graphics/pack.h pixel/graphics/texture_atlas.cpp pixel/graphics/texture_atlas.h)
 
 target_include_directories(pixel PUBLIC .)
 
