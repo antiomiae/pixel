@@ -1,5 +1,5 @@
 #include "setup.h"
-
+#include <boost/filesystem.hpp>
 
 //// The fixture for testing class Foo.
 //class FooTest : public ::testing::Test {
@@ -47,6 +47,8 @@ int main(int argc, char** argv)
         std::cout << "Changing to directory " << argv[1] << std::endl;
         chdir(argv[1]);
     }
+
+    std::cout << "Working directory: " << boost::filesystem::current_path().string() << endl;
 
     pixeltest::setup();
 

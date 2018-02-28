@@ -23,18 +23,21 @@ class TextureAtlas
 public:
     TextureAtlas() = default;
     explicit TextureAtlas(glm::uvec3 size);
+
     void start_batch();
     void stop_batch();
     uint32_t add_image(const string& path);
 
+    vector<ImageData>& layers();
+
 private:
-    struct _ImageSize
+    struct ImageSize
     {
         unsigned w, h;
         uint32_t region_id;
 
 
-        _ImageSize(unsigned w, unsigned h, uint32_t region_id)
+        ImageSize(unsigned w, unsigned h, uint32_t region_id)
             : w{w},
               h{h},
               region_id{region_id}
@@ -44,8 +47,10 @@ private:
     uint32_t top_id_{0};
     unordered_map<string, uint32_t> file_id_map_;
     unordered_map<uint32_t, TextureRegion> tex_regions_;
-    vector<_ImageSize> blocks_;
+    vector<ImageData> layers_;
+    vector<ImageSize> blocks_;
     unordered_map<uint32_t, ImageData> image_buffers_;
+
     glm::uvec3 texture_dimensions_ = {
         kDefaultTextureAtlasTextureWidth,
         kDefaultTextureAtlasTextureHeight,

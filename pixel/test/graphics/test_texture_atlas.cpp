@@ -7,7 +7,7 @@ namespace
 using namespace pixel;
 using namespace pixel::graphics;
 
-TEST(TextureAtlas, B)
+TEST(TextureAtlas, batch)
 {
     TextureAtlas atlas({1024, 1024, 6});
 
@@ -18,6 +18,12 @@ TEST(TextureAtlas, B)
     }
 
     atlas.stop_batch();
+
+    auto& layers = atlas.layers();
+    for (auto i = 0u; i < layers.size(); ++i) {
+        auto path = "debug/tex_atlas_" + to_string(i) + ".png";
+        layers[i].save(path);
+    }
 }
 
 };

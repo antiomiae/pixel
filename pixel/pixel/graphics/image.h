@@ -16,23 +16,21 @@ struct ImageData
     explicit ImageData(const std::string& path);
 
     ImageData(unsigned int width, unsigned int height);
-
     ImageData(unsigned int _width, unsigned int _height, uint8_t* _data);
-
     ImageData(ImageData&& other) noexcept;
-
     ImageData(ImageData&) = delete;
-    ImageData(const ImageData&) = delete;
-
+    ImageData(const ImageData&);
     ImageData& operator=(const ImageData&) = delete;
-
     ~ImageData();
 
     size_t length();
 
-    ImageData subregion(unsigned int x0, unsigned int y0, unsigned int _width, unsigned int _height);
+    ImageData subregion(unsigned int x0, unsigned int y0, unsigned int _width, unsigned int _height) const;
+
+    bool load_subregion(const ImageData&, unsigned src_x, unsigned src_y, unsigned src_width, unsigned src_height, unsigned dest_x, unsigned dest_y);
 
     bool save(const std::string& path);
+    void clear();
 
     static const int bpp = 4;
 };

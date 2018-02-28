@@ -24,9 +24,9 @@ int main(int argc, char* argv[])
     pixel::print_version_information();
 
     pixel::App app{
-        {500, 500},
+        {1000, 1000},
         {0.1, 0.1, 0.8, 1.0},
-        2
+        4
     };
 
     app.init();

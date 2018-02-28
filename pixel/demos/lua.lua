@@ -16,7 +16,7 @@ app:init(0)
 --    1.0
 --}
 
-local map = pixel.load_map("assets/traps_1.tmx")
+local map = pixel.load_map("assets/map.tmx")
 
 local renderer = pixel.TileMapRenderer.new()
 
