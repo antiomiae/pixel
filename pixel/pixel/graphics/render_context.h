@@ -31,7 +31,6 @@ struct RenderContext
      * @return projection matrix
      */
     glm::mat4 projection() const;
-
 };
 
 };

@@ -5,7 +5,7 @@ file(GLOB test_sources ${CMAKE_CURRENT_LIST_DIR}/**/test_*.cpp)
 
 add_executable(pixel_test
         main.cpp
-        setup.cpp ${test_sources} tilemap/test_tileset.cpp tilemap/test_tile_layer_tile_animation.cpp lua/test_binding.cpp)
+        setup.cpp ${test_sources} tilemap/test_tileset.cpp tilemap/test_tile_layer_tile_animation.cpp lua/test_binding.cpp graphics/test_pack.cpp)
 
 target_link_libraries(pixel_test PUBLIC pixel)
 target_link_libraries(pixel_test PUBLIC GTest::gtest)
