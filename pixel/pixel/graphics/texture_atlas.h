@@ -45,7 +45,7 @@ private:
     unordered_map<string, uint32_t> file_id_map_;
     unordered_map<uint32_t, TextureRegion> tex_regions_;
     vector<_ImageSize> blocks_;
-    vector<ImageData> image_buffers_;
+    unordered_map<uint32_t, ImageData> image_buffers_;
     glm::uvec3 texture_dimensions_ = {
         kDefaultTextureAtlasTextureWidth,
         kDefaultTextureAtlasTextureHeight,
