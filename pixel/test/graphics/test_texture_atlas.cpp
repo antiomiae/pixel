@@ -9,7 +9,7 @@ using namespace pixel::graphics;
 
 TEST(TextureAtlas, batch)
 {
-    TextureAtlas atlas({512, 512, 6});
+    TextureAtlas atlas({1024/2, 1024/2, 20});
 
     atlas.start_batch();
 
