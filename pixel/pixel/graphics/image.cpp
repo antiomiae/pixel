@@ -18,7 +18,7 @@ ImageData pixel::graphics::load_png(const string &path)
 
     ImageData out(png.getWidth(), png.getHeight());
 
-    memcpy(out.data, png.buffer(), out.buffer_length());
+    memcpy(out.data, png.buffer(), out.length());
 
     return out;
 };
@@ -63,7 +63,7 @@ ImageData::ImageData(const ImageData &o)
         : ImageData(o.width, o.height)
 {
     if (o.data != nullptr) {
-        memcpy(data, o.data, buffer_length());
+        memcpy(data, o.data, width * height * bpp);
     }
 }
 
@@ -77,7 +77,7 @@ ImageData::~ImageData()
 }
 
 
-size_t ImageData::buffer_length()
+size_t ImageData::length()
 {
     return size_t{(width * height * bpp)};
 }
@@ -137,6 +137,6 @@ ImageData::load_subregion(const ImageData &other,
 void ImageData::clear()
 {
     if (data != nullptr && !external_data) {
-        memset(data, 0, buffer_length());
+        memset(data, 0, length());
     }
 }
