@@ -23,7 +23,7 @@ struct ImageData
     ImageData& operator=(const ImageData&) = delete;
     ~ImageData();
 
-    size_t length();
+    size_t buffer_length();
 
     ImageData subregion(unsigned int x0, unsigned int y0, unsigned int _width, unsigned int _height) const;
 
