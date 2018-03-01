@@ -1,6 +1,3 @@
-//
-//
-
 #ifndef MAIN_COLLECTIONS_H
 #define MAIN_COLLECTIONS_H
 

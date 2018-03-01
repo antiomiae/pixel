@@ -9,7 +9,7 @@ using namespace pixel::graphics;
 
 TEST(TextureAtlas, batch)
 {
-    TextureAtlas atlas({1024, 1024, 6});
+    TextureAtlas atlas({512, 512, 6});
 
     atlas.start_batch();
 
@@ -24,6 +24,8 @@ TEST(TextureAtlas, batch)
         auto path = "debug/tex_atlas_" + to_string(i) + ".png";
         layers[i].save(path);
     }
+
+    cout << atlas.debug_print();
 }
 
 };
