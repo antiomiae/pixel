@@ -102,7 +102,7 @@ ImageData ImageData::subregion(unsigned int x0, unsigned int y0, unsigned int _w
 }
 
 
-bool ImageData::save(const string &path)
+bool ImageData::save(const string &path) const
 {
     return save_png(*this, path);
 }

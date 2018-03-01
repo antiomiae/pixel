@@ -29,7 +29,7 @@ struct ImageData
 
     bool load_subregion(const ImageData&, unsigned src_x, unsigned src_y, unsigned src_width, unsigned src_height, unsigned dest_x, unsigned dest_y);
 
-    bool save(const std::string& path);
+    bool save(const std::string& path) const;
     void clear();
 
     static const int bpp = 4;
