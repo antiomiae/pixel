@@ -9,11 +9,11 @@ using namespace pixel::graphics;
 
 TEST(TextureAtlas, batch)
 {
-    TextureAtlas atlas({1024/2, 1024/2, 20});
+    TextureAtlas atlas({512, 512, 20});
 
     atlas.start_batch();
 
-    for (auto i = 0u; i < 100; ++i) {
+    for (auto i = 0u; i < 250; ++i) {
         atlas.add_image("assets/random_images/" + to_string(i) + ".png");
     }
 

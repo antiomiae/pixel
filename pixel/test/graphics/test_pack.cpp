@@ -1,8 +1,14 @@
+#include <iostream>
 #include "test/setup.h"
 #include <pixel/graphics/pack.h>
 
+
 namespace
 {
+
+using namespace pixel;
+using namespace pixel::pack;
+using namespace std;
 
 struct Rect
 {

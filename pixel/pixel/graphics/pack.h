@@ -3,6 +3,7 @@
 #ifndef PIXEL_PACK_H
 #define PIXEL_PACK_H
 
+#include <iostream>
 #include <unordered_map>
 #include <vector>
 #include <pixel/error.h>
@@ -77,14 +78,11 @@ struct PackNode
     PackNode* right{nullptr};
     PackNode* down{nullptr};
 
-
     PackNode(unsigned x, unsigned y, unsigned w, unsigned h)
         : x{x}, y{y}, w{w}, h{h}
     { }
 
-
     PackNode() = default;
-
 
     ~PackNode()
     {
@@ -99,6 +97,7 @@ struct PackNode
     }
 };
 
+int free_area(const PackNode* tree);
 
 template<typename R>
 PackNode* split_rect(PackNode* tree, const R& block)
@@ -120,13 +119,18 @@ PackNode* find_rect(PackNode* tree, const R& block)
     }
 
     if (tree->used) {
-        if (auto node = find_rect(tree->right, block)) {
-            return node;
+        if (auto p = find_rect(tree->right, block)) {
+            return p;
         }
-
         return find_rect(tree->down, block);
     } else if (tree->w >= block.w && tree->h >= block.h) {
         return split_rect(tree, block);
+//    } else if (tree->w >= block.h && tree->h >= block.w) {
+//        auto b = block;
+//        auto t = b.w;
+//        b.w = b.h;
+//        b.h = t;
+//        return split_rect(tree, b);
     }
 
     return nullptr;
@@ -158,6 +162,15 @@ pair<vector<pair<R, PackParams> >, vector<R> > pack_rects_array(vector<R>& block
                 leftover.push_back(blocks[i]);
             }
         }
+    }
+
+    for (const auto& node : trees) {
+        if (!node.used) {
+            break;
+        }
+        float remaining = free_area(&node);
+        float ratio = ((w * h) - remaining) / (w * h);
+        cout << "Layer pack ratio: " << ratio * 100 << '%' << endl;
     }
 
     return {registry, leftover};
