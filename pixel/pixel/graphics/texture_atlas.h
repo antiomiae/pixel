@@ -50,11 +50,11 @@ private:
     };
 
     uint32_t top_id_{0};
-    unordered_map<string, uint32_t> file_id_map_;
-    RegionMap tex_regions_;
-    vector<ImageData> layers_;
-    vector<ImageSize> blocks_;
-    unordered_map<uint32_t, ImageData> image_buffers_;
+    unordered_map<string, uint32_t> file_id_map_{};
+    RegionMap tex_regions_{};
+    vector<ImageData> layers_{};
+    vector<ImageSize> blocks_{};
+    unordered_map<uint32_t, ImageData> image_buffers_{};
 
     glm::uvec3 tex_size_ = {
         kDefaultWidth,
