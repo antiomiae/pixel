@@ -6,6 +6,7 @@ execute_process(COMMAND
         ERROR_QUIET OUTPUT_STRIP_TRAILING_WHITESPACE)
 
 set(PIXEL_VERSION "v0.0.1-${GIT_SHA1}")
+
 message("${PIXEL_VERSION}")
 
 configure_file("@CMAKE_CURRENT_SOURCE_DIR@/pixel/system/version.cpp.in" "@CMAKE_CURRENT_BINARY_DIR@/generated/version.cpp" @ONLY)
