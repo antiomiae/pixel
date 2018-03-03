@@ -1,7 +1,7 @@
 #include <iostream>
 #include <pixel/system/version.h>
 
-#define BUILD_VERSION "@GIT_SHA1@"
+#define BUILD_VERSION "@PIXEL_VERSION@"
 
 namespace pixel
 {

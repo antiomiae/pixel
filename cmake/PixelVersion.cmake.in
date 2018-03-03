@@ -5,6 +5,6 @@ execute_process(COMMAND
         OUTPUT_VARIABLE GIT_SHA1
         ERROR_QUIET OUTPUT_STRIP_TRAILING_WHITESPACE)
 
-set(GIT_SHA1 "0.0.1-${GIT_SHA1}")
+set(PIXEL_VERSION "v0.0.1-${GIT_SHA1}")
 
 configure_file("${CMAKE_CURRENT_SOURCE_DIR}/pixel/system/version.cpp.in" "${CMAKE_CURRENT_BINARY_DIR}/generated/version.cpp" @ONLY)

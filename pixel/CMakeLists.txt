@@ -40,11 +40,6 @@ add_library(pixel
 
 add_dependencies(pixel pixel_source_version)
 
-target_compile_definitions(pixel
-        PUBLIC
-        PIXEL_VERSION_STRING="0.0.1"
-        )
-
 target_include_directories(pixel PUBLIC .)
 
 add_subdirectory(demos)
