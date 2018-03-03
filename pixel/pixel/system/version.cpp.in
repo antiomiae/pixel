@@ -1,0 +1,18 @@
+#include <iostream>
+#include <pixel/system/version.h>
+
+#define BUILD_VERSION "@GIT_SHA1@"
+
+namespace pixel
+{
+
+using namespace std;
+
+const char* build_version = BUILD_VERSION;
+
+void print_version_information()
+{
+    cout << "pixel v" << build_version << endl;
+}
+
+};

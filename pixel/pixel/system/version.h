@@ -6,6 +6,7 @@
 
 namespace pixel
 {
+extern const char* build_version;
 void print_version_information();
 }
 

@@ -51,4 +51,14 @@ find_package(Lua CONFIG REQUIRED)
 #find_package(Box2D CONFIG REQUIRED)
 find_package(Boost CONFIG REQUIRED system filesystem)
 
+# the commit's SHA1, and whether the building workspace was dirty or not
+execute_process(COMMAND
+        git describe --match=NeVeRmAtCh --always --abbrev=8 --dirty
+        WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
+        OUTPUT_VARIABLE GIT_SHA1
+        ERROR_QUIET OUTPUT_STRIP_TRAILING_WHITESPACE)
+
+set(GIT_SHA1 "0.0.1-${GIT_SHA1}")
+
+
 add_subdirectory(pixel)

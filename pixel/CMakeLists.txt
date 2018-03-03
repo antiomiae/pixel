@@ -1,6 +1,8 @@
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/pixel/system/version.cpp.in" "${CMAKE_CURRENT_BINARY_DIR}/version.cpp" @ONLY)
+
 add_library(pixel
         pixel/app/app.cpp pixel/app/app.h
         pixel/graphics/common.h
@@ -18,7 +20,7 @@ add_library(pixel
         pixel/graphics/sprite.cpp pixel/graphics/sprite.h
         pixel/time/frame_counter.cpp pixel/time/frame_counter.h
         pixel/time/frame_rate_limiter.cpp pixel/time/frame_rate_limiter.h
-        pixel/system/version.h pixel/system/version.cpp
+        pixel/system/version.h ${CMAKE_CURRENT_BINARY_DIR}/version.cpp
         pixel/system/system.h
         pixel/graphics/sprite_renderer.cpp pixel/graphics/sprite_renderer.h
         pixel/tilemap/tile_layer.h pixel/tilemap/tile_atlas.cpp
@@ -30,6 +32,12 @@ add_library(pixel
         pixel/graphics/render_context.cpp pixel/graphics/render_context.h
         pixel/error.h
         pixel/lua/lua.h pixel/tilemap/tileset.cpp pixel/tilemap/tileset.h pixel/tilemap/tile_layer_texture.cpp pixel/tilemap/tile_layer_texture.h pixel/lua/lua_binding.cpp pixel/graphics/pack.cpp pixel/graphics/pack.h pixel/graphics/texture_atlas.cpp pixel/graphics/texture_atlas.h)
+
+
+target_compile_definitions(pixel
+        PUBLIC
+        PIXEL_VERSION_STRING="0.0.1"
+        )
 
 target_include_directories(pixel PUBLIC .)
 
@@ -51,10 +59,9 @@ target_link_libraries(pixel
 
 #target_include_directories(pixel PUBLIC lib/glm-0.9.9-a2)
 
-target_compile_definitions(pixel
-        PUBLIC
-        PIXEL_VERSION_STRING="0.0.1"
-        )
+
+
+
 
 if (CMAKE_C_FLAGS_DEBUG)
     target_compile_definitions(pixel PUBLIC PIXEL_DEBUG=1)
@@ -62,3 +69,4 @@ else (CMAKE_C_FLAGS_DEBUG)
     target_compile_definitions(pixel PUBLIC PIXEL_DEBUG=0)
 endif (CMAKE_C_FLAGS_DEBUG)
 target_compile_definitions(pixel PUBLIC _DEFAULT_SOURCE=1)
+
