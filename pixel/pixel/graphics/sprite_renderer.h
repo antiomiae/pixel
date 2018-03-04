@@ -17,7 +17,7 @@ public:
     void initIndexBuffer();
     void bindAttributes();
     Shader& program();
-    void render(Sprite* sprites, int count);
+    void render(const vector<Sprite>& sprites, Texture& atlas_texture);
 
 private:
     Vao vao_;

@@ -12,5 +12,6 @@
 #include "texture_region.h"
 #include "sprite_renderer.h"
 #include "render_context.h"
+#include "texture_atlas.h"
 
 #endif //GRAPHICS_GRAPHICS_H

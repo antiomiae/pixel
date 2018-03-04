@@ -11,7 +11,7 @@ using pixel::graphics::TextureRegion;
 using pixel::graphics::SpriteRenderer;
 
 
-void updateSprite(Sprite* sprites, int length, GLFWwindow& window_)
+void updateSprite(vector<Sprite>& sprites, GLFWwindow& window_)
 {
     auto window = &window_;
     float v[2] = {0};
@@ -35,14 +35,14 @@ void updateSprite(Sprite* sprites, int length, GLFWwindow& window_)
         angle -= 0.1;
     }
 
-    for (int i = 0; i < length; ++i) {
+    for (auto i = 0u; i < sprites.size(); ++i) {
         sprites[i].angle += angle;
     }
 
     if (v[0] != 0 || v[1] != 0) {
         float inv_length = 1 / std::sqrt(v[0] * v[0] + v[1] * v[1]);
 
-        for (int i = 0; i < length; ++i) {
+        for (auto i = 0u; i < sprites.size(); ++i) {
             sprites[i].x += v[0] * inv_length * 5;
             sprites[i].y += v[1] * inv_length * 5;
         }
@@ -88,7 +88,7 @@ int main(int argc, char* argv[])
     sp.texture_region.w = 28;
     sp.texture_region.h = 39;
 
-    Sprite sprites[4] = {sp, sp, sp, sp};
+    vector<Sprite> sprites = {sp, sp, sp, sp};
 
     for (int i = 0; i < 4; ++i) {
         sprites[i].x = i * 50 + 50;
@@ -100,8 +100,8 @@ int main(int argc, char* argv[])
 
     app.set_tick_callback(
         [&] {
-            updateSprite(sprites, 4, app.window());
-            renderer.render(sprites, 4);
+            updateSprite(sprites, app.window());
+            renderer.render(sprites, t1);
         }
     );
 
