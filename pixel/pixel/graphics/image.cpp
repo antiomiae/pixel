@@ -3,6 +3,7 @@
 #include <tinypng/png.h>
 #include "../util/util.h"
 #include "../error.h"
+#include <pixel/error.h>
 
 using namespace pixel::graphics;
 using namespace pixel::util;
@@ -139,4 +140,22 @@ void ImageData::clear()
     if (data != nullptr && !external_data) {
         memset(data, 0, length());
     }
+}
+
+
+ImageData ImageData::transpose() const
+{
+    ImageData out{height, width};
+
+    for (auto y = 0u; y < height; ++y) {
+        for (auto x = 0u; x < width; ++x) {
+            for (auto b = 0u; b < bpp; ++b) {
+                auto src_pixel = data[(x + y * width) * bpp + b];
+
+                out.data[(y + x * out.width) * bpp + b] = src_pixel;
+            }
+        }
+    }
+
+    return out;
 }

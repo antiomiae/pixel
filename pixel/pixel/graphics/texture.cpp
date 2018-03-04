@@ -1,7 +1,7 @@
 #include <pixel/pixel.h>
+#include <pixel/error.h>
 
 using namespace pixel::graphics;
-
 
 Texture::Texture(GLenum texture_type, GLenum format, GLenum internal_format, GLenum data_type)
     :
@@ -21,7 +21,7 @@ Texture::Texture(GLenum texture_type, GLenum format, GLenum internal_format, GLe
 }
 
 
-void Texture::load(const int width, const int height, const uint8_t* data)
+void Texture::load(unsigned width, unsigned height, const uint8_t* data)
 {
     if (texture_type_ == GL_TEXTURE_2D || texture_type_ == GL_TEXTURE_1D_ARRAY) {
         width_ = width;
@@ -47,7 +47,24 @@ void Texture::load(const int width, const int height, const uint8_t* data)
 
         allocated_ = true;
     } else {
-        throw "Invalid overload of load() called for texture type";
+        pixel_error("Invalid overload of load() called for texture type");
+    }
+}
+
+
+void Texture::load(unsigned width, unsigned height, const unsigned depth, const uint8_t* data)
+{
+    if (texture_type_ == GL_TEXTURE_3D || texture_type_ == GL_TEXTURE_2D_ARRAY) {
+        bind();
+        glTexImage3D(texture_type_, 0, format_, width, height, depth, 0, format_, data_type_, data);
+        unbind();
+
+        width_ = width;
+        height_ = height;
+        depth_ = depth;
+        allocated_ = true;
+    } else {
+        pixel_error("Invalid overload of load() called for texture type");
     }
 }
 
@@ -66,33 +83,16 @@ void Texture::bind() const
 }
 
 
-void Texture::load(const int width, const int height, const int depth, const uint8_t* data)
-{
-    if (texture_type_ == GL_TEXTURE_3D || texture_type_ == GL_TEXTURE_2D_ARRAY) {
-        bind();
-        glTexImage3D(texture_type_, 0, format_, width, height, depth, 0, format_, data_type_, data);
-        unbind();
-
-        width_ = width;
-        height_ = height;
-        depth_ = depth;
-        allocated_ = true;
-    } else {
-        throw "Invalid overload of load() called for texture type";
-    }
-}
-
-
-void debugPrint(const Texture& t)
+void debug_print(const Texture& t)
 {
     auto level_param = [&](auto e) -> auto {
         int i;
-        glGetTexLevelParameteriv(t.texture_type_, 0, e, &i);
+        glGetTexLevelParameteriv(t.texture_type(), 0, e, &i);
         return i;
     };
     auto tex_param = [&](auto e) -> auto {
         int i;
-        glGetTexParameteriv(t.texture_type_, e, &i);
+        glGetTexParameteriv(t.texture_type(), e, &i);
         return i;
     };
 
@@ -104,10 +104,10 @@ void debugPrint(const Texture& t)
 }
 
 
-void Texture::loadSubregion(int x, int y, int width, int height, int layer, const void* data)
+void Texture::load_subregion(int x, int y, int width, int height, int layer, const void* data)
 {
     if (!allocated_) {
-        throw "Texture memory not allocated. Call load() to initialize texture memory.";
+        pixel_error("Texture memory not allocated. Call load() to initialize texture memory.");
     }
 
     if (x + width > width_) {
@@ -125,15 +125,15 @@ void Texture::loadSubregion(int x, int y, int width, int height, int layer, cons
         glTexSubImage3D(texture_type_, 0, x, y, layer, width, height, 1, format_, data_type_, data);
         unbind();
     } else {
-        throw "Invalid overload of loadSubregion() called for texture typed";
+        pixel_error("Invalid overload of load_subregion() called for texture typed");
     }
 }
 
 
-void Texture::loadSubregion(int x, int y, int width, int height, const void* data)
+void Texture::load_subregion(int x, int y, int width, int height, const void* data)
 {
     if (!allocated_) {
-        throw "Texture memory not allocated. Call load() to initialize texture memory.";
+        pixel_error("Texture memory not allocated. Call load() to initialize texture memory.");
     }
 
     if (texture_type_ == GL_TEXTURE_2D || texture_type_ == GL_TEXTURE_1D_ARRAY) {
@@ -141,12 +141,12 @@ void Texture::loadSubregion(int x, int y, int width, int height, const void* dat
         glTexSubImage2D(texture_type_, 0, x, y, width, height, format_, data_type_, data);
         unbind();
     } else {
-        throw "Invalid overload of loadSubregion() called for texture typed";
+        pixel_error("Invalid overload of load_subregion() called for texture typed");
     }
 }
 
 
-unsigned formatComponents(GLenum format)
+unsigned format_components(GLenum format)
 {
     switch (format) {
         case GL_RED:
@@ -175,7 +175,7 @@ unsigned formatComponents(GLenum format)
 }
 
 
-unsigned sizeofGLType(GLenum type)
+unsigned size_of_gl_type(GLenum type)
 {
     switch (type) {
         case GL_BYTE:
@@ -196,20 +196,21 @@ unsigned sizeofGLType(GLenum type)
 }
 
 
-size_t Texture::storageSize() const
+size_t Texture::storage_size() const
 {
     if (data_type_ < GL_BYTE || data_type_ > GL_FLOAT) {
-        pixel_error("Only GL_UNSIGNED_BYTE, GL_BYTE, GL_UNSIGNED_SHORT, GL_SHORT, GL_UNSIGNED_INT, GL_INT, GL_FLOAT allowed");
+        pixel_error(
+            "Only GL_UNSIGNED_BYTE, GL_BYTE, GL_UNSIGNED_SHORT, GL_SHORT, GL_UNSIGNED_INT, GL_INT, GL_FLOAT allowed");
     }
     /* Don't try to handle packed formats */
     auto pixels = width_ * height_ * depth_;
-    auto components = formatComponents(format_);
-    auto component_size = sizeofGLType(data_type_);
+    auto components = format_components(format_);
+    auto component_size = size_of_gl_type(data_type_);
     return pixels * components * component_size;
 }
 
 
-void Texture::read(void* buf)
+void Texture::read(void* buf) const
 {
     bind();
     glGetTexImage(texture_type_, 0, format_, data_type_, buf);
@@ -247,4 +248,23 @@ void pixel::graphics::Texture::activate(unsigned unit) const
 {
     glActiveTexture(GL_TEXTURE0 + unit);
     bind();
+}
+
+unsigned pixel::graphics::Texture::width() const
+{ return width_; }
+
+unsigned pixel::graphics::Texture::height() const
+{ return height_; }
+
+unsigned pixel::graphics::Texture::depth() const
+{ return depth_; }
+
+GLenum pixel::graphics::Texture::texture_type() const
+{
+    return texture_type_;
+}
+
+GLuint pixel::graphics::Texture::texture_id() const
+{
+    return texture_id_;
 }

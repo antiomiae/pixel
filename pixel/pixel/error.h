@@ -3,6 +3,11 @@
 
 #include <exception>
 #include <string>
+#include <pixel/util/util.h>
+
+#define pixel_error(str) pixel::util::_error(__LINE__, __FILE__, str)
+#define error_if(expr, str) pixel::util::_error_if(__LINE__, __FILE__, expr, str);
+#define error_unless(expr, str) pixel::util::_error_if(__LINE__, __FILE__, !(expr), str);
 
 namespace pixel
 {

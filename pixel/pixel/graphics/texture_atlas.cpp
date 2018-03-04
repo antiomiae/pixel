@@ -21,9 +21,9 @@ void TextureAtlas::process_batch()
 
     auto res = pixel::pack::pack_rects_array(
         blocks_,
-        tex_size_.x,
-        tex_size_.y,
-        tex_size_.z
+        atlas_size_.x,
+        atlas_size_.y,
+        atlas_size_.z
     );
 
     auto& packing = res.first;
@@ -39,7 +39,7 @@ void TextureAtlas::process_batch()
         }
     );
 
-    ImageData temp_surface(tex_size_.x, tex_size_.y);
+    ImageData temp_surface(atlas_size_.x, atlas_size_.y);
 
     auto current_layer = 0u;
 
@@ -67,12 +67,20 @@ void TextureAtlas::process_batch()
             temp_surface.clear();
         }
 
-        try {
+        //try {
+        if (pack_params.flipped) {
+            auto src_img = image_buffers_.at(image_size.region_id).transpose();
+            temp_surface.load_subregion(src_img, 0, 0, src_img.width, src_img.height, pack_params.x, pack_params.y);
+        } else {
             const auto& src_img = image_buffers_.at(image_size.region_id);
             temp_surface.load_subregion(src_img, 0, 0, src_img.width, src_img.height, pack_params.x, pack_params.y);
-        } catch (exception& e) {
-            cout << "Cannot find ImageData for region_id returned from packing function" << endl;
         }
+
+
+//        } catch (exception& e) {
+//            pixel_error(e.what());
+//            //error("Cannot find ImageData for region_id returned from packing function");
+//        }
 
         current_layer = pack_params.z;
     }
@@ -102,7 +110,7 @@ uint32_t TextureAtlas::add_image(const std::string& path)
 
 
 TextureAtlas::TextureAtlas(glm::uvec3 size)
-    : tex_size_(size)
+    : atlas_size_(size)
 {
 }
 
@@ -125,15 +133,17 @@ string print(const TextureRegion& r)
     return out.str();
 }
 
-vector<TextureAtlas::RegionMapItem> sort_regions(const TextureAtlas::RegionMap& r) {
+vector<TextureAtlas::RegionMapItem> sort_regions(const TextureAtlas::RegionMap& r)
+{
     vector<TextureAtlas::RegionMapItem> out(r.size());
 
     std::copy(begin(r), end(r), begin(out));
 
-    std::sort(begin(out), end(out),
-              [](const auto& a, const auto& b) {
-                  return a.first < b.first;
-              }
+    std::sort(
+        begin(out), end(out),
+        [](const auto& a, const auto& b) {
+            return a.first < b.first;
+        }
     );
 
     return out;
@@ -144,7 +154,7 @@ string TextureAtlas::debug_print() const
     stringstream out;
 
     out << "TextureAtlas {" << endl
-        << "  tex_size = { " << tex_size_.x << ", " << tex_size_.y << ", " << tex_size_.z << " }" << endl
+        << "  tex_size = { " << atlas_size_.x << ", " << atlas_size_.y << ", " << atlas_size_.z << " }" << endl
         << "  tex_regions = { " << endl;
 
     for (auto & [k, v] : sort_regions(tex_regions_)) {
@@ -156,6 +166,20 @@ string TextureAtlas::debug_print() const
         << "}" << endl;
 
     return out.str();
+}
+
+Texture TextureAtlas::as_texture() const
+{
+    Texture tex{GL_TEXTURE_2D_ARRAY};
+    /* Set size of texture */
+    tex.load(atlas_size_.x, atlas_size_.y, atlas_size_.z);
+
+    for (auto i = 0u; i < layers_.size(); ++i) {
+        auto& layer = layers_[i];
+        tex.load_subregion(0, 0, layer.width, layer.height, i, layer.data);
+    }
+
+    return tex;
 }
 
 };

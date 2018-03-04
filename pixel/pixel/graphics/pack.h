@@ -7,67 +7,22 @@
 #include <unordered_map>
 #include <vector>
 #include <pixel/error.h>
+#include <pixel/error.h>
 
 namespace pixel::pack
 {
 
 using namespace std;
 
-/*
-local function pack_rects_array(rects, w, h, d)
-    local trees = {}
-    for i = 1, d do table.insert(trees, { rect = Rect:new { w = w, h = h } }) end
-
-    local registry = {}
-    local leftover = {}
-
-    for i, r in pairs(rects) do
-        for layer = 1, d do
-            local node = find_rect(trees[layer], r)
-            if node then
-                registry[r] = { x = node.rect.x, y = node.rect.y, z = layer - 1 }
-                break
-            elseif (layer == d) then
-                table.insert(leftover, r)
-            end
-        end
-    end
-
-    return registry, leftover, trees
-end
-
-local function split_rect(tree, block)
-    tree.right = { rect = Rect:new { x = tree.rect.x + block.w, y = tree.rect.y + block.h, w = tree.rect.w - block.w, h = block.h } }
-    tree.down = { rect = Rect:new { x = tree.rect.x + block.w, y = tree.rect.y + block.h, w = tree.rect.w, h = tree.rect.h - block.h } }
-    tree.used = true
-    tree.rect.w = block.w
-    tree.rect.h = block.h
-    return tree
-end
-
-
-local function find_rect(tree, block)
-    if tree.used then
-        return find_rect(tree.right, block) or find_rect(tree.down, block)
-    elseif tree.rect.w >= block.w and tree.rect.h >= block.h then
-        return split_rect(tree, block)
-    else
-        return nil
-    end
-end
-
- */
-
 struct PackParams
 {
     unsigned x{}, y{}, z{};
+    bool flipped;
     PackParams() = default;
 
-
-    PackParams(unsigned x, unsigned y, unsigned z)
-        : x{x}, y{y}, z{z}
+    PackParams(unsigned x, unsigned y, unsigned z, bool flipped)
+        : x{x}, y{y}, z{z}, flipped{flipped}
     {
-
     };
 };
 
@@ -75,6 +30,7 @@ struct PackNode
 {
     unsigned w{}, h{}, x{}, y{};
     bool used{false};
+    bool flipped{false};
     PackNode* right{nullptr};
     PackNode* down{nullptr};
 
@@ -95,6 +51,16 @@ struct PackNode
             down = nullptr;
         }
     }
+
+    bool can_fit(unsigned _w, unsigned _h)
+    {
+        return std::max(w, h) >= std::max(_w, _h) && std::min(w, h) >= std::min(_w, _h);
+    }
+
+    bool should_flip(unsigned _w, unsigned _h)
+    {
+        return ((_w > _h && _w <= h) || ((_w > w || _h > h) && (_h <= w && _w <= h)));
+    }
 };
 
 int free_area(const PackNode* tree);
@@ -102,11 +68,20 @@ int free_area(const PackNode* tree);
 template<typename R>
 PackNode* split_rect(PackNode* tree, const R& block)
 {
-    tree->right = new PackNode(tree->x + block.w, tree->y, tree->w - block.w, block.h);
-    tree->down = new PackNode(tree->x, tree->y + block.h, tree->w, tree->h - block.h);
-    tree->w = block.w;
-    tree->h = block.h;
+    unsigned w, h;
+    w = block.w;
+    h = block.h;
+
+    if (tree->should_flip(w, h)) {
+        std::swap(w, h);
+        tree->flipped = true;
+    }
+    tree->right = new PackNode(tree->x + w, tree->y, tree->w - w, h);
+    tree->down = new PackNode(tree->x, tree->y + h, tree->w, tree->h - h);
+    tree->w = w;
+    tree->h = h;
     tree->used = true;
+
     return tree;
 }
 
@@ -123,7 +98,7 @@ PackNode* find_rect(PackNode* tree, const R& block)
             return p;
         }
         return find_rect(tree->down, block);
-    } else if (tree->w >= block.w && tree->h >= block.h) {
+    } else if (tree->can_fit(block.w, block.h)) {
         return split_rect(tree, block);
 //    } else if (tree->w >= block.h && tree->h >= block.w) {
 //        auto b = block;
@@ -140,7 +115,7 @@ PackNode* find_rect(PackNode* tree, const R& block)
 template<typename R>
 pair<vector<pair<R, PackParams> >, vector<R> > pack_rects_array(vector<R>& blocks, unsigned w, unsigned h, unsigned d)
 {
-    argument_error_if(w == 0 || h == 0 || d == 0, "Only non-zero dimensions allowed");
+    argument_error_if(w == 0 || h == 0 || d == 0, "All dimensions must be > 0");
 
     vector<PackNode> trees(d);
 
@@ -156,7 +131,24 @@ pair<vector<pair<R, PackParams> >, vector<R> > pack_rects_array(vector<R>& block
             auto node = find_rect(&trees[layer], blocks[i]);
 
             if (node) {
-                registry.push_back({blocks[i], PackParams{node->x, node->y, layer}});
+                if (!node->flipped) {
+                    if (node->x + blocks[i].w > w) {
+                        pixel_error("Placement violates bounds: exceeds width.");
+                    }
+                    if (node->y + blocks[i].h > h) {
+                        pixel_error("Placement violates bounds: exceeds height.");
+                    }
+                } else {
+                    if (node->x + blocks[i].h > w) {
+                        pixel_error("Placement violates bounds: exceeds width.");
+                    }
+                    if (node->y + blocks[i].w > h) {
+                        pixel_error("Placement violates bounds: exceeds height.");
+                    }
+                }
+
+                registry.push_back({blocks[i], PackParams{node->x, node->y, layer, node->flipped}});
+
                 break;
             } else if (layer == d - 1) {
                 leftover.push_back(blocks[i]);
@@ -168,8 +160,10 @@ pair<vector<pair<R, PackParams> >, vector<R> > pack_rects_array(vector<R>& block
         if (!node.used) {
             break;
         }
+
         float remaining = free_area(&node);
         float ratio = ((w * h) - remaining) / (w * h);
+
         cout << "Layer pack ratio: " << ratio * 100 << '%' << endl;
     }
 

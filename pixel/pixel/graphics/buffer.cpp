@@ -4,6 +4,7 @@
 #include <iostream>
 #include "buffer.h"
 #include "../util/util.h"
+#include <pixel/error.h>
 
 using pixel::graphics::Attribute;
 

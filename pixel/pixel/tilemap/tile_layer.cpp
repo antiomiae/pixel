@@ -1,4 +1,5 @@
 #include <pixel/pixel.h>
+#include <pixel/error.h>
 
 using namespace pixel;
 using namespace std;

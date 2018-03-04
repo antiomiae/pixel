@@ -68,7 +68,7 @@ void TileAtlas::add_tileset(const tmx::Tileset& tileset)
         auto type = tile.type;
 
         auto subregion = img.subregion(image_position.x, image_position.y, tile_width_, tile_height_);
-        texture_.loadSubregion(col * tile_width_, row * tile_height_, tile_width_, tile_height_, layer, subregion.data);
+        texture_.load_subregion(col * tile_width_, row * tile_height_, tile_width_, tile_height_, layer, subregion.data);
     };
 }
 
@@ -126,7 +126,7 @@ void TileAtlas::debug_save(const string& prefix, const string& dir)
         create_directories(dir);
     }
 
-    vector<uint8_t> pixels(texture_.storageSize());
+    vector<uint8_t> pixels(texture_.storage_size());
 
     /* Copy pixel data from texture to our buffer */
     texture_.read(pixels.data());

@@ -1,6 +1,3 @@
-//
-//
-
 #ifndef PIXEL_PIXEL_H
 #define PIXEL_PIXEL_H
 

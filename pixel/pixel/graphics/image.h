@@ -32,6 +32,8 @@ struct ImageData
     bool save(const std::string& path) const;
     void clear();
 
+    ImageData transpose() const;
+
     static const int bpp = 4;
 };
 

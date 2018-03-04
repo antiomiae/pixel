@@ -32,6 +32,8 @@ public:
     vector<ImageData>& layers();
     string debug_print() const;
 
+    Texture as_texture() const;
+
     using RegionMap = unordered_map<uint32_t, TextureRegion>;
     using RegionMapItem = pair<uint32_t, TextureRegion>;
 
@@ -56,7 +58,7 @@ private:
     vector<ImageSize> blocks_{};
     unordered_map<uint32_t, ImageData> image_buffers_{};
 
-    glm::uvec3 tex_size_ = {
+    glm::uvec3 atlas_size_ = {
         kDefaultWidth,
         kDefaultHeight,
         kDefaultLayers

@@ -1,5 +1,6 @@
 #include <string>
 #include "app.h"
+#include <pixel/error.h>
 #include <pixel/time/frame_rate_limiter.h>
 #include <pixel/util/util.h>
 

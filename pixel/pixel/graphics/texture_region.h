@@ -21,6 +21,10 @@ struct TextureRegion
         int32_t rect[4];
     };
     int32_t layer;
+    /**
+     * Whether pixel data should be transposed when used
+     */
+    bool flipped;
 };
 
 };
