@@ -96,7 +96,7 @@ int main(int argc, char* argv[])
     }
 
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, t1.texture_id_);
+    glBindTexture(GL_TEXTURE_2D, t1.texture_id());
 
     app.set_tick_callback(
         [&] {

@@ -107,7 +107,7 @@ int main(int argc, char* argv[])
     vao.deactivate();
 
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, t1.texture_id_);
+    glBindTexture(GL_TEXTURE_2D, t1.texture_id());
 
     shader.setUniform("tex", 0);
     logGlErrors();

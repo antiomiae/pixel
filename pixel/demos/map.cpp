@@ -1,5 +1,6 @@
 #include <pixel/pixel.h>
 #include <unistd.h>
+#include <pixel/error.h>
 
 using namespace std;
 
