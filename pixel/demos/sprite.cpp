@@ -56,9 +56,9 @@ int main(int argc, char* argv[])
     print_version_information();
 
     pixel::App app{
-//        {640, 480},
-//        {0.0, 0.0, 0.0, 1.0},
-//        2
+        {640, 480},
+        {0.1, 0.1, 0.1, 1.0},
+        2
     };
 
     app.init();
