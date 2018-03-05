@@ -1,5 +1,5 @@
 #!/bin/bash
 
-cd build-ninja && ninja -j2
+cd build-ninja && ninja -j4
 
 
