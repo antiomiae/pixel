@@ -1,6 +1,7 @@
 //
 //
 
+#include <pixel/pixel.h>
 #include "sprite_renderer.h"
 
 namespace pixel::graphics
@@ -80,6 +81,14 @@ void SpriteRenderer::SpriteRenderer::bindAttributes()
         1
     );
 
+    sprite_buffer_.bindToProgramAttribute(
+        program_,
+        "flipped",
+        sizeof(Sprite),
+        offsetof(Sprite, texture_region) + offsetof(TextureRegion, flipped),
+        1
+    );
+
     vao_.deactivate();
 }
 
@@ -112,8 +121,17 @@ void SpriteRenderer::SpriteRenderer::initIndexBuffer()
     index_buffer_.loadData(indices, sizeof(indices));
 }
 
-void SpriteRenderer::SpriteRenderer::render(const vector<Sprite>& sprites, Texture& atlas_texture)
+void SpriteRenderer::SpriteRenderer::render(const vector<Sprite>& sprites, Texture& atlas_texture, glm::mat4 projection)
 {
+    logGlErrors();
+    program().activate();
+    logGlErrors();
+    program().setUniform("projection", projection);
+    logGlErrors();
+    program().setUniform("tex", 0);
+    logGlErrors();
+    program().deactivate();
+
     sprite_buffer_.loadData(sprites.data(), sprites.size() * sizeof(Sprite));
 
     program_.activate();

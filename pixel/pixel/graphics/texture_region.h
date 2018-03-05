@@ -24,7 +24,7 @@ struct TextureRegion
     /**
      * Whether pixel data should be transposed when used
      */
-    bool flipped;
+    int flipped;
 };
 
 };

@@ -5,12 +5,14 @@ flat in int _texture_layer;
 
 out vec4 fragColor;
 
-uniform sampler2D tex;
+uniform sampler2DArray tex;
 
 void main() {
-  fragColor = texelFetch(tex, ivec2(_texture_coord), 0);
+    ivec2 t = ivec2(_texture_coord);
 
-  if (fragColor.a == 0.0) {
-    discard;
-  }
+    fragColor = texelFetch(tex, ivec3(t, _texture_layer), 0);
+
+    if (fragColor.a == 0.0) {
+      discard;
+    }
 }

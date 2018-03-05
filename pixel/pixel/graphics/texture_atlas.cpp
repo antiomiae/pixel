@@ -55,6 +55,8 @@ void TextureAtlas::process_batch()
         region.layer = pack_params.z;
         region.w = image_size.w;
         region.h = image_size.h;
+        /* whether texture is stored in atlas with pixels transposed */
+        region.flipped = pack_params.flipped;
 
         /* Associate region with unique region ID */
         tex_regions_[image_size.region_id] = region;
@@ -67,7 +69,6 @@ void TextureAtlas::process_batch()
             temp_surface.clear();
         }
 
-        //try {
         if (pack_params.flipped) {
             auto src_img = image_buffers_.at(image_size.region_id).transpose();
             temp_surface.load_subregion(src_img, 0, 0, src_img.width, src_img.height, pack_params.x, pack_params.y);
@@ -75,12 +76,6 @@ void TextureAtlas::process_batch()
             const auto& src_img = image_buffers_.at(image_size.region_id);
             temp_surface.load_subregion(src_img, 0, 0, src_img.width, src_img.height, pack_params.x, pack_params.y);
         }
-
-
-//        } catch (exception& e) {
-//            pixel_error(e.what());
-//            //error("Cannot find ImageData for region_id returned from packing function");
-//        }
 
         current_layer = pack_params.z;
     }
@@ -128,6 +123,7 @@ string print(const TextureRegion& r)
         << ", w = " << r.w
         << ", h = " << r.h
         << ", layer = " << r.layer
+        << ", flipped = " << r.flipped
         << " }";
 
     return out.str();
@@ -180,6 +176,17 @@ Texture TextureAtlas::as_texture() const
     }
 
     return tex;
+}
+
+TextureRegion TextureAtlas::lookup(const std::string& name) const
+{
+    auto region_id = file_id_map_.at(name);
+    return tex_regions_.at(region_id);
+}
+
+TextureRegion TextureAtlas::lookup(uint32_t region_id) const
+{
+    return tex_regions_.at(region_id);
 }
 
 };

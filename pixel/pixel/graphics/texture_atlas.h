@@ -29,7 +29,12 @@ public:
     void stop_batch();
 
     uint32_t add_image(const string& path);
+
     vector<ImageData>& layers();
+
+    TextureRegion lookup(const std::string& name) const;
+    TextureRegion lookup(uint32_t region_id) const;
+
     string debug_print() const;
 
     Texture as_texture() const;

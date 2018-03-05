@@ -4,12 +4,8 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wconversion"
 
-using pixel::graphics::Buffer;
-using pixel::graphics::IndexBuffer;
-using pixel::graphics::Sprite;
-using pixel::graphics::TextureRegion;
-using pixel::graphics::SpriteRenderer;
-
+using namespace pixel;
+using namespace pixel::graphics;
 
 void updateSprite(vector<Sprite>& sprites, GLFWwindow& window_)
 {
@@ -57,51 +53,83 @@ int main(int argc, char* argv[])
         chdir(argv[1]);
     }
 
-    pixel::print_version_information();
+    print_version_information();
 
-    pixel::App app;
+    pixel::App app{
+//        {640, 480},
+//        {0.0, 0.0, 0.0, 1.0},
+//        2
+    };
 
     app.init();
 
-    //if (GLEW_ARB_texture_storage) {
-    std::cout << "Should have glTexStorage3D: " << &glTexStorage3D << std::endl;
-    //}
+    TextureAtlas atlas{};
 
-    pixel::graphics::Texture t1(GL_TEXTURE_2D);
+    atlas.start_batch();
 
-    pixel::graphics::ImageData ground_tile = pixel::graphics::load_png("assets/sonic.png");
-    t1.load(ground_tile.width, ground_tile.height, ground_tile.data);
+    vector<string> sprite_file_names = {
+        "assets/sonic.png",
+        "assets/sample_sprites/1.png",
+        "assets/sample_sprites/2.png",
+        "assets/sample_sprites/3.png",
+        "assets/sample_sprites/4.png",
+        "assets/sample_sprites/5.png",
+        "assets/sample_sprites/6.png"
+    };
+
+    std::for_each(
+        cbegin(sprite_file_names),
+        cend(sprite_file_names),
+        [&](const auto& s) { atlas.add_image(s); }
+    );
+
+    atlas.stop_batch();
+
+    auto sprite_texture_array = atlas.as_texture();
+    logGlErrors();
+
+    auto& layers = atlas.layers();
+    for (auto i = 0u; i < layers.size(); ++i) {
+        auto path = "debug/tex_atlas_" + to_string(i) + ".png";
+        layers[i].save(path);
+    }
+
+    cout << atlas.debug_print() << endl;
+
 
     SpriteRenderer renderer{};
-    {
-        auto window_size = app.render_context().window_size;
 
-        renderer.program().activate();
-        renderer.program().setUniform("projection", glm::ortho(0.0f, (float) window_size.x, 0.0f, (float) window_size.y));
-        renderer.program().setUniform("tex", 0);
-        logGlErrors();
-        renderer.program().deactivate();
-    }
 
-    Sprite sp{};
+    auto window_size = app.render_context().window_size;
 
-    sp.texture_region.w = 28;
-    sp.texture_region.h = 39;
 
-    vector<Sprite> sprites = {sp, sp, sp, sp};
+    vector<Sprite> sprites;
 
-    for (int i = 0; i < 4; ++i) {
-        sprites[i].x = i * 50 + 50;
-        sprites[i].y = 50;
-    }
+    auto x = 0u;
 
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, t1.texture_id());
+    std::for_each(
+        cbegin(sprite_file_names),
+        cend(sprite_file_names),
+        [&](const auto& s) {
+            Sprite sp{};
+            sp.y = 150;
+            sp.x = x + 50;
+            x += 50;
+            sp.texture_region = atlas.lookup(s);
+            sprites.push_back(sp);
+        }
+    );
+
+    sprite_texture_array.activate(0);
+    logGlErrors();
 
     app.set_tick_callback(
         [&] {
             updateSprite(sprites, app.window());
-            renderer.render(sprites, t1);
+            glEnable(GL_BLEND);
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+            renderer.render(
+                sprites, sprite_texture_array, glm::ortho(0.0f, (float) window_size.x, 0.0f, (float) window_size.y));
         }
     );
 

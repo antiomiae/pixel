@@ -17,7 +17,7 @@ public:
     void initIndexBuffer();
     void bindAttributes();
     Shader& program();
-    void render(const vector<Sprite>& sprites, Texture& atlas_texture);
+    void render(const vector<Sprite>& sprites, Texture& atlas_texture, glm::mat4 projection);
 
 private:
     Vao vao_;
