@@ -114,7 +114,7 @@ int main(int argc, char* argv[])
             Sprite sp{};
             sp.y = 150;
             sp.x = x + 50;
-            x += 50;
+            x += 30;
             sp.texture_region = atlas.lookup(s);
             sprites.push_back(sp);
         }
