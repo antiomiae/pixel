@@ -128,8 +128,10 @@ int main(int argc, char* argv[])
             updateSprite(sprites, app.window());
             glEnable(GL_BLEND);
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
             renderer.render(
-                sprites, sprite_texture_array, glm::ortho(0.0f, (float) window_size.x, 0.0f, (float) window_size.y));
+                sprites, sprite_texture_array, app.render_context().projection()
+            );
         }
     );
 
