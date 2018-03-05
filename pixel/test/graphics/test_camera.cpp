@@ -48,4 +48,30 @@ TEST(Camera, view_matrix)
     EXPECT_EQ((v * glm::vec4(100, 100, 0, 1.0)), glm::vec4(50, 50, 0, 1.0));
 }
 
+
+TEST(Camera, view_rect)
+{
+    Camera camera{
+            glm::ivec2(100, 100), // window size
+            glm::vec4(0, 0, 200, 200) // bounds
+    };
+
+    EXPECT_EQ(
+            camera.view_rect(),
+            glm::vec4(0, 0, 100, 100)
+    );
+
+    camera.translate(50, 50);
+    EXPECT_EQ(
+            camera.view_rect(),
+            glm::vec4(50, 50, 150, 150)
+    );
+
+    camera.scale(2.0);
+    EXPECT_EQ(
+            camera.view_rect(),
+            glm::vec4(75, 75, 125, 125)
+    );
+}
+
 };

@@ -110,4 +110,16 @@ void Camera::scale(const glm::vec2& s)
     scale_ = s;
 }
 
+glm::vec4 Camera::view_rect()
+{
+    auto o = glm::vec4(0.0, 0.0, 0.0, 1.0);
+    auto m = glm::vec4(glm::vec2(window_size_), 0.0, 1.0);
+    auto ivm = glm::inverse(view_matrix());
+
+    o = ivm * o;
+    m = ivm * m;
+
+    return glm::vec4(o.x, o.y, m.x, m.y);
+}
+
 };
