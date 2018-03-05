@@ -4,10 +4,14 @@
 #ifndef PIXEL_SPRITE_RENDERER_H
 #define PIXEL_SPRITE_RENDERER_H
 
+#include <vector>
 #include "graphics.h"
+
 
 namespace pixel::graphics
 {
+
+using namespace std;
 
 class SpriteRenderer
 {
