@@ -6,8 +6,8 @@ namespace pixel::graphics
 {
 
 Camera::Camera(glm::ivec2 window_size, glm::vec4 bounds)
-        : window_size_{window_size},
-          bounds_{bounds}
+    : window_size_{window_size},
+      bounds_{bounds}
 {
 
 }
@@ -110,6 +110,10 @@ void Camera::scale(const glm::vec2& s)
     scale_ = s;
 }
 
+/**
+ * The projected region described by this camera's properties
+ * \return vec4(x0, y0, x1, y1) a vector of the lower-left and upper-right coordinates of the view rect
+ */
 glm::vec4 Camera::view_rect()
 {
     auto o = glm::vec4(0.0, 0.0, 0.0, 1.0);
@@ -120,6 +124,11 @@ glm::vec4 Camera::view_rect()
     m = ivm * m;
 
     return glm::vec4(o.x, o.y, m.x, m.y);
+}
+
+glm::mat4 Camera::projection_matrix()
+{
+    return glm::ortho(0, window_size_.x, 0, window_size_.y);
 }
 
 };
