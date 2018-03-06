@@ -121,22 +121,23 @@ void SpriteRenderer::SpriteRenderer::initIndexBuffer()
     index_buffer_.loadData(indices, sizeof(indices));
 }
 
-void SpriteRenderer::SpriteRenderer::render(const vector<Sprite>& sprites, Texture& atlas_texture, glm::mat4 projection)
+void SpriteRenderer::SpriteRenderer::render(const vector<Sprite>& sprites, Texture& atlas_texture, Camera& camera)
 {
-    logGlErrors();
-    program().activate();
-    logGlErrors();
-    program().setUniform("projection", projection);
-    logGlErrors();
-    program().setUniform("tex", 0);
-    logGlErrors();
-    program().deactivate();
-
     sprite_buffer_.loadData(sprites.data(), sprites.size() * sizeof(Sprite));
 
     program_.activate();
     vao_.activate();
+    atlas_texture.activate(0);
     index_buffer_.bind();
+
+    auto projection = camera.projection_matrix();
+
+    auto view = camera.view_matrix();
+
+    auto mat = projection * view;
+
+    program_.setUniform("projection", projection * view);
+    program_.setUniform("tex", 0);
 
     glDrawElementsInstanced(GL_TRIANGLES, 6, index_buffer_.elementType(), 0, sprites.size());
 }

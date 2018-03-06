@@ -128,7 +128,7 @@ glm::vec4 Camera::view_rect()
 
 glm::mat4 Camera::projection_matrix()
 {
-    return glm::ortho(0, window_size_.x, 0, window_size_.y);
+    return glm::ortho(0.0f, (float)window_size_.x, 0.0f, (float)window_size_.y);
 }
 
 };

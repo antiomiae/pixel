@@ -38,7 +38,6 @@ public:
     glm::vec2 position();
     glm::vec2 scale();
     glm::ivec2 window_size();
-
     glm::vec4 view_rect();
 
 private:

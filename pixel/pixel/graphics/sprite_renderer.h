@@ -6,6 +6,7 @@
 
 #include <vector>
 #include "graphics.h"
+#include "camera.h"
 
 
 namespace pixel::graphics
@@ -21,13 +22,13 @@ public:
     void initIndexBuffer();
     void bindAttributes();
     Shader& program();
-    void render(const vector<Sprite>& sprites, Texture& atlas_texture, glm::mat4 projection);
+    void render(const vector<Sprite>& sprites, Texture& atlas_texture, Camera& camera);
 
 private:
     Vao vao_;
     Buffer sprite_buffer_;
     Buffer vertex_buffer_;
-    IndexBuffer <GLubyte> index_buffer_;
+    IndexBuffer<GLubyte> index_buffer_;
     Shader program_;
 
     void init();
