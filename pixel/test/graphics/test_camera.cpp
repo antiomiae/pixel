@@ -74,4 +74,36 @@ TEST(Camera, view_rect)
     );
 }
 
+
+TEST(Camera, scroll_lock)
+{
+    Camera camera{
+        glm::ivec2(100, 100), // window size
+        glm::vec4(0, 0, 200, 200) // bounds
+    };
+
+    camera.translate(50, 50);
+
+    EXPECT_EQ(camera.position(), glm::vec2(50, 50));
+
+    camera.lock_x();
+
+    camera.translate(50, 50);
+
+    EXPECT_EQ(camera.position(), glm::vec2(50, 100));
+
+    camera.lock_y();
+
+    camera.translate(50, 50);
+
+    EXPECT_EQ(camera.position(), glm::vec2(50, 100));
+
+    camera.lock_x(false);
+    camera.lock_y(false);
+
+    camera.translate(50, 50);
+
+    EXPECT_EQ(camera.position(), glm::vec2(100, 150));
+}
+
 };

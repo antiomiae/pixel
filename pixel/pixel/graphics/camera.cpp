@@ -1,20 +1,22 @@
 
 
+#include <iostream>
 #include "camera.h"
 
 namespace pixel::graphics
 {
 
+using namespace std;
+
 Camera::Camera(glm::ivec2 window_size, glm::vec4 bounds)
     : window_size_{window_size},
       bounds_{bounds}
 {
-
 }
 
 void Camera::lock_x(bool lock)
 {
-    lock_y_ = lock;
+    lock_x_ = lock;
 }
 
 void Camera::lock_y(bool lock)
