@@ -12,7 +12,7 @@ const char* build_version = BUILD_VERSION;
 
 void print_version_information()
 {
-    cout << "pixel v" << build_version << endl;
+    cout << "pixel " << build_version << endl;
 }
 
 };
