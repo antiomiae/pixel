@@ -1,5 +1,3 @@
-
-
 #include <iostream>
 #include "camera.h"
 
@@ -110,6 +108,12 @@ void Camera::scale(float x, float y)
 void Camera::scale(const glm::vec2& s)
 {
     scale_ = s;
+}
+
+
+void Camera::set_window_size(const glm::vec2& v)
+{
+    window_size_ = v;
 }
 
 /**

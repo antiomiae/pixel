@@ -59,13 +59,12 @@ void TileMapRenderer::set_buffer_data(float map_width, float map_height, float t
 }
 
 
-void pixel::TileMapRenderer::render(pixel::TileMap& t, RenderContext render_context)
+void pixel::TileMapRenderer::render(pixel::TileMap& t, Camera& camera)
 {
     auto map_size = t.tile_size() * t.tile_count();
     auto table_size = t.tile_count();
 
-    auto projection = render_context.projection() *
-                      glm::scale(glm::mat4(), {render_context.pixel_scale, render_context.pixel_scale, 1.0});
+    auto projection = camera.projection_matrix() * camera.view_matrix();
 
     set_buffer_data(map_size.x, map_size.y, table_size.x, table_size.y);
 

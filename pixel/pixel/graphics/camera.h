@@ -1,5 +1,3 @@
-
-
 #ifndef PIXEL_CAMERA_H
 #define PIXEL_CAMERA_H
 
@@ -31,6 +29,8 @@ public:
     void scale(float s);
     void scale(float x, float y);
     void scale(const glm::vec2&);
+
+    void set_window_size(const glm::vec2&);
 
     glm::mat4 view_matrix();
     glm::mat4 projection_matrix();
