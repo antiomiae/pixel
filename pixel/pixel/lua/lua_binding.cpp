@@ -110,7 +110,7 @@ void bind_camera(sol::state& lua, sol::table& binding, const string& type_name)
             "new", sol::constructors<graphics::Camera(), graphics::Camera(glm::ivec2, glm::vec4)>(),
             "lock_x", &graphics::Camera::lock_x,
             "lock_y", &graphics::Camera::lock_y,
-            "translate", sol::resolve<void(float,float)>(graphics::Camera::translate)
+            "translate", sol::resolve<void(float,float)>(&graphics::Camera::translate)
     );
 }
 
