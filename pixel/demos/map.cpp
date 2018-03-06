@@ -3,7 +3,13 @@
 #include <pixel/error.h>
 
 using namespace std;
+using namespace pixel;
+using namespace pixel::graphics;
 
+void update_camera(Camera& camera, const RenderContext& rc)
+{
+    camera.set_window_size(glm::vec2(rc.window_size) / rc.pixel_scale);
+}
 
 int main(int argc, char* argv[])
 {
@@ -25,9 +31,9 @@ int main(int argc, char* argv[])
     pixel::print_version_information();
 
     pixel::App app{
-        {1000, 1000},
+        {512, 448},
         {0.1, 0.1, 0.8, 1.0},
-        4
+        2
     };
 
     app.init();
@@ -40,26 +46,15 @@ int main(int argc, char* argv[])
     auto tile_map = make_unique<pixel::TileMap>();
     tile_map->load(tmx_map);
 
-    int i = 0;
+    Camera camera({0, 0}, {0, 0, 2000, 2000});
 
     app.set_tick_callback(
         [&] {
-            ++i;
-            if (i == 200) {
-                {
-                    tmx::Map tmx_map;
-                    error_if(!tmx_map.load("assets/traps_2.tmx"), "Unable to load map file");
-                    /* replace map */
-                    tile_map = make_unique<pixel::TileMap>();
-                    tile_map->load(tmx_map);
-                }
-            }
+            update_camera(camera, app.render_context());
 
             tile_map->update(1 / 60.0);
 
-            auto rc = app.render_context();
-            //rc.pixel_scale = 1;
-            renderer.render(*tile_map, rc);
+            renderer.render(*tile_map, camera);
         }
     );
 
