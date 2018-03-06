@@ -16,6 +16,7 @@ void bind_glm(sol::state& lua, sol::table& binding, const string& module_name = 
 void bind_tile_map(sol::state& lua, sol::table& binding, const string& type_name = "TileMap");
 void bind_tile_map_renderer(sol::state& lua, sol::table& binding, const string& type_name = "TileMapRenderer");
 void bind_tile_sprite_renderer(sol::state& lua, sol::table& binding, const string& type_name = "SpriteRenderer");
+void bind_camera(sol::state& lua, sol::table& binding, const string& type_name = "Camera");
 };
 
 #endif //PIXEL_LUA_H

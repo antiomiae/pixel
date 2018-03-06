@@ -38,7 +38,7 @@ void bind_app(sol::state& lua, sol::table& binding, const string& type_name)
 
     binding.new_usertype<App>(
         type_name,
-        "new", sol::constructors<App(), App(glm::ivec2, glm::vec4, float)>(),
+        sol::constructors<App(), App(glm::ivec2, glm::vec4, float)>(),
         "init", &App::init,
         "run", &App::run,
         "set_tick_callback", &App::set_tick_callback,
@@ -55,6 +55,17 @@ void bind_glm(sol::state& lua, sol::table& binding, const string& module_name)
     _glm.new_usertype<glm::ivec2>(
             "ivec2",
             "new", sol::constructors<glm::ivec2(), glm::ivec2(int, int)>()
+    );
+
+    _glm.new_usertype<glm::vec2>(
+            "vec2",
+            "new", sol::constructors<glm::vec2(), glm::vec2(float, float), glm::vec2(glm::ivec2)>()
+    );
+
+
+    _glm.new_usertype<glm::vec3>(
+            "vec3",
+            "new", sol::constructors<glm::vec3(), glm::vec3(float, float, float)>()
     );
 
     _glm.new_usertype<glm::vec4>(
@@ -89,6 +100,17 @@ void bind_tile_sprite_renderer(sol::state& lua, sol::table& binding, const strin
             type_name,
             "new", sol::constructors<graphics::SpriteRenderer()>(),
             "render", &graphics::SpriteRenderer::render
+    );
+}
+
+void bind_camera(sol::state& lua, sol::table& binding, const string& type_name)
+{
+    binding.new_usertype<graphics::Camera>(
+            type_name,
+            "new", sol::constructors<graphics::Camera(), graphics::Camera(glm::ivec2, glm::vec4)>(),
+            "lock_x", &graphics::Camera::lock_x,
+            "lock_y", &graphics::Camera::lock_y,
+            "translate", sol::resolve<void(float,float)>(graphics::Camera::translate)
     );
 }
 

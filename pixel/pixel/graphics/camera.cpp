@@ -6,7 +6,7 @@ namespace pixel::graphics
 
 using namespace std;
 
-Camera::Camera(glm::ivec2 window_size, glm::vec4 bounds)
+Camera::Camera(const glm::ivec2& window_size, const glm::vec4& bounds)
     : window_size_{window_size},
       bounds_{bounds}
 {
@@ -111,7 +111,7 @@ void Camera::scale(const glm::vec2& s)
 }
 
 
-void Camera::set_window_size(const glm::vec2& v)
+void Camera::set_window_size(const glm::ivec2& v)
 {
     window_size_ = v;
 }
@@ -135,6 +135,11 @@ glm::vec4 Camera::view_rect()
 glm::mat4 Camera::projection_matrix()
 {
     return glm::ortho(0.0f, (float)window_size_.x, 0.0f, (float)window_size_.y);
+}
+
+void Camera::set_window_size(int w, int h)
+{
+    set_window_size({w, h});
 }
 
 };
