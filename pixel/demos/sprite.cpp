@@ -1,5 +1,5 @@
-#include "../pixel/pixel.h"
 #include <unistd.h>
+#include <pixel/pixel.h>
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wconversion"
@@ -58,7 +58,7 @@ int main(int argc, char* argv[])
     pixel::App app{
         {640, 480},
         {0.1, 0.1, 0.1, 1.0},
-        2
+        1
     };
 
     app.init();
@@ -121,16 +121,36 @@ int main(int argc, char* argv[])
     );
 
     sprite_texture_array.activate(0);
-    logGlErrors();
+
+    Camera camera({320, 240}, {0, 0, 10000, 10000});
 
     app.set_tick_callback(
         [&] {
-            updateSprite(sprites, app.window());
+            glm::vec2 v{};
+            auto window = &app.window();
+
+            //updateSprite(sprites, app.window());
+            if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+                v[1] = 1;
+            } else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+                v[1] = -1;
+            }
+
+            if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) {
+                v[0] = -1;
+            } else if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
+                v[0] = 1;
+            }
+
+            camera.translate(v * 10.0f);
+
             glEnable(GL_BLEND);
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
             renderer.render(
-                sprites, sprite_texture_array, app.render_context().projection()
+                sprites,
+                sprite_texture_array,
+                camera
             );
         }
     );
