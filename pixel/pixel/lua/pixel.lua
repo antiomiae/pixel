@@ -1,3 +1,5 @@
+inspect = require('inspect')
+
 --
 function pixel.load_map(s)
     local tm = pixel.TileMap.new()

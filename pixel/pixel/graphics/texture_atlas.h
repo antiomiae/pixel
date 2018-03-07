@@ -9,6 +9,7 @@
 #include <pixel/math/math.h>
 #include "texture_region.h"
 #include "image.h"
+#include "texture.h"
 
 namespace pixel::graphics
 {
@@ -24,6 +25,8 @@ public:
     TextureAtlas() = default;
 
     explicit TextureAtlas(glm::uvec3 size);
+
+    TextureAtlas(const TextureAtlas&) = delete;
 
     void start_batch();
     void stop_batch();

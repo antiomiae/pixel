@@ -12,9 +12,11 @@ namespace pixel::graphics
 class Sprite
 {
 public:
-    union {
+    union
+    {
         float position[3];
-        struct {
+        struct
+        {
             float x, y, z;
         };
     };
