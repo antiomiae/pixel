@@ -3,13 +3,12 @@
 #include <tinypng/png.h>
 #include "../util/util.h"
 #include "../error.h"
-#include <pixel/error.h>
 
 using namespace pixel::graphics;
 using namespace pixel::util;
 
 
-ImageData pixel::graphics::load_png(const string &path)
+ImageData pixel::graphics::load_png(const string& path)
 {
     if (!file_exists(path)) {
         pixel_error("file does not exist at path: " + path);
@@ -25,7 +24,7 @@ ImageData pixel::graphics::load_png(const string &path)
 };
 
 
-bool pixel::graphics::save_png(const ImageData &img, const std::string &path)
+bool pixel::graphics::save_png(const ImageData& img, const std::string& path)
 {
     tinypng::PNG png(img.width, img.height, img.data);
 
@@ -33,35 +32,35 @@ bool pixel::graphics::save_png(const ImageData &img, const std::string &path)
 }
 
 
-ImageData::ImageData(const std::string &path)
-        : ImageData{load_png(path)}
+ImageData::ImageData(const std::string& path)
+    : ImageData{load_png(path)}
 {
 };
 
 
 ImageData::ImageData(unsigned int _width, unsigned int _height)
-        : ImageData(_width, _height, nullptr)
+    : ImageData(_width, _height, nullptr)
 {
     data = new uint8_t[width * height * bpp];
     external_data = false;
 };
 
 
-ImageData::ImageData(unsigned int _width, unsigned int _height, uint8_t *_data)
-        : width(_width), height(_height), data(_data), external_data(_data != nullptr)
+ImageData::ImageData(unsigned int _width, unsigned int _height, uint8_t* _data)
+    : width(_width), height(_height), data(_data), external_data(_data != nullptr)
 {
 };
 
 
-ImageData::ImageData(ImageData &&o) noexcept
-        : width(o.width), height(o.height), external_data(o.external_data)
+ImageData::ImageData(ImageData&& o) noexcept
+    : width(o.width), height(o.height), external_data(o.external_data)
 {
     data = o.data;
     o.data = nullptr;
 };
 
-ImageData::ImageData(const ImageData &o)
-        : ImageData(o.width, o.height)
+ImageData::ImageData(const ImageData& o)
+    : ImageData(o.width, o.height)
 {
     if (o.data != nullptr) {
         memcpy(data, o.data, width * height * bpp);
@@ -75,6 +74,32 @@ ImageData::~ImageData()
         delete[] data;
         data = nullptr;
     }
+}
+
+ImageData& ImageData::operator=(const ImageData& o)
+{
+    if (external_data) {
+        external_data = false;
+        data = nullptr;
+    } else if (data) {
+        if ((width != o.width || height != o.height) || o.data == nullptr) {
+            delete[] data;
+            data = nullptr;
+        }
+    }
+
+    width = o.width;
+    height = o.height;
+
+    if (!data && o.data) {
+        data = new uint8_t[width * height * bpp];
+    }
+
+    if (o.data) {
+        memcpy(data, o.data, width * height * bpp);
+    }
+
+    return *this;
 }
 
 
@@ -103,24 +128,30 @@ ImageData ImageData::subregion(unsigned int x0, unsigned int y0, unsigned int _w
 }
 
 
-bool ImageData::save(const string &path) const
+bool ImageData::save(const string& path) const
 {
     return save_png(*this, path);
 }
 
 bool
-ImageData::load_subregion(const ImageData &other,
-                          unsigned src_x,
-                          unsigned src_y,
-                          unsigned src_width,
-                          unsigned src_height,
-                          unsigned dest_x,
-                          unsigned dest_y)
+ImageData::load_subregion(
+    const ImageData& other,
+    unsigned src_x,
+    unsigned src_y,
+    unsigned src_width,
+    unsigned src_height,
+    unsigned dest_x,
+    unsigned dest_y
+)
 {
-    argument_error_if(dest_x + src_width > width || dest_y + src_height > height,
-                      "Destination rect goes outside image bounds");
-    argument_error_if(src_x + src_width > other.width || src_y + src_height > other.height,
-                      "Source rect goes outside source image bounds");
+    argument_error_if(
+        dest_x + src_width > width || dest_y + src_height > height,
+        "Destination rect goes outside image bounds"
+    );
+    argument_error_if(
+        src_x + src_width > other.width || src_y + src_height > other.height,
+        "Source rect goes outside source image bounds"
+    );
 
     for (auto y = 0u; y < src_height; ++y) {
         for (auto x = 0u; x < src_width; ++x) {

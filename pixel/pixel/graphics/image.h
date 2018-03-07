@@ -18,9 +18,8 @@ struct ImageData
     ImageData(unsigned int width, unsigned int height);
     ImageData(unsigned int _width, unsigned int _height, uint8_t* _data);
     ImageData(ImageData&& other) noexcept;
-    ImageData(ImageData&) = delete;
     ImageData(const ImageData&);
-    ImageData& operator=(const ImageData&) = delete;
+    ImageData& operator=(const ImageData&);
     ~ImageData();
 
     size_t length();
