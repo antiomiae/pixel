@@ -1,5 +1,5 @@
-#include "test/setup.h"
 #include <pixel/graphics/texture_atlas.h>
+#include "test/setup.h"
 
 namespace
 {
@@ -9,7 +9,7 @@ using namespace pixel::graphics;
 
 TEST(TextureAtlas, batch)
 {
-    TextureAtlas atlas({1024, 1024, 5});
+    TextureAtlas atlas({512, 512, 5});
 
     atlas.start_batch();
 
