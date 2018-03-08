@@ -40,10 +40,6 @@ app:set_tick_callback(function ()
         o:update(1/60.0)
     end
 
-    j = j + 0.01
-
-    camera:center_at(math.cos(j) * 50 + 320/2, math.sin(j) * 50 + 240 / 2)
-
     map_renderer:render(map, camera)
 end)
 

@@ -49,7 +49,7 @@ glm::mat4 Camera::view_matrix()
     auto center = glm::vec2(window_size_) / 2.0f;
     auto v = glm::mat4();
     /* translate center of view rect to 0,0 */
-    v = glm::translate(v, -glm::vec3(position_ + center, 0.0));
+    v = glm::translate(v, -glm::vec3(glm::vec2(glm::ivec2(position_)) + center + glm::vec2(0.375/2.0), 0.0));
 
     /* scale */
     v = glm::scale(glm::mat4(), glm::vec3(scale_, 1.0)) * v;
