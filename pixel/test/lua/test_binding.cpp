@@ -1,5 +1,5 @@
 #include "test/setup.h"
-#include <pixel/lua/lua.h>
+#include <pixel/lua/lua_binding.h>
 
 namespace
 {
@@ -35,6 +35,23 @@ TEST_F(BindingTest, SpriteRenderer)
     lua.script(R"(
         local sprite_renderer = pixel.SpriteRenderer.new()
         assert(sprite_renderer)
+    )");
+};
+
+TEST_F(BindingTest, SpriteAnimation)
+{
+    lua.script(R"(
+        local anim = pixel.SpriteAnimation.new()
+        assert(anim)
+    )");
+};
+
+
+TEST_F(BindingTest, Camera)
+{
+    lua.script(R"(
+        local camera = pixel.Camera.new()
+        assert(camera)
     )");
 };
 

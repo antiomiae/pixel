@@ -1,4 +1,4 @@
-inspect = require('inspect')
+pixel.inspect = require('inspect')
 
 --
 function pixel.load_map(s)

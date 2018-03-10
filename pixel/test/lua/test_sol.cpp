@@ -1,5 +1,5 @@
 #include "test/setup.h"
-#include <pixel/lua/lua.h>
+#include <pixel/lua/lua_binding.h>
 
 namespace
 {

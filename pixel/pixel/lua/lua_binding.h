@@ -18,6 +18,7 @@ void bind_tile_map_renderer(sol::state& lua, sol::table& binding, const string& 
 void bind_tile_sprite_renderer(sol::state& lua, sol::table& binding, const string& type_name = "SpriteRenderer");
 void bind_camera(sol::state& lua, sol::table& binding, const string& type_name = "Camera");
 void bind_texture_atlas(sol::state& lua, sol::table& binding, const string& type_name = "TextureAtlas");
+void bind_sprite_animation(sol::state& lua, sol::table& binding, const string& type_name = "SpriteAnimation");
 
 };
 
