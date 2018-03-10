@@ -14,5 +14,6 @@
 #include "render_context.h"
 #include "texture_atlas.h"
 #include "camera.h"
+#include "sprite_animation.h"
 
 #endif //GRAPHICS_GRAPHICS_H

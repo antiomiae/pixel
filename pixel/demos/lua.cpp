@@ -1,6 +1,6 @@
 #include <unistd.h>
 #include <pixel/pixel.h>
-#include <pixel/lua/lua.h>
+#include <pixel/lua/lua_binding.h>
 
 using namespace std;
 

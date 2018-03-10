@@ -1,5 +1,8 @@
-#include "lua.h"
+#include "lua_binding.h"
 #include "../pixel.h"
+
+using namespace pixel::graphics;
+
 namespace pixel
 {
 
@@ -14,6 +17,7 @@ sol::table bind_pixel(sol::state& lua)
     bind_tile_sprite_renderer(lua, binding);
     bind_camera(lua, binding);
     bind_texture_atlas(lua, binding);
+    bind_sprite_animation(lua, binding);
 
     return binding;
 }
@@ -187,6 +191,23 @@ void bind_texture_atlas(sol::state& lua, sol::table& binding, const string& type
         "debug_print", &TA::debug_print,
         "as_texture", sol::resolve<graphics::Texture() const>(&TA::as_texture),
         "layers", &TA::layers
+    );
+}
+
+void bind_sprite_animation(sol::state& lua, sol::table& binding, const string& type_name)
+{
+    binding.new_usertype<SpriteAnimation>(
+        type_name,
+        sol::constructors<SpriteAnimation()>(),
+        "add_frame", sol::resolve<void(const TextureRegion&, float)>(&SpriteAnimation::add_frame),
+        "update", &SpriteAnimation::update,
+        "update_sprite", &SpriteAnimation::update_sprite,
+        "bool", &SpriteAnimation::validate,
+        "current_frame", &SpriteAnimation::current_frame,
+        "reset", &SpriteAnimation::reset,
+        "time_scale", &SpriteAnimation::time_scale,
+        "set_time_scale", &SpriteAnimation::set_time_scale,
+        "advance", &SpriteAnimation::advance
     );
 };
 
