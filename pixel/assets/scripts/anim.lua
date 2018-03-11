@@ -19,17 +19,7 @@ local SPRITES = {
     ["assets/sprites/cat_Animation 1_4.png"] = "cat4"
 }
 
--- Not possible yet
---local app = pixel.App.new {
---    ivec2 { 320, 240 },
---    vec4 { 0.5, 0.5, 0.5, 1.0 },
---    1.0
---}
-
-
-
 local current_level = pixel.Level:new()
-
 
 current_level:load_sprites(SPRITES)
 
@@ -42,7 +32,7 @@ print(pixel.inspect(current_level))
 local sonic = {
     x = 0,
     y = 0,
-    vx = 50,
+    vx = 500,
     vy = 50,
     animation = current_level.animations.cat:copy(),
     sprite = pixel.Sprite.new()
