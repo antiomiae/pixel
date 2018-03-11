@@ -38,6 +38,7 @@ add_library(pixel
         pixel/error.h
         pixel/lua/lua_binding.h pixel/tilemap/tileset.cpp pixel/tilemap/tileset.h pixel/tilemap/tile_layer_texture.cpp pixel/tilemap/tile_layer_texture.h pixel/lua/lua_binding.cpp pixel/graphics/pack.cpp pixel/graphics/pack.h pixel/graphics/texture_atlas.cpp pixel/graphics/texture_atlas.h pixel/graphics/render_buffer.cpp pixel/graphics/render_buffer.h pixel/graphics/sprite_batch.cpp pixel/graphics/sprite_batch.h pixel/graphics/camera.cpp pixel/graphics/camera.h pixel/graphics/sprite_animation.cpp pixel/graphics/sprite_animation.h pixel/entrypoints/script_runner.cpp)
 
+
 add_dependencies(pixel pixel_source_version)
 
 target_include_directories(pixel PUBLIC .)
@@ -59,16 +60,11 @@ target_link_libraries(pixel
         sol2
         )
 
-#target_include_directories(pixel PUBLIC lib/glm-0.9.9-a2)
-
-
-
-
-
 if (CMAKE_C_FLAGS_DEBUG)
     target_compile_definitions(pixel PUBLIC PIXEL_DEBUG=1)
 else (CMAKE_C_FLAGS_DEBUG)
     target_compile_definitions(pixel PUBLIC PIXEL_DEBUG=0)
 endif (CMAKE_C_FLAGS_DEBUG)
+
 target_compile_definitions(pixel PUBLIC _DEFAULT_SOURCE=1)
 

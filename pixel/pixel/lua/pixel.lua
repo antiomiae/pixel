@@ -1,5 +1,4 @@
 pixel.inspect = require('inspect')
-
 pixel.animation = require('animation').animation
 
 --
