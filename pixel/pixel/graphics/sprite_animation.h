@@ -44,6 +44,8 @@ public:
 
     void advance();
 
+    SpriteAnimation copy() const;
+
 private:
     vector<Frame> frames_{};
     unsigned current_frame_;

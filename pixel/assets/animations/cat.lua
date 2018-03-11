@@ -3,9 +3,9 @@
 animation {
     name = "cat",
     frames = {
-        {"../sprites/cat_Animation 1_0.png", 250},
-        {"../sprites/cat_Animation 1_2.png", 250},
-        {"../sprites/cat_Animation 1_3.png", 250},
-        {"../sprites/cat_Animation 1_4.png", 250}
+        {"cat0", 250},
+        {"cat2", 250},
+        {"cat3", 250},
+        {"cat4", 250}
     }
 }

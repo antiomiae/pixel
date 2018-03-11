@@ -64,4 +64,9 @@ void SpriteAnimation::add_frame(const TextureRegion& t, float duration)
     frames_.emplace_back(t, duration);
 }
 
+SpriteAnimation SpriteAnimation::copy() const
+{
+    return *this;
+}
+
 }

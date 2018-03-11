@@ -18,8 +18,21 @@ public:
     void translate(float x, float y);
     void translate(const glm::vec2&);
 
+    /**
+     * Place camera so that (x, y) is at center of frame
+     * \param x
+     * \param y
+     */
     void center_at(float x, float y);
     void center_at(const glm::vec2&);
+
+    /**
+     * Place camera so that (x, y) is at center of frame, respecting camera axis locks.
+     * \param x
+     * \param y
+     */
+    void follow(float x, float y);
+    void follow(const glm::vec2&);
 
     void position_at(float x, float y);
     void position_at(const glm::vec2&);

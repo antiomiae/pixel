@@ -142,4 +142,14 @@ void Camera::set_window_size(int w, int h)
     set_window_size({w, h});
 }
 
+void Camera::follow(float x, float y)
+{
+    position_ = glm::vec2(lock_x_ ? position_.x : x - (float)window_size_.x / 2.0, lock_y_ ? position_.y : y - (float)window_size_.y / 2.0);
+}
+
+void Camera::follow(const glm::vec2& o)
+{
+    follow(o.x, o.y);
+}
+
 };

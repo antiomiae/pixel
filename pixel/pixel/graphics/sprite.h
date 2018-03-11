@@ -14,13 +14,13 @@ class Sprite
 public:
     union
     {
-        float position[3];
+        glm::vec3 position{};
         struct
         {
             float x, y, z;
         };
     };
-    float center[2];
+    glm::vec2 center;
     float angle;
     TextureRegion texture_region;
 };

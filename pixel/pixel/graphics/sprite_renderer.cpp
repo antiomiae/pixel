@@ -123,23 +123,39 @@ void SpriteRenderer::SpriteRenderer::initIndexBuffer()
 
 void SpriteRenderer::SpriteRenderer::render(const vector<Sprite>& sprites, Texture& atlas_texture, Camera& camera)
 {
-    sprite_buffer_.loadData(sprites.data(), sprites.size() * sizeof(Sprite));
-
-    program_.activate();
-    vao_.activate();
-    atlas_texture.activate(0);
-    index_buffer_.bind();
-
     auto projection = camera.projection_matrix();
-
     auto view = camera.view_matrix();
-
     auto mat = projection * view;
 
+    sprite_buffer_.loadData(sprites.data(), sprites.size() * sizeof(Sprite));
+    logGlErrors();
+
+    program_.activate();
+    logGlErrors();
+
+    vao_.activate();
+    logGlErrors();
+
+    atlas_texture.activate(0);
+    logGlErrors();
+
+    index_buffer_.bind();
+    logGlErrors();
+
     program_.setUniform("projection", projection * view);
+    logGlErrors();
+
     program_.setUniform("tex", 0);
+    logGlErrors();
 
     glDrawElementsInstanced(GL_TRIANGLES, 6, index_buffer_.elementType(), 0, sprites.size());
+    logGlErrors();
+
+    vao_.deactivate();
+    logGlErrors();
+
+    program_.deactivate();
+    logGlErrors();
 }
 
 pixel::graphics::Shader& pixel::graphics::SpriteRenderer::program()

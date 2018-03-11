@@ -1,5 +1,6 @@
 pixel.inspect = require('inspect')
-pixel.animation = require('animation').animation
+
+require('animation')
 
 --
 function pixel.load_map(s)
@@ -8,32 +9,83 @@ function pixel.load_map(s)
     return tm
 end
 
--- Load animation file at path, using atlas
-function pixel.load_animation(path, atlas)
-    -- backup global state
-    local bak = _G["animation"]
 
-    local data = {}
+local Level = {}
 
-    _G["animation"] = function (o)
-        table.insert(data, pixel.animation(o))
-    end
+function Level:new(o)
+    o = o or {}
+    setmetatable(o, self)
+    self.__index = self
 
-    -- should call animation and store results in data
-    dofile(path)
+    o:__init()
 
-    assert(data)
-
-    -- restore global state
-    _G["animation"] = bak
-
-    local anim = pixel.SpriteAnimation:new()
-
-    for i, anim_data in pairs(data) do
-        --
-        local tex_region = atlas.lookup(anim_data.region_name)
-        anim.add_frame(tex_region, anim_data.duration)
-    end
-
-    return data
+    return o
 end
+
+function Level:__init()
+    self.map_renderer = pixel.TileMapRenderer.new()
+    self.sprite_renderer = pixel.SpriteRenderer.new()
+    self.sprite_batch = pixel.SpriteBatch.new()
+    self.maps = {}
+    self.animations = {}
+    self.actors = {}
+
+    local tsize = pixel.glm.uvec3.new(512, 512, 10)
+    self.atlas = pixel.TextureAtlas:new(tsize)
+    self.atlas_texture = nil
+
+
+    self.camera = pixel.Camera:new()
+    self.camera:set_window_size(320, 240)
+end
+
+function Level:load_sprites(sprites)
+    self.atlas:start_batch()
+    for path, name in pairs(sprites) do
+        self.atlas:add_image(path, name)
+    end
+    self.atlas:stop_batch()
+    self.atlas_texture = self.atlas:as_texture()
+end
+
+function Level:add_actor(a)
+    table.insert(self.actors, a)
+end
+
+function Level:add_map(m)
+    table.insert(self.maps, m)
+end
+
+function Level:add_animation(a)
+    if type(a) == "string" then
+        local anims = pixel.load_animations(a, self.atlas)
+
+        for name, animation in pairs(anims) do
+            self.animations[name] = animation
+        end
+    else
+        self.animations[a.name] = a
+    end
+end
+
+function Level:update(dt)
+    self.sprite_batch:restart()
+
+    for i, actor in pairs(self.actors) do
+        actor:update(dt)
+    end
+end
+
+function Level:draw()
+    if #self.maps > 0 then
+        for i, map in pairs(self.maps) do
+            self.map_renderer:render(map, self.camera)
+        end
+    end
+
+    if #self.sprite_batch:sprites() > 0 then
+        self.sprite_renderer:render(self.sprite_batch:sprites(), self.atlas_texture, self.camera)
+    end
+end
+
+pixel.Level = Level

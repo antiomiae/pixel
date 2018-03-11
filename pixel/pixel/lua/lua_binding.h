@@ -15,10 +15,13 @@ void bind_app(sol::state& lua, sol::table& binding, const string& type_name = "A
 void bind_glm(sol::state& lua, sol::table& binding, const string& module_name = "glm");
 void bind_tile_map(sol::state& lua, sol::table& binding, const string& type_name = "TileMap");
 void bind_tile_map_renderer(sol::state& lua, sol::table& binding, const string& type_name = "TileMapRenderer");
-void bind_tile_sprite_renderer(sol::state& lua, sol::table& binding, const string& type_name = "SpriteRenderer");
+void bind_sprite_renderer(sol::state& lua, sol::table& binding, const string& type_name = "SpriteRenderer");
 void bind_camera(sol::state& lua, sol::table& binding, const string& type_name = "Camera");
 void bind_texture_atlas(sol::state& lua, sol::table& binding, const string& type_name = "TextureAtlas");
 void bind_sprite_animation(sol::state& lua, sol::table& binding, const string& type_name = "SpriteAnimation");
+void bind_sprite(sol::state& lua, sol::table& binding, const string& type_name = "Sprite");
+void bind_sprite_batch(sol::state& lua, sol::table& binding, const string& type_name = "SpriteBatch");
+void bind_texture_region(sol::state& lua, sol::table& binding, const string& type_name = "TextureRegion");
 
 };
 

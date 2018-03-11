@@ -14,10 +14,13 @@ sol::table bind_pixel(sol::state& lua)
     bind_app(lua, binding);
     bind_tile_map(lua, binding);
     bind_tile_map_renderer(lua, binding);
-    bind_tile_sprite_renderer(lua, binding);
+    bind_sprite_renderer(lua, binding);
     bind_camera(lua, binding);
     bind_texture_atlas(lua, binding);
     bind_sprite_animation(lua, binding);
+    bind_sprite(lua, binding);
+    bind_sprite_batch(lua, binding);
+    bind_texture_region(lua, binding);
 
     return binding;
 }
@@ -83,7 +86,7 @@ void bind_glm(sol::state& lua, sol::table& binding, const string& module_name)
     );
 
     _glm.new_usertype<glm::uvec3>(
-        "uvec2",
+        "uvec3",
         "new", sol::constructors<glm::uvec3(), glm::uvec3(unsigned, unsigned, unsigned)>()
     );
 
@@ -93,12 +96,12 @@ void bind_glm(sol::state& lua, sol::table& binding, const string& module_name)
     );
 
     _glm.new_usertype<glm::ivec4>(
-        "ivec3",
+        "ivec4",
         "new", sol::constructors<glm::ivec4(), glm::ivec4(int, int, int, int)>()
     );
 
     _glm.new_usertype<glm::uvec4>(
-        "uvec3",
+        "uvec4",
         "new", sol::constructors<glm::uvec4(), glm::uvec4(unsigned, unsigned, unsigned, unsigned)>()
     );
 
@@ -145,7 +148,7 @@ void bind_tile_map_renderer(sol::state& lua, sol::table& binding, const string& 
     );
 }
 
-void bind_tile_sprite_renderer(sol::state& lua, sol::table& binding, const string& type_name)
+void bind_sprite_renderer(sol::state& lua, sol::table& binding, const string& type_name)
 {
     binding.new_usertype<graphics::SpriteRenderer>(
         type_name,
@@ -172,6 +175,11 @@ void bind_camera(sol::state& lua, sol::table& binding, const string& type_name)
         "center_at", sol::overload(
             sol::resolve<void(float, float)>(&graphics::Camera::center_at),
             sol::resolve<void(const glm::vec2&)>(&graphics::Camera::center_at)
+        ),
+
+        "follow", sol::overload(
+            sol::resolve<void(float, float)>(&graphics::Camera::follow),
+            sol::resolve<void(const glm::vec2&)>(&graphics::Camera::follow)
         ),
 
         "position_at", sol::overload(
@@ -229,7 +237,7 @@ void bind_texture_atlas(sol::state& lua, sol::table& binding, const string& type
             sol::resolve<graphics::TextureRegion(uint32_t)const>(&TA::lookup),
             sol::resolve<graphics::TextureRegion(const string&)const>(&TA::lookup)
         ),
-        
+
         "debug_print", &TA::debug_print,
         "as_texture", sol::resolve<graphics::Texture() const>(&TA::as_texture),
         "layers", &TA::layers
@@ -249,8 +257,47 @@ void bind_sprite_animation(sol::state& lua, sol::table& binding, const string& t
         "reset", &SpriteAnimation::reset,
         "time_scale", &SpriteAnimation::time_scale,
         "set_time_scale", &SpriteAnimation::set_time_scale,
-        "advance", &SpriteAnimation::advance
+        "advance", &SpriteAnimation::advance,
+        "copy", &SpriteAnimation::copy
     );
 };
+
+void bind_sprite(sol::state& lua, sol::table& binding, const string& type_name)
+{
+    binding.new_usertype<Sprite>(
+        type_name,
+        sol::constructors<Sprite()>(),
+        "position", &Sprite::position,
+        "center", &Sprite::center,
+        "x", &Sprite::x,
+        "y", &Sprite::y,
+        "z", &Sprite::z,
+        "angle", &Sprite::angle,
+        "texture_region", &Sprite::texture_region
+    );
+}
+
+void bind_sprite_batch(sol::state& lua, sol::table& binding, const string& type_name)
+{
+    binding.new_usertype<SpriteBatch>(
+        type_name,
+        sol::constructors<SpriteBatch()>(),
+        "add", &SpriteBatch::add,
+        "restart", &SpriteBatch::restart,
+        "sprites", &SpriteBatch::sprites
+    );
+}
+
+void bind_texture_region(sol::state& lua, sol::table& binding, const string& type_name)
+{
+    binding.new_usertype<TextureRegion>(
+        type_name,
+        sol::constructors<TextureRegion()>(),
+        "x", &TextureRegion::x,
+        "y", &TextureRegion::y,
+        "w", &TextureRegion::w,
+        "h", &TextureRegion::h
+    );
+}
 
 };

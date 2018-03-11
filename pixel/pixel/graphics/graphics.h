@@ -15,5 +15,6 @@
 #include "texture_atlas.h"
 #include "camera.h"
 #include "sprite_animation.h"
+#include "sprite_batch.h"
 
 #endif //GRAPHICS_GRAPHICS_H
