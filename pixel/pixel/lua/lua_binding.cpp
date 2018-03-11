@@ -53,7 +53,6 @@ void bind_app(sol::state& lua, sol::table& binding, const string& type_name)
     );
 }
 
-
 void bind_glm(sol::state& lua, sol::table& binding, const string& module_name)
 {
     sol::table _glm = binding[module_name] = lua.create_table();
@@ -70,7 +69,7 @@ void bind_glm(sol::state& lua, sol::table& binding, const string& module_name)
 
     _glm.new_usertype<glm::uvec2>(
         "uvec2",
-        "new", sol::constructors<glm::uvec2(), glm::uvec2(int, int)>()
+        "new", sol::constructors<glm::uvec2(), glm::uvec2(unsigned, unsigned)>()
     );
 
     _glm.new_usertype<glm::vec3>(
@@ -80,19 +79,51 @@ void bind_glm(sol::state& lua, sol::table& binding, const string& module_name)
 
     _glm.new_usertype<glm::ivec3>(
         "ivec3",
-        "new", sol::constructors<glm::ivec3(), glm::ivec3(float, float, float)>()
+        "new", sol::constructors<glm::ivec3(), glm::ivec3(int, int, int)>()
     );
 
     _glm.new_usertype<glm::uvec3>(
-        "uvec3",
-        "new", sol::constructors<glm::uvec3(), glm::uvec3(float, float, float)>()
+        "uvec2",
+        "new", sol::constructors<glm::uvec3(), glm::uvec3(unsigned, unsigned, unsigned)>()
     );
 
     _glm.new_usertype<glm::vec4>(
         "vec4",
         "new", sol::constructors<glm::vec4(void), glm::vec4(float, float, float, float)>()
     );
+
+    _glm.new_usertype<glm::ivec4>(
+        "ivec3",
+        "new", sol::constructors<glm::ivec4(), glm::ivec4(int, int, int, int)>()
+    );
+
+    _glm.new_usertype<glm::uvec4>(
+        "uvec3",
+        "new", sol::constructors<glm::uvec4(), glm::uvec4(unsigned, unsigned, unsigned, unsigned)>()
+    );
+
+    _glm.new_usertype<glm::mat2>(
+        "mat2",
+        "new", sol::constructors<glm::mat2(), glm::mat2(float, float,
+                                                        float, float)>()
+    );
+
+    _glm.new_usertype<glm::mat3>(
+        "mat3",
+        "new", sol::constructors<glm::mat3(), glm::mat3(float, float, float,
+                                                        float, float, float,
+                                                        float, float, float)>()
+    );
+
+    _glm.new_usertype<glm::mat4>(
+        "mat4",
+        "new", sol::constructors<glm::mat4(), glm::mat4(float, float, float, float,
+                                                        float, float, float, float,
+                                                        float, float, float, float,
+                                                        float, float, float, float)>()
+    );
 }
+
 
 
 void bind_tile_map(sol::state& lua, sol::table& binding, const string& type_name)
@@ -183,11 +214,22 @@ void bind_texture_atlas(sol::state& lua, sol::table& binding, const string& type
 
     binding.new_usertype<TA>(
         type_name,
+
         sol::constructors<TA(), TA(const glm::uvec3&)>(),
+
         "start_batch", &TA::start_batch,
         "stop_batch", &TA::stop_batch,
-        "add_image", &TA::add_image,
-        "lookup", sol::resolve<graphics::TextureRegion(uint32_t)const>(&TA::lookup),
+
+        "add_image", sol::overload(
+            sol::resolve<uint32_t(const string&)>(&TA::add_image),
+            sol::resolve<uint32_t(const string&, const string&)>(&TA::add_image)
+        ),
+
+        "lookup", sol::overload(
+            sol::resolve<graphics::TextureRegion(uint32_t)const>(&TA::lookup),
+            sol::resolve<graphics::TextureRegion(const string&)const>(&TA::lookup)
+        ),
+        
         "debug_print", &TA::debug_print,
         "as_texture", sol::resolve<graphics::Texture() const>(&TA::as_texture),
         "layers", &TA::layers

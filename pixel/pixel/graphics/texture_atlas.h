@@ -32,6 +32,8 @@ public:
     void stop_batch();
 
     uint32_t add_image(const string& path);
+    uint32_t add_image(const string& path, const string& name);
+
 
     vector<ImageData>& layers();
 
@@ -60,7 +62,7 @@ private:
     };
 
     uint32_t top_id_{0};
-    unordered_map<string, uint32_t> file_id_map_{};
+    unordered_map<string, uint32_t> name_registry_{};
     RegionMap tex_regions_{};
     vector<ImageData> layers_{};
     vector<ImageSize> blocks_{};

@@ -4,5 +4,5 @@ IFS=$'\n\t'
 
 mkdir -p build-ninja 
 cd build-ninja
-cmake -G Ninja ..
+cmake -DCMAKE_VERBOSE_MAKEFILE=on -G Ninja ..
 

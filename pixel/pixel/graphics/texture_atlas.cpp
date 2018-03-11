@@ -10,7 +10,7 @@ void TextureAtlas::start_batch()
 {
     blocks_.clear();
     layers_.clear();
-    file_id_map_.clear();
+    name_registry_.clear();
     top_id_ = 0;
 }
 
@@ -91,16 +91,28 @@ void TextureAtlas::stop_batch()
 }
 
 
-uint32_t TextureAtlas::add_image(const std::string& path)
+
+uint32_t TextureAtlas::add_image(const string& path, const string& name)
 {
     const auto img_id = top_id_++;
     auto img = ImageData(path);
 
-    file_id_map_[path] = img_id;
+
+    if (name == "") {
+        name_registry_[path] = img_id;
+    } else {
+        name_registry_[name] = img_id;
+    }
+
     blocks_.emplace_back(img.width, img.height, img_id);
     image_buffers_.insert(make_pair(img_id, move(img)));
 
     return img_id;
+}
+
+uint32_t TextureAtlas::add_image(const std::string& path)
+{
+    return add_image(path, "");
 }
 
 
@@ -180,7 +192,7 @@ Texture TextureAtlas::as_texture() const
 
 TextureRegion TextureAtlas::lookup(const std::string& name) const
 {
-    auto region_id = file_id_map_.at(name);
+    auto region_id = name_registry_.at(name);
     return tex_regions_.at(region_id);
 }
 
@@ -188,5 +200,6 @@ TextureRegion TextureAtlas::lookup(uint32_t region_id) const
 {
     return tex_regions_.at(region_id);
 }
+
 
 };

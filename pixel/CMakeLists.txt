@@ -36,7 +36,7 @@ add_library(pixel
         pixel/graphics/attribute.cpp pixel/graphics/attribute.h
         pixel/graphics/render_context.cpp pixel/graphics/render_context.h
         pixel/error.h
-        pixel/lua/lua_binding.h pixel/tilemap/tileset.cpp pixel/tilemap/tileset.h pixel/tilemap/tile_layer_texture.cpp pixel/tilemap/tile_layer_texture.h pixel/lua/lua_binding.cpp pixel/graphics/pack.cpp pixel/graphics/pack.h pixel/graphics/texture_atlas.cpp pixel/graphics/texture_atlas.h pixel/graphics/render_buffer.cpp pixel/graphics/render_buffer.h pixel/graphics/sprite_batch.cpp pixel/graphics/sprite_batch.h pixel/graphics/camera.cpp pixel/graphics/camera.h pixel/graphics/sprite_animation.cpp pixel/graphics/sprite_animation.h)
+        pixel/lua/lua_binding.h pixel/tilemap/tileset.cpp pixel/tilemap/tileset.h pixel/tilemap/tile_layer_texture.cpp pixel/tilemap/tile_layer_texture.h pixel/lua/lua_binding.cpp pixel/graphics/pack.cpp pixel/graphics/pack.h pixel/graphics/texture_atlas.cpp pixel/graphics/texture_atlas.h pixel/graphics/render_buffer.cpp pixel/graphics/render_buffer.h pixel/graphics/sprite_batch.cpp pixel/graphics/sprite_batch.h pixel/graphics/camera.cpp pixel/graphics/camera.h pixel/graphics/sprite_animation.cpp pixel/graphics/sprite_animation.h pixel/entrypoints/script_runner.cpp)
 
 add_dependencies(pixel pixel_source_version)
 
@@ -46,6 +46,7 @@ add_subdirectory(demos)
 add_subdirectory(tools)
 add_subdirectory(test)
 add_subdirectory(lib/tinypng)
+add_subdirectory(pixel/entrypoints)
 
 set(TMXLITE_STATIC_LIB ON)
 add_subdirectory(lib/tmxlite/tmxlite)
