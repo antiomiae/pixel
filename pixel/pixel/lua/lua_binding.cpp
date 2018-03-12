@@ -11,6 +11,11 @@ using namespace std;
 using namespace pixel::graphics;
 using namespace pixel::input;
 
+struct WindowWrapper
+{
+    GLFWwindow* window;
+};
+
 
 sol::table bind_pixel(sol::state& lua)
 {
@@ -59,13 +64,15 @@ void bind_app(sol::state& lua, sol::table& binding, const string& type_name)
         "run", &App::run,
         "set_tick_callback", &App::set_tick_callback,
         "render_context", &App::render_context,
-        "window", [](App* self) -> GLFWwindow* {
-            return self->window();
+
+        "window", [](App* self) {
+            WindowWrapper w;
+            w.window = self->window();
+            return w;
         },
         "create", create
     );
 }
-
 
 
 void bind_tile_map(sol::state& lua, sol::table& binding, const string& type_name)
@@ -195,18 +202,19 @@ void bind_texture_region(sol::state& lua, sol::table& binding, const string& typ
     );
 }
 
-void bind_glfw(sol::state& lua, sol::table& binding, const string& module_name)
-{
-    sol::table glfw = binding[module_name] = lua.create_table();
-    // lua.set_function("set_key_callback", &glfwSetKeyCallback);
-}
 
 void bind_keyboard(sol::state& lua, sol::table& binding, const string& type_name)
 {
     binding.new_usertype<Keyboard>(
         type_name,
         sol::constructors<Keyboard()>(),
-        "register_callback", &Keyboard::register_callback,
+        "register_callback", sol::overload(
+            &Keyboard::register_callback,
+
+            [](const WindowWrapper& w) {
+                Keyboard::register_callback(w.window);
+            }
+        ),
         "keymap", sol::var(&Keyboard::keymap)
     );
 }
