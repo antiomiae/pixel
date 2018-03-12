@@ -41,7 +41,6 @@ function pixel.load_animations(path, atlas)
         anim:set_time_scale(anim_data.timescale or 1000)
         --
         for j, frame_data in ipairs(anim_data.frames) do
-            print(pixel.inspect(frame_data))
             local tex_region = atlas:lookup(frame_data.region_name)
 
             anim:add_frame(tex_region, frame_data.duration)

@@ -65,7 +65,6 @@ TEST_F(BindingTest, Keyboard)
 
         local is_a_down = pixel.Keyboard.keymap[string.byte("A")]
         assert(is_a_down ~= nil)
-        print(pixel.inspect(pixel.Keyboard.keymap))
 )");
 };
 
