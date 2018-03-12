@@ -69,19 +69,18 @@ function sonic:update(dt, level)
 
     if pixel.Keyboard.keymap[KEYS.A] then
         self.vx = -100
+        self.dir = -1
     elseif pixel.Keyboard.keymap[KEYS.D] then
         self.vx = 100
+        self.dir = 1
     else
         self.vx = 0
     end
-
 
     self.x = self.x + self.vx * dt
     self.y = self.y + self.vy * dt
 
     level.camera:follow(self.x, self.y)
-
-
 
     self.sprite.x = self.x
     self.sprite.y = self.y

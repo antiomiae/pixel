@@ -64,7 +64,6 @@ void bind_app(sol::state& lua, sol::table& binding, const string& type_name)
         "run", &App::run,
         "set_tick_callback", &App::set_tick_callback,
         "render_context", &App::render_context,
-
         "window", [](App* self) {
             WindowWrapper w;
             w.window = self->window();
