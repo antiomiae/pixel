@@ -45,7 +45,7 @@ add_library(pixel
         pixel/graphics/sprite_batch.cpp pixel/graphics/sprite_batch.h
         pixel/graphics/camera.cpp pixel/graphics/camera.h
         pixel/graphics/sprite_animation.cpp pixel/graphics/sprite_animation.h
-        )
+        pixel/input/keyboard.cpp pixel/input/keyboard.h pixel/lua/lua_binding_glm.cpp pixel/lua/wrap_camera.cpp)
 
 
 add_dependencies(pixel pixel_source_version)

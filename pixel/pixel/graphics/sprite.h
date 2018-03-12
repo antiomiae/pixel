@@ -12,6 +12,16 @@ namespace pixel::graphics
 class Sprite
 {
 public:
+    /**
+        * Sprite orientation flags
+        * */
+    enum FlipFlag
+    {
+        kHorizontal = 0x8,
+        kVertical = 0x4,
+        kDiagonal = 0x2
+    };
+
     union
     {
         glm::vec3 position{};
@@ -22,7 +32,17 @@ public:
     };
     glm::vec2 center;
     float angle;
+    uint32_t flip_flags;
     TextureRegion texture_region;
+
+    void flip_h(bool);
+    bool flip_h();
+
+    void flip_v(bool);
+    bool flip_v();
+
+    void flip_d(bool);
+    bool flip_d();
 };
 
 };

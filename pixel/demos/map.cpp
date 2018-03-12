@@ -1,10 +1,12 @@
 #include <pixel/pixel.h>
 #include <unistd.h>
 #include <pixel/error.h>
+#include <pixel/input/keyboard.h>
 
 using namespace std;
 using namespace pixel;
 using namespace pixel::graphics;
+using namespace pixel::input;
 
 void update_camera(Camera& camera, const RenderContext& rc)
 {
@@ -37,6 +39,8 @@ int main(int argc, char* argv[])
     };
 
     app.init();
+
+    Keyboard::register_callback(app.window());
 
     pixel::TileMapRenderer renderer{};
 

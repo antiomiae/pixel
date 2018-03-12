@@ -22,7 +22,7 @@ public:
     void set_tick_callback(std::function<void(void)> cb);
     void late_tick();
     void update_render_context();
-    GLFWwindow& window();
+    GLFWwindow* window();
     RenderContext& render_context();
 
 private:

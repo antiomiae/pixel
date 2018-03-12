@@ -22,6 +22,8 @@ void bind_sprite_animation(sol::state& lua, sol::table& binding, const string& t
 void bind_sprite(sol::state& lua, sol::table& binding, const string& type_name = "Sprite");
 void bind_sprite_batch(sol::state& lua, sol::table& binding, const string& type_name = "SpriteBatch");
 void bind_texture_region(sol::state& lua, sol::table& binding, const string& type_name = "TextureRegion");
+void bind_glfw(sol::state& lua, sol::table& binding, const string& module_name = "glfw");
+void bind_keyboard(sol::state& lua, sol::table& binding, const string& type_name = "Keyboard");
 
 };
 

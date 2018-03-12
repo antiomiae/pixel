@@ -1,10 +1,16 @@
+#include <functional>
+#include <pixel/pixel.h>
+#include <pixel/graphics/common.h>
 #include "lua_binding.h"
-#include "../pixel.h"
 
-using namespace pixel::graphics;
 
 namespace pixel
 {
+
+using namespace std;
+using namespace pixel::graphics;
+using namespace pixel::input;
+
 
 sol::table bind_pixel(sol::state& lua)
 {
@@ -21,6 +27,7 @@ sol::table bind_pixel(sol::state& lua)
     bind_sprite(lua, binding);
     bind_sprite_batch(lua, binding);
     bind_texture_region(lua, binding);
+    bind_keyboard(lua, binding);
 
     return binding;
 }
@@ -52,78 +59,10 @@ void bind_app(sol::state& lua, sol::table& binding, const string& type_name)
         "run", &App::run,
         "set_tick_callback", &App::set_tick_callback,
         "render_context", &App::render_context,
+        "window", [](App* self) -> GLFWwindow* {
+            return self->window();
+        },
         "create", create
-    );
-}
-
-void bind_glm(sol::state& lua, sol::table& binding, const string& module_name)
-{
-    sol::table _glm = binding[module_name] = lua.create_table();
-
-    _glm.new_usertype<glm::vec2>(
-        "vec2",
-        "new", sol::constructors<glm::vec2(), glm::vec2(float, float), glm::vec2(glm::ivec2)>()
-    );
-
-    _glm.new_usertype<glm::ivec2>(
-        "ivec2",
-        "new", sol::constructors<glm::ivec2(), glm::ivec2(int, int)>()
-    );
-
-    _glm.new_usertype<glm::uvec2>(
-        "uvec2",
-        "new", sol::constructors<glm::uvec2(), glm::uvec2(unsigned, unsigned)>()
-    );
-
-    _glm.new_usertype<glm::vec3>(
-        "vec3",
-        "new", sol::constructors<glm::vec3(), glm::vec3(float, float, float)>()
-    );
-
-    _glm.new_usertype<glm::ivec3>(
-        "ivec3",
-        "new", sol::constructors<glm::ivec3(), glm::ivec3(int, int, int)>()
-    );
-
-    _glm.new_usertype<glm::uvec3>(
-        "uvec3",
-        "new", sol::constructors<glm::uvec3(), glm::uvec3(unsigned, unsigned, unsigned)>()
-    );
-
-    _glm.new_usertype<glm::vec4>(
-        "vec4",
-        "new", sol::constructors<glm::vec4(void), glm::vec4(float, float, float, float)>()
-    );
-
-    _glm.new_usertype<glm::ivec4>(
-        "ivec4",
-        "new", sol::constructors<glm::ivec4(), glm::ivec4(int, int, int, int)>()
-    );
-
-    _glm.new_usertype<glm::uvec4>(
-        "uvec4",
-        "new", sol::constructors<glm::uvec4(), glm::uvec4(unsigned, unsigned, unsigned, unsigned)>()
-    );
-
-    _glm.new_usertype<glm::mat2>(
-        "mat2",
-        "new", sol::constructors<glm::mat2(), glm::mat2(float, float,
-                                                        float, float)>()
-    );
-
-    _glm.new_usertype<glm::mat3>(
-        "mat3",
-        "new", sol::constructors<glm::mat3(), glm::mat3(float, float, float,
-                                                        float, float, float,
-                                                        float, float, float)>()
-    );
-
-    _glm.new_usertype<glm::mat4>(
-        "mat4",
-        "new", sol::constructors<glm::mat4(), glm::mat4(float, float, float, float,
-                                                        float, float, float, float,
-                                                        float, float, float, float,
-                                                        float, float, float, float)>()
     );
 }
 
@@ -154,65 +93,6 @@ void bind_sprite_renderer(sol::state& lua, sol::table& binding, const string& ty
         type_name,
         "new", sol::constructors<graphics::SpriteRenderer()>(),
         "render", &graphics::SpriteRenderer::render
-    );
-}
-
-void bind_camera(sol::state& lua, sol::table& binding, const string& type_name)
-{
-    binding.new_usertype<graphics::Camera>(
-        type_name,
-
-        "new", sol::constructors<graphics::Camera(), graphics::Camera(glm::ivec2, glm::vec4)>(),
-
-        "lock_x", &graphics::Camera::lock_x,
-        "lock_y", &graphics::Camera::lock_y,
-
-        "translate", sol::overload(
-            sol::resolve<void(float, float)>(&graphics::Camera::translate),
-            sol::resolve<void(const glm::vec2&)>(&graphics::Camera::translate)
-        ),
-
-        "center_at", sol::overload(
-            sol::resolve<void(float, float)>(&graphics::Camera::center_at),
-            sol::resolve<void(const glm::vec2&)>(&graphics::Camera::center_at)
-        ),
-
-        "follow", sol::overload(
-            sol::resolve<void(float, float)>(&graphics::Camera::follow),
-            sol::resolve<void(const glm::vec2&)>(&graphics::Camera::follow)
-        ),
-
-        "position_at", sol::overload(
-            sol::resolve<void(float, float)>(&graphics::Camera::position_at),
-            sol::resolve<void(const glm::vec2&)>(&graphics::Camera::position_at)
-        ),
-
-        "scale_by", sol::overload(
-            sol::resolve<void(float, float)>(&graphics::Camera::scale_by),
-            sol::resolve<void(const glm::vec2&)>(&graphics::Camera::scale_by)
-        ),
-
-        "scale", sol::overload(
-            sol::resolve<glm::vec2()>(&graphics::Camera::scale),
-            sol::resolve<void(float)>(&graphics::Camera::scale),
-            sol::resolve<void(float, float)>(&graphics::Camera::scale),
-            sol::resolve<void(const glm::vec2&)>(&graphics::Camera::scale)
-        ),
-
-        "set_window_size", sol::overload(
-            sol::resolve<void(int, int)>(&graphics::Camera::set_window_size),
-            sol::resolve<void(const glm::ivec2&)>(&graphics::Camera::set_window_size)
-        ),
-
-        "view_matrix", &graphics::Camera::view_matrix,
-
-        "projection_matrix", &graphics::Camera::projection_matrix,
-
-        "position", &graphics::Camera::position,
-
-        "window_size", &graphics::Camera::window_size,
-
-        "view_rect", &graphics::Camera::view_rect
     );
 }
 
@@ -273,7 +153,22 @@ void bind_sprite(sol::state& lua, sol::table& binding, const string& type_name)
         "y", &Sprite::y,
         "z", &Sprite::z,
         "angle", &Sprite::angle,
-        "texture_region", &Sprite::texture_region
+        "texture_region", &Sprite::texture_region,
+
+        "flip_h", sol::overload(
+            sol::resolve<bool(void)>(&Sprite::flip_h),
+            sol::resolve<void(bool)>(&Sprite::flip_h)
+        ),
+
+        "flip_v", sol::overload(
+            sol::resolve<bool(void)>(&Sprite::flip_v),
+            sol::resolve<void(bool)>(&Sprite::flip_v)
+        ),
+
+        "flip_d", sol::overload(
+            sol::resolve<bool(void)>(&Sprite::flip_d),
+            sol::resolve<void(bool)>(&Sprite::flip_d)
+        )
     );
 }
 
@@ -297,6 +192,22 @@ void bind_texture_region(sol::state& lua, sol::table& binding, const string& typ
         "y", &TextureRegion::y,
         "w", &TextureRegion::w,
         "h", &TextureRegion::h
+    );
+}
+
+void bind_glfw(sol::state& lua, sol::table& binding, const string& module_name)
+{
+    sol::table glfw = binding[module_name] = lua.create_table();
+    // lua.set_function("set_key_callback", &glfwSetKeyCallback);
+}
+
+void bind_keyboard(sol::state& lua, sol::table& binding, const string& type_name)
+{
+    binding.new_usertype<Keyboard>(
+        type_name,
+        sol::constructors<Keyboard()>(),
+        "register_callback", &Keyboard::register_callback,
+        "keymap", sol::var(&Keyboard::keymap)
     );
 }
 

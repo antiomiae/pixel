@@ -2,17 +2,17 @@ pixel.inspect = require('inspect')
 
 require('animation')
 
---
+-- pixel.load_map
 function pixel.load_map(s)
     local tm = pixel.TileMap.new()
     tm:load(s)
     return tm
 end
 
+-- pixel.Level
+pixel.Level = {}
 
-local Level = {}
-
-function Level:new(o)
+function pixel.Level:new(o)
     o = o or {}
     setmetatable(o, self)
     self.__index = self
@@ -22,7 +22,7 @@ function Level:new(o)
     return o
 end
 
-function Level:__init()
+function pixel.Level:__init()
     self.map_renderer = pixel.TileMapRenderer.new()
     self.sprite_renderer = pixel.SpriteRenderer.new()
     self.sprite_batch = pixel.SpriteBatch.new()
@@ -34,12 +34,11 @@ function Level:__init()
     self.atlas = pixel.TextureAtlas:new(tsize)
     self.atlas_texture = nil
 
-
     self.camera = pixel.Camera:new()
     self.camera:set_window_size(320, 240)
 end
 
-function Level:load_sprites(sprites)
+function pixel.Level:load_sprites(sprites)
     self.atlas:start_batch()
     for path, name in pairs(sprites) do
         self.atlas:add_image(path, name)
@@ -48,15 +47,15 @@ function Level:load_sprites(sprites)
     self.atlas_texture = self.atlas:as_texture()
 end
 
-function Level:add_actor(a)
+function pixel.Level:add_actor(a)
     table.insert(self.actors, a)
 end
 
-function Level:add_map(m)
+function pixel.Level:add_map(m)
     table.insert(self.maps, m)
 end
 
-function Level:add_animation(a)
+function pixel.Level:add_animation(a)
     if type(a) == "string" then
         local anims = pixel.load_animations(a, self.atlas)
 
@@ -68,15 +67,24 @@ function Level:add_animation(a)
     end
 end
 
-function Level:update(dt)
+function pixel.Level:update(dt)
     self.sprite_batch:restart()
 
     for i, actor in pairs(self.actors) do
-        actor:update(dt)
+        actor:update(dt, self)
     end
 end
 
-function Level:draw()
+function pixel.Level:draw()
+    for i, actor in pairs(self.actors) do
+        if actor:active() then
+            local sprites = actor:draw(dt, self) or {}
+            for i, sprite in pairs(sprites) do
+                self.sprite_batch:add(sprite)
+            end
+        end
+    end
+
     if #self.maps > 0 then
         for i, map in pairs(self.maps) do
             self.map_renderer:render(map, self.camera)
@@ -88,4 +96,31 @@ function Level:draw()
     end
 end
 
-pixel.Level = Level
+-- pixel.Actor
+pixel.Actor = {}
+
+function pixel.Actor:new(o)
+    o = o or {}
+    setmetatable(o, self)
+    self.__index = self
+
+    o:__init(o)
+
+    return o
+end
+
+function pixel.Actor:__init(o)
+    self.x = o.x or 0.0
+    self.y = o.y or 0.0
+end
+
+function pixel.Actor:active()
+    return true
+end
+
+function pixel.Actor:update(dt, level)
+end
+
+function pixel.Actor:draw()
+end
+

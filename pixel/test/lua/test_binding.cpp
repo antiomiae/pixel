@@ -15,6 +15,7 @@ public:
         pixel::bind_pixel(lua);
         lua.script("package.path = package.path .. ';pixel/lua/?.lua'");
         lua.script("require 'pixel'");
+        lua["app"] = pixeltest::app();
     }
 };
 
@@ -53,6 +54,19 @@ TEST_F(BindingTest, Camera)
         local camera = pixel.Camera.new()
         assert(camera)
     )");
+};
+
+TEST_F(BindingTest, Keyboard)
+{
+    lua.script(R"(
+        assert(pixel.Keyboard.keymap)
+
+        pixel.Keyboard.register_callback(app:window())
+
+        local is_a_down = pixel.Keyboard.keymap[string.byte("A")]
+        assert(is_a_down ~= nil)
+        print(pixel.inspect(pixel.Keyboard.keymap))
+)");
 };
 
 };

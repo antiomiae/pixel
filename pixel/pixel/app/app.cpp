@@ -87,7 +87,8 @@ void App::run()
     }
 }
 
-void App::set_tick_callback(std::function<void(void)> cb) {
+void App::set_tick_callback(std::function<void(void)> cb)
+{
     tick_callback_ = std::move(cb);
 }
 
@@ -122,7 +123,7 @@ App::App(glm::ivec2 window_size, glm::vec4 clear_color, float pixel_scale)
 }
 
 
-GLFWwindow& App::window()
+GLFWwindow* App::window()
 {
-    return *window_;
+    return window_;
 }

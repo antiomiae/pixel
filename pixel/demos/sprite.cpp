@@ -127,7 +127,7 @@ int main(int argc, char* argv[])
     app.set_tick_callback(
         [&] {
             glm::vec2 v{};
-            auto window = &app.window();
+            auto window = app.window();
 
             //updateSprite(sprites, app.window());
             if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
