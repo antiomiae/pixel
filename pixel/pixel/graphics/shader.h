@@ -19,7 +19,7 @@ public:
 
     std::string debug_name_;
 
-    Shader();
+    Shader() = default;
     Shader(const char *vs, const char *fs, const char *debugName = "unnamed shader");
 
     void activate();

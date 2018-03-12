@@ -19,12 +19,6 @@ using namespace std;
 using pixel::collections::entries;
 
 
-Shader::Shader()
-{
-    cout << "Default constructor called" << endl;
-}
-
-
 Shader::Shader(const char* vsPath, const char* fsPath, const char* debugName)
     : debug_name_(debugName)
 {
