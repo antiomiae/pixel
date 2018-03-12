@@ -10,6 +10,15 @@ local app = pixel.App.create {
 
 app:init(0)
 
+pixel.Keyboard.register_callback(app:window())
+
+local KEYS = {
+  W = string.byte('W'),
+  A = string.byte('A'),
+  S = string.byte('S'),
+  D = string.byte('D'),
+}
+
 local SPRITES = {
     ["assets/sonic.png"] = "sonic",
     ["assets/sample_sprites/5.png"] = "joanna",
@@ -35,13 +44,11 @@ current_level:add_animation('assets/animations/sonic.lua')
 current_level:add_animation('assets/animations/cat.lua')
 current_level:add_animation('assets/animations/spy.lua')
 
-print(pixel.inspect(current_level))
-
 local sonic = pixel.Actor:new {
     x = 0,
     y = 0,
-    vx = 50,
-    vy = 50,
+    vx = 0,
+    vy = 0,
     animation = current_level.animations.spy_idle:copy(),
     sprite = pixel.Sprite.new(),
     dir = 1,
@@ -52,15 +59,37 @@ function sonic:update(dt, level)
     self.animation:update(dt)
     self.animation:update_sprite(self.sprite)
 
+    if pixel.Keyboard.keymap[KEYS.W] then
+        self.vy = 100
+    elseif pixel.Keyboard.keymap[KEYS.S] then
+        self.vy = -100
+    else
+        self.vy = 0
+    end
+
+    if pixel.Keyboard.keymap[KEYS.A] then
+        self.vx = -100
+    elseif pixel.Keyboard.keymap[KEYS.D] then
+        self.vx = 100
+    else
+        self.vx = 0
+    end
+
+
     self.x = self.x + self.vx * dt
     self.y = self.y + self.vy * dt
 
     level.camera:follow(self.x, self.y)
 
+
+
     self.sprite.x = self.x
     self.sprite.y = self.y
     self.sprite:flip_h(self.dir ~= 1)
 end
+
+sonic.x = 320 / 2
+sonic.y = 240 / 2
 
 function sonic:draw()
     return {self.sprite}
