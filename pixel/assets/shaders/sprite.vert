@@ -4,6 +4,7 @@ in vec3 position;
 in vec2 center;
 in float angle;
 in ivec4 texture_region; // x, y, width, height
+in int flip_flags;
 in int flipped;
 in int texture_layer;
 in vec2 texture_coord;
@@ -11,9 +12,16 @@ in vec2 vertex;
 
 out vec2 _texture_coord;
 flat out int _texture_layer;
+flat out int _flip_flags;
 
 
 uniform mat4 projection;
+
+
+
+#define FLIP_H 0x8
+#define FLIP_V 0x4
+#define FLIP_D 0x2
 
 mat2 rotate(float r) {
     float s = sin(r);
@@ -25,11 +33,28 @@ void main() {
     vec2 rotated_vertex = rotate(angle) * (texture_region.zw * (vertex - vec2(0.5))) + texture_region.zw * 0.5;
     gl_Position = projection * vec4(position.xy + rotated_vertex - center * texture_region.zw, position.z, 1.0);
 
+    vec2 tex_coord = texture_coord;
+
+    if (flip_flags > 0x1) {
+        if ((FLIP_H & flip_flags) > 0) {
+            tex_coord.x = 1.0 - tex_coord.x;
+        }
+
+        if ((FLIP_V & flip_flags) > 0) {
+            tex_coord.y = 1.0 - tex_coord.y;
+        }
+
+        if ((FLIP_D & flip_flags) > 0) {
+            tex_coord = tex_coord.yx;
+        }
+    }
+
     if (flipped > 0) {
-        _texture_coord = texture_region.xy + texture_coord.yx * texture_region.wz;
+        _texture_coord = texture_region.xy + tex_coord.yx * texture_region.wz;
     } else {
-        _texture_coord = texture_region.xy + texture_coord.xy * texture_region.zw;
+        _texture_coord = texture_region.xy + tex_coord.xy * texture_region.zw;
     }
 
     _texture_layer = texture_layer;
+    _flip_flags = flip_flags;
 }

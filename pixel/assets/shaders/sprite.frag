@@ -2,10 +2,12 @@
 
 in vec2 _texture_coord;
 flat in int _texture_layer;
+flat in int _flip_flags;
 
 out vec4 fragColor;
 
 uniform sampler2DArray tex;
+
 
 void main() {
     ivec2 t = ivec2(_texture_coord);

@@ -70,7 +70,11 @@ end
 function pixel.Level:update(dt)
     self.sprite_batch:restart()
 
-    for i, actor in pairs(self.actors) do
+    for _, map in pairs(self.maps) do
+        map:update(dt)
+    end
+
+    for _, actor in pairs(self.actors) do
         actor:update(dt, self)
     end
 end

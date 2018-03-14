@@ -89,6 +89,15 @@ void SpriteRenderer::SpriteRenderer::bindAttributes()
         1
     );
 
+    // flip_flags
+    sprite_buffer_.bindToProgramAttribute(
+        program_,
+        "flip_flags",
+        sizeof(Sprite),
+        offsetof(Sprite, flip_flags),
+        1
+    );
+
     vao_.deactivate();
 }
 
