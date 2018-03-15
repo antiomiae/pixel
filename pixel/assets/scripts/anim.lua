@@ -32,12 +32,12 @@ local SPRITES = {
 }
 
 local current_level = pixel.Level:new()
-current_level.camera:lock_x(true)
+--current_level.camera:lock_x(true)
 current_level.camera:set_window_size(math.floor(W/3), math.floor(H/3))
 
 current_level:load_sprites(SPRITES)
 
-current_level:add_map(pixel.load_map("assets/traps_2.tmx"))
+current_level:add_map(pixel.load_map("assets/map.tmx"))
 
 current_level:add_animation('assets/animations/spy.lua')
 
@@ -104,23 +104,21 @@ function sonic:update(dt, level)
     self.x = self.x + self.vx * dt
     self.y = self.y + self.vy * dt
 
-    -- level.camera:follow(self.x, self.y)
+    level.camera:follow(self.x, self.y)
 
     self.sprite.x = self.x
     self.sprite.y = self.y
+    self.sprite.angle = self.sprite.angle + 0.01
     self.sprite:flip_h(self.dir ~= 1)
     self.sprite:flip_v(true)
-    self.sprite.angle = self.sprite.angle + 0.01
+
     level.camera:scale(
-        math.floor(math.sin(self.sprite.angle / 5) * 50) / 50 * 0.5 + 1
+        math.sin(self.sprite.angle / 4) * 0.9 + 1
     )
-    if self.frame % 10 == 0 then
-        level.camera:center_at(math.random() * W / 3 / 2, math.random() * H / 3 / 2)
-    end
 end
 
-sonic.x = W / 3 / 2
-sonic.y = H / 3 / 2
+sonic.x = W / 6 / 2
+sonic.y = H / 6 / 2
 
 function sonic:draw()
     return { self.sprite }
