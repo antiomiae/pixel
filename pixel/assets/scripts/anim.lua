@@ -7,7 +7,7 @@ H = 850
 local app = pixel.App.create {
     width = W,
     height =  H,
-    background_color = { 0.5, 0.5, 0.5, 1.0 },
+    background_color = { 0.1, 0.1, 0.1, 1.0 },
     pixel_scale = 2.0
 }
 
