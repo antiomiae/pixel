@@ -23,6 +23,7 @@ void bind_sprite(sol::state& lua, sol::table& binding, const string& type_name =
 void bind_sprite_batch(sol::state& lua, sol::table& binding, const string& type_name = "SpriteBatch");
 void bind_texture_region(sol::state& lua, sol::table& binding, const string& type_name = "TextureRegion");
 void bind_keyboard(sol::state& lua, sol::table& binding, const string& type_name = "Keyboard");
+void bind_image_data(sol::state& lua, sol::table& binding, const string& type_name = "ImageData");
 
 };
 

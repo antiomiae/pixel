@@ -68,4 +68,20 @@ TEST_F(BindingTest, Keyboard)
 )");
 };
 
+TEST_F(BindingTest, ImageData)
+{
+    lua.script(R"(
+        assert(pixel.ImageData)
+
+        local image1 = pixel.ImageData.new(100, 100)
+        local image2 = pixel.ImageData.new(image1)
+        local image3 = image2:transpose()
+        image3:clear()
+
+        local num_pixels = image1.width * image1.height
+        assert(num_pixels == 100 * 100)
+
+)");
+};
+
 };

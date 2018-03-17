@@ -17,6 +17,9 @@ TEST(TextureAtlas, batch)
         atlas.add_image("assets/random_images/" + to_string(i) + ".png");
     }
 
+    ImageData img{32, 32};
+    atlas.add_image(img, "ImageData image");
+
     atlas.stop_batch();
 
     auto& layers = atlas.layers();

@@ -116,6 +116,18 @@ uint32_t TextureAtlas::add_image(const std::string& path)
 }
 
 
+uint32_t TextureAtlas::add_image(const ImageData& img, const string& name)
+{
+    const auto img_id = top_id_++;
+
+    blocks_.emplace_back(img.width, img.height, img_id);
+    image_buffers_.insert(make_pair(img_id, img));
+
+    return img_id;
+}
+
+
+
 TextureAtlas::TextureAtlas(glm::uvec3 size)
     : atlas_size_(size)
 {
@@ -200,6 +212,5 @@ TextureRegion TextureAtlas::lookup(uint32_t region_id) const
 {
     return tex_regions_.at(region_id);
 }
-
 
 };

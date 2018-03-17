@@ -36,7 +36,6 @@ add_library(pixel
         pixel/graphics/attribute.cpp pixel/graphics/attribute.h
         pixel/graphics/render_context.cpp pixel/graphics/render_context.h
         pixel/error.h
-        pixel/lua/lua_binding.h pixel/lua/lua_binding.cpp
         pixel/tilemap/tileset.cpp pixel/tilemap/tileset.h
         pixel/tilemap/tile_layer_texture.cpp pixel/tilemap/tile_layer_texture.h
         pixel/graphics/pack.cpp pixel/graphics/pack.h
@@ -45,7 +44,9 @@ add_library(pixel
         pixel/graphics/sprite_batch.cpp pixel/graphics/sprite_batch.h
         pixel/graphics/camera.cpp pixel/graphics/camera.h
         pixel/graphics/sprite_animation.cpp pixel/graphics/sprite_animation.h
-        pixel/input/keyboard.cpp pixel/input/keyboard.h pixel/lua/lua_binding_glm.cpp pixel/lua/wrap_camera.cpp)
+        pixel/input/keyboard.cpp pixel/input/keyboard.h pixel/lua/lua_binding_glm.cpp pixel/lua/wrap_camera.cpp pixel/lua/wrap_image_data.cpp
+        pixel/lua/lua_binding.h pixel/lua/lua_binding.cpp
+        )
 
 
 add_dependencies(pixel pixel_source_version)

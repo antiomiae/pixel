@@ -33,6 +33,7 @@ sol::table bind_pixel(sol::state& lua)
     bind_sprite_batch(lua, binding);
     bind_texture_region(lua, binding);
     bind_keyboard(lua, binding);
+    bind_image_data(lua, binding);
 
     return binding;
 }
@@ -116,7 +117,8 @@ void bind_texture_atlas(sol::state& lua, sol::table& binding, const string& type
 
         "add_image", sol::overload(
             sol::resolve<uint32_t(const string&)>(&TA::add_image),
-            sol::resolve<uint32_t(const string&, const string&)>(&TA::add_image)
+            sol::resolve<uint32_t(const string&, const string&)>(&TA::add_image),
+            sol::resolve<uint32_t(const ImageData&, const string&)>(&TA::add_image)
         ),
 
         "lookup", sol::overload(

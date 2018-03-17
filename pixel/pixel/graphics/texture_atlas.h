@@ -33,6 +33,7 @@ public:
 
     uint32_t add_image(const string& path);
     uint32_t add_image(const string& path, const string& name);
+    uint32_t add_image(const ImageData& img, const string& name);
 
 
     vector<ImageData>& layers();
