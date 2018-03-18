@@ -1,9 +1,46 @@
+#include <algorithm>
 #include <pixel/pixel.h>
-#include <pixel/error.h>
 
-using namespace pixel;
+namespace pixel
+{
 using namespace std;
 
+class PropertyCollection
+{
+public:
+    PropertyCollection(const vector<tmx::Property>& props)
+    {
+        for (const auto& prop : props) {
+            props_[prop.getName()] = prop;
+        }
+    }
+
+    float getFloat(const string& k)
+    {
+        auto prop = props_.at(k);
+        error_unless(prop.getType() == tmx::Property::Type::Float,
+                     "Property attempting to be read as float type is not float type");
+        return prop.getFloatValue();
+    }
+
+    float getFloat(const string& k, float default_val)
+    {
+
+        auto item = props_.find(k);
+        if (item != end(props_)) {
+            auto prop = item->second;
+            error_unless(prop.getType() == tmx::Property::Type::Float,
+                         "Property attempting to be read as float type is not float type");
+            return prop.getFloatValue();
+        } else {
+            return default_val;
+        }
+
+    }
+
+private:
+    unordered_map<string, tmx::Property> props_;
+};
 
 TileLayer::TileLayer(unsigned width, unsigned height)
     : width_(width),
@@ -15,7 +52,8 @@ TileLayer::TileLayer(unsigned width, unsigned height)
 TileLayer::TileLayer(TileLayer&& rhs) noexcept
     : width_(rhs.width_),
       height_(rhs.height_),
-      tiles_(move(rhs.tiles_))
+      tiles_(move(rhs.tiles_)),
+      parallax_(rhs.parallax_)
 {
 }
 
@@ -37,6 +75,13 @@ bool TileLayer::load(const tmx::Map& m, const tmx::TileLayer& t, const pixel::Ti
 
     auto tmx_tiles = t.getTiles();
     error_if(tmx_tiles.size() != tiles_.size(), "tmx::TileLayer t contains different number of tiles than expected");
+
+    PropertyCollection props(t.getProperties());
+
+    parallax_ = {
+        props.getFloat("parallax_x", 1.0),
+        props.getFloat("parallax_y", 1.0)
+    };
 
     transform(
         begin(tmx_tiles),
@@ -93,9 +138,15 @@ unsigned TileLayer::height() const
 }
 
 
+glm::vec2 TileLayer::parallax() const
+{
+    return parallax_;
+}
+
+
 void TileLayer::update(float dt)
 {
-    for (auto& [id, anim] : animations_) {
+    for (auto & [id, anim] : animations_) {
         anim.update(dt);
 
         if (!anim.tiles.empty()) {
@@ -106,4 +157,4 @@ void TileLayer::update(float dt)
     }
 }
 
-
+};

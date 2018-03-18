@@ -48,6 +48,7 @@ public:
     void set_window_size(int w, int h);
 
     glm::mat4 view_matrix();
+    glm::mat4 parallax_view_matrix(const glm::vec2&);
     glm::mat4 projection_matrix();
 
     glm::vec2 position();

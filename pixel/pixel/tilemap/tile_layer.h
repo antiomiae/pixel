@@ -141,6 +141,7 @@ public:
     std::unordered_map<uint32_t, TileAnimation> animations();
     unsigned width() const;
     unsigned height() const;
+    glm::vec2 parallax() const;
 
 
     Tile& at(unsigned int x, unsigned int y)
@@ -161,6 +162,7 @@ private:
     std::vector<Tile> tiles_;
     unsigned int width_;
     unsigned int height_;
+    glm::vec2 parallax_;
 };
 
 };

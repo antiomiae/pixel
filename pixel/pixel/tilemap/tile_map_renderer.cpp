@@ -61,7 +61,6 @@ void pixel::TileMapRenderer::render(pixel::TileMap& t, Camera& camera)
     auto map_size = t.tile_size() * t.tile_count();
     auto table_size = t.tile_count();
 
-    auto projection = camera.projection_matrix() * camera.view_matrix();
 
     set_buffer_data(map_size.x, map_size.y, table_size.x, table_size.y);
     logGlErrors();
@@ -70,8 +69,7 @@ void pixel::TileMapRenderer::render(pixel::TileMap& t, Camera& camera)
     vao_.activate();
     logGlErrors();
 
-    program_->setUniform("projection", projection);
-    logGlErrors();
+
     program_->setUniform("tile_size", t.tile_size());
     logGlErrors();
 
@@ -85,12 +83,21 @@ void pixel::TileMapRenderer::render(pixel::TileMap& t, Camera& camera)
     logGlErrors();
 
     for (auto& layer : t.layers()) {
+        auto p = layer.parallax();
+
+        auto projection = camera.projection_matrix() * camera.parallax_view_matrix(layer.parallax());
+        program_->setUniform("projection", projection);
+        logGlErrors();
+
         tile_layer_texture_->load(layer, t.atlas());
         logGlErrors();
+
         tile_layer_texture_->texture().activate(1);
         logGlErrors();
+
         program_->setUniform("map_tex", 1);
         logGlErrors();
+
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
         logGlErrors();
     }

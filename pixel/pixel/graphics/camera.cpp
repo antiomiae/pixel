@@ -60,6 +60,22 @@ glm::mat4 Camera::view_matrix()
     return v;
 }
 
+glm::mat4 Camera::parallax_view_matrix(const glm::vec2& parallax_scale)
+{
+    auto center = glm::vec2(window_size_) / 2.0f;
+    auto v = glm::mat4();
+    /* translate center of view rect to 0,0 */
+    v = glm::translate(v, -glm::vec3(position_ * parallax_scale + center, 0.0));
+
+    /* scale */
+    v = glm::scale(glm::mat4(), glm::vec3(scale_, 1.0)) * v;
+
+    /* translate scaled contents back to center of view rect */
+    v = glm::translate(glm::mat4(), glm::vec3(center, 0.0)) * v;
+
+    return v;
+}
+
 glm::vec2 Camera::position()
 {
     return position_;
@@ -134,7 +150,7 @@ glm::vec4 Camera::view_rect()
 
 glm::mat4 Camera::projection_matrix()
 {
-    return glm::ortho(0.0f, (float)window_size_.x, 0.0f, (float)window_size_.y);
+    return glm::ortho(0.0f, (float) window_size_.x, 0.0f, (float) window_size_.y);
 }
 
 void Camera::set_window_size(int w, int h)
@@ -144,7 +160,10 @@ void Camera::set_window_size(int w, int h)
 
 void Camera::follow(float x, float y)
 {
-    position_ = glm::vec2(lock_x_ ? position_.x : x - (float)window_size_.x / 2.0, lock_y_ ? position_.y : y - (float)window_size_.y / 2.0);
+    position_ = glm::vec2(
+        lock_x_ ? position_.x : x - (float) window_size_.x / 2.0,
+        lock_y_ ? position_.y : y - (float) window_size_.y / 2.0
+    );
 }
 
 void Camera::follow(const glm::vec2& o)

@@ -101,6 +101,8 @@ function sonic:update(dt, level)
     end
 
 
+
+
     self.x = self.x + self.vx * dt
     self.y = self.y + self.vy * dt
 
@@ -108,13 +110,7 @@ function sonic:update(dt, level)
 
     self.sprite.x = self.x
     self.sprite.y = self.y
-    self.sprite.angle = self.sprite.angle + 0.01
     self.sprite:flip_h(self.dir ~= 1)
-    self.sprite:flip_v(true)
-
-    level.camera:scale(
-        math.sin(self.sprite.angle / 4) * 0.9 + 1
-    )
 end
 
 sonic.x = W / 6 / 2
