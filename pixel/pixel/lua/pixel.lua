@@ -128,3 +128,32 @@ end
 function pixel.Actor:draw()
 end
 
+---- pixel.TileProperties
+--pixel.TileProperties = {}
+--
+--function pixel.TileProperties:new(o)
+--    o = o or {}
+--    setmetatable(o, self)
+--    self.__index = self
+--
+--    o:__init(o)
+--
+--    return o
+--end
+--
+--function pixel.TileProperties:__init(o)
+--    if o.solid ~= nil then
+--        self.solid = o.solid
+--    else
+--        self.solid = true
+--    end
+--end
+--
+--pixel.TileMap_ = pixel.TileMap
+--
+--pixel.TileMap = {}
+--
+--function pixel.TileMap:new(o)
+--
+--end
+--

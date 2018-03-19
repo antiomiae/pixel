@@ -61,7 +61,6 @@ TEST(Camera, view_rect)
     );
 }
 
-
 TEST(Camera, scroll_lock)
 {
     Camera camera{

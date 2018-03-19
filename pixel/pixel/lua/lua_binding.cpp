@@ -81,7 +81,9 @@ void bind_tile_map(sol::state& lua, sol::table& binding, const string& type_name
         type_name,
         "new", sol::constructors<TileMap()>(),
         "load", sol::resolve<const std::string&>(&TileMap::load),
-        "update", &TileMap::update
+        "update", &TileMap::update,
+        "layers", &TileMap::layers,
+        "tileset", &TileMap::tileset
     );
 }
 

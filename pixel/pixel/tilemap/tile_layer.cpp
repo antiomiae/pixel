@@ -49,14 +49,6 @@ TileLayer::TileLayer(unsigned width, unsigned height)
 {
 }
 
-TileLayer::TileLayer(TileLayer&& rhs) noexcept
-    : width_(rhs.width_),
-      height_(rhs.height_),
-      tiles_(move(rhs.tiles_)),
-      parallax_(rhs.parallax_)
-{
-}
-
 bool TileLayer::load(const tmx::Map& m, const tmx::TileLayer& t, const pixel::Tileset& tileset)
 {
     auto tile_count = m.getTileCount();

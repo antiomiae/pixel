@@ -23,6 +23,10 @@ int main(int argc, char* argv[])
     /* Set package path */
     lua.script("package.path = package.path .. ';pixel/lua/?.lua'");
 
+    boost::filesystem::path script_path(argv[2]);
+
+    lua.script("package.path = package.path .. ';" + script_path.remove_filename().string() + "?.lua'");
+
     lua.script_file(argv[2]);
 
     return 0;

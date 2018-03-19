@@ -72,3 +72,8 @@ bool TileMap::load(const std::string& tmx_path)
     argument_error_unless(m.load(tmx_path), "Unable to load tmx map file at path " + tmx_path);
     return load(m);
 }
+
+Tileset& TileMap::tileset()
+{
+    return tileset_;
+}

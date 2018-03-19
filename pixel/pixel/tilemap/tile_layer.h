@@ -130,7 +130,7 @@ public:
 
     TileLayer() = default;
     TileLayer(unsigned width, unsigned height);
-    TileLayer(TileLayer&& rhs) noexcept;
+    TileLayer(const TileLayer&) = default;
 
     void update(float dt);
 

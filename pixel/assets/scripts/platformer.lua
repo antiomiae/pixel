@@ -1,6 +1,8 @@
 --
 require 'pixel'
 
+local tilemap = require './tilemap'
+
 W = 1400
 H = 850
 
@@ -32,14 +34,12 @@ local SPRITES = {
 }
 
 local current_level = pixel.Level:new()
---current_level.camera:lock_x(true)
 current_level.camera:set_window_size(math.floor(W/3), math.floor(H/3))
-
 current_level:load_sprites(SPRITES)
-
 current_level:add_map(pixel.load_map("assets/map.tmx"))
-
 current_level:add_animation('assets/animations/spy.lua')
+
+local tm = tilemap.TileMap:new{ tile_map = current_level.maps[1] }
 
 local sonic = pixel.Actor:new {
     x = 0,
