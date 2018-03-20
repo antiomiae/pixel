@@ -137,7 +137,6 @@ public:
     bool load(const tmx::Map& m, const tmx::TileLayer& t, const pixel::Tileset& tileset);
 
     const std::vector<Tile>& tiles() const;
-    std::vector<Tile>& tiles();
     std::unordered_map<uint32_t, TileAnimation> animations();
     unsigned width() const;
     unsigned height() const;

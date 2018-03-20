@@ -24,6 +24,7 @@ sol::table bind_pixel(sol::state& lua)
     bind_glm(lua, binding);
     bind_app(lua, binding);
     bind_tile_map(lua, binding);
+    bind_tile_layer(lua, binding);
     bind_tile_map_renderer(lua, binding);
     bind_sprite_renderer(lua, binding);
     bind_camera(lua, binding);
@@ -84,6 +85,28 @@ void bind_tile_map(sol::state& lua, sol::table& binding, const string& type_name
         "update", &TileMap::update,
         "layers", &TileMap::layers,
         "tileset", &TileMap::tileset
+    );
+}
+
+void bind_tile_layer(sol::state& lua, sol::table& binding, const string& type_name)
+{
+    sol::table tile_layer_binding = binding.new_usertype<TileLayer>(
+        type_name,
+        "new", sol::constructors<TileLayer(), TileLayer(unsigned width, unsigned height), TileLayer(const TileLayer&)>(),
+        "update", &TileLayer::update,
+        "tiles", &TileLayer::tiles,
+        "animations", &TileLayer::animations,
+        "width", &TileLayer::width,
+        "height", &TileLayer::height,
+        "parallax", &TileLayer::parallax,
+        "at", sol::resolve<TileLayer::Tile&(unsigned, unsigned)>(&TileLayer::at)
+    );
+
+    tile_layer_binding.new_usertype<TileLayer::Tile>(
+        "Tile",
+        "new", sol::constructors<TileLayer::Tile(), TileLayer(uint32_t, uint8_t)>(),
+        "tile_id", &TileLayer::Tile::tile_id,
+        "flip_flags", &TileLayer::Tile::flip_flags
     );
 }
 

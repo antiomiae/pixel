@@ -99,14 +99,7 @@ bool TileLayer::load(const tmx::Map& m, const tmx::TileLayer& t, const pixel::Ti
     return true;
 }
 
-
 const vector<TileLayer::Tile>& TileLayer::tiles() const
-{
-    return tiles_;
-}
-
-
-vector<TileLayer::Tile>& TileLayer::tiles()
 {
     return tiles_;
 }
