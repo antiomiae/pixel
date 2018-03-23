@@ -65,6 +65,8 @@ glm::mat4 Camera::parallax_view_matrix(const glm::vec2& parallax_scale)
         local_scale = {1.0, 1.0};
     }
 
+    v = glm::rotate(glm::mat4(), angle_, glm::vec3(0.0f, 0.0f, 1.0f)) * v;
+
     v = glm::scale(glm::mat4(), glm::vec3(local_scale, 1.0)) * v;
 
     v = glm::translate(glm::mat4(), glm::vec3(center, 0.0)) * v;
@@ -165,6 +167,11 @@ void Camera::follow(float x, float y)
 void Camera::follow(const glm::vec2& o)
 {
     follow(o.x, o.y);
+}
+
+void Camera::set_angle(float a)
+{
+    angle_ = a;
 }
 
 };

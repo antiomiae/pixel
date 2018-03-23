@@ -47,6 +47,8 @@ public:
     void set_window_size(const glm::ivec2& v);
     void set_window_size(int w, int h);
 
+    void set_angle(float);
+
     glm::mat4 view_matrix();
     glm::mat4 parallax_view_matrix(const glm::vec2&);
     glm::mat4 projection_matrix();
@@ -64,6 +66,7 @@ private:
     glm::vec4 bounds_{0, 0, 512, 512};
     glm::vec2 position_{0.0, 0.0};
     glm::vec2 scale_{1.0};
+    float angle_{0.0};
 };
 
 };

@@ -25,8 +25,8 @@ public:
     TileAtlas& atlas() const;
     Tileset& tileset();
     const vector<TileLayer>& layers() const;
-    glm::vec2 tile_count() const;
-    glm::vec2 tile_size() const;
+    glm::uvec2 tile_count() const;
+    glm::uvec2 tile_size() const;
 
     void update(float dt);
 
@@ -34,8 +34,8 @@ private:
     unique_ptr<TileAtlas> atlas_;
     Tileset tileset_;
     vector<TileLayer> layers_;
-    glm::vec2 tile_size_;
-    glm::vec2 tile_count_;
+    glm::uvec2 tile_size_;
+    glm::uvec2 tile_count_;
 };
 };
 #endif //PIXEL_TILE_MAP_H

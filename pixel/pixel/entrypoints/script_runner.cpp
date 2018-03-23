@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
 
     boost::filesystem::path script_path(argv[2]);
 
-    lua.script("package.path = package.path .. ';" + script_path.remove_filename().string() + "?.lua'");
+    lua.script("package.path = package.path .. ';" + script_path.remove_filename().string() + "/?.lua'");
 
     lua.script_file(argv[2]);
 

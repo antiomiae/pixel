@@ -46,13 +46,13 @@ const vector<TileLayer>& TileMap::layers() const
 }
 
 
-glm::vec2 TileMap::tile_count() const
+glm::uvec2 TileMap::tile_count() const
 {
     return tile_count_;
 }
 
 
-glm::vec2 TileMap::tile_size() const
+glm::uvec2 TileMap::tile_size() const
 {
     return tile_size_;
 }

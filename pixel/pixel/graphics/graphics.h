@@ -16,5 +16,6 @@
 #include "camera.h"
 #include "sprite_animation.h"
 #include "sprite_batch.h"
+#include "offscreen_render_target.h"
 
 #endif //GRAPHICS_GRAPHICS_H

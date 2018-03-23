@@ -1,9 +1,6 @@
 #include <unistd.h>
 #include <pixel/pixel.h>
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wconversion"
-
 using namespace pixel;
 using namespace pixel::graphics;
 
@@ -159,6 +156,3 @@ int main(int argc, char* argv[])
 
     return 0;
 }
-
-
-#pragma clang diagnostic pop

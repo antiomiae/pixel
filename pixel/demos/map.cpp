@@ -32,8 +32,11 @@ int main(int argc, char* argv[])
 
     pixel::print_version_information();
 
+    glm::ivec2 virtual_window_size = {320, 224};
+    glm::ivec2 actual_window_size = virtual_window_size * 3;
+
     pixel::App app{
-        {512, 448},
+        actual_window_size,
         {0.1, 0.1, 0.8, 1.0},
         2
     };
@@ -52,13 +55,25 @@ int main(int argc, char* argv[])
 
     Camera camera({0, 0}, {0, 0, 2000, 2000});
 
+    OffscreenRenderTarget render_target{};
+
+    render_target.set_window_size(virtual_window_size);
+    camera.set_window_size(render_target.window_size());
+
     app.set_tick_callback(
         [&] {
-            update_camera(camera, app.render_context());
-
             tile_map->update(1 / 60.0);
 
+            render_target.activate();
+            glClear(GL_COLOR_BUFFER_BIT);
+
             renderer.render(*tile_map, camera);
+
+            render_target.deactivate();
+
+            glClear(GL_COLOR_BUFFER_BIT);
+
+            render_target.draw(glm::ivec4(0, 0, actual_window_size.x, actual_window_size.y));
         }
     );
 

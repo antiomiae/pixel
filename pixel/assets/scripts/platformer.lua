@@ -1,10 +1,10 @@
 --
 require 'pixel'
 
-local tilemap = require './tilemap'
+local tilemap = require 'tilemap'
 
-W = 1400
-H = 850
+W = 1401
+H = 852
 
 local app = pixel.App.create {
     width = W,
@@ -34,12 +34,19 @@ local SPRITES = {
 }
 
 local current_level = pixel.Level:new()
+--current_level.camera:lock_x(true)
 current_level.camera:set_window_size(math.floor(W/3), math.floor(H/3))
-current_level:load_sprites(SPRITES)
-current_level:add_map(pixel.load_map("assets/map.tmx"))
-current_level:add_animation('assets/animations/spy.lua')
 
-local tm = tilemap.TileMap:new{ tile_map = current_level.maps[1] }
+local render_target = pixel.OffscreenRenderTarget.new()
+render_target:set_window_size(W // 3, H // 3)
+
+current_level:load_sprites(SPRITES)
+
+current_level:add_map(pixel.load_map("assets/map.tmx"))
+
+local simple_tilemap = tilemap.TileMap:new({ tile_map = current_level.maps[1] })
+
+current_level:add_animation('assets/animations/spy.lua')
 
 local sonic = pixel.Actor:new {
     x = 0,
@@ -103,7 +110,7 @@ function sonic:update(dt, level)
     self.x = self.x + self.vx * dt
     self.y = self.y + self.vy * dt
 
-    level.camera:follow(self.x, self.y)
+    --level.camera:follow(self.x, self.y)
 
     self.sprite.x = self.x
     self.sprite.y = self.y
@@ -119,9 +126,27 @@ end
 
 current_level:add_actor(sonic)
 
+local tile = simple_tilemap:tile_at_coord({x = 1, y = 1}, 1)
+
+print(pixel.inspect(tile))
+
+local function draw()
+    render_target:activate()
+
+    pixel.gl.glClear(pixel.gl.GL_COLOR_BUFFER_BIT)
+
+    current_level:draw()
+
+    render_target:deactivate()
+
+    pixel.gl.glClear(pixel.gl.GL_COLOR_BUFFER_BIT)
+
+    render_target:draw(pixel.glm.ivec4:new(0, 0, W, H))
+end
+
 app:set_tick_callback(function()
     current_level:update(1 / 60.0)
-    current_level:draw()
+    draw()
 end)
 
 app:run()

@@ -15,17 +15,22 @@ void bind_glm(sol::state& lua, sol::table& binding, const string& module_name)
 
     _glm.new_usertype<glm::vec2>(
         "vec2",
-        "new", sol::constructors<glm::vec2(), glm::vec2(float, float), glm::vec2(glm::ivec2)>()
+        "new", sol::constructors<glm::vec2(), glm::vec2(float, float), glm::vec2(glm::ivec2)>(),
+        "comp", [](glm::vec2& self, unsigned i) -> float { return self[i]; }
     );
 
     _glm.new_usertype<glm::ivec2>(
         "ivec2",
-        "new", sol::constructors<glm::ivec2(), glm::ivec2(int, int)>()
+        "new", sol::constructors<glm::ivec2(), glm::ivec2(int, int)>(),
+        "comp", [](glm::ivec2& self, unsigned i) -> int { return self[i]; }
     );
 
     _glm.new_usertype<glm::uvec2>(
         "uvec2",
-        "new", sol::constructors<glm::uvec2(), glm::uvec2(unsigned, unsigned)>()
+        "new", sol::constructors<glm::uvec2(), glm::uvec2(unsigned, unsigned)>(),
+        "comp", [](glm::uvec2& self, unsigned i) -> unsigned { return self[i]; },
+        "__index", [](glm::uvec2& self, unsigned i) -> unsigned { return self[i]; }
+
     );
 
     _glm.new_usertype<glm::vec3>(

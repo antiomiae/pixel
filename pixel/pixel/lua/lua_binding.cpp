@@ -21,9 +21,11 @@ sol::table bind_pixel(sol::state& lua)
 {
     sol::table binding = lua["pixel"] = lua.create_table();
 
+    bind_opengl(lua, binding);
     bind_glm(lua, binding);
     bind_app(lua, binding);
     bind_tile_map(lua, binding);
+    bind_tileset(lua, binding);
     bind_tile_layer(lua, binding);
     bind_tile_map_renderer(lua, binding);
     bind_sprite_renderer(lua, binding);
@@ -35,6 +37,7 @@ sol::table bind_pixel(sol::state& lua)
     bind_texture_region(lua, binding);
     bind_keyboard(lua, binding);
     bind_image_data(lua, binding);
+    bind_offscreen_render_target(lua, binding);
 
     return binding;
 }
@@ -75,7 +78,6 @@ void bind_app(sol::state& lua, sol::table& binding, const string& type_name)
     );
 }
 
-
 void bind_tile_map(sol::state& lua, sol::table& binding, const string& type_name)
 {
     binding.new_usertype<TileMap>(
@@ -84,7 +86,9 @@ void bind_tile_map(sol::state& lua, sol::table& binding, const string& type_name
         "load", sol::resolve<const std::string&>(&TileMap::load),
         "update", &TileMap::update,
         "layers", &TileMap::layers,
-        "tileset", &TileMap::tileset
+        "tileset", &TileMap::tileset,
+        "tile_count", &TileMap::tile_count,
+        "tile_size", &TileMap::tile_size
     );
 }
 
@@ -242,6 +246,19 @@ void bind_keyboard(sol::state& lua, sol::table& binding, const string& type_name
             }
         ),
         "keymap", sol::var(&Keyboard::keymap)
+    );
+}
+
+void bind_offscreen_render_target(sol::state& lua, sol::table& binding, const string& type_name)
+{
+    binding.new_usertype<OffscreenRenderTarget>(
+        type_name,
+        sol::constructors<OffscreenRenderTarget()>(),
+        "activate", &OffscreenRenderTarget::activate,
+        "deactivate", &OffscreenRenderTarget::deactivate,
+        "draw", &OffscreenRenderTarget::draw,
+        "set_window_size", sol::resolve<void(int,int)>(&OffscreenRenderTarget::set_window_size),
+        "window_size", &OffscreenRenderTarget::window_size
     );
 }
 
