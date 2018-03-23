@@ -14,24 +14,39 @@ out vec2 _texture_coord;
 flat out int _texture_layer;
 flat out int _flip_flags;
 
-
 uniform mat4 projection;
-
-
 
 #define FLIP_H 0x8
 #define FLIP_V 0x4
 #define FLIP_D 0x2
 
-mat2 rotate(float r) {
+mat3 rotate(float r) {
     float s = sin(r);
     float c = cos(r);
-    return mat2(c, s, -s, c);
+    return mat3(
+        c, s, 0,
+        -s, c, 0,
+        0, 0, 1
+    );
+}
+
+mat3 translate(vec2 v) {
+    return mat3(
+        1, 0, 0,
+        0, 1, 0,
+        v.x, v.y, 1
+    );
 }
 
 void main() {
-    vec2 rotated_vertex = rotate(angle) * (texture_region.zw * (vertex - vec2(0.5))) + texture_region.zw * 0.5;
-    gl_Position = projection * vec4(position.xy + rotated_vertex - center * texture_region.zw, position.z, 1.0);
+    vec2 basic_vertex = texture_region.zw * vertex;
+    vec3 rotated_vertex =
+        translate(texture_region.zw * 0.5) *
+        rotate(angle) *
+        translate(-texture_region.zw * 0.5) *
+        vec3(basic_vertex, 1);
+
+    gl_Position = projection * vec4(floor(position.xy + rotated_vertex.xy - center * texture_region.zw) + 0.375, position.z, 1.0);
 
     vec2 tex_coord = texture_coord;
 

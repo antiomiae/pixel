@@ -56,7 +56,7 @@ glm::mat4 Camera::parallax_view_matrix(const glm::vec2& parallax_scale)
     auto v = glm::mat4();
 
     /* move to account for camera position */
-    v = glm::translate(v, -glm::vec3(position_ * parallax_scale, 0.0));
+    v = glm::translate(v, -glm::vec3(glm::floor(position_ * parallax_scale), 0.0));
     /* translate center of view rect to 0,0 */
     v = glm::translate(glm::mat4(), -glm::vec3(center, 0.0)) * v;
     /* scale */

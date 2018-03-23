@@ -3,8 +3,8 @@ require 'pixel'
 
 local tilemap = require 'tilemap'
 
-W = 1401
-H = 852
+W = 320 * 3
+H = 224 * 3
 
 local app = pixel.App.create {
     width = W,
@@ -110,13 +110,15 @@ function sonic:update(dt, level)
     self.x = self.x + self.vx * dt
     self.y = self.y + self.vy * dt
 
-    local tile = simple_tilemap:tile_at_coord({ x = self.x, y = self.y }, 3)
+    if simple_tilemap:has_coord(self) then
+        local tile = simple_tilemap:tile_at_coord(self, 3)
 
-    if tile.name then
-        print(string.format("tile name = %q", tile.name))
+        if tile.name then
+            print(string.format("tile name = %q", tile.name))
+        end
     end
 
-    --level.camera:follow(self.x, self.y)
+    level.camera:follow(self.x, self.y)
 
     self.sprite.x = self.x
     self.sprite.y = self.y

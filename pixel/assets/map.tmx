@@ -47,7 +47,7 @@
  <layer name="Tile Layer 3" width="30" height="30">
   <properties>
    <property name="parallax_x" type="float" value="0.5"/>
-   <property name="parallax_y" type="float" value="0"/>
+   <property name="parallax_y" type="float" value="0.1"/>
   </properties>
   <data encoding="csv">
 663,0,661,662,663,0,859,662,663,0,859,662,663,0,859,662,663,0,859,662,663,0,859,662,663,0,859,662,663,0,

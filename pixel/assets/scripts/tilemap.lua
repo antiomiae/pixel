@@ -85,6 +85,11 @@ function TileMap:tile_at_coord(coord, layer_num)
     return self:get_tile_properties(col, row, layer_num)
 end
 
+function TileMap:has_coord(coord)
+    return (coord.x >= 0) and (coord.x < self.w * self.tw) and
+            (coord.y >= 0) and (coord.y < self.h * self.th)
+end
+
 return {
     TileMap = TileMap
 }
