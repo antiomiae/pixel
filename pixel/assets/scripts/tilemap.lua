@@ -24,16 +24,16 @@ local function parse_layer(layer, tileset)
         tiles[_row] = {}
 
         for col = 0, w-1 do
-            local _col = w - col - 1
+
             local tile = layer:at(col, row)
 
             if tile.tile_id ~= 0 then
                 local tileset_tile = tileset:tile(tile.tile_id)
                 local name = tileset_tile.type
 
-                tiles[_row][_col] = { tile = tile, name = name }
+                tiles[_row][col] = { tile = tile, name = name }
             else
-                tiles[_row][_col] = { tile = tile }
+                tiles[_row][col] = { tile = tile }
             end
         end
     end
@@ -67,7 +67,7 @@ end
 function TileMap:get_tile_properties(x, y, layer_num)
     assert(x < self.w and x >= 0)
     assert(y < self.h and y >= 0)
-    assert(layer_num < #self.layers and layer_num >= 1)
+    assert(layer_num <= #self.layers and layer_num >= 1)
 
     local layer = self.layers[layer_num]
     local tile = layer[y][x]

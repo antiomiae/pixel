@@ -44,7 +44,7 @@
 895,895,895,895,895,895,895,895,895,895,895,895,895,895,895,895,895,895,895,895,895,895,895,895,895,895,895,895,895,895
 </data>
  </layer>
- <layer name="Tile Layer 3" width="30" height="30" locked="1">
+ <layer name="Tile Layer 3" width="30" height="30">
   <properties>
    <property name="parallax_x" type="float" value="0.5"/>
    <property name="parallax_y" type="float" value="0"/>
@@ -82,7 +82,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="Tile Layer 1" width="30" height="30" locked="1">
+ <layer name="Tile Layer 1" width="30" height="30">
   <properties>
    <property name="parallax_x" type="float" value="1"/>
    <property name="parallax_y" type="float" value="1"/>

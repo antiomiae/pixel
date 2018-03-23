@@ -8,7 +8,7 @@ H = 852
 
 local app = pixel.App.create {
     width = W,
-    height =  H,
+    height = H,
     background_color = { 0.1, 0.1, 0.1, 1.0 },
     pixel_scale = 2.0
 }
@@ -35,7 +35,7 @@ local SPRITES = {
 
 local current_level = pixel.Level:new()
 --current_level.camera:lock_x(true)
-current_level.camera:set_window_size(math.floor(W/3), math.floor(H/3))
+current_level.camera:set_window_size(math.floor(W / 3), math.floor(H / 3))
 
 local render_target = pixel.OffscreenRenderTarget.new()
 render_target:set_window_size(W // 3, H // 3)
@@ -110,6 +110,12 @@ function sonic:update(dt, level)
     self.x = self.x + self.vx * dt
     self.y = self.y + self.vy * dt
 
+    local tile = simple_tilemap:tile_at_coord({ x = self.x, y = self.y }, 3)
+
+    if tile.name then
+        print(string.format("tile name = %q", tile.name))
+    end
+
     --level.camera:follow(self.x, self.y)
 
     self.sprite.x = self.x
@@ -125,10 +131,6 @@ function sonic:draw()
 end
 
 current_level:add_actor(sonic)
-
-local tile = simple_tilemap:tile_at_coord({x = 1, y = 1}, 1)
-
-print(pixel.inspect(tile))
 
 local function draw()
     render_target:activate()
