@@ -3,6 +3,8 @@
 in vec3 position;
 in vec2 center;
 in float angle;
+in vec4 color;
+in vec4 tint;
 in ivec4 texture_region; // x, y, width, height
 in int flip_flags;
 in int flipped;
@@ -13,6 +15,9 @@ in vec2 vertex;
 out vec2 _texture_coord;
 flat out int _texture_layer;
 flat out int _flip_flags;
+
+flat out vec4 _color;
+flat out vec4 _tint;
 
 uniform mat4 projection;
 
@@ -72,4 +77,6 @@ void main() {
 
     _texture_layer = texture_layer;
     _flip_flags = flip_flags;
+    _color = color;
+    _tint = tint;
 }

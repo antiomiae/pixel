@@ -189,6 +189,8 @@ void bind_sprite(sol::state& lua, sol::table& binding, const string& type_name)
         "x", &Sprite::x,
         "y", &Sprite::y,
         "z", &Sprite::z,
+        "color", &Sprite::color,
+        "tint", &Sprite::tint,
         "angle", &Sprite::angle,
         "texture_region", &Sprite::texture_region,
 

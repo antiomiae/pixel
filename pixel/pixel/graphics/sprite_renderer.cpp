@@ -98,6 +98,24 @@ void SpriteRenderer::SpriteRenderer::bindAttributes()
         1
     );
 
+    // color
+    sprite_buffer_.bindToProgramAttribute(
+        program_,
+        "color",
+        sizeof(Sprite),
+        offsetof(Sprite, color),
+        1
+    );
+
+    // tint
+    sprite_buffer_.bindToProgramAttribute(
+        program_,
+        "tint",
+        sizeof(Sprite),
+        offsetof(Sprite, tint),
+        1
+    );
+
     vao_.deactivate();
 }
 

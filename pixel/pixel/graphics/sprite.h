@@ -31,6 +31,8 @@ public:
         };
     };
     glm::vec2 center;
+    glm::vec4 color{1.0, 1.0, 1.0, 1.0};
+    glm::vec4 tint{0.0, 0.0, 0.0, 0.0};
     float angle;
     uint32_t flip_flags;
     TextureRegion texture_region;
