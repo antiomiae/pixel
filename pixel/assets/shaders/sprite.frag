@@ -13,10 +13,16 @@ uniform sampler2DArray tex;
 
 void main() {
     ivec2 t = ivec2(_texture_coord);
+    vec4 c;
 
-    vec4 c = texelFetch(tex, ivec3(t, _texture_layer), 0);
+    if (t.x < 0) {
+        c = vec4(1.0);
+    } else {
+        c = texelFetch(tex, ivec3(t, _texture_layer), 0);
+    }
+
     c *= _color;
-    c.xyz += _tint.xyz;
+    c.xyz += _tint.xyz * _tint.w;
 
     fragColor = c;
 

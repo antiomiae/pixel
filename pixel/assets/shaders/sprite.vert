@@ -69,10 +69,14 @@ void main() {
         }
     }
 
-    if (flipped > 0) {
-        _texture_coord = texture_region.xy + tex_coord.yx * texture_region.wz;
+    if (texture_region.x < 0) {
+        _texture_coord = vec2(-1, -1);
     } else {
-        _texture_coord = texture_region.xy + tex_coord.xy * texture_region.zw;
+        if (flipped > 0) {
+            _texture_coord = texture_region.xy + tex_coord.yx * texture_region.wz;
+        } else {
+            _texture_coord = texture_region.xy + tex_coord.xy * texture_region.zw;
+        }
     }
 
     _texture_layer = texture_layer;

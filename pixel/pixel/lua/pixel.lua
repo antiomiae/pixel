@@ -1,4 +1,5 @@
 pixel.inspect = require('inspect')
+pixel.TileMapWrapper = require('tilemap')
 
 require('animation')
 
@@ -27,6 +28,7 @@ function pixel.Level:__init()
     self.sprite_renderer = pixel.SpriteRenderer.new()
     self.sprite_batch = pixel.SpriteBatch.new()
     self.maps = {}
+    self.map_wrappers = {}
     self.animations = {}
     self.actors = {}
 
@@ -53,6 +55,7 @@ end
 
 function pixel.Level:add_map(m)
     table.insert(self.maps, m)
+    table.insert(self.map_wrappers, pixel.TileMapWrapper:new({ tile_map = m }))
 end
 
 function pixel.Level:add_animation(a)
@@ -85,6 +88,17 @@ function pixel.Level:draw()
             local sprites = actor:draw(dt, self) or {}
             for i, sprite in pairs(sprites) do
                 self.sprite_batch:add(sprite)
+            end
+        end
+    end
+
+    if self.debug then
+        for i, actor in pairs(self.actors) do
+            if actor:active() then
+                local sprites = actor:debug_draw() or {}
+                for i, sprite in pairs(sprites) do
+                    self.sprite_batch:add(sprite)
+                end
             end
         end
     end
@@ -128,32 +142,90 @@ end
 function pixel.Actor:draw()
 end
 
----- pixel.TileProperties
---pixel.TileProperties = {}
+-- Collision
+
+local collision = {
+    rects_overlap = function(r1, r2)
+        return (r1.x < r2.x + r2.w) and
+                (r1.x + r1.w > r2.x) and
+                (r1.y < r2.y + r2.h) and
+                (r1.y + r1.h > r2.y)
+    end
+}
+
+collision.Hitbox = {}
+
+-- Axis-aligned bounding box
+function collision.Hitbox:new(x, y, w, h)
+    local o = {}
+    setmetatable(o, self)
+    self.__index = self
+
+    o.rect = { x = x, y = y, w = w, h = h }
+    o.last_position = { x = x, y = y }
+
+    return o
+end
+
+function collision.Hitbox:as_rect()
+    return { x = self.rect.x, y = self.rect.y, w = self.rect.w, h = self.rect.h }
+end
+
+function collision.Hitbox:move_by(dx, dy)
+    self.last_position.x = self.rect.x
+    self.last_position.y = self.rect.y
+
+    self.rect.x = self.rect.x + dx
+    self.rect.y = self.rect.y + dy
+end
+
+function collision.Hitbox:sweep_rect()
+    if self.rect.x == self.last_position.x and self.rect.y == self.last_position.y then
+        return self:as_rect()
+    end
+
+    local dx = math.abs(self.rect.x - self.last_position.x)
+    local dy = math.abs(self.rect.y - self.last_position.y)
+
+    return {
+        x = math.min(self.rect.x, self.last_position.x),
+        y = math.min(self.rect.y, self.last_position.y),
+        w = self.rect.w + dx,
+        h = self.rect.h + dy
+    }
+end
+
+pixel.collision = collision
+
+-- utils
+
+
+--- - pixel.TileProperties
+-- pixel.TileProperties = {}
 --
---function pixel.TileProperties:new(o)
---    o = o or {}
---    setmetatable(o, self)
---    self.__index = self
+-- function pixel.TileProperties:new(o)
+-- o = o or {}
+-- setmetatable(o, self)
+-- self.__index = self
 --
---    o:__init(o)
+-- o:__init(o)
 --
---    return o
---end
+-- return o
+-- end
 --
---function pixel.TileProperties:__init(o)
---    if o.solid ~= nil then
---        self.solid = o.solid
---    else
---        self.solid = true
---    end
---end
+-- function pixel.TileProperties:__init(o)
+-- if o.solid ~= nil then
+-- self.solid = o.solid
+-- else
+-- self.solid = true
+-- end
+-- end
 --
---pixel.TileMap_ = pixel.TileMap
+-- pixel.TileMap_ = pixel.TileMap
 --
---pixel.TileMap = {}
+-- pixel.TileMap = {}
 --
---function pixel.TileMap:new(o)
+-- function pixel.TileMap:new(o)
 --
---end
+-- end
 --

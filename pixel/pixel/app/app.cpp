@@ -48,6 +48,9 @@ void App::init(int flags)
     error_unless(GLEW_VERSION_4_1, "OpenGL version 4.1 is not available according to GLEW");
 
     update_render_context();
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
 void App::update_render_context() {

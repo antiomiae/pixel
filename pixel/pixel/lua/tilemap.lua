@@ -1,5 +1,4 @@
 -- Tile map with collision
-local inspect = require 'inspect'
 local TileMap = {}
 
 function TileMap:new(o)
@@ -51,11 +50,11 @@ function TileMap:__init(o)
     self.tile_size = self.tile_map:tile_size()
     self.tile_count = self.tile_map:tile_count()
 
-    self.w = self.tile_count:comp(0)
-    self.h = self.tile_count:comp(1)
+    self.w = self.tile_count.x
+    self.h = self.tile_count.y
 
-    self.tw = self.tile_size:comp(0)
-    self.th = self.tile_size:comp(1)
+    self.tw = self.tile_size.x
+    self.th = self.tile_size.y
 
     self.layer_count = #self.tile_map:layers()
 
@@ -85,11 +84,31 @@ function TileMap:tile_at_coord(coord, layer_num)
     return self:get_tile_properties(col, row, layer_num)
 end
 
+function TileMap:get_overlapping_tiles(area, layer_num)
+    -- check area overlaps tilemap
+    if not pixel.collision.rects_overlap(area, {x = 0, y = 0, w = self.w * self.tw, h = self.h * self.th}) then
+        return nil
+    end
+
+    local start_x = math.max(0, area.x) // self.tw
+    local start_y = math.max(0, area.y) // self.th
+    local stop_x = math.min(self.tw * self.w, area.x + area.w) // self.tw
+    local stop_y = math.min(self.th * self.h, area.y + area.h) // self.th
+
+    local out = {}
+
+    for x = start_x, stop_x do
+        for y = start_y, stop_y do
+            out[{x = x, y = y}] = self:tile_at_coord({x = x, y = y}, layer_num)
+        end
+    end
+
+    return out
+end
+
 function TileMap:has_coord(coord)
     return (coord.x >= 0) and (coord.x < self.w * self.tw) and
             (coord.y >= 0) and (coord.y < self.h * self.th)
 end
 
-return {
-    TileMap = TileMap
-}
+return TileMap
