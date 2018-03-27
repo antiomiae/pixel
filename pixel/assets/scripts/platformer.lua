@@ -143,19 +143,10 @@ function sonic:check_collision(level)
     local dx = self.hitbox.rect.x - self.hitbox.last_position.x
     local dy = self.hitbox.rect.y - self.hitbox.last_position.y
 
-    local step_dir = {}
-
-    if dx < 0 then
-        step_dir.x = -1
-    else
-        step_dir.x = 1
-    end
-
-    if dy < 0 then
-        step_dir.y = -1
-    else
-        step_dir.y = 1
-    end
+    local step_dir = {
+        x = math.sign(dx),
+        y = math.sign(dy)
+    }
 
     local test_rect = {
         x = self.hitbox.last_position.x,
@@ -237,6 +228,16 @@ function sonic:debug_draw()
     self.hitbox_sprite.texture_region.h = self.hitbox.rect.h
 
     return { self.hitbox_sprite }
+end
+
+function math.sign(x)
+    if x == 0 then
+        return 0
+    elseif x > 0 then
+        return 1
+    else
+        return -1
+    end
 end
 
 current_level:add_actor(sonic)
