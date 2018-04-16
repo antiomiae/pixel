@@ -1,6 +1,7 @@
 #ifndef PIXEL_PIXEL_H
 #define PIXEL_PIXEL_H
 
+#include "types.h"
 #include "app/app.h"
 #include "graphics/graphics.h"
 #include "util/util.h"

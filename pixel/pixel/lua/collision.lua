@@ -27,5 +27,7 @@ local function collide_rect(r, d, tile_f)
     -- calculate distance between leading edges and tile boundaries
     -- move r along trajectory until it hits a tile edge
     -- subtract distance traveled from displacement vector
-    -- 
+
+    while d.x ~= 0 or d.y ~= 0 do
+    end
 end
