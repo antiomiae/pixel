@@ -52,5 +52,14 @@ CollisionMap::CollisionMap(uint width, uint height)
     column_major_bitmap_.resize(bitmap_height_ * map_width_);
 }
 
+void CollisionMap::set(int x, int y, bool solid)
+{
+    argument_error_if(x < 0 || x >= map_width_, "argument x out of range");
+    argument_error_if(y < 0 || y >= map_height_, "argument y out of range");
+
+    row_major_bitmap_[x / 8 + y * bitmap_width_] &= 1 << (x % 8);
+    column_major_bitmap_[y / 8 + x * bitmap_height_] &= 1 << (y % 8);
+}
+
 }
 

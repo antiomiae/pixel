@@ -15,6 +15,8 @@ public:
     CollisionMap() = default;
     CollisionMap(uint width, uint height);
 
+    void set(int x, int y, bool solid);
+
     bool collide_row(uint row, uint start_col, uint end_col);
     bool collide_column(uint col, uint a, uint b);
 
