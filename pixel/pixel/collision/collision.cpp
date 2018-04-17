@@ -22,7 +22,7 @@ bool CollisionMap::collide_row(uint row, uint start_col, uint end_col)
 
     uint8_t collide_mask = byte_with_ones(end_col - start_col);
 
-    auto bit_offset = start_col & 111b;
+    auto bit_offset = start_col & 0b111;
     auto bitmap_col = start_col / 8;
 
     uint8_t map_mask = row_major_bitmap_[bitmap_col + row * bitmap_width_] >> bit_offset;
@@ -42,8 +42,8 @@ bool CollisionMap::collide_column(uint col, uint a, uint b)
 
 CollisionMap::CollisionMap(uint width, uint height)
 {
-    bitmap_width_ = width / 8 + (width & 111b > 0 ? 1 : 0);
-    bitmap_height_ = height / 8 + (height & 111b > 0 ? 1 : 0);
+    bitmap_width_ = width / 8 + (width & 0b111 > 0 ? 1 : 0);
+    bitmap_height_ = height / 8 + (height & 0b111 > 0 ? 1 : 0);
 
     map_width_ = width;
     map_height_ = height;
