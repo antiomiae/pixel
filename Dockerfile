@@ -20,4 +20,4 @@ RUN ./build
 #
 RUN ./dist
 
-RUN xvfb-run ./build-ninja/bin/pixel_test pixel
+#RUN xvfb-run ./build-ninja/bin/pixel_test pixel
