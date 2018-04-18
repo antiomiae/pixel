@@ -1,5 +1,5 @@
 #include "test/setup.h"
-#include <pixel/lua/lua_binding.h>
+#include <pixel/lua/binding.h>
 
 namespace
 {
@@ -16,7 +16,7 @@ TEST(SolTest, bind_pixel)
     sol::state lua;
     lua.open_libraries();
 
-    auto binding = pixel::bind_pixel(lua);
+    auto binding = pixel::binding::bind_pixel(lua);
 
     binding.set("app", &pixeltest::app);
 

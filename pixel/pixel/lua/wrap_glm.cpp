@@ -1,13 +1,11 @@
-#include <pixel/pixel.h>
-#include "lua_binding.h"
+#include <pixel/math/math.h>
+#include "binding.h"
 
 
-namespace pixel
+namespace pixel::binding
 {
 
 using namespace std;
-using namespace pixel::graphics;
-
 
 void bind_glm(sol::state& lua, sol::table& binding, const string& module_name)
 {

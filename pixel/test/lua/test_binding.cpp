@@ -1,5 +1,5 @@
 #include "test/setup.h"
-#include <pixel/lua/lua_binding.h>
+#include <pixel/lua/binding.h>
 
 namespace
 {
@@ -12,7 +12,7 @@ public:
     BindingTest()
     {
         lua.open_libraries();
-        pixel::bind_pixel(lua);
+        pixel::binding::bind_pixel(lua);
         lua.script("package.path = package.path .. ';pixel/lua/?.lua'");
         lua.script("require 'pixel'");
         lua["app"] = pixeltest::app();

@@ -1,8 +1,7 @@
 #include <pixel/pixel.h>
-#include "lua_binding.h"
+#include "binding.h"
 
-
-namespace pixel
+namespace pixel::binding
 {
 
 using namespace std;

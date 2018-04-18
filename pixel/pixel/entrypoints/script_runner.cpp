@@ -1,7 +1,7 @@
 #include <unistd.h>
 #include <boost/filesystem.hpp>
 #include <pixel/pixel.h>
-#include <pixel/lua/lua_binding.h>
+#include <pixel/lua/binding.h>
 
 using namespace std;
 
@@ -18,7 +18,7 @@ int main(int argc, char* argv[])
     sol::state lua;
     /* open all standard libraries */
     lua.open_libraries();
-    pixel::bind_pixel(lua);
+    pixel::binding::bind_pixel(lua);
 
     /* Set package path */
     lua.script("package.path = package.path .. ';pixel/lua/?.lua'");

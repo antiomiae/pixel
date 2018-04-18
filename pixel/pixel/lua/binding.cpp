@@ -1,10 +1,10 @@
 #include <functional>
 #include <pixel/pixel.h>
 #include <pixel/graphics/common.h>
-#include "lua_binding.h"
+#include "binding.h"
 
 
-namespace pixel
+namespace pixel::binding
 {
 
 using namespace std;
@@ -38,6 +38,7 @@ sol::table bind_pixel(sol::state& lua)
     bind_keyboard(lua, binding);
     bind_image_data(lua, binding);
     bind_offscreen_render_target(lua, binding);
+    bind_collision_map(lua, binding);
 
     return binding;
 }

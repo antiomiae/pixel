@@ -1,7 +1,11 @@
 #include <pixel/tilemap/tileset.h>
-#include "lua_binding.h"
+#include "binding.h"
 
-namespace pixel {
+namespace pixel::binding
+{
+
+using namespace std;
+
 void bind_tileset(sol::state& lua, sol::table& binding, const string& type_name)
 {
     auto tileset = binding.new_usertype<Tileset>(
@@ -17,4 +21,5 @@ void bind_tileset(sol::state& lua, sol::table& binding, const string& type_name)
         "type", &Tileset::Tile::type
     );
 }
+
 }

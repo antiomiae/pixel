@@ -1,14 +1,16 @@
 #ifndef PIXEL_LUA_H
 #define PIXEL_LUA_H
 
-#define SOL_CHECK_ARGUMENTS 1
-
-#include <sol.hpp>
-#include <pixel/pixel.h>
+#include <string>
 #include <memory>
 
-namespace pixel
+#define SOL_CHECK_ARGUMENTS 1
+#include <sol.hpp>
+
+namespace pixel::binding
 {
+
+using namespace std;
 
 sol::table bind_pixel(sol::state& lua);
 
@@ -29,7 +31,7 @@ void bind_texture_region(sol::state& lua, sol::table& binding, const string& typ
 void bind_keyboard(sol::state& lua, sol::table& binding, const string& type_name = "Keyboard");
 void bind_image_data(sol::state& lua, sol::table& binding, const string& type_name = "ImageData");
 void bind_offscreen_render_target(sol::state& lua, sol::table& binding, const string& type_name = "OffscreenRenderTarget");
-
+void bind_collision_map(sol::state& lua, sol::table& binding, const string& type_name = "CollisionMap");
 
 };
 
