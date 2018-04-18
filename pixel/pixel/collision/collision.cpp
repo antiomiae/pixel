@@ -42,8 +42,8 @@ bool CollisionMap::collide_column(uint col, uint a, uint b)
 
 CollisionMap::CollisionMap(uint width, uint height)
 {
-    bitmap_width_ = width / 8 + (width & 0b111 > 0 ? 1 : 0);
-    bitmap_height_ = height / 8 + (height & 0b111 > 0 ? 1 : 0);
+    bitmap_width_ = width / 8 + ((width & 0b111) > 0 ? 1 : 0);
+    bitmap_height_ = height / 8 + ((height & 0b111) > 0 ? 1 : 0);
 
     map_width_ = width;
     map_height_ = height;
