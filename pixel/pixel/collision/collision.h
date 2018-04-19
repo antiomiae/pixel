@@ -21,8 +21,8 @@ public:
     bool collide_column(uint col, uint a, uint b);
 
 private:
-    vector<uint8_t> row_major_bitmap_;
-    vector<uint8_t> column_major_bitmap_;
+    vector<uint8_t> bitmap_rows_;
+    vector<uint8_t> bitmap_columns_;
     uint bitmap_width_;
     uint bitmap_height_;
     uint map_width_;
