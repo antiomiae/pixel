@@ -35,9 +35,28 @@ bool CollisionMap::collide_row(uint row, uint start_col, uint end_col)
     return (map_mask & collide_mask) > 0;
 }
 
-bool CollisionMap::collide_column(uint col, uint a, uint b)
+bool CollisionMap::collide_column(uint col, uint start_row, uint end_row)
 {
-    return false;
+    argument_error_if(col >= map_width_, "row out of range");
+    argument_error_if(start_row >= map_height_, "start_col out of range");
+    argument_error_if(end_row >= map_height_, "end_col out of range");
+
+    argument_error_if(start_row > end_row, "argument a must be less than or equal argument b");
+    argument_error_if(end_row - start_row > 8, "checking spans greater than 8 tiles is not supported");
+
+    uint8_t collide_mask = byte_with_ones(end_row - start_row + 1);
+
+    auto bit_offset = start_row & 0b111;
+    auto bitmap_row = start_row / 8;
+
+    uint8_t map_mask = column_major_bitmap_[bitmap_row + col * bitmap_height_] >> bit_offset;
+
+    // fill top bits of map_mask with tile values from next adjacent byte in bitmap
+    if (bit_offset > 0 && (bitmap_row + 1) < bitmap_height_) {
+        map_mask |= (column_major_bitmap_[(bitmap_row + 1) + col * bitmap_height_]) << (8 - bit_offset);
+    }
+
+    return (map_mask & collide_mask) > 0;
 }
 
 CollisionMap::CollisionMap(uint width, uint height)
