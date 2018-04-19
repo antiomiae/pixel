@@ -13,14 +13,14 @@ uint8_t byte_with_ones(uint num_ones)
 
 bool CollisionMap::collide_row(uint row, uint start_col, uint end_col)
 {
-    argument_error_if(row < 0 || row >= map_height_, "row out of range");
-    argument_error_if(start_col < 0 || start_col >= map_width_, "start_col out of range");
-    argument_error_if(end_col < 0 || end_col >= map_width_, "end_col out of range");
+    argument_error_if(row >= map_height_, "row out of range");
+    argument_error_if(start_col >= map_width_, "start_col out of range");
+    argument_error_if(end_col >= map_width_, "end_col out of range");
 
-    argument_error_if(start_col >= end_col, "argument a must be less than argument b");
+    argument_error_if(start_col > end_col, "argument a must be less than or equal argument b");
     argument_error_if(end_col - start_col > 8, "checking spans greater than 8 tiles is not supported");
 
-    uint8_t collide_mask = byte_with_ones(end_col - start_col);
+    uint8_t collide_mask = byte_with_ones(end_col - start_col + 1);
 
     auto bit_offset = start_col & 0b111;
     auto bitmap_col = start_col / 8;
@@ -57,8 +57,13 @@ void CollisionMap::set(int x, int y, bool solid)
     argument_error_if(x < 0 || x >= map_width_, "argument x out of range");
     argument_error_if(y < 0 || y >= map_height_, "argument y out of range");
 
-    row_major_bitmap_[x / 8 + y * bitmap_width_] &= 1 << (x % 8);
-    column_major_bitmap_[y / 8 + x * bitmap_height_] &= 1 << (y % 8);
+    if (solid) {
+        row_major_bitmap_[x / 8 + y * bitmap_width_] |= 1 << (x % 8);
+        column_major_bitmap_[y / 8 + x * bitmap_height_] |= 1 << (y % 8);
+    } else {
+        row_major_bitmap_[x / 8 + y * bitmap_width_] &= ~(1 << (x % 8));
+        column_major_bitmap_[y / 8 + x * bitmap_height_] &= ~(1 << (y % 8));
+    }
 }
 
 }
