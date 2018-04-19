@@ -11,19 +11,19 @@ uint8_t byte_with_ones(uint num_ones)
     return (1 << num_ones) - 1;
 }
 
-bool CollisionMap::collide_row(uint row, uint start_col, uint end_col)
+bool CollisionMap::collide_row(uint row, uint start, uint stop)
 {
     argument_error_if(row >= map_height_, "row out of range");
-    argument_error_if(start_col >= map_width_, "start_col out of range");
-    argument_error_if(end_col >= map_width_, "end_col out of range");
+    argument_error_if(start >= map_width_, "start_col out of range");
+    argument_error_if(stop >= map_width_, "end_col out of range");
 
-    argument_error_if(start_col > end_col, "argument a must be less than or equal argument b");
-    argument_error_if(end_col - start_col > 8, "checking spans greater than 8 tiles is not supported");
+    argument_error_if(start > stop, "argument start must be less than or equal argument stop");
+    argument_error_if(stop - start > 8, "checking spans greater than 8 tiles is not supported");
 
-    uint8_t collide_mask = byte_with_ones(end_col - start_col + 1);
+    uint8_t collide_mask = byte_with_ones(stop - start + 1);
 
-    auto bit_offset = start_col & 0b111;
-    auto bitmap_col = start_col / 8;
+    auto bit_offset = start & 0b111;
+    auto bitmap_col = start / 8;
 
     uint8_t map_mask = bitmap_rows_[bitmap_col + row * bitmap_width_] >> bit_offset;
 
@@ -35,19 +35,19 @@ bool CollisionMap::collide_row(uint row, uint start_col, uint end_col)
     return (map_mask & collide_mask) > 0;
 }
 
-bool CollisionMap::collide_column(uint col, uint start_row, uint end_row)
+bool CollisionMap::collide_column(uint col, uint start, uint stop)
 {
     argument_error_if(col >= map_width_, "row out of range");
-    argument_error_if(start_row >= map_height_, "start_col out of range");
-    argument_error_if(end_row >= map_height_, "end_col out of range");
+    argument_error_if(start >= map_height_, "start_col out of range");
+    argument_error_if(stop >= map_height_, "end_col out of range");
 
-    argument_error_if(start_row > end_row, "argument a must be less than or equal argument b");
-    argument_error_if(end_row - start_row > 8, "checking spans greater than 8 tiles is not supported");
+    argument_error_if(start > stop, "argument start must be less than or equal argument stop");
+    argument_error_if(stop - start > 8, "checking spans greater than 8 tiles is not supported");
 
-    uint8_t collide_mask = byte_with_ones(end_row - start_row + 1);
+    uint8_t collide_mask = byte_with_ones(stop - start + 1);
 
-    auto bit_offset = start_row & 0b111;
-    auto bitmap_row = start_row / 8;
+    auto bit_offset = start & 0b111;
+    auto bitmap_row = start / 8;
 
     uint8_t map_mask = bitmap_columns_[bitmap_row + col * bitmap_height_] >> bit_offset;
 

@@ -17,8 +17,8 @@ public:
 
     void set(int x, int y, bool solid);
 
-    bool collide_row(uint row, uint start_col, uint end_col);
-    bool collide_column(uint col, uint a, uint b);
+    bool collide_row(uint row, uint start, uint stop);
+    bool collide_column(uint col, uint start, uint stop);
 
 private:
     vector<uint8_t> bitmap_rows_;
