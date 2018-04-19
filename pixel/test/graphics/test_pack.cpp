@@ -40,13 +40,6 @@ TEST(pack_rects_array, pack_rects_array)
     auto [packing, leftover] = pixel::pack::pack_rects_array(test_data, 150, 150, 5);
     EXPECT_EQ(test_data.size(), packing.size());
     EXPECT_EQ(0, leftover.size());
-
-    for (auto row : packing) {
-        auto rect = get<0>(row);
-        auto coord = get<1>(row);
-        cout << "{w = " << rect.w << ", h = " << rect.h << ", id = " << rect.id << "} => ";
-        cout << "{ x = " << coord.x << ", y = " << coord.y << ", z = " << coord.z << "}" << endl;
-    }
 }
 
 TEST(pack_rects_array, throws_with_bad_arguments)

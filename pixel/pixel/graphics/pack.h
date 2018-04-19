@@ -156,16 +156,16 @@ pair<vector<pair<R, PackParams> >, vector<R> > pack_rects_array(vector<R>& block
         }
     }
 
-    for (const auto& node : trees) {
-        if (!node.used) {
-            break;
-        }
-
-        float remaining = free_area(&node);
-        float ratio = ((w * h) - remaining) / (w * h);
-
-        cout << "Layer pack ratio: " << ratio * 100 << '%' << endl;
-    }
+//    for (const auto& node : trees) {
+//        if (!node.used) {
+//            break;
+//        }
+//
+//        float remaining = free_area(&node);
+//        float ratio = ((w * h) - remaining) / (w * h);
+//
+//        cout << "Layer pack ratio: " << ratio * 100 << '%' << endl;
+//    }
 
     return {registry, leftover};
 }

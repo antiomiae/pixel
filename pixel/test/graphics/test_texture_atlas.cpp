@@ -13,7 +13,7 @@ TEST(TextureAtlas, batch)
 
     atlas.start_batch();
 
-    for (auto i = 0u; i < 250; ++i) {
+    for (auto i = 0u; i < 50; ++i) {
         atlas.add_image("assets/random_images/" + to_string(i) + ".png");
     }
 
@@ -22,11 +22,11 @@ TEST(TextureAtlas, batch)
 
     atlas.stop_batch();
 
-    auto& layers = atlas.layers();
-    for (auto i = 0u; i < layers.size(); ++i) {
-        auto path = "debug/tex_atlas_" + to_string(i) + ".png";
-        layers[i].save(path);
-    }
+//    auto& layers = atlas.layers();
+//    for (auto i = 0u; i < layers.size(); ++i) {
+//        auto path = "debug/tex_atlas_" + to_string(i) + ".png";
+//        layers[i].save(path);
+//    }
 }
 
 TEST(TextureAtlas, as_texture)
