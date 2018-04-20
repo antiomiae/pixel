@@ -14,6 +14,20 @@ TEST(CollisionMap, constructor)
     EXPECT_TRUE(true);
 }
 
+TEST(CollisionMap, set)
+{
+    CollisionMap collision_map{30, 20};
+
+    for (auto x = 0u; x < 30; ++x) {
+        for (auto y = 0u; y < 20; ++y) {
+            collision_map.set(x, y, (x + y) % 2);
+        }
+
+    }
+
+    EXPECT_TRUE(true);
+}
+
 TEST(CollisionMap, collide_row)
 {
     CollisionMap collision_map{30, 20};
@@ -38,6 +52,7 @@ TEST(CollisionMap, collide_column)
     EXPECT_TRUE(collision_map.collide_column(10, 0, 7));
 
     EXPECT_FALSE(collision_map.collide_column(10, 10, 17));
+
 }
 
 }
