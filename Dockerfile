@@ -16,7 +16,7 @@ RUN ./init
 
 COPY . ./
 
-RUN ./build
+RUN ./init && ./build
 #
 RUN ./dist
 
