@@ -17,7 +17,7 @@ class TileLayerTexture
 {
 public:
     TileLayerTexture();
-    void load(const TileLayer& ref_layer, const TileAtlas& atlas);
+    void load(TileLayer& ref_layer, TileAtlas& atlas);
     Texture& texture();
 private:
     unique_ptr<Texture> texture_;

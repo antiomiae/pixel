@@ -24,12 +24,12 @@ TEST(Tileset, add_tileset)
         tileset.add_tileset(tmx_tileset);
 
         const auto& tiles = tileset.tiles();
-        const auto& id_map = tileset.id_map();
+        const auto& tile_registry = tileset.registry();
         auto first_id = tmx_tileset.getFirstGID();
 
         for (auto& tmx_tile : tmx_tileset.getTiles()) {
-            if (id_map.find(tmx_tile.ID + first_id) != end(id_map)) {
-                const auto& stored_tile = id_map.at(tmx_tile.ID + first_id);
+            if (tile_registry.find(tmx_tile.ID + first_id) != end(tile_registry)) {
+                const auto& stored_tile = tile_registry.at(tmx_tile.ID + first_id);
                 EXPECT_TRUE(stored_tile.animation.frames.size() == tmx_tile.animation.frames.size());
                 EXPECT_TRUE(
                     std::any_of(
@@ -38,7 +38,7 @@ TEST(Tileset, add_tileset)
                     )
                 );
             } else {
-                ADD_FAILURE() << "id not found in id_map";
+                ADD_FAILURE() << "id not found in registry";
             }
 
         }

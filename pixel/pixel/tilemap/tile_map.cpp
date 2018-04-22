@@ -34,13 +34,13 @@ bool TileMap::load(const tmx::Map& map)
 }
 
 
-TileAtlas& TileMap::atlas() const
+TileAtlas& TileMap::atlas()
 {
     return *atlas_;
 }
 
 
-const vector<TileLayer>& TileMap::layers() const
+vector<TileLayer>& TileMap::layers()
 {
     return layers_;
 }

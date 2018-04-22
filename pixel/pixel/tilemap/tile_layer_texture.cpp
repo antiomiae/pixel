@@ -12,7 +12,7 @@ void TileLayerTexture::init_texture()
 }
 
 
-void TileLayerTexture::load(const pixel::TileLayer& ref_layer, const pixel::TileAtlas& atlas)
+void TileLayerTexture::load(pixel::TileLayer& ref_layer, pixel::TileAtlas& atlas)
 {
     vector<uint16_t> tex_data(ref_layer.tiles().size());
 

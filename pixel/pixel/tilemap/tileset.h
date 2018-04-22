@@ -1,5 +1,3 @@
-
-
 #ifndef PIXEL_TILESET_H
 #define PIXEL_TILESET_H
 
@@ -14,7 +12,9 @@ namespace pixel
 
 class Tileset
 {
+
 public:
+
     struct Tile
     {
         struct Animation
@@ -22,21 +22,22 @@ public:
             struct Frame
             {
                 uint32_t tile_id{};
-                float duration{};
 
+                float duration{};
 
                 Frame(uint32_t tile_id, float duration)
                     : tile_id{tile_id},
                       duration{duration}
                 { }
             };
-            std::vector<Frame> frames{};
 
+            std::vector<Frame> frames{};
 
             void add_frame(uint32_t tile_id, float duration)
             {
                 frames.emplace_back(tile_id, duration);
             }
+
         } animation;
 
         /**
@@ -46,17 +47,21 @@ public:
         std::string type;
     };
 
+    using TileRegistry = std::unordered_map<uint32_t, Tile>;
+
     Tileset() = default;
 
     void add_tileset(const tmx::Tileset& tmx_tileset);
     bool tile_has_animation(uint32_t id) const;
-    const std::vector<Tile> tiles() const;
-    const std::unordered_map<uint32_t, Tile> id_map() const;
-    const Tile& tile(uint32_t id) const;
+    std::vector<Tile>& tiles();
+    TileRegistry registry();
+    Tile& tile(uint32_t id);
 
 private:
+
     std::vector<Tile> tiles_;
-    std::unordered_map<uint32_t, Tile> id_map_;
+    TileRegistry registry_;
+
 };
 
 };

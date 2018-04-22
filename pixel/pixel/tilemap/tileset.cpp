@@ -2,8 +2,10 @@
 
 #include "tileset.h"
 
+namespace pixel
+{
 
-void pixel::Tileset::add_tileset(const tmx::Tileset& tmx_tileset)
+void Tileset::add_tileset(const tmx::Tileset& tmx_tileset)
 {
     auto first_id = tmx_tileset.getFirstGID();
 
@@ -22,35 +24,37 @@ void pixel::Tileset::add_tileset(const tmx::Tileset& tmx_tileset)
             }
         }
 
-        id_map_[tile.tile_id] = tile;
+        registry_[tile.tile_id] = tile;
     };
 
 }
 
 
-const std::vector<pixel::Tileset::Tile> pixel::Tileset::tiles() const
+std::vector<Tileset::Tile>& Tileset::tiles()
 {
     return tiles_;
 }
 
 
-const std::unordered_map<uint32_t, pixel::Tileset::Tile> pixel::Tileset::id_map() const
+std::unordered_map<uint32_t, Tileset::Tile> Tileset::registry()
 {
-    return id_map_;
+    return registry_;
 }
 
 
-bool pixel::Tileset::tile_has_animation(uint32_t id) const
+bool Tileset::tile_has_animation(uint32_t id) const
 {
-    if (id_map_.find(id) != cend(id_map_)) {
-        return !id_map_.at(id).animation.frames.empty();
+    if (registry_.find(id) != cend(registry_)) {
+        return !registry_.at(id).animation.frames.empty();
     }
 
     return false;
 }
 
 
-const pixel::Tileset::Tile& pixel::Tileset::tile(uint32_t id) const
+Tileset::Tile& Tileset::tile(uint32_t id)
 {
-    return id_map_.at(id);
+    return registry_.at(id);
 }
+
+};

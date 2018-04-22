@@ -46,7 +46,7 @@ add_library(pixel
         pixel/graphics/sprite_animation.cpp pixel/graphics/sprite_animation.h
         pixel/input/keyboard.cpp pixel/input/keyboard.h pixel/lua/wrap_glm.cpp pixel/lua/wrap_camera.cpp pixel/lua/wrap_image_data.cpp
         pixel/lua/binding.h pixel/lua/binding.cpp
-        pixel/graphics/offscreen_render_target.cpp pixel/graphics/offscreen_render_target.h pixel/lua/wrap_opengl.cpp pixel/lua/wrap_tileset.cpp pixel/collision/collision.cpp pixel/collision/collision.h pixel/types.h pixel/lua/wrap_collision.cpp)
+        pixel/graphics/offscreen_render_target.cpp pixel/graphics/offscreen_render_target.h pixel/lua/wrap_opengl.cpp pixel/lua/wrap_tileset.cpp pixel/collision/collision.cpp pixel/collision/collision.h pixel/types.h pixel/lua/wrap_collision.cpp pixel/resources/resource_pool.cpp pixel/resources/resource_pool.h)
 
 
 add_dependencies(pixel pixel_source_version)

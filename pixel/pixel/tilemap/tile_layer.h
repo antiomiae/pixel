@@ -24,10 +24,11 @@ namespace pixel
  * sized objects that are drawn as a contiguous image, and which may carry additional information to be used in
  * collision detection or pathfinding.
  *
- * Maintains a collection of TileLayer::Tile and a gpu texture with data necessary to render the layer.
+ * Maintains a collection of TileLayer::Tile.
  */
 class TileLayer
 {
+
 public:
     /**
      * Tile map data.
@@ -70,13 +71,14 @@ public:
 
     class TileAnimation
     {
+
     public:
-        TileAnimation(uint32_t id, pixel::Tileset::Tile::Animation animation)
+
+        TileAnimation(uint32_t id, Tileset::Tile::Animation animation)
             : base_tile_id{id},
               animation_definition{animation}
         {
         }
-
 
         TileAnimation() = default;
 
@@ -101,32 +103,15 @@ public:
          */
         unsigned frame;
 
+        void update(float dt);
 
-        void update(float dt)
-        {
-            timer += dt * 1000;
-            update_frame();
-        }
+        void update_frame();
 
+        uint32_t current_tile_id();
 
-        void update_frame()
-        {
-            while (timer >= animation_definition.frames[frame].duration) {
-                timer -= animation_definition.frames[frame].duration;
-                frame++;
-                if (frame >= animation_definition.frames.size()) {
-                    frame = 0;
-                }
-            }
-        }
-
-        uint32_t tile_id()
-        {
-            return animation_definition.frames[frame].tile_id;
-        }
     };
 
-    using PropertyMap = std::unordered_map<uint16_t, Properties>;
+    using PropertyMap = std::unordered_map<uint32_t, Properties>;
 
     TileLayer() = default;
     TileLayer(unsigned width, unsigned height);
@@ -134,7 +119,7 @@ public:
 
     void update(float dt);
 
-    bool load(const tmx::Map& m, const tmx::TileLayer& t, const pixel::Tileset& tileset);
+    bool load(const tmx::Map& m, const tmx::TileLayer& t, pixel::Tileset& tileset);
 
     const std::vector<Tile>& tiles() const;
     std::unordered_map<uint32_t, TileAnimation> animations();
@@ -142,26 +127,18 @@ public:
     unsigned height() const;
     glm::vec2 parallax() const;
 
-
-    Tile& at(unsigned int x, unsigned int y)
-    {
-        return tiles_.at(x + y * height_);
-    }
-
-
-    const Tile& at(unsigned int x, unsigned int y) const
-    {
-        return tiles_.at(x + y * height_);
-    }
+    Tile& at(uint x, uint y);
 
 
 private:
+
     std::unordered_map<uint32_t, TileAnimation> animations_;
     PropertyMap props_;
     std::vector<Tile> tiles_;
     unsigned int width_;
     unsigned int height_;
     glm::vec2 parallax_;
+
 };
 
 };

@@ -16,11 +16,15 @@ using graphics::Camera;
 
 class TileMapRenderer
 {
+
 public:
+
     TileMapRenderer();
     void set_program(Shader&& p);
     void render(pixel::TileMap& t, Camera& camera);
+
 private:
+    
     unique_ptr<Shader> program_;
     Buffer buffer_;
     Vao vao_;

@@ -12,6 +12,7 @@
 
 namespace pixel
 {
+
 using namespace std;
 using graphics::Texture;
 
@@ -37,12 +38,9 @@ const unsigned FLAGS_SHIFT = 12;
  */
 class TileAtlas
 {
-private:
-    std::unordered_map<uint32_t, uint16_t> _id_map;
-    unsigned tile_width_, tile_height_, max_tiles_, atlas_rows_, atlas_cols_, atlas_layers_;
-    uint16_t max_id_;
-    Texture texture_;
+
 public:
+
     TileAtlas(unsigned tile_width, unsigned tile_height, unsigned max_tiles);
 
     /* Atlas state */
@@ -68,6 +66,14 @@ public:
     unsigned atlas_layers() const;
 
     void activate_texture(unsigned texture_unit);
+
+private:
+
+    std::unordered_map<uint32_t, uint16_t> id_registry_;
+    unsigned tile_width_, tile_height_, max_tiles_, atlas_rows_, atlas_cols_, atlas_layers_;
+    uint16_t max_id_;
+    Texture texture_;
+
 };
 
 }

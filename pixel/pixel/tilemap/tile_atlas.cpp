@@ -52,7 +52,7 @@ void TileAtlas::add_tileset(const tmx::Tileset& tileset)
 
     for (auto& tile : tileset.getTiles()) {
         auto atlas_id = next_atlas_id();
-        _id_map[tile.ID + first_id] = atlas_id;
+        id_registry_[tile.ID + first_id] = atlas_id;
 
         unsigned col, row, layer, flags;
         tie(col, row, layer, flags) = decode_atlas_id(atlas_id);
@@ -173,7 +173,7 @@ unsigned TileAtlas::atlas_layers() const
 
 const uint16_t TileAtlas::atlas_id_from_tmx_id(uint32_t tmx_id) const
 {
-    return (tmx_id == 0 ? 0 : _id_map.at(tmx_id));
+    return (tmx_id == 0 ? 0 : id_registry_.at(tmx_id));
 }
 
 const uint16_t TileAtlas::atlas_id_from_tmx_id(uint32_t tmx_id, uint8_t flags) const

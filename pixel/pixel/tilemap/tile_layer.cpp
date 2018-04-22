@@ -3,11 +3,14 @@
 
 namespace pixel
 {
+
 using namespace std;
 
 class PropertyCollection
 {
+
 public:
+
     PropertyCollection(const vector<tmx::Property>& props)
     {
         for (const auto& prop : props) {
@@ -39,7 +42,9 @@ public:
     }
 
 private:
+
     unordered_map<string, tmx::Property> props_;
+
 };
 
 TileLayer::TileLayer(unsigned width, unsigned height)
@@ -49,7 +54,7 @@ TileLayer::TileLayer(unsigned width, unsigned height)
 {
 }
 
-bool TileLayer::load(const tmx::Map& m, const tmx::TileLayer& t, const pixel::Tileset& tileset)
+bool TileLayer::load(const tmx::Map& m, const tmx::TileLayer& t, pixel::Tileset& tileset)
 {
     auto tile_count = m.getTileCount();
 
@@ -136,10 +141,37 @@ void TileLayer::update(float dt)
 
         if (!anim.tiles.empty()) {
             for (auto tile_idx : anim.tiles) {
-                tiles_[tile_idx].tile_id = anim.tile_id();
+                tiles_[tile_idx].tile_id = anim.current_tile_id();
             }
         }
     }
+}
+
+TileLayer::Tile& TileLayer::at(uint x, uint y)
+{
+    return tiles_.at(x + y * height_);
+}
+
+void TileLayer::TileAnimation::update(float dt)
+{
+    timer += dt * 1000;
+    update_frame();
+}
+
+void TileLayer::TileAnimation::update_frame()
+{
+    while (timer >= animation_definition.frames[frame].duration) {
+        timer -= animation_definition.frames[frame].duration;
+        frame++;
+        if (frame >= animation_definition.frames.size()) {
+            frame = 0;
+        }
+    }
+}
+
+uint32_t TileLayer::TileAnimation::current_tile_id()
+{
+    return animation_definition.frames[frame].tile_id;
 }
 
 };
