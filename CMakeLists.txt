@@ -5,8 +5,8 @@ cmake_policy(SET CMP0042 NEW)
 include(cmake/HunterGate.cmake)
 
 HunterGate(
-        URL "https://github.com/ruslo/hunter/archive/v0.20.9.tar.gz"
-        SHA1 "8f7cf6d719d05c49224a4ebeba90c6bb90b90f4a"
+        URL "https://github.com/ruslo/hunter/archive/v0.20.50.tar.gz"
+        SHA1 "f119fdbbab3638472840464abb68b440ce5883da"
         LOCAL
 )
 
