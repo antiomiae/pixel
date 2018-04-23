@@ -1,7 +1,7 @@
-FROM ubuntu:artful-20180412
+FROM ubuntu:artful
 
 RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y libgl1-mesa-dev mesa-common-dev pkg-config ninja-build cmake python2.7 zip python3.6 xvfb
+RUN apt-get install -y libgl1-mesa-dev mesa-common-dev pkg-config ninja-build cmake python2.7 zip python3.6 build-essential
 
 ENV HUNTER_ROOT=/hunter
 
