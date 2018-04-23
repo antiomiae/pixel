@@ -8,8 +8,7 @@ using namespace pixel::collision;
 
 TEST(CollisionMap, constructor)
 {
-    CollisionMap c1{};
-    CollisionMap c2{30, 20};
+    CollisionMap c{30, 20};
 
     EXPECT_TRUE(true);
 }

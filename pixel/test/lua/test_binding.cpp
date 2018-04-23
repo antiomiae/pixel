@@ -6,7 +6,9 @@ namespace
 
 class BindingTest : public ::testing::Test
 {
+
 public:
+    
     sol::state lua;
 
     BindingTest()

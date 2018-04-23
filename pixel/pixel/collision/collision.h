@@ -12,7 +12,6 @@ using namespace std;
 class CollisionMap
 {
 public:
-    CollisionMap() = default;
     CollisionMap(uint width, uint height);
 
     void set(int x, int y, bool solid);
