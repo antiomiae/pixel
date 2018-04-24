@@ -1,6 +1,7 @@
 #include <pixel/pixel.h>
 #include <unistd.h>
 
+using namespace std;
 using pixel::graphics::Buffer;
 
 struct vertex

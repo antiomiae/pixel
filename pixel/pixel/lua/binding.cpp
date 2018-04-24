@@ -83,7 +83,7 @@ void bind_tile_map(sol::state& lua, sol::table& binding, const string& type_name
 {
     binding.new_usertype<TileMap>(
         type_name,
-        "new", sol::constructors<TileMap()>(),
+        "new", sol::constructors<TileMap(const glm::uvec2&, const glm::uvec2&)>(),
         "load", sol::resolve<const std::string&>(&TileMap::load),
         "update", &TileMap::update,
         "layers", &TileMap::layers,
@@ -97,7 +97,7 @@ void bind_tile_layer(sol::state& lua, sol::table& binding, const string& type_na
 {
     sol::table tile_layer_binding = binding.new_usertype<TileLayer>(
         type_name,
-        "new", sol::constructors<TileLayer(), TileLayer(unsigned width, unsigned height), TileLayer(const TileLayer&)>(),
+        "new", sol::constructors<TileLayer(TileMap*), TileLayer(const TileLayer&)>(),
         "update", &TileLayer::update,
         "tiles", &TileLayer::tiles,
         "animations", &TileLayer::animations,

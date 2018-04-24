@@ -50,7 +50,11 @@ int main(int argc, char* argv[])
     tmx::Map tmx_map;
     error_if(!tmx_map.load(map_file), "Unable to load map file");
 
-    auto tile_map = make_unique<pixel::TileMap>();
+    auto tile_map = make_unique<pixel::TileMap>(
+        glm::uvec2{tmx_map.getTileCount().x, tmx_map.getTileCount().y},
+        glm::uvec2{tmx_map.getTileSize().x, tmx_map.getTileSize().y}
+    );
+
     tile_map->load(tmx_map);
 
     Camera camera({0, 0}, {0, 0, 2000, 2000});

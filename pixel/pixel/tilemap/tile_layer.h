@@ -1,6 +1,3 @@
-//
-//
-
 #ifndef PIXEL_TILE_LAYER_H
 #define PIXEL_TILE_LAYER_H
 
@@ -12,13 +9,15 @@
 #include <tmxlite/TileLayer.hpp>
 #include <pixel/graphics/graphics.h>
 #include "tileset.h"
-#include "tile_map.h"
-
-using namespace std;
-using pixel::graphics::Texture;
 
 namespace pixel
 {
+
+/* Forward declare to avoid circular include issues */
+class TileMap;
+
+using namespace std;
+using pixel::graphics::Texture;
 
 /**
  * Container of tile map data. Logically, a rectangular array of tile map tiles, regularly arranged and identically
@@ -31,6 +30,8 @@ class TileLayer
 {
 
 public:
+
+
     /**
      * Tile map data.
      * */
@@ -113,15 +114,16 @@ public:
 
     using PropertyMap = std::unordered_map<uint32_t, Properties>;
 
-    TileLayer(TileMap* parent, unsigned width, unsigned height);
+    TileLayer(TileMap* parent);
     TileLayer(const TileLayer&) = default;
-
-    void update(float dt);
 
     bool load(const tmx::TileLayer& t);
 
+    void update(float dt);
+
     const std::vector<Tile>& tiles() const;
     std::unordered_map<uint32_t, TileAnimation> animations();
+
     unsigned width() const;
     unsigned height() const;
     glm::vec2 parallax() const;

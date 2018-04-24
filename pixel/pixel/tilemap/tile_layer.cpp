@@ -48,24 +48,23 @@ private:
 };
 
 
-TileLayer::TileLayer(TileMap* parent, unsigned width, unsigned height)
+TileLayer::TileLayer(TileMap* parent)
     : parent_(parent),
-      width_(width),
-      height_(height),
-      tiles_(width * height)
+      width_(parent->tile_count().x),
+      height_(parent->tile_count().y)
 {
+    tiles_.resize(width_ * height_);
 }
 
 
 bool TileLayer::load(const tmx::TileLayer& t)
 {
-    auto& tileset = parent_->tileset();
     auto tile_count = parent_->tile_count();
 
     if (width_ > 0 || height_ > 0) {
         argument_error_if(
             tile_count.x != width_ || tile_count.y != height_,
-            "TileLayer was initialized with different map size than supplied tmx::Map"
+            "TileLayer was initialized with different map size than parent TileMap"
         );
 
     } else {
@@ -73,6 +72,8 @@ bool TileLayer::load(const tmx::TileLayer& t)
         height_ = tile_count.y;
         tiles_.resize(width_ * height_);
     }
+
+    auto& tileset = parent_->tileset();
 
     auto tmx_tiles = t.getTiles();
     error_if(tmx_tiles.size() != tiles_.size(), "tmx::TileLayer t contains different number of tiles than expected");
@@ -107,6 +108,7 @@ bool TileLayer::load(const tmx::TileLayer& t)
 
     return true;
 }
+
 
 const vector<TileLayer::Tile>& TileLayer::tiles() const
 {

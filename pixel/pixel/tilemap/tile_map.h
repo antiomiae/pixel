@@ -1,6 +1,3 @@
-//
-//
-
 #ifndef PIXEL_TILE_MAP_H
 #define PIXEL_TILE_MAP_H
 
@@ -19,16 +16,20 @@ class TileMap
 
 public:
 
-    TileMap() = default;
+    TileMap(const glm::uvec2& map_size, const glm::uvec2& tile_size);
 
     bool load(const tmx::Map& map);
     bool load(const std::string& tmx_path);
 
     TileAtlas& atlas();
     Tileset& tileset();
-    vector<TileLayer>& layers();
+    vector<pixel::TileLayer>& layers();
+
     glm::uvec2 tile_count() const;
+    void set_tile_count(const glm::uvec2&);
+
     glm::uvec2 tile_size() const;
+    void set_tile_size(const glm::uvec2&);
 
     void update(float dt);
 
@@ -36,7 +37,7 @@ private:
 
     unique_ptr<TileAtlas> atlas_;
     Tileset tileset_;
-    vector<TileLayer> layers_;
+    vector<pixel::TileLayer> layers_;
     glm::uvec2 tile_size_;
     glm::uvec2 tile_count_;
 

@@ -3,11 +3,15 @@
 namespace
 {
 
+using namespace std;
 using pixel::TileLayer;
+using pixel::TileMap;
 
-TEST(TileLayer, ReferenceTile)
+TEST(TileLayer, manipulate_tiles)
 {
-    TileLayer t{10, 10};
+    TileMap parent({30, 20}, {16, 16});
+
+    TileLayer t(&parent);
 
     t.at(0, 0).tile_id = 0x101;
 
@@ -16,24 +20,19 @@ TEST(TileLayer, ReferenceTile)
     ASSERT_TRUE(tile.tile_id == 0x101);
 };
 
-TEST(TileLayer, DefaultConstructible)
+TEST(TileLayer, load)
 {
-    TileLayer t{};
-};
-
-TEST(TileLayer, Load)
-{
-    string map_file = "assets/traps_1.tmx";
-
     tmx::Map tmx_map;
-    tmx_map.load(map_file);
+    tmx_map.load("assets/traps_1.tmx");
 
-    pixel::TileAtlas atlas{tmx_map.getTileSize().x, tmx_map.getTileSize().y, 100};
-    pixel::Tileset tileset;
+    auto map_size = tmx_map.getTileCount();
+    auto tile_size = tmx_map.getTileSize();
+
+    TileMap tile_map{{map_size.x, map_size.y}, {tile_size.x, tile_size.y}};
 
     for (auto& tmx_tileset : tmx_map.getTilesets()) {
-        atlas.add_tileset(tmx_tileset);
-        tileset.add_tileset(tmx_tileset);
+        tile_map.atlas().add_tileset(tmx_tileset);
+        tile_map.tileset().add_tileset(tmx_tileset);
     }
 
     const auto& tmx_layers = tmx_map.getLayers();
@@ -47,7 +46,7 @@ TEST(TileLayer, Load)
     ));
 
 
-    TileLayer our_layer{};
+    TileLayer our_layer(&tile_map);
 
     our_layer.load(reference_layer);
 
@@ -69,7 +68,7 @@ TEST(TileLayer, Load)
 
         EXPECT_EQ(reference_tile.ID, our_tiles[i].tile_id);
 
-        if (tileset.tile_has_animation(reference_tile.ID)) {
+        if (tile_map.tileset().tile_has_animation(reference_tile.ID)) {
             /* Expect to have loaded an animation */
             EXPECT_NO_THROW(
                 our_layer.animations().at(reference_tile.ID)

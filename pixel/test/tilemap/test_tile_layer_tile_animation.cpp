@@ -2,9 +2,13 @@
 #include "test/setup.h"
 namespace
 {
+
+using namespace std;
+using pixel::TileLayer;
+
 TEST(TileAnimation, Animation)
 {
-    pixel::TileLayer::TileAnimation ta{};
+    TileLayer::TileAnimation ta{};
 
     ta.animation_definition.frames = {
         {1, 2000/60.0},
