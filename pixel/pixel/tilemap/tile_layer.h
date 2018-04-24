@@ -12,6 +12,7 @@
 #include <tmxlite/TileLayer.hpp>
 #include <pixel/graphics/graphics.h>
 #include "tileset.h"
+#include "tile_map.h"
 
 using namespace std;
 using pixel::graphics::Texture;
@@ -55,7 +56,6 @@ public:
         uint8_t flip_flags{};
 
         Tile() = default;
-
 
         Tile(uint32_t tile_id, uint8_t flip_flags)
             : tile_id{tile_id},
@@ -113,13 +113,12 @@ public:
 
     using PropertyMap = std::unordered_map<uint32_t, Properties>;
 
-    TileLayer() = default;
-    TileLayer(unsigned width, unsigned height);
+    TileLayer(TileMap* parent, unsigned width, unsigned height);
     TileLayer(const TileLayer&) = default;
 
     void update(float dt);
 
-    bool load(const tmx::Map& m, const tmx::TileLayer& t, pixel::Tileset& tileset);
+    bool load(const tmx::TileLayer& t);
 
     const std::vector<Tile>& tiles() const;
     std::unordered_map<uint32_t, TileAnimation> animations();
@@ -131,7 +130,7 @@ public:
 
 
 private:
-
+    TileMap* parent_;
     std::unordered_map<uint32_t, TileAnimation> animations_;
     PropertyMap props_;
     std::vector<Tile> tiles_;

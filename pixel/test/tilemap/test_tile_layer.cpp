@@ -46,8 +46,11 @@ TEST(TileLayer, Load)
         }
     ));
 
+
     TileLayer our_layer{};
-    our_layer.load(tmx_map, reference_layer, tileset);
+
+    our_layer.load(reference_layer);
+
 
     const auto& reference_tiles = reference_layer.getTiles();
     // Check that our map has any non-zero data. Sanity check.

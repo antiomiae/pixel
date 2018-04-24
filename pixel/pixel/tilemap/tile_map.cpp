@@ -1,15 +1,11 @@
-//
-//
-
 #include <pixel/error.h>
 #include "tile_map.h"
 
 using namespace pixel;
 
-
 bool TileMap::load(const tmx::Map& map)
 {
-    auto[tw, th] = map.getTileSize();
+    auto [tw, th] = map.getTileSize();
     atlas_ = make_unique<TileAtlas>(tw, th, 4096);
 
     tile_size_ = {tw, th};
@@ -26,7 +22,7 @@ bool TileMap::load(const tmx::Map& map)
     for (auto const& tmx_layer : map.getLayers()) {
         if (const auto layer = dynamic_cast<tmx::TileLayer*>(tmx_layer.get())) {
             layers_.emplace_back();
-            layers_.back().load(map, *layer, tileset_);
+            layers_.back().load(*layer);
         }
     }
 

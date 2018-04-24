@@ -47,16 +47,20 @@ private:
 
 };
 
-TileLayer::TileLayer(unsigned width, unsigned height)
-    : width_(width),
+
+TileLayer::TileLayer(TileMap* parent, unsigned width, unsigned height)
+    : parent_(parent),
+      width_(width),
       height_(height),
       tiles_(width * height)
 {
 }
 
-bool TileLayer::load(const tmx::Map& m, const tmx::TileLayer& t, pixel::Tileset& tileset)
+
+bool TileLayer::load(const tmx::TileLayer& t)
 {
-    auto tile_count = m.getTileCount();
+    auto& tileset = parent_->tileset();
+    auto tile_count = parent_->tile_count();
 
     if (width_ > 0 || height_ > 0) {
         argument_error_if(
