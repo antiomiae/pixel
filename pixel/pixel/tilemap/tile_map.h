@@ -2,6 +2,7 @@
 #define PIXEL_TILE_MAP_H
 
 #include <vector>
+#include <memory>
 #include <tmxlite/Map.hpp>
 #include <pixel/math/math.h>
 #include "tile_layer.h"
@@ -11,6 +12,8 @@
 namespace pixel
 {
 
+using namespace std;
+
 class TileMap
 {
 
@@ -19,17 +22,17 @@ public:
     TileMap(const glm::uvec2& map_size, const glm::uvec2& tile_size);
 
     bool load(const tmx::Map& map);
-    bool load(const std::string& tmx_path);
+    //bool load(const std::string& tmx_path);
+
+    static unique_ptr<TileMap> from_path(const string& tmx_path);
 
     TileAtlas& atlas();
     Tileset& tileset();
     vector<pixel::TileLayer>& layers();
 
     glm::uvec2 tile_count() const;
-    void set_tile_count(const glm::uvec2&);
 
     glm::uvec2 tile_size() const;
-    void set_tile_size(const glm::uvec2&);
 
     void update(float dt);
 

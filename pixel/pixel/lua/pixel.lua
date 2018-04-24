@@ -3,13 +3,6 @@ pixel.TileMapWrapper = require('tilemap')
 
 require('animation')
 
--- pixel.load_map
-function pixel.load_map(s)
-    local tm = pixel.TileMap.new()
-    tm:load(s)
-    return tm
-end
-
 -- pixel.Level
 pixel.Level = {}
 

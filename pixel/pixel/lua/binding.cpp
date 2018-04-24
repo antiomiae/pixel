@@ -84,12 +84,13 @@ void bind_tile_map(sol::state& lua, sol::table& binding, const string& type_name
     binding.new_usertype<TileMap>(
         type_name,
         "new", sol::constructors<TileMap(const glm::uvec2&, const glm::uvec2&)>(),
-        "load", sol::resolve<const std::string&>(&TileMap::load),
+        "load", &TileMap::load,
         "update", &TileMap::update,
         "layers", &TileMap::layers,
         "tileset", &TileMap::tileset,
         "tile_count", &TileMap::tile_count,
-        "tile_size", &TileMap::tile_size
+        "tile_size", &TileMap::tile_size,
+        "from_path", &TileMap::from_path
     );
 }
 

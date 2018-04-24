@@ -24,12 +24,11 @@ public:
 TEST_F(BindingTest, TileMap)
 {
     lua.script(R"(
-        local tile_map = pixel.TileMap.new()
+        local tile_map = pixel.TileMap.new(pixel.glm.uvec2.new(30, 20), pixel.glm.uvec2.new(16, 16))
         assert(tile_map)
 
-        tile_map = pixel.load_map("assets/traps_1.tmx");
+        tile_map = pixel.TileMap.from_path('assets/traps_1.tmx')
         assert(tile_map)
-
     )");
 }
 
