@@ -5,7 +5,7 @@
 #define PIXEL_TEXTURE_REGION_H
 
 #include <cstdint>
-#include <pixel/math/math.h>
+#include <pixel/math.h>
 
 namespace pixel::graphics {
 

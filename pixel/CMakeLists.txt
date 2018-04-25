@@ -20,7 +20,7 @@ add_library(pixel
         pixel/graphics/vao.cpp pixel/graphics/vao.h
         pixel/util/util.cpp pixel/util/util.h
         pixel/pixel.h
-        pixel/math/math.h
+    pixel/math.h
         pixel/util/collections.h
         pixel/graphics/sprite.cpp pixel/graphics/sprite.h
         pixel/time/frame_counter.cpp pixel/time/frame_counter.h
@@ -40,8 +40,7 @@ add_library(pixel
         pixel/tilemap/tile_layer_texture.cpp pixel/tilemap/tile_layer_texture.h
         pixel/graphics/pack.cpp pixel/graphics/pack.h
         pixel/graphics/texture_atlas.cpp pixel/graphics/texture_atlas.h
-        pixel/graphics/render_buffer.cpp pixel/graphics/render_buffer.h
-        pixel/graphics/sprite_batch.cpp pixel/graphics/sprite_batch.h
+    pixel/graphics/sprite_batch.cpp pixel/graphics/sprite_batch.h
         pixel/graphics/camera.cpp pixel/graphics/camera.h
         pixel/graphics/sprite_animation.cpp pixel/graphics/sprite_animation.h
         pixel/input/keyboard.cpp pixel/input/keyboard.h pixel/lua/wrap_glm.cpp pixel/lua/wrap_camera.cpp pixel/lua/wrap_image_data.cpp

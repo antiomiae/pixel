@@ -1,4 +1,4 @@
-#include <pixel/math/math.h>
+#include <pixel/math.h>
 #include "binding.h"
 
 

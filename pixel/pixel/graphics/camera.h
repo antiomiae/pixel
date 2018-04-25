@@ -1,7 +1,7 @@
 #ifndef PIXEL_CAMERA_H
 #define PIXEL_CAMERA_H
 
-#include <pixel/math/math.h>
+#include <pixel/math.h>
 
 namespace pixel::graphics
 {

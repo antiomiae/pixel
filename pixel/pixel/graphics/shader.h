@@ -5,7 +5,7 @@
 #define GL_SHADER_H
 
 #include "common.h"
-#include "../math/math.h"
+#include "pixel/math.h"
 #include "attribute.h"
 #include <unordered_map>
 

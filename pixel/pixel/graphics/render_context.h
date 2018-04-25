@@ -1,7 +1,7 @@
 #ifndef PIXEL_RENDER_CONTEXT_H
 #define PIXEL_RENDER_CONTEXT_H
 
-#include "../math/math.h"
+#include "pixel/math.h"
 
 namespace pixel
 {

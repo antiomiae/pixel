@@ -6,7 +6,7 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include <pixel/math/math.h>
+#include <pixel/math.h>
 #include "texture_region.h"
 #include "image.h"
 #include "texture.h"

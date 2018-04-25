@@ -9,7 +9,7 @@ void SpriteBatch::restart()
     sprites_.clear();
 }
 
-void SpriteBatch::add(Sprite s)
+void SpriteBatch::add(const Sprite& s)
 {
     sprites_.push_back(s);
 }

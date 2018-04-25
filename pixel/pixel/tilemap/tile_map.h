@@ -4,7 +4,7 @@
 #include <vector>
 #include <memory>
 #include <tmxlite/Map.hpp>
-#include <pixel/math/math.h>
+#include <pixel/math.h>
 #include "tile_layer.h"
 #include "tile_atlas.h"
 #include "tileset.h"
