@@ -1,4 +1,6 @@
 #include "tile_map_renderer.h"
+#include <pixel/error.h>
+
 
 using namespace pixel;
 

@@ -4,11 +4,11 @@
 #ifndef PIXEL_TILESET_ATLAS_H
 #define PIXEL_TILESET_ATLAS_H
 
-#include "../graphics/graphics.h"
 #include <vector>
 #include <cstdint>
 #include <unordered_map>
 #include <tmxlite/Tileset.hpp>
+#include <pixel/graphics/graphics.h>
 
 namespace pixel
 {

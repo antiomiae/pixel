@@ -2,7 +2,7 @@
 #define PIXEL_TILE_MAP_RENDERER_H
 
 #include <string>
-#include <pixel/pixel.h>
+#include <pixel/graphics/graphics.h>
 #include "tile_map.h"
 #include "tile_layer_texture.h"
 

@@ -1,9 +1,12 @@
 #ifndef APP_APP_H
 #define APP_APP_H
 
-#include "../graphics/graphics.h"
+
 #include <functional>
+#include <pixel/math.h>
 #include <pixel/time/frame_counter.h>
+#include <pixel/graphics/graphics.h>
+
 
 namespace pixel
 {

@@ -1,6 +1,8 @@
 
-#include <pixel/pixel.h>
+#include <algorithm>
+#include <pixel/error.h>
 #include "tile_layer_texture.h"
+
 
 namespace pixel
 {
