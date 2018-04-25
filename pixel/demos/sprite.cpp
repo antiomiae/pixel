@@ -83,7 +83,7 @@ int main(int argc, char* argv[])
     atlas.stop_batch();
 
     auto sprite_texture_array = atlas.as_texture();
-    logGlErrors();
+    log_gl_errors();
 
     auto& layers = atlas.layers();
     for (auto i = 0u; i < layers.size(); ++i) {

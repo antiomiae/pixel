@@ -155,34 +155,34 @@ void SpriteRenderer::SpriteRenderer::render(const vector<Sprite>& sprites, Textu
     auto mat = projection * view;
 
     sprite_buffer_.loadData(sprites.data(), sprites.size() * sizeof(Sprite));
-    logGlErrors();
+    log_gl_errors();
 
     program_.activate();
-    logGlErrors();
+    log_gl_errors();
 
     vao_.activate();
-    logGlErrors();
+    log_gl_errors();
 
     atlas_texture.activate(0);
-    logGlErrors();
+    log_gl_errors();
 
     index_buffer_.bind();
-    logGlErrors();
+    log_gl_errors();
 
     program_.setUniform("projection", projection * view);
-    logGlErrors();
+    log_gl_errors();
 
     program_.setUniform("tex", 0);
-    logGlErrors();
+    log_gl_errors();
 
     glDrawElementsInstanced(GL_TRIANGLES, 6, index_buffer_.elementType(), 0, sprites.size());
-    logGlErrors();
+    log_gl_errors();
 
     vao_.deactivate();
-    logGlErrors();
+    log_gl_errors();
 
     program_.deactivate();
-    logGlErrors();
+    log_gl_errors();
 }
 
 pixel::graphics::Shader& pixel::graphics::SpriteRenderer::program()

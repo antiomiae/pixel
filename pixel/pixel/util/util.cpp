@@ -9,7 +9,7 @@
 
 using namespace std;
 
-void _logGlErrors(const int line, const char *file) {
+void _log_gl_errors(const int line, const char *file) {
     string prefix = string(file) + ":" + std::to_string(line) + ":";
     GLenum err;
     while((err = glGetError()) != GL_NO_ERROR)

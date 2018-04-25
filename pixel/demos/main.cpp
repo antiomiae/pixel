@@ -61,49 +61,49 @@ int main(int argc, char* argv[])
         Buffer model_mat;
         glm::mat2x3 mats[6][2];
         model_mat.loadData(glm::value_ptr(mats[0][0]), sizeof(mats));
-        logGlErrors();
+        log_gl_errors();
 
         model_mat.bindToProgramAttribute(shader, "model_mat");
-        logGlErrors();
+        log_gl_errors();
 
         Buffer some_var;
         int some_vars[6];
         some_var.loadData(some_vars, sizeof(some_vars));
-        logGlErrors();
+        log_gl_errors();
 
         some_var.bindToProgramAttribute(shader, "some_var");
-        logGlErrors();
+        log_gl_errors();
 
         Buffer single_mat;
         glm::mat2 single_mats[6];
         single_mat.loadData(glm::value_ptr(single_mats[0]), sizeof(single_mats));
-        logGlErrors();
+        log_gl_errors();
 
         single_mat.bindToProgramAttribute(shader, "single_mat");
-        logGlErrors();
+        log_gl_errors();
 
 
         Buffer int_arr;
         int int_arrs[6][4];
         int_arr.loadData(int_arrs, sizeof(single_mats));
-        logGlErrors();
+        log_gl_errors();
 
         int_arr.bindToProgramAttribute(shader, "int_arr");
-        logGlErrors();
+        log_gl_errors();
     }
 
     auto window_size = glm::vec2(app.render_context().window_size);
 
     shader.setUniform("projection", glm::ortho(0.0f, (float) window_size.x, 0.0f, (float) window_size.y));
-    logGlErrors();
+    log_gl_errors();
 
     auto view = glm::translate(glm::mat4(1.0f), glm::vec3(window_size / 2.0f, 0.0f));
     auto model = glm::scale(glm::mat4(1.0f), {100.0f, 100.0f, 1.0f});
 
     shader.setUniform("view", view);
-    logGlErrors();
+    log_gl_errors();
     shader.setUniform("model", model);
-    logGlErrors();
+    log_gl_errors();
 
     vao.deactivate();
 
@@ -111,7 +111,7 @@ int main(int argc, char* argv[])
     glBindTexture(GL_TEXTURE_2D, t1.texture_id());
 
     shader.setUniform("tex", 0);
-    logGlErrors();
+    log_gl_errors();
 
     app.set_tick_callback(
         [&] {
@@ -123,7 +123,7 @@ int main(int argc, char* argv[])
             shader.deactivate();
             vao.deactivate();
 
-            logGlErrors();
+            log_gl_errors();
         }
     );
 

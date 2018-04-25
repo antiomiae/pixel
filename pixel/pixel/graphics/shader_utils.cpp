@@ -21,11 +21,11 @@ using namespace std;
 bool compile_shader(GLuint shader)
 {
     glCompileShader(shader);
-    logGlErrors();
+    log_gl_errors();
 
     GLint success = 0;
     glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
-    logGlErrors();
+    log_gl_errors();
 
     return success == GL_TRUE;
 }
@@ -35,7 +35,7 @@ void log_shader_error(GLuint shader)
 {
     GLint maxLength = 0;
     glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &maxLength);
-    logGlErrors();
+    log_gl_errors();
 
     if (maxLength == 0) {
         return;
@@ -43,7 +43,7 @@ void log_shader_error(GLuint shader)
 
     vector<GLchar> log((unsigned)maxLength);
     glGetShaderInfoLog(shader, maxLength, &maxLength, &log[0]);
-    logGlErrors();
+    log_gl_errors();
 
     string text(&log[0]);
 
@@ -55,11 +55,11 @@ void log_program_error(GLuint program)
 {
     GLint maxLength = 0;
     glGetProgramiv(program, GL_INFO_LOG_LENGTH, &maxLength);
-    logGlErrors();
+    log_gl_errors();
 
     vector<GLchar> log(maxLength);
     glGetProgramInfoLog(program, maxLength, &maxLength, &log[0]);
-    logGlErrors();
+    log_gl_errors();
 
     string text(&log[0]);
 
@@ -70,11 +70,11 @@ void log_program_error(GLuint program)
 bool link_program(GLuint program)
 {
     glLinkProgram(program);
-    logGlErrors();
+    log_gl_errors();
 
     GLint success = 0;
     glGetProgramiv(program, GL_LINK_STATUS, &success);
-    logGlErrors();
+    log_gl_errors();
 
     return success == GL_TRUE;
 }
@@ -98,7 +98,7 @@ void load_shader(GLuint shader, const char* path)
     auto c_str = text.c_str();
 
     glShaderSource(shader, 1, &c_str, &length);
-    logGlErrors();
+    log_gl_errors();
     log_shader_error(shader);
 }
 
@@ -107,7 +107,7 @@ int program_parameter(GLuint program, GLenum attribute)
 {
     int value;
     glGetProgramiv(program, attribute, &value);
-    logGlErrors();
+    log_gl_errors();
     return value;
 }
 
@@ -117,10 +117,10 @@ AttributeMap enumerate_program_attributes(GLuint program)
     AttributeMap map;
 
     vector<GLchar> buffer((unsigned) program_parameter(program, GL_ACTIVE_ATTRIBUTE_MAX_LENGTH));
-    logGlErrors();
+    log_gl_errors();
 
     const int attr_count = program_parameter(program, GL_ACTIVE_ATTRIBUTES);
-    logGlErrors();
+    log_gl_errors();
 
     for (int i = 0; i < attr_count; ++i) {
         Attribute attr;
@@ -137,14 +137,14 @@ AttributeMap enumerate_program_attributes(GLuint program)
             &attr.type,
             &buffer[0]
         );
-        logGlErrors();
+        log_gl_errors();
 
         buffer[length + 1] = '\0';
 
         attr.name = buffer.data();
 
         attr.location = glGetAttribLocation(program, attr.name.c_str());
-        logGlErrors();
+        log_gl_errors();
 
         map[attr.name] = attr;
     }
@@ -158,10 +158,10 @@ AttributeMap enumerate_program_uniforms(GLuint program)
     std::unordered_map<std::string, Attribute> attributeMap;
 
     vector<GLchar> buffer((unsigned) program_parameter(program, GL_ACTIVE_UNIFORM_MAX_LENGTH));
-    logGlErrors();
+    log_gl_errors();
 
     const int uniform_count = program_parameter(program, GL_ACTIVE_UNIFORMS);
-    logGlErrors();
+    log_gl_errors();
 
     for (auto i = 0u; i < uniform_count; ++i) {
         Attribute attr;
@@ -178,14 +178,14 @@ AttributeMap enumerate_program_uniforms(GLuint program)
             &attr.type,
             &buffer[0]
         );
-        logGlErrors();
+        log_gl_errors();
 
         buffer[length + 1] = '\0';
 
         attr.name = buffer.data();
 
         attr.location = glGetUniformLocation(program, attr.name.c_str());
-        logGlErrors();
+        log_gl_errors();
 
         attributeMap[attr.name] = attr;
     }

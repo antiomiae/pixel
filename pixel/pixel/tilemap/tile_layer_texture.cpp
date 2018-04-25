@@ -24,7 +24,7 @@ void TileLayerTexture::load(pixel::TileLayer& ref_layer, pixel::TileAtlas& atlas
     );
 
     (*texture_).load(ref_layer.width(), ref_layer.height(), (uint8_t*)tex_data.data());
-    logGlErrors();
+    log_gl_errors();
 }
 
 

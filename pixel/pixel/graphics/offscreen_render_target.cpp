@@ -43,9 +43,9 @@ void OffscreenRenderTarget::deactivate()
 void OffscreenRenderTarget::draw(const glm::ivec4& draw_region)
 {
     glBindFramebuffer(GL_READ_FRAMEBUFFER, fbo_);
-    logGlErrors();
+    log_gl_errors();
     glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
-    logGlErrors();
+    log_gl_errors();
     //glReadBuffer(GL_COLOR_ATTACHMENT0);
 
     //glDrawBuffer(GL_BACK);
@@ -58,10 +58,10 @@ void OffscreenRenderTarget::draw(const glm::ivec4& draw_region)
         GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT,
         GL_NEAREST
     );
-    logGlErrors();
+    log_gl_errors();
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    logGlErrors();
+    log_gl_errors();
 }
 
 

@@ -31,7 +31,7 @@ void Texture::load(unsigned width, unsigned height, const uint8_t* data)
 
         /* TODO: REPLACE THIS */
         glTexImage2D(texture_type_, 0, internal_format_, width, height, 0, format_, data_type_, data);
-        logGlErrors();
+        log_gl_errors();
         /* WITH THIS:
         if (data != nullptr) {
             glTexImage2D(_textureType, 0, _format, width, height, 0, _format, _dataType, data);
@@ -72,14 +72,14 @@ void Texture::load(unsigned width, unsigned height, const unsigned depth, const 
 void Texture::unbind() const
 {
     glBindTexture(texture_type_, 0);
-    logGlErrors();
+    log_gl_errors();
 }
 
 
 void Texture::bind() const
 {
     glBindTexture(texture_type_, texture_id_);
-    logGlErrors();
+    log_gl_errors();
 }
 
 
@@ -214,7 +214,7 @@ void Texture::read(void* buf) const
 {
     bind();
     glGetTexImage(texture_type_, 0, format_, data_type_, buf);
-    logGlErrors();
+    log_gl_errors();
     unbind();
 }
 
@@ -223,7 +223,7 @@ pixel::graphics::Texture::~Texture()
 {
     if (texture_id_ > 0) {
         glDeleteTextures(1, &texture_id_);
-        logGlErrors();
+        log_gl_errors();
         texture_id_ = 0;
     }
 }

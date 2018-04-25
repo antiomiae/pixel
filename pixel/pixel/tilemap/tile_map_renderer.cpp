@@ -63,48 +63,48 @@ void pixel::TileMapRenderer::render(pixel::TileMap& t, Camera& camera)
 
 
     set_buffer_data(map_size.x, map_size.y, table_size.x, table_size.y);
-    logGlErrors();
+    log_gl_errors();
     program_->activate();
-    logGlErrors();
+    log_gl_errors();
     vao_.activate();
-    logGlErrors();
+    log_gl_errors();
 
 
     program_->setUniform("tile_size", t.tile_size());
-    logGlErrors();
+    log_gl_errors();
 
     /* Bind atlas texture to unit 0 */
     t.atlas().activate_texture(0);
-    logGlErrors();
+    log_gl_errors();
     /* Bind map texture to unit 1 */
 
 
     program_->setUniform("atlas_tex", 0);
-    logGlErrors();
+    log_gl_errors();
 
     for (auto& layer : t.layers()) {
         auto p = layer.parallax();
 
         auto projection = camera.projection_matrix() * camera.parallax_view_matrix(layer.parallax());
         program_->setUniform("projection", projection);
-        logGlErrors();
+        log_gl_errors();
 
         tile_layer_texture_->load(layer, t.atlas());
-        logGlErrors();
+        log_gl_errors();
 
         tile_layer_texture_->texture().activate(1);
-        logGlErrors();
+        log_gl_errors();
 
         program_->setUniform("map_tex", 1);
-        logGlErrors();
+        log_gl_errors();
 
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-        logGlErrors();
+        log_gl_errors();
     }
 
     vao_.deactivate();
-    logGlErrors();
+    log_gl_errors();
 
     program_->deactivate();
-    logGlErrors();
+    log_gl_errors();
 }

@@ -6,9 +6,9 @@
 
 #include "symbol_map.h"
 
-void _logGlErrors(const int line, const char *file);
+void _log_gl_errors(const int line, const char *file);
 
-#define logGlErrors() _logGlErrors(__LINE__, __FILE__)
+#define log_gl_errors() _log_gl_errors(__LINE__, __FILE__)
 
 namespace pixel::util {
     bool file_exists(const std::string&);

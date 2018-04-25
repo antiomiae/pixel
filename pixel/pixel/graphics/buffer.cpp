@@ -194,13 +194,13 @@ void pixel::graphics::Buffer::bindToProgramAttribute(
                 reinterpret_cast<void*>(offset + loc * (sizeForBasicType(layout.type) * layout.size))
             );
         }
-        logGlErrors();
+        log_gl_errors();
 
         glEnableVertexAttribArray(loc + layout.baseLocation);
-        logGlErrors();
+        log_gl_errors();
 
         glVertexAttribDivisor(loc + layout.baseLocation, divisor);
-        logGlErrors();
+        log_gl_errors();
     }
 
     unbind();
@@ -218,12 +218,12 @@ void pixel::graphics::Buffer::loadData(const void* data, const size_t length)
 void pixel::graphics::Buffer::bind()
 {
     glBindBuffer(GL_ARRAY_BUFFER, buffer_id_);
-    logGlErrors();
+    log_gl_errors();
 }
 
 
 void pixel::graphics::Buffer::unbind()
 {
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-    logGlErrors();
+    log_gl_errors();
 }
