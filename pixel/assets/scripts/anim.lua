@@ -40,7 +40,7 @@ render_target:set_window_size(W // 3, H // 3)
 
 current_level:load_sprites(SPRITES)
 
-current_level:add_map(pixel.load_map("assets/map.tmx"))
+current_level:add_map(pixel.TileMap.from_path("assets/map.tmx"))
 
 current_level:add_animation('assets/animations/spy.lua')
 
