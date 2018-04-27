@@ -6,7 +6,7 @@ H = 852
 
 local app = pixel.App.create {
     width = W,
-    height =  H,
+    height = H,
     background_color = { 0.1, 0.1, 0.1, 1.0 },
     pixel_scale = 2.0
 }
@@ -33,7 +33,7 @@ local SPRITES = {
 
 local current_level = pixel.Level:new()
 --current_level.camera:lock_x(true)
-current_level.camera:set_window_size(math.floor(W/3), math.floor(H/3))
+current_level.camera:set_window_size(math.floor(W / 3), math.floor(H / 3))
 
 local render_target = pixel.OffscreenRenderTarget.new()
 render_target:set_window_size(W // 3, H // 3)

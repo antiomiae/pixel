@@ -19,14 +19,14 @@ unique_ptr<TileMap> TileMap::from_path(const std::string& tmx_path)
 
     error_unless(m.load(tmx_path), "Unable to load tmx map file at path " + tmx_path);
 
-    auto ptr = make_unique<TileMap>(
+    auto tm = make_unique<TileMap>(
         glm::uvec2 {m.getTileCount().x, m.getTileCount().y},
         glm::uvec2 {m.getTileSize().x, m.getTileSize().y}
     );
 
-    error_unless(ptr->load(m), "Unable to load map into TileMap");
+    error_unless(tm->load(m), "Unable to load map into TileMap");
 
-    return ptr;
+    return tm;
 }
 
 
