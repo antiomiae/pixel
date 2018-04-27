@@ -5,3 +5,5 @@ install: true
 
 script:
   - docker build -t pixel-$TRAVIS_BRANCH .
+  - sh publishdocs
+
