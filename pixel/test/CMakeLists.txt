@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-#project(pixel_test CXX)
+project(pixel_test CXX)
 
 file(GLOB test_sources ${CMAKE_CURRENT_LIST_DIR}/**/test_*.cpp)
 

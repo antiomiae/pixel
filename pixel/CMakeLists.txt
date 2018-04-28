@@ -50,7 +50,7 @@ add_library(pixel
         pixel/lua/wrap_tileset.cpp
         pixel/collision/collision.cpp pixel/collision/collision.h
         pixel/types.h
-        pixel/lua/wrap_collision.cpp)
+        pixel/lua/wrap_collision.cpp pixel/renderers/line_renderer.cpp pixel/renderers/line_renderer.h)
 
 
 add_dependencies(pixel pixel_source_version)

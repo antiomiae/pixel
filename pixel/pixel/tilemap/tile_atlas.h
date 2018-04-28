@@ -1,6 +1,3 @@
-//
-//
-
 #ifndef PIXEL_TILESET_ATLAS_H
 #define PIXEL_TILESET_ATLAS_H
 
