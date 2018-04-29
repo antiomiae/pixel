@@ -1,0 +1,110 @@
+\hypertarget{classpixel_1_1_tileset}{}\section{pixel\+:\+:Tileset Class Reference}
+\label{classpixel_1_1_tileset}\index{pixel\+::\+Tileset@{pixel\+::\+Tileset}}
+
+
+{\ttfamily \#include $<$pixel/tilemap/tileset.\+h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structpixel_1_1_tileset_1_1_tile}{Tile}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{classpixel_1_1_tileset_a07353350c368c82275a5f821b0b2ee94}{Tile\+Registry} = std\+::unordered\+\_\+map$<$ uint32\+\_\+t, \hyperlink{structpixel_1_1_tileset_1_1_tile}{Tile} $>$
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classpixel_1_1_tileset_a4ba3df1394c0dbf5f2d1ab38545d5bcc}{Tileset} ()=default
+\item 
+void \hyperlink{classpixel_1_1_tileset_a9c4bbb518051280dbce888b7e6393d16}{add\+\_\+tileset} (const tmx\+::\+Tileset \&tmx\+\_\+tileset)
+\item 
+bool \hyperlink{classpixel_1_1_tileset_a12eb0d5ebf051a4838a1fe8d829bbe04}{tile\+\_\+has\+\_\+animation} (uint32\+\_\+t id) const
+\item 
+std\+::vector$<$ \hyperlink{structpixel_1_1_tileset_1_1_tile}{Tile} $>$ \& \hyperlink{classpixel_1_1_tileset_a3c1a733757e487ddabf79488c748e3eb}{tiles} ()
+\item 
+\hyperlink{classpixel_1_1_tileset_a07353350c368c82275a5f821b0b2ee94}{Tile\+Registry} \hyperlink{classpixel_1_1_tileset_a762d3d382fdc40375f1c3f224d7e6cad}{registry} ()
+\item 
+\hyperlink{structpixel_1_1_tileset_1_1_tile}{Tile} \& \hyperlink{classpixel_1_1_tileset_ac0eca2f1fbe3ad309d8bc199311a5459}{tile} (uint32\+\_\+t id)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \hyperlink{structpixel_1_1_tileset_1_1_tile}{Tile} $>$ \hyperlink{classpixel_1_1_tileset_a3037828f512098ac7c6637ceb4819181}{tiles\+\_\+}
+\item 
+\hyperlink{classpixel_1_1_tileset_a07353350c368c82275a5f821b0b2ee94}{Tile\+Registry} \hyperlink{classpixel_1_1_tileset_ae1ead42caea0c607c07975e354fc4c1c}{registry\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classpixel_1_1_tileset_a07353350c368c82275a5f821b0b2ee94}\label{classpixel_1_1_tileset_a07353350c368c82275a5f821b0b2ee94}} 
+\index{pixel\+::\+Tileset@{pixel\+::\+Tileset}!Tile\+Registry@{Tile\+Registry}}
+\index{Tile\+Registry@{Tile\+Registry}!pixel\+::\+Tileset@{pixel\+::\+Tileset}}
+\subsubsection{\texorpdfstring{Tile\+Registry}{TileRegistry}}
+{\footnotesize\ttfamily using \hyperlink{classpixel_1_1_tileset_a07353350c368c82275a5f821b0b2ee94}{pixel\+::\+Tileset\+::\+Tile\+Registry} =  std\+::unordered\+\_\+map$<$uint32\+\_\+t, \hyperlink{structpixel_1_1_tileset_1_1_tile}{Tile}$>$}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classpixel_1_1_tileset_a4ba3df1394c0dbf5f2d1ab38545d5bcc}\label{classpixel_1_1_tileset_a4ba3df1394c0dbf5f2d1ab38545d5bcc}} 
+\index{pixel\+::\+Tileset@{pixel\+::\+Tileset}!Tileset@{Tileset}}
+\index{Tileset@{Tileset}!pixel\+::\+Tileset@{pixel\+::\+Tileset}}
+\subsubsection{\texorpdfstring{Tileset()}{Tileset()}}
+{\footnotesize\ttfamily pixel\+::\+Tileset\+::\+Tileset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classpixel_1_1_tileset_a9c4bbb518051280dbce888b7e6393d16}\label{classpixel_1_1_tileset_a9c4bbb518051280dbce888b7e6393d16}} 
+\index{pixel\+::\+Tileset@{pixel\+::\+Tileset}!add\+\_\+tileset@{add\+\_\+tileset}}
+\index{add\+\_\+tileset@{add\+\_\+tileset}!pixel\+::\+Tileset@{pixel\+::\+Tileset}}
+\subsubsection{\texorpdfstring{add\+\_\+tileset()}{add\_tileset()}}
+{\footnotesize\ttfamily void pixel\+::\+Tileset\+::add\+\_\+tileset (\begin{DoxyParamCaption}\item[{const tmx\+::\+Tileset \&}]{tmx\+\_\+tileset }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_tileset_a762d3d382fdc40375f1c3f224d7e6cad}\label{classpixel_1_1_tileset_a762d3d382fdc40375f1c3f224d7e6cad}} 
+\index{pixel\+::\+Tileset@{pixel\+::\+Tileset}!registry@{registry}}
+\index{registry@{registry}!pixel\+::\+Tileset@{pixel\+::\+Tileset}}
+\subsubsection{\texorpdfstring{registry()}{registry()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ uint32\+\_\+t, \hyperlink{structpixel_1_1_tileset_1_1_tile}{Tileset\+::\+Tile} $>$ pixel\+::\+Tileset\+::registry (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_tileset_ac0eca2f1fbe3ad309d8bc199311a5459}\label{classpixel_1_1_tileset_ac0eca2f1fbe3ad309d8bc199311a5459}} 
+\index{pixel\+::\+Tileset@{pixel\+::\+Tileset}!tile@{tile}}
+\index{tile@{tile}!pixel\+::\+Tileset@{pixel\+::\+Tileset}}
+\subsubsection{\texorpdfstring{tile()}{tile()}}
+{\footnotesize\ttfamily \hyperlink{structpixel_1_1_tileset_1_1_tile}{Tileset\+::\+Tile} \& pixel\+::\+Tileset\+::tile (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_tileset_a12eb0d5ebf051a4838a1fe8d829bbe04}\label{classpixel_1_1_tileset_a12eb0d5ebf051a4838a1fe8d829bbe04}} 
+\index{pixel\+::\+Tileset@{pixel\+::\+Tileset}!tile\+\_\+has\+\_\+animation@{tile\+\_\+has\+\_\+animation}}
+\index{tile\+\_\+has\+\_\+animation@{tile\+\_\+has\+\_\+animation}!pixel\+::\+Tileset@{pixel\+::\+Tileset}}
+\subsubsection{\texorpdfstring{tile\+\_\+has\+\_\+animation()}{tile\_has\_animation()}}
+{\footnotesize\ttfamily bool pixel\+::\+Tileset\+::tile\+\_\+has\+\_\+animation (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpixel_1_1_tileset_a3c1a733757e487ddabf79488c748e3eb}\label{classpixel_1_1_tileset_a3c1a733757e487ddabf79488c748e3eb}} 
+\index{pixel\+::\+Tileset@{pixel\+::\+Tileset}!tiles@{tiles}}
+\index{tiles@{tiles}!pixel\+::\+Tileset@{pixel\+::\+Tileset}}
+\subsubsection{\texorpdfstring{tiles()}{tiles()}}
+{\footnotesize\ttfamily std\+::vector$<$ \hyperlink{structpixel_1_1_tileset_1_1_tile}{Tileset\+::\+Tile} $>$ \& pixel\+::\+Tileset\+::tiles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classpixel_1_1_tileset_ae1ead42caea0c607c07975e354fc4c1c}\label{classpixel_1_1_tileset_ae1ead42caea0c607c07975e354fc4c1c}} 
+\index{pixel\+::\+Tileset@{pixel\+::\+Tileset}!registry\+\_\+@{registry\+\_\+}}
+\index{registry\+\_\+@{registry\+\_\+}!pixel\+::\+Tileset@{pixel\+::\+Tileset}}
+\subsubsection{\texorpdfstring{registry\+\_\+}{registry\_}}
+{\footnotesize\ttfamily \hyperlink{classpixel_1_1_tileset_a07353350c368c82275a5f821b0b2ee94}{Tile\+Registry} pixel\+::\+Tileset\+::registry\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_tileset_a3037828f512098ac7c6637ceb4819181}\label{classpixel_1_1_tileset_a3037828f512098ac7c6637ceb4819181}} 
+\index{pixel\+::\+Tileset@{pixel\+::\+Tileset}!tiles\+\_\+@{tiles\+\_\+}}
+\index{tiles\+\_\+@{tiles\+\_\+}!pixel\+::\+Tileset@{pixel\+::\+Tileset}}
+\subsubsection{\texorpdfstring{tiles\+\_\+}{tiles\_}}
+{\footnotesize\ttfamily std\+::vector$<$\hyperlink{structpixel_1_1_tileset_1_1_tile}{Tile}$>$ pixel\+::\+Tileset\+::tiles\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+pixel/pixel/tilemap/\hyperlink{tileset_8h}{tileset.\+h}\item 
+pixel/pixel/tilemap/\hyperlink{tileset_8cpp}{tileset.\+cpp}\end{DoxyCompactItemize}

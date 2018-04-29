@@ -1,0 +1,127 @@
+\hypertarget{classpixel_1_1_tile_layer_1_1_tile_animation}{}\section{pixel\+:\+:Tile\+Layer\+:\+:Tile\+Animation Class Reference}
+\label{classpixel_1_1_tile_layer_1_1_tile_animation}\index{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation@{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation}}
+
+
+{\ttfamily \#include $<$pixel/tilemap/tile\+\_\+layer.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classpixel_1_1_tile_layer_1_1_tile_animation_a3a55d9218302b7aa924052612db0f048}{Tile\+Animation} (uint32\+\_\+t id, \hyperlink{structpixel_1_1_tileset_1_1_tile_1_1_animation}{Tileset\+::\+Tile\+::\+Animation} animation)
+\item 
+\hyperlink{classpixel_1_1_tile_layer_1_1_tile_animation_aae2ce4f9184de17866f094ad43ce980a}{Tile\+Animation} ()=default
+\item 
+void \hyperlink{classpixel_1_1_tile_layer_1_1_tile_animation_ac667992b85e3014efb3497302bfdef7f}{update} (float dt)
+\item 
+void \hyperlink{classpixel_1_1_tile_layer_1_1_tile_animation_a283c02cc0f0878db07c16ae601ea74bc}{update\+\_\+frame} ()
+\item 
+uint32\+\_\+t \hyperlink{classpixel_1_1_tile_layer_1_1_tile_animation_a30537e1452f40ebd8a67370e425714c2}{current\+\_\+tile\+\_\+id} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structpixel_1_1_tileset_1_1_tile_1_1_animation}{Tileset\+::\+Tile\+::\+Animation} \hyperlink{classpixel_1_1_tile_layer_1_1_tile_animation_a768c92f745be44a78a96635f5088c662}{animation\+\_\+definition}
+\begin{DoxyCompactList}\small\item\em Describes animation frames and durations. \end{DoxyCompactList}\item 
+vector$<$ unsigned $>$ \hyperlink{classpixel_1_1_tile_layer_1_1_tile_animation_aa149a12e4eae31c60714565b2d64861e}{tiles}
+\begin{DoxyCompactList}\small\item\em Indices of tiles that have this animation. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{classpixel_1_1_tile_layer_1_1_tile_animation_a4d3f0a377f653a3103bb690972ae2a90}{base\+\_\+tile\+\_\+id}
+\begin{DoxyCompactList}\small\item\em ID of tile this animation is derived from. \end{DoxyCompactList}\item 
+float \hyperlink{classpixel_1_1_tile_layer_1_1_tile_animation_ab90e96c9b709cc00481bf292df529635}{timer}
+\begin{DoxyCompactList}\small\item\em Timer. \end{DoxyCompactList}\item 
+unsigned \hyperlink{classpixel_1_1_tile_layer_1_1_tile_animation_af61c1d3d11ec9adef814af303f78f769}{frame}
+\begin{DoxyCompactList}\small\item\em Current frame in sequence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_1_1_tile_animation_a3a55d9218302b7aa924052612db0f048}\label{classpixel_1_1_tile_layer_1_1_tile_animation_a3a55d9218302b7aa924052612db0f048}} 
+\index{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation@{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation}!Tile\+Animation@{Tile\+Animation}}
+\index{Tile\+Animation@{Tile\+Animation}!pixel\+::\+Tile\+Layer\+::\+Tile\+Animation@{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation}}
+\subsubsection{\texorpdfstring{Tile\+Animation()}{TileAnimation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily pixel\+::\+Tile\+Layer\+::\+Tile\+Animation\+::\+Tile\+Animation (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id,  }\item[{\hyperlink{structpixel_1_1_tileset_1_1_tile_1_1_animation}{Tileset\+::\+Tile\+::\+Animation}}]{animation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_1_1_tile_animation_aae2ce4f9184de17866f094ad43ce980a}\label{classpixel_1_1_tile_layer_1_1_tile_animation_aae2ce4f9184de17866f094ad43ce980a}} 
+\index{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation@{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation}!Tile\+Animation@{Tile\+Animation}}
+\index{Tile\+Animation@{Tile\+Animation}!pixel\+::\+Tile\+Layer\+::\+Tile\+Animation@{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation}}
+\subsubsection{\texorpdfstring{Tile\+Animation()}{TileAnimation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily pixel\+::\+Tile\+Layer\+::\+Tile\+Animation\+::\+Tile\+Animation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_1_1_tile_animation_a30537e1452f40ebd8a67370e425714c2}\label{classpixel_1_1_tile_layer_1_1_tile_animation_a30537e1452f40ebd8a67370e425714c2}} 
+\index{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation@{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation}!current\+\_\+tile\+\_\+id@{current\+\_\+tile\+\_\+id}}
+\index{current\+\_\+tile\+\_\+id@{current\+\_\+tile\+\_\+id}!pixel\+::\+Tile\+Layer\+::\+Tile\+Animation@{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation}}
+\subsubsection{\texorpdfstring{current\+\_\+tile\+\_\+id()}{current\_tile\_id()}}
+{\footnotesize\ttfamily uint32\+\_\+t pixel\+::\+Tile\+Layer\+::\+Tile\+Animation\+::current\+\_\+tile\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_1_1_tile_animation_ac667992b85e3014efb3497302bfdef7f}\label{classpixel_1_1_tile_layer_1_1_tile_animation_ac667992b85e3014efb3497302bfdef7f}} 
+\index{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation@{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation}!update@{update}}
+\index{update@{update}!pixel\+::\+Tile\+Layer\+::\+Tile\+Animation@{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void pixel\+::\+Tile\+Layer\+::\+Tile\+Animation\+::update (\begin{DoxyParamCaption}\item[{float}]{dt }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_1_1_tile_animation_a283c02cc0f0878db07c16ae601ea74bc}\label{classpixel_1_1_tile_layer_1_1_tile_animation_a283c02cc0f0878db07c16ae601ea74bc}} 
+\index{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation@{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation}!update\+\_\+frame@{update\+\_\+frame}}
+\index{update\+\_\+frame@{update\+\_\+frame}!pixel\+::\+Tile\+Layer\+::\+Tile\+Animation@{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation}}
+\subsubsection{\texorpdfstring{update\+\_\+frame()}{update\_frame()}}
+{\footnotesize\ttfamily void pixel\+::\+Tile\+Layer\+::\+Tile\+Animation\+::update\+\_\+frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_1_1_tile_animation_a768c92f745be44a78a96635f5088c662}\label{classpixel_1_1_tile_layer_1_1_tile_animation_a768c92f745be44a78a96635f5088c662}} 
+\index{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation@{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation}!animation\+\_\+definition@{animation\+\_\+definition}}
+\index{animation\+\_\+definition@{animation\+\_\+definition}!pixel\+::\+Tile\+Layer\+::\+Tile\+Animation@{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation}}
+\subsubsection{\texorpdfstring{animation\+\_\+definition}{animation\_definition}}
+{\footnotesize\ttfamily \hyperlink{structpixel_1_1_tileset_1_1_tile_1_1_animation}{Tileset\+::\+Tile\+::\+Animation} pixel\+::\+Tile\+Layer\+::\+Tile\+Animation\+::animation\+\_\+definition}
+
+
+
+Describes animation frames and durations. 
+
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_1_1_tile_animation_a4d3f0a377f653a3103bb690972ae2a90}\label{classpixel_1_1_tile_layer_1_1_tile_animation_a4d3f0a377f653a3103bb690972ae2a90}} 
+\index{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation@{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation}!base\+\_\+tile\+\_\+id@{base\+\_\+tile\+\_\+id}}
+\index{base\+\_\+tile\+\_\+id@{base\+\_\+tile\+\_\+id}!pixel\+::\+Tile\+Layer\+::\+Tile\+Animation@{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation}}
+\subsubsection{\texorpdfstring{base\+\_\+tile\+\_\+id}{base\_tile\_id}}
+{\footnotesize\ttfamily uint32\+\_\+t pixel\+::\+Tile\+Layer\+::\+Tile\+Animation\+::base\+\_\+tile\+\_\+id}
+
+
+
+ID of tile this animation is derived from. 
+
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_1_1_tile_animation_af61c1d3d11ec9adef814af303f78f769}\label{classpixel_1_1_tile_layer_1_1_tile_animation_af61c1d3d11ec9adef814af303f78f769}} 
+\index{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation@{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation}!frame@{frame}}
+\index{frame@{frame}!pixel\+::\+Tile\+Layer\+::\+Tile\+Animation@{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation}}
+\subsubsection{\texorpdfstring{frame}{frame}}
+{\footnotesize\ttfamily unsigned pixel\+::\+Tile\+Layer\+::\+Tile\+Animation\+::frame}
+
+
+
+Current frame in sequence. 
+
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_1_1_tile_animation_aa149a12e4eae31c60714565b2d64861e}\label{classpixel_1_1_tile_layer_1_1_tile_animation_aa149a12e4eae31c60714565b2d64861e}} 
+\index{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation@{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation}!tiles@{tiles}}
+\index{tiles@{tiles}!pixel\+::\+Tile\+Layer\+::\+Tile\+Animation@{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation}}
+\subsubsection{\texorpdfstring{tiles}{tiles}}
+{\footnotesize\ttfamily vector$<$unsigned$>$ pixel\+::\+Tile\+Layer\+::\+Tile\+Animation\+::tiles}
+
+
+
+Indices of tiles that have this animation. 
+
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_1_1_tile_animation_ab90e96c9b709cc00481bf292df529635}\label{classpixel_1_1_tile_layer_1_1_tile_animation_ab90e96c9b709cc00481bf292df529635}} 
+\index{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation@{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation}!timer@{timer}}
+\index{timer@{timer}!pixel\+::\+Tile\+Layer\+::\+Tile\+Animation@{pixel\+::\+Tile\+Layer\+::\+Tile\+Animation}}
+\subsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily float pixel\+::\+Tile\+Layer\+::\+Tile\+Animation\+::timer}
+
+
+
+Timer. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+pixel/pixel/tilemap/\hyperlink{tile__layer_8h}{tile\+\_\+layer.\+h}\item 
+pixel/pixel/tilemap/\hyperlink{tile__layer_8cpp}{tile\+\_\+layer.\+cpp}\end{DoxyCompactItemize}

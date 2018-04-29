@@ -1,0 +1,105 @@
+\hypertarget{classpixel_1_1graphics_1_1_buffer}{}\section{pixel\+:\+:graphics\+:\+:Buffer Class Reference}
+\label{classpixel_1_1graphics_1_1_buffer}\index{pixel\+::graphics\+::\+Buffer@{pixel\+::graphics\+::\+Buffer}}
+
+
+{\ttfamily \#include $<$pixel/graphics/buffer.\+h$>$}
+
+Inheritance diagram for pixel\+:\+:graphics\+:\+:Buffer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classpixel_1_1graphics_1_1_buffer}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classpixel_1_1graphics_1_1_buffer_a9fa35b1875e9c79e088587d23d6009c5}{Buffer} ()
+\item 
+\hyperlink{classpixel_1_1graphics_1_1_buffer_aa1c31a950ba27ec02845463158760fc1}{Buffer} (G\+Lenum usage\+Hint)
+\item 
+void \hyperlink{classpixel_1_1graphics_1_1_buffer_ae6521f1a22946dc2e23775cef722adca}{bind\+To\+Program\+Attribute} (const \hyperlink{classpixel_1_1graphics_1_1_shader}{Shader} \&program, const std\+::string \&name, int stride=0, int offset=0, int divisor=0)
+\item 
+void \hyperlink{classpixel_1_1graphics_1_1_buffer_a4454068cd191da9ff2133d22f53611fd}{load\+Data} (const void $\ast$data, const size\+\_\+t \hyperlink{namespacepixel_a465745e3b1a334686475c629948876f0}{size})
+\item 
+void \hyperlink{classpixel_1_1graphics_1_1_buffer_ab157f01d131d8416126607f71ab320ce}{bind} () override
+\item 
+void \hyperlink{classpixel_1_1graphics_1_1_buffer_ac7b3cce29e02e3ee96322fee2ed8d624}{unbind} () override
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+G\+Luint \hyperlink{classpixel_1_1graphics_1_1_buffer_a3c9df71bba83b43e11784699cdc0d44a}{buffer\+\_\+id\+\_\+} \{\}
+\item 
+G\+Lenum \hyperlink{classpixel_1_1graphics_1_1_buffer_a8c1f22b44385b66d4b05a6f4d7f6a6ba}{usage\+\_\+hint\+\_\+} \{\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_buffer_a9fa35b1875e9c79e088587d23d6009c5}\label{classpixel_1_1graphics_1_1_buffer_a9fa35b1875e9c79e088587d23d6009c5}} 
+\index{pixel\+::graphics\+::\+Buffer@{pixel\+::graphics\+::\+Buffer}!Buffer@{Buffer}}
+\index{Buffer@{Buffer}!pixel\+::graphics\+::\+Buffer@{pixel\+::graphics\+::\+Buffer}}
+\subsubsection{\texorpdfstring{Buffer()}{Buffer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily pixel\+::graphics\+::\+Buffer\+::\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_buffer_aa1c31a950ba27ec02845463158760fc1}\label{classpixel_1_1graphics_1_1_buffer_aa1c31a950ba27ec02845463158760fc1}} 
+\index{pixel\+::graphics\+::\+Buffer@{pixel\+::graphics\+::\+Buffer}!Buffer@{Buffer}}
+\index{Buffer@{Buffer}!pixel\+::graphics\+::\+Buffer@{pixel\+::graphics\+::\+Buffer}}
+\subsubsection{\texorpdfstring{Buffer()}{Buffer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily pixel\+::graphics\+::\+Buffer\+::\+Buffer (\begin{DoxyParamCaption}\item[{G\+Lenum}]{usage\+Hint }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_buffer_ab157f01d131d8416126607f71ab320ce}\label{classpixel_1_1graphics_1_1_buffer_ab157f01d131d8416126607f71ab320ce}} 
+\index{pixel\+::graphics\+::\+Buffer@{pixel\+::graphics\+::\+Buffer}!bind@{bind}}
+\index{bind@{bind}!pixel\+::graphics\+::\+Buffer@{pixel\+::graphics\+::\+Buffer}}
+\subsubsection{\texorpdfstring{bind()}{bind()}}
+{\footnotesize\ttfamily void pixel\+::graphics\+::\+Buffer\+::bind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{classpixel_1_1graphics_1_1_abstract_buffer_a9d3bb463f35f08f5604012b7d22e113a}{pixel\+::graphics\+::\+Abstract\+Buffer}.
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_buffer_ae6521f1a22946dc2e23775cef722adca}\label{classpixel_1_1graphics_1_1_buffer_ae6521f1a22946dc2e23775cef722adca}} 
+\index{pixel\+::graphics\+::\+Buffer@{pixel\+::graphics\+::\+Buffer}!bind\+To\+Program\+Attribute@{bind\+To\+Program\+Attribute}}
+\index{bind\+To\+Program\+Attribute@{bind\+To\+Program\+Attribute}!pixel\+::graphics\+::\+Buffer@{pixel\+::graphics\+::\+Buffer}}
+\subsubsection{\texorpdfstring{bind\+To\+Program\+Attribute()}{bindToProgramAttribute()}}
+{\footnotesize\ttfamily void pixel\+::graphics\+::\+Buffer\+::bind\+To\+Program\+Attribute (\begin{DoxyParamCaption}\item[{const \hyperlink{classpixel_1_1graphics_1_1_shader}{Shader} \&}]{program,  }\item[{const std\+::string \&}]{name,  }\item[{int}]{stride = {\ttfamily 0},  }\item[{int}]{offset = {\ttfamily 0},  }\item[{int}]{divisor = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_buffer_a4454068cd191da9ff2133d22f53611fd}\label{classpixel_1_1graphics_1_1_buffer_a4454068cd191da9ff2133d22f53611fd}} 
+\index{pixel\+::graphics\+::\+Buffer@{pixel\+::graphics\+::\+Buffer}!load\+Data@{load\+Data}}
+\index{load\+Data@{load\+Data}!pixel\+::graphics\+::\+Buffer@{pixel\+::graphics\+::\+Buffer}}
+\subsubsection{\texorpdfstring{load\+Data()}{loadData()}}
+{\footnotesize\ttfamily void pixel\+::graphics\+::\+Buffer\+::load\+Data (\begin{DoxyParamCaption}\item[{const void $\ast$}]{data,  }\item[{const size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_buffer_ac7b3cce29e02e3ee96322fee2ed8d624}\label{classpixel_1_1graphics_1_1_buffer_ac7b3cce29e02e3ee96322fee2ed8d624}} 
+\index{pixel\+::graphics\+::\+Buffer@{pixel\+::graphics\+::\+Buffer}!unbind@{unbind}}
+\index{unbind@{unbind}!pixel\+::graphics\+::\+Buffer@{pixel\+::graphics\+::\+Buffer}}
+\subsubsection{\texorpdfstring{unbind()}{unbind()}}
+{\footnotesize\ttfamily void pixel\+::graphics\+::\+Buffer\+::unbind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{classpixel_1_1graphics_1_1_abstract_buffer_aee49569fa5c1767a40f2371ec96e40fc}{pixel\+::graphics\+::\+Abstract\+Buffer}.
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_buffer_a3c9df71bba83b43e11784699cdc0d44a}\label{classpixel_1_1graphics_1_1_buffer_a3c9df71bba83b43e11784699cdc0d44a}} 
+\index{pixel\+::graphics\+::\+Buffer@{pixel\+::graphics\+::\+Buffer}!buffer\+\_\+id\+\_\+@{buffer\+\_\+id\+\_\+}}
+\index{buffer\+\_\+id\+\_\+@{buffer\+\_\+id\+\_\+}!pixel\+::graphics\+::\+Buffer@{pixel\+::graphics\+::\+Buffer}}
+\subsubsection{\texorpdfstring{buffer\+\_\+id\+\_\+}{buffer\_id\_}}
+{\footnotesize\ttfamily G\+Luint pixel\+::graphics\+::\+Buffer\+::buffer\+\_\+id\+\_\+ \{\}}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_buffer_a8c1f22b44385b66d4b05a6f4d7f6a6ba}\label{classpixel_1_1graphics_1_1_buffer_a8c1f22b44385b66d4b05a6f4d7f6a6ba}} 
+\index{pixel\+::graphics\+::\+Buffer@{pixel\+::graphics\+::\+Buffer}!usage\+\_\+hint\+\_\+@{usage\+\_\+hint\+\_\+}}
+\index{usage\+\_\+hint\+\_\+@{usage\+\_\+hint\+\_\+}!pixel\+::graphics\+::\+Buffer@{pixel\+::graphics\+::\+Buffer}}
+\subsubsection{\texorpdfstring{usage\+\_\+hint\+\_\+}{usage\_hint\_}}
+{\footnotesize\ttfamily G\+Lenum pixel\+::graphics\+::\+Buffer\+::usage\+\_\+hint\+\_\+ \{\}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+pixel/pixel/graphics/\hyperlink{buffer_8h}{buffer.\+h}\item 
+pixel/pixel/graphics/\hyperlink{buffer_8cpp}{buffer.\+cpp}\end{DoxyCompactItemize}

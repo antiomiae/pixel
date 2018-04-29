@@ -1,0 +1,235 @@
+\hypertarget{classpixel_1_1_tile_atlas}{}\section{pixel\+:\+:Tile\+Atlas Class Reference}
+\label{classpixel_1_1_tile_atlas}\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+
+
+Combines one or more tilesets into a single texture array and maintains a mapping between original tileset I\+Ds and optimized I\+Ds.  
+
+
+
+
+{\ttfamily \#include $<$pixel/tilemap/tile\+\_\+atlas.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classpixel_1_1_tile_atlas_a1a93c32c0436c245eb8a542c4130aaed}{Tile\+Atlas} (unsigned \hyperlink{classpixel_1_1_tile_atlas_a6ff6223361e310fd1fab9d0508a6ad89}{tile\+\_\+width}, unsigned \hyperlink{classpixel_1_1_tile_atlas_abed446514a251b9b5ff61d49aab7c3af}{tile\+\_\+height}, unsigned \hyperlink{classpixel_1_1_tile_atlas_ac21fb9315b15847cef295e978e6da343}{max\+\_\+tiles})
+\item 
+void \hyperlink{classpixel_1_1_tile_atlas_afc350aae3a476bdbb59873879173363e}{add\+\_\+tileset} (const tmx\+::\+Tileset \&)
+\item 
+uint16\+\_\+t \hyperlink{classpixel_1_1_tile_atlas_a6c1e001982374ea5296a74f6214b158b}{next\+\_\+atlas\+\_\+id} ()
+\item 
+const uint16\+\_\+t \hyperlink{classpixel_1_1_tile_atlas_a4e71b86af4e568ceec4847b4c5cd06f5}{atlas\+\_\+id\+\_\+from\+\_\+tmx\+\_\+id} (uint32\+\_\+t tmx\+\_\+id) const
+\item 
+const uint16\+\_\+t \hyperlink{classpixel_1_1_tile_atlas_ad6fa15cdb46bdd8ca0366375c1c6be7c}{atlas\+\_\+id\+\_\+from\+\_\+tmx\+\_\+id} (uint32\+\_\+t tmx\+\_\+id, uint8\+\_\+t flags) const
+\item 
+uint16\+\_\+t \hyperlink{classpixel_1_1_tile_atlas_a2c82229d33fecdcc42acde2f483961d4}{encode\+\_\+atlas\+\_\+id} (uint8\+\_\+t column, uint8\+\_\+t row, uint8\+\_\+t layer, uint8\+\_\+t flags) const
+\item 
+tuple$<$ unsigned, unsigned, unsigned, unsigned $>$ \hyperlink{classpixel_1_1_tile_atlas_aa117e34475453f9809d04ab2c29b543d}{decode\+\_\+atlas\+\_\+id} (uint16\+\_\+t) const
+\item 
+void \hyperlink{classpixel_1_1_tile_atlas_aafcead07e2b9443341f3a8bc88ad003b}{debug\+\_\+save} (const std\+::string \&prefix, const std\+::string \&dir=\char`\"{}debug\char`\"{})
+\item 
+uint16\+\_\+t \hyperlink{classpixel_1_1_tile_atlas_a47522bb62a8025d9354ee73f1c47dea8}{max\+\_\+atlas\+\_\+id} () const
+\item 
+unsigned \hyperlink{classpixel_1_1_tile_atlas_a6ff6223361e310fd1fab9d0508a6ad89}{tile\+\_\+width} () const
+\item 
+unsigned \hyperlink{classpixel_1_1_tile_atlas_abed446514a251b9b5ff61d49aab7c3af}{tile\+\_\+height} () const
+\item 
+unsigned \hyperlink{classpixel_1_1_tile_atlas_ac21fb9315b15847cef295e978e6da343}{max\+\_\+tiles} () const
+\item 
+unsigned \hyperlink{classpixel_1_1_tile_atlas_ae83fef97dd8bc426dd16c9f0f50c3533}{atlas\+\_\+columns} () const
+\item 
+unsigned \hyperlink{classpixel_1_1_tile_atlas_a7e622cf32418443225c4b4f9afd20258}{atlas\+\_\+rows} () const
+\item 
+unsigned \hyperlink{classpixel_1_1_tile_atlas_aa5ae1812212e58ba29f7181ef2e958a5}{atlas\+\_\+layers} () const
+\item 
+void \hyperlink{classpixel_1_1_tile_atlas_a52f01d601f75641fa84661497c3859a1}{activate\+\_\+texture} (unsigned texture\+\_\+unit)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unordered\+\_\+map$<$ uint32\+\_\+t, uint16\+\_\+t $>$ \hyperlink{classpixel_1_1_tile_atlas_a4f0954f5c32403c84a9c0172adea29cc}{id\+\_\+registry\+\_\+}
+\item 
+unsigned \hyperlink{classpixel_1_1_tile_atlas_a03f53cf1b9bd75e4f02cff6907f074a8}{tile\+\_\+width\+\_\+}
+\item 
+unsigned \hyperlink{classpixel_1_1_tile_atlas_a6df6a1d935e21370975029291196e2da}{tile\+\_\+height\+\_\+}
+\item 
+unsigned \hyperlink{classpixel_1_1_tile_atlas_a8ef963f5bd684f5c180b7efb9c662183}{max\+\_\+tiles\+\_\+}
+\item 
+unsigned \hyperlink{classpixel_1_1_tile_atlas_a68dee9e69a708871a34606a0b5250c5a}{atlas\+\_\+rows\+\_\+}
+\item 
+unsigned \hyperlink{classpixel_1_1_tile_atlas_abc7626bf6b8b80a2f2fa2005236af27b}{atlas\+\_\+cols\+\_\+}
+\item 
+unsigned \hyperlink{classpixel_1_1_tile_atlas_af76d22ff6a5c60a535704b97c3faf336}{atlas\+\_\+layers\+\_\+}
+\item 
+uint16\+\_\+t \hyperlink{classpixel_1_1_tile_atlas_a400156b86a72338e1ab28050451a50d1}{max\+\_\+id\+\_\+}
+\item 
+\hyperlink{classpixel_1_1graphics_1_1_texture}{Texture} \hyperlink{classpixel_1_1_tile_atlas_ae8a6a2c5ef5ba5ec62074fe9ef6f46a5}{texture\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Combines one or more tilesets into a single texture array and maintains a mapping between original tileset I\+Ds and optimized I\+Ds. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_a1a93c32c0436c245eb8a542c4130aaed}\label{classpixel_1_1_tile_atlas_a1a93c32c0436c245eb8a542c4130aaed}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!Tile\+Atlas@{Tile\+Atlas}}
+\index{Tile\+Atlas@{Tile\+Atlas}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{Tile\+Atlas()}{TileAtlas()}}
+{\footnotesize\ttfamily Tile\+Atlas\+::\+Tile\+Atlas (\begin{DoxyParamCaption}\item[{unsigned}]{tile\+\_\+width,  }\item[{unsigned}]{tile\+\_\+height,  }\item[{unsigned}]{max\+\_\+tiles }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_a52f01d601f75641fa84661497c3859a1}\label{classpixel_1_1_tile_atlas_a52f01d601f75641fa84661497c3859a1}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!activate\+\_\+texture@{activate\+\_\+texture}}
+\index{activate\+\_\+texture@{activate\+\_\+texture}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{activate\+\_\+texture()}{activate\_texture()}}
+{\footnotesize\ttfamily void Tile\+Atlas\+::activate\+\_\+texture (\begin{DoxyParamCaption}\item[{unsigned}]{texture\+\_\+unit }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_afc350aae3a476bdbb59873879173363e}\label{classpixel_1_1_tile_atlas_afc350aae3a476bdbb59873879173363e}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!add\+\_\+tileset@{add\+\_\+tileset}}
+\index{add\+\_\+tileset@{add\+\_\+tileset}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{add\+\_\+tileset()}{add\_tileset()}}
+{\footnotesize\ttfamily void Tile\+Atlas\+::add\+\_\+tileset (\begin{DoxyParamCaption}\item[{const tmx\+::\+Tileset \&}]{tileset }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_ae83fef97dd8bc426dd16c9f0f50c3533}\label{classpixel_1_1_tile_atlas_ae83fef97dd8bc426dd16c9f0f50c3533}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!atlas\+\_\+columns@{atlas\+\_\+columns}}
+\index{atlas\+\_\+columns@{atlas\+\_\+columns}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{atlas\+\_\+columns()}{atlas\_columns()}}
+{\footnotesize\ttfamily unsigned Tile\+Atlas\+::atlas\+\_\+columns (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_a4e71b86af4e568ceec4847b4c5cd06f5}\label{classpixel_1_1_tile_atlas_a4e71b86af4e568ceec4847b4c5cd06f5}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!atlas\+\_\+id\+\_\+from\+\_\+tmx\+\_\+id@{atlas\+\_\+id\+\_\+from\+\_\+tmx\+\_\+id}}
+\index{atlas\+\_\+id\+\_\+from\+\_\+tmx\+\_\+id@{atlas\+\_\+id\+\_\+from\+\_\+tmx\+\_\+id}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{atlas\+\_\+id\+\_\+from\+\_\+tmx\+\_\+id()}{atlas\_id\_from\_tmx\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily const uint16\+\_\+t Tile\+Atlas\+::atlas\+\_\+id\+\_\+from\+\_\+tmx\+\_\+id (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{tmx\+\_\+id }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_ad6fa15cdb46bdd8ca0366375c1c6be7c}\label{classpixel_1_1_tile_atlas_ad6fa15cdb46bdd8ca0366375c1c6be7c}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!atlas\+\_\+id\+\_\+from\+\_\+tmx\+\_\+id@{atlas\+\_\+id\+\_\+from\+\_\+tmx\+\_\+id}}
+\index{atlas\+\_\+id\+\_\+from\+\_\+tmx\+\_\+id@{atlas\+\_\+id\+\_\+from\+\_\+tmx\+\_\+id}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{atlas\+\_\+id\+\_\+from\+\_\+tmx\+\_\+id()}{atlas\_id\_from\_tmx\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const uint16\+\_\+t Tile\+Atlas\+::atlas\+\_\+id\+\_\+from\+\_\+tmx\+\_\+id (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{tmx\+\_\+id,  }\item[{uint8\+\_\+t}]{flags }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_aa5ae1812212e58ba29f7181ef2e958a5}\label{classpixel_1_1_tile_atlas_aa5ae1812212e58ba29f7181ef2e958a5}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!atlas\+\_\+layers@{atlas\+\_\+layers}}
+\index{atlas\+\_\+layers@{atlas\+\_\+layers}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{atlas\+\_\+layers()}{atlas\_layers()}}
+{\footnotesize\ttfamily unsigned Tile\+Atlas\+::atlas\+\_\+layers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_a7e622cf32418443225c4b4f9afd20258}\label{classpixel_1_1_tile_atlas_a7e622cf32418443225c4b4f9afd20258}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!atlas\+\_\+rows@{atlas\+\_\+rows}}
+\index{atlas\+\_\+rows@{atlas\+\_\+rows}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{atlas\+\_\+rows()}{atlas\_rows()}}
+{\footnotesize\ttfamily unsigned Tile\+Atlas\+::atlas\+\_\+rows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_aafcead07e2b9443341f3a8bc88ad003b}\label{classpixel_1_1_tile_atlas_aafcead07e2b9443341f3a8bc88ad003b}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!debug\+\_\+save@{debug\+\_\+save}}
+\index{debug\+\_\+save@{debug\+\_\+save}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{debug\+\_\+save()}{debug\_save()}}
+{\footnotesize\ttfamily void Tile\+Atlas\+::debug\+\_\+save (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{prefix,  }\item[{const std\+::string \&}]{dir = {\ttfamily \char`\"{}debug\char`\"{}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_aa117e34475453f9809d04ab2c29b543d}\label{classpixel_1_1_tile_atlas_aa117e34475453f9809d04ab2c29b543d}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!decode\+\_\+atlas\+\_\+id@{decode\+\_\+atlas\+\_\+id}}
+\index{decode\+\_\+atlas\+\_\+id@{decode\+\_\+atlas\+\_\+id}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{decode\+\_\+atlas\+\_\+id()}{decode\_atlas\_id()}}
+{\footnotesize\ttfamily tuple$<$ unsigned, unsigned, unsigned, unsigned $>$ Tile\+Atlas\+::decode\+\_\+atlas\+\_\+id (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{id }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_a2c82229d33fecdcc42acde2f483961d4}\label{classpixel_1_1_tile_atlas_a2c82229d33fecdcc42acde2f483961d4}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!encode\+\_\+atlas\+\_\+id@{encode\+\_\+atlas\+\_\+id}}
+\index{encode\+\_\+atlas\+\_\+id@{encode\+\_\+atlas\+\_\+id}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{encode\+\_\+atlas\+\_\+id()}{encode\_atlas\_id()}}
+{\footnotesize\ttfamily uint16\+\_\+t Tile\+Atlas\+::encode\+\_\+atlas\+\_\+id (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{column,  }\item[{uint8\+\_\+t}]{row,  }\item[{uint8\+\_\+t}]{layer,  }\item[{uint8\+\_\+t}]{flags }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_a47522bb62a8025d9354ee73f1c47dea8}\label{classpixel_1_1_tile_atlas_a47522bb62a8025d9354ee73f1c47dea8}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!max\+\_\+atlas\+\_\+id@{max\+\_\+atlas\+\_\+id}}
+\index{max\+\_\+atlas\+\_\+id@{max\+\_\+atlas\+\_\+id}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{max\+\_\+atlas\+\_\+id()}{max\_atlas\_id()}}
+{\footnotesize\ttfamily uint16\+\_\+t Tile\+Atlas\+::max\+\_\+atlas\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_ac21fb9315b15847cef295e978e6da343}\label{classpixel_1_1_tile_atlas_ac21fb9315b15847cef295e978e6da343}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!max\+\_\+tiles@{max\+\_\+tiles}}
+\index{max\+\_\+tiles@{max\+\_\+tiles}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{max\+\_\+tiles()}{max\_tiles()}}
+{\footnotesize\ttfamily unsigned Tile\+Atlas\+::max\+\_\+tiles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_a6c1e001982374ea5296a74f6214b158b}\label{classpixel_1_1_tile_atlas_a6c1e001982374ea5296a74f6214b158b}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!next\+\_\+atlas\+\_\+id@{next\+\_\+atlas\+\_\+id}}
+\index{next\+\_\+atlas\+\_\+id@{next\+\_\+atlas\+\_\+id}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{next\+\_\+atlas\+\_\+id()}{next\_atlas\_id()}}
+{\footnotesize\ttfamily uint16\+\_\+t Tile\+Atlas\+::next\+\_\+atlas\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_abed446514a251b9b5ff61d49aab7c3af}\label{classpixel_1_1_tile_atlas_abed446514a251b9b5ff61d49aab7c3af}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!tile\+\_\+height@{tile\+\_\+height}}
+\index{tile\+\_\+height@{tile\+\_\+height}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{tile\+\_\+height()}{tile\_height()}}
+{\footnotesize\ttfamily unsigned Tile\+Atlas\+::tile\+\_\+height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_a6ff6223361e310fd1fab9d0508a6ad89}\label{classpixel_1_1_tile_atlas_a6ff6223361e310fd1fab9d0508a6ad89}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!tile\+\_\+width@{tile\+\_\+width}}
+\index{tile\+\_\+width@{tile\+\_\+width}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{tile\+\_\+width()}{tile\_width()}}
+{\footnotesize\ttfamily unsigned Tile\+Atlas\+::tile\+\_\+width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_abc7626bf6b8b80a2f2fa2005236af27b}\label{classpixel_1_1_tile_atlas_abc7626bf6b8b80a2f2fa2005236af27b}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!atlas\+\_\+cols\+\_\+@{atlas\+\_\+cols\+\_\+}}
+\index{atlas\+\_\+cols\+\_\+@{atlas\+\_\+cols\+\_\+}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{atlas\+\_\+cols\+\_\+}{atlas\_cols\_}}
+{\footnotesize\ttfamily unsigned pixel\+::\+Tile\+Atlas\+::atlas\+\_\+cols\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_af76d22ff6a5c60a535704b97c3faf336}\label{classpixel_1_1_tile_atlas_af76d22ff6a5c60a535704b97c3faf336}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!atlas\+\_\+layers\+\_\+@{atlas\+\_\+layers\+\_\+}}
+\index{atlas\+\_\+layers\+\_\+@{atlas\+\_\+layers\+\_\+}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{atlas\+\_\+layers\+\_\+}{atlas\_layers\_}}
+{\footnotesize\ttfamily unsigned pixel\+::\+Tile\+Atlas\+::atlas\+\_\+layers\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_a68dee9e69a708871a34606a0b5250c5a}\label{classpixel_1_1_tile_atlas_a68dee9e69a708871a34606a0b5250c5a}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!atlas\+\_\+rows\+\_\+@{atlas\+\_\+rows\+\_\+}}
+\index{atlas\+\_\+rows\+\_\+@{atlas\+\_\+rows\+\_\+}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{atlas\+\_\+rows\+\_\+}{atlas\_rows\_}}
+{\footnotesize\ttfamily unsigned pixel\+::\+Tile\+Atlas\+::atlas\+\_\+rows\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_a4f0954f5c32403c84a9c0172adea29cc}\label{classpixel_1_1_tile_atlas_a4f0954f5c32403c84a9c0172adea29cc}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!id\+\_\+registry\+\_\+@{id\+\_\+registry\+\_\+}}
+\index{id\+\_\+registry\+\_\+@{id\+\_\+registry\+\_\+}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{id\+\_\+registry\+\_\+}{id\_registry\_}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$uint32\+\_\+t, uint16\+\_\+t$>$ pixel\+::\+Tile\+Atlas\+::id\+\_\+registry\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_a400156b86a72338e1ab28050451a50d1}\label{classpixel_1_1_tile_atlas_a400156b86a72338e1ab28050451a50d1}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!max\+\_\+id\+\_\+@{max\+\_\+id\+\_\+}}
+\index{max\+\_\+id\+\_\+@{max\+\_\+id\+\_\+}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{max\+\_\+id\+\_\+}{max\_id\_}}
+{\footnotesize\ttfamily uint16\+\_\+t pixel\+::\+Tile\+Atlas\+::max\+\_\+id\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_a8ef963f5bd684f5c180b7efb9c662183}\label{classpixel_1_1_tile_atlas_a8ef963f5bd684f5c180b7efb9c662183}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!max\+\_\+tiles\+\_\+@{max\+\_\+tiles\+\_\+}}
+\index{max\+\_\+tiles\+\_\+@{max\+\_\+tiles\+\_\+}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{max\+\_\+tiles\+\_\+}{max\_tiles\_}}
+{\footnotesize\ttfamily unsigned pixel\+::\+Tile\+Atlas\+::max\+\_\+tiles\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_ae8a6a2c5ef5ba5ec62074fe9ef6f46a5}\label{classpixel_1_1_tile_atlas_ae8a6a2c5ef5ba5ec62074fe9ef6f46a5}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!texture\+\_\+@{texture\+\_\+}}
+\index{texture\+\_\+@{texture\+\_\+}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{texture\+\_\+}{texture\_}}
+{\footnotesize\ttfamily \hyperlink{classpixel_1_1graphics_1_1_texture}{Texture} pixel\+::\+Tile\+Atlas\+::texture\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_a6df6a1d935e21370975029291196e2da}\label{classpixel_1_1_tile_atlas_a6df6a1d935e21370975029291196e2da}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!tile\+\_\+height\+\_\+@{tile\+\_\+height\+\_\+}}
+\index{tile\+\_\+height\+\_\+@{tile\+\_\+height\+\_\+}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{tile\+\_\+height\+\_\+}{tile\_height\_}}
+{\footnotesize\ttfamily unsigned pixel\+::\+Tile\+Atlas\+::tile\+\_\+height\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_atlas_a03f53cf1b9bd75e4f02cff6907f074a8}\label{classpixel_1_1_tile_atlas_a03f53cf1b9bd75e4f02cff6907f074a8}} 
+\index{pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}!tile\+\_\+width\+\_\+@{tile\+\_\+width\+\_\+}}
+\index{tile\+\_\+width\+\_\+@{tile\+\_\+width\+\_\+}!pixel\+::\+Tile\+Atlas@{pixel\+::\+Tile\+Atlas}}
+\subsubsection{\texorpdfstring{tile\+\_\+width\+\_\+}{tile\_width\_}}
+{\footnotesize\ttfamily unsigned pixel\+::\+Tile\+Atlas\+::tile\+\_\+width\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+pixel/pixel/tilemap/\hyperlink{tile__atlas_8h}{tile\+\_\+atlas.\+h}\item 
+pixel/pixel/tilemap/\hyperlink{tile__atlas_8cpp}{tile\+\_\+atlas.\+cpp}\end{DoxyCompactItemize}

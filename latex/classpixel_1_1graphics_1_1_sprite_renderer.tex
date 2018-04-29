@@ -1,0 +1,126 @@
+\hypertarget{classpixel_1_1graphics_1_1_sprite_renderer}{}\section{pixel\+:\+:graphics\+:\+:Sprite\+Renderer Class Reference}
+\label{classpixel_1_1graphics_1_1_sprite_renderer}\index{pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}}
+
+
+{\ttfamily \#include $<$pixel/graphics/sprite\+\_\+renderer.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classpixel_1_1graphics_1_1_sprite_renderer_ab219129e7daaed12d3a1d0d5a9618402}{Sprite\+Renderer} ()
+\item 
+void \hyperlink{classpixel_1_1graphics_1_1_sprite_renderer_a66ff7b1d35ad44de0a2c9d9bd516720f}{init\+Vertex\+Buffer} ()
+\item 
+void \hyperlink{classpixel_1_1graphics_1_1_sprite_renderer_af112b3ef11ae6aaf0af85eb55f8b978e}{init\+Index\+Buffer} ()
+\item 
+void \hyperlink{classpixel_1_1graphics_1_1_sprite_renderer_adde03c0498d641727b1d4aa4e03ab2fd}{bind\+Attributes} ()
+\item 
+\hyperlink{classpixel_1_1graphics_1_1_shader}{Shader} \& \hyperlink{classpixel_1_1graphics_1_1_sprite_renderer_a88df5a17361010139f2cbdd2c19623c5}{program} ()
+\item 
+void \hyperlink{classpixel_1_1graphics_1_1_sprite_renderer_a448ec6ae78cb0cb292e9354405ac42b2}{render} (const vector$<$ \hyperlink{classpixel_1_1graphics_1_1_sprite}{Sprite} $>$ \&sprites, \hyperlink{classpixel_1_1graphics_1_1_texture}{Texture} \&atlas\+\_\+texture, \hyperlink{classpixel_1_1graphics_1_1_camera}{Camera} \&camera)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classpixel_1_1graphics_1_1_sprite_renderer_a7e450b97265b4a9aa6f881543629d053}{init} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classpixel_1_1graphics_1_1_vao}{Vao} \hyperlink{classpixel_1_1graphics_1_1_sprite_renderer_a064ef85baafc556ada2c6235ecdfe330}{vao\+\_\+}
+\item 
+\hyperlink{classpixel_1_1graphics_1_1_buffer}{Buffer} \hyperlink{classpixel_1_1graphics_1_1_sprite_renderer_ae95525be12064b77563dc04ee50facbb}{sprite\+\_\+buffer\+\_\+}
+\item 
+\hyperlink{classpixel_1_1graphics_1_1_buffer}{Buffer} \hyperlink{classpixel_1_1graphics_1_1_sprite_renderer_a2c3ecd9a7f11c9ae542fb91e386284b5}{vertex\+\_\+buffer\+\_\+}
+\item 
+\hyperlink{classpixel_1_1graphics_1_1_index_buffer}{Index\+Buffer}$<$ G\+Lubyte $>$ \hyperlink{classpixel_1_1graphics_1_1_sprite_renderer_a28987cae2ef262de906e59ccf51c7276}{index\+\_\+buffer\+\_\+}
+\item 
+\hyperlink{classpixel_1_1graphics_1_1_shader}{Shader} \hyperlink{classpixel_1_1graphics_1_1_sprite_renderer_af7aafa12eb45ff1cc51b39565398bcca}{program\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_renderer_ab219129e7daaed12d3a1d0d5a9618402}\label{classpixel_1_1graphics_1_1_sprite_renderer_ab219129e7daaed12d3a1d0d5a9618402}} 
+\index{pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}!Sprite\+Renderer@{Sprite\+Renderer}}
+\index{Sprite\+Renderer@{Sprite\+Renderer}!pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}}
+\subsubsection{\texorpdfstring{Sprite\+Renderer()}{SpriteRenderer()}}
+{\footnotesize\ttfamily pixel\+::graphics\+::\+Sprite\+Renderer\+::\+Sprite\+Renderer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_renderer_adde03c0498d641727b1d4aa4e03ab2fd}\label{classpixel_1_1graphics_1_1_sprite_renderer_adde03c0498d641727b1d4aa4e03ab2fd}} 
+\index{pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}!bind\+Attributes@{bind\+Attributes}}
+\index{bind\+Attributes@{bind\+Attributes}!pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}}
+\subsubsection{\texorpdfstring{bind\+Attributes()}{bindAttributes()}}
+{\footnotesize\ttfamily void pixel\+::graphics\+::\+Sprite\+Renderer\+::bind\+Attributes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_renderer_a7e450b97265b4a9aa6f881543629d053}\label{classpixel_1_1graphics_1_1_sprite_renderer_a7e450b97265b4a9aa6f881543629d053}} 
+\index{pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}!init@{init}}
+\index{init@{init}!pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void pixel\+::graphics\+::\+Sprite\+Renderer\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_renderer_af112b3ef11ae6aaf0af85eb55f8b978e}\label{classpixel_1_1graphics_1_1_sprite_renderer_af112b3ef11ae6aaf0af85eb55f8b978e}} 
+\index{pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}!init\+Index\+Buffer@{init\+Index\+Buffer}}
+\index{init\+Index\+Buffer@{init\+Index\+Buffer}!pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}}
+\subsubsection{\texorpdfstring{init\+Index\+Buffer()}{initIndexBuffer()}}
+{\footnotesize\ttfamily void pixel\+::graphics\+::\+Sprite\+Renderer\+::init\+Index\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_renderer_a66ff7b1d35ad44de0a2c9d9bd516720f}\label{classpixel_1_1graphics_1_1_sprite_renderer_a66ff7b1d35ad44de0a2c9d9bd516720f}} 
+\index{pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}!init\+Vertex\+Buffer@{init\+Vertex\+Buffer}}
+\index{init\+Vertex\+Buffer@{init\+Vertex\+Buffer}!pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}}
+\subsubsection{\texorpdfstring{init\+Vertex\+Buffer()}{initVertexBuffer()}}
+{\footnotesize\ttfamily void pixel\+::graphics\+::\+Sprite\+Renderer\+::init\+Vertex\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_renderer_a88df5a17361010139f2cbdd2c19623c5}\label{classpixel_1_1graphics_1_1_sprite_renderer_a88df5a17361010139f2cbdd2c19623c5}} 
+\index{pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}!program@{program}}
+\index{program@{program}!pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}}
+\subsubsection{\texorpdfstring{program()}{program()}}
+{\footnotesize\ttfamily \hyperlink{classpixel_1_1graphics_1_1_shader}{pixel\+::graphics\+::\+Shader} \& pixel\+::graphics\+::\+Sprite\+Renderer\+::program (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_renderer_a448ec6ae78cb0cb292e9354405ac42b2}\label{classpixel_1_1graphics_1_1_sprite_renderer_a448ec6ae78cb0cb292e9354405ac42b2}} 
+\index{pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}!render@{render}}
+\index{render@{render}!pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}}
+\subsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void pixel\+::graphics\+::\+Sprite\+Renderer\+::render (\begin{DoxyParamCaption}\item[{const vector$<$ \hyperlink{classpixel_1_1graphics_1_1_sprite}{Sprite} $>$ \&}]{sprites,  }\item[{\hyperlink{classpixel_1_1graphics_1_1_texture}{Texture} \&}]{atlas\+\_\+texture,  }\item[{\hyperlink{classpixel_1_1graphics_1_1_camera}{Camera} \&}]{camera }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_renderer_a28987cae2ef262de906e59ccf51c7276}\label{classpixel_1_1graphics_1_1_sprite_renderer_a28987cae2ef262de906e59ccf51c7276}} 
+\index{pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}!index\+\_\+buffer\+\_\+@{index\+\_\+buffer\+\_\+}}
+\index{index\+\_\+buffer\+\_\+@{index\+\_\+buffer\+\_\+}!pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}}
+\subsubsection{\texorpdfstring{index\+\_\+buffer\+\_\+}{index\_buffer\_}}
+{\footnotesize\ttfamily \hyperlink{classpixel_1_1graphics_1_1_index_buffer}{Index\+Buffer}$<$G\+Lubyte$>$ pixel\+::graphics\+::\+Sprite\+Renderer\+::index\+\_\+buffer\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_renderer_af7aafa12eb45ff1cc51b39565398bcca}\label{classpixel_1_1graphics_1_1_sprite_renderer_af7aafa12eb45ff1cc51b39565398bcca}} 
+\index{pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}!program\+\_\+@{program\+\_\+}}
+\index{program\+\_\+@{program\+\_\+}!pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}}
+\subsubsection{\texorpdfstring{program\+\_\+}{program\_}}
+{\footnotesize\ttfamily \hyperlink{classpixel_1_1graphics_1_1_shader}{Shader} pixel\+::graphics\+::\+Sprite\+Renderer\+::program\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_renderer_ae95525be12064b77563dc04ee50facbb}\label{classpixel_1_1graphics_1_1_sprite_renderer_ae95525be12064b77563dc04ee50facbb}} 
+\index{pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}!sprite\+\_\+buffer\+\_\+@{sprite\+\_\+buffer\+\_\+}}
+\index{sprite\+\_\+buffer\+\_\+@{sprite\+\_\+buffer\+\_\+}!pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}}
+\subsubsection{\texorpdfstring{sprite\+\_\+buffer\+\_\+}{sprite\_buffer\_}}
+{\footnotesize\ttfamily \hyperlink{classpixel_1_1graphics_1_1_buffer}{Buffer} pixel\+::graphics\+::\+Sprite\+Renderer\+::sprite\+\_\+buffer\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_renderer_a064ef85baafc556ada2c6235ecdfe330}\label{classpixel_1_1graphics_1_1_sprite_renderer_a064ef85baafc556ada2c6235ecdfe330}} 
+\index{pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}!vao\+\_\+@{vao\+\_\+}}
+\index{vao\+\_\+@{vao\+\_\+}!pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}}
+\subsubsection{\texorpdfstring{vao\+\_\+}{vao\_}}
+{\footnotesize\ttfamily \hyperlink{classpixel_1_1graphics_1_1_vao}{Vao} pixel\+::graphics\+::\+Sprite\+Renderer\+::vao\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_renderer_a2c3ecd9a7f11c9ae542fb91e386284b5}\label{classpixel_1_1graphics_1_1_sprite_renderer_a2c3ecd9a7f11c9ae542fb91e386284b5}} 
+\index{pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}!vertex\+\_\+buffer\+\_\+@{vertex\+\_\+buffer\+\_\+}}
+\index{vertex\+\_\+buffer\+\_\+@{vertex\+\_\+buffer\+\_\+}!pixel\+::graphics\+::\+Sprite\+Renderer@{pixel\+::graphics\+::\+Sprite\+Renderer}}
+\subsubsection{\texorpdfstring{vertex\+\_\+buffer\+\_\+}{vertex\_buffer\_}}
+{\footnotesize\ttfamily \hyperlink{classpixel_1_1graphics_1_1_buffer}{Buffer} pixel\+::graphics\+::\+Sprite\+Renderer\+::vertex\+\_\+buffer\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+pixel/pixel/graphics/\hyperlink{sprite__renderer_8h}{sprite\+\_\+renderer.\+h}\item 
+pixel/pixel/graphics/\hyperlink{sprite__renderer_8cpp}{sprite\+\_\+renderer.\+cpp}\end{DoxyCompactItemize}

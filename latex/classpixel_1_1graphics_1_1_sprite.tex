@@ -1,0 +1,195 @@
+\hypertarget{classpixel_1_1graphics_1_1_sprite}{}\section{pixel\+:\+:graphics\+:\+:Sprite Class Reference}
+\label{classpixel_1_1graphics_1_1_sprite}\index{pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}}
+
+
+{\ttfamily \#include $<$pixel/graphics/sprite.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classpixel_1_1graphics_1_1_sprite_a899da5dbedfe7486c6b4d009a8171c13}{Flip\+Flag} \{ \hyperlink{classpixel_1_1graphics_1_1_sprite_a899da5dbedfe7486c6b4d009a8171c13a159212efa9c158a08a40799fcb389cb2}{k\+Horizontal} = 0x8, 
+\hyperlink{classpixel_1_1graphics_1_1_sprite_a899da5dbedfe7486c6b4d009a8171c13acaef422fcf7e0e0cc363b3d94a8c87fb}{k\+Vertical} = 0x4, 
+\hyperlink{classpixel_1_1graphics_1_1_sprite_a899da5dbedfe7486c6b4d009a8171c13ac877e28904da2fa88b27faf1f5250a9e}{k\+Diagonal} = 0x2
+ \}\begin{DoxyCompactList}\small\item\em \hyperlink{classpixel_1_1graphics_1_1_sprite}{Sprite} orientation flags. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classpixel_1_1graphics_1_1_sprite_a50443f08383325b250bc375e1f5ee563}{flip\+\_\+h} (bool)
+\item 
+bool \hyperlink{classpixel_1_1graphics_1_1_sprite_a09ad44e665a5420cfaa41ace195f46f1}{flip\+\_\+h} ()
+\item 
+void \hyperlink{classpixel_1_1graphics_1_1_sprite_a8541b2280778b2c8169e39e47afa06c7}{flip\+\_\+v} (bool)
+\item 
+bool \hyperlink{classpixel_1_1graphics_1_1_sprite_a4d9b8733ced8d9461e31bad35873973f}{flip\+\_\+v} ()
+\item 
+void \hyperlink{classpixel_1_1graphics_1_1_sprite_a91c571276d509e111e41cb6b0346408c}{flip\+\_\+d} (bool)
+\item 
+bool \hyperlink{classpixel_1_1graphics_1_1_sprite_a0c07bc6cb4e07c0c14ec0b2ebe5d49d5}{flip\+\_\+d} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>glm::vec3 \hyperlink{classpixel_1_1graphics_1_1_sprite_a37c176937802e95f13da186ff7740504}{position} \{\}\\
+\>struct \{\\
+\>\>float \hyperlink{classpixel_1_1graphics_1_1_sprite_a74142f0afee8c7d2ee1228017756425f}{x}\\
+\>\>float \hyperlink{classpixel_1_1graphics_1_1_sprite_a0ffb75d6a489e6ce3ba76027389d11dd}{y}\\
+\>\>float \hyperlink{classpixel_1_1graphics_1_1_sprite_aab4803301c8480b03ab6a62370753694}{z}\\
+\>\} \\
+\}; \\
+
+\end{tabbing}\item 
+glm\+::vec2 \hyperlink{classpixel_1_1graphics_1_1_sprite_a0d777b08310cbd0e08d0d8162f3a1503}{center}
+\item 
+glm\+::vec4 \hyperlink{classpixel_1_1graphics_1_1_sprite_af99cdb2fb7cbef3155597017672f548f}{color} \{1.\+0, 1.\+0, 1.\+0, 1.\+0\}
+\item 
+glm\+::vec4 \hyperlink{classpixel_1_1graphics_1_1_sprite_a09ba5e72c6a7bb5a994a521170e65cff}{tint} \{0.\+0, 0.\+0, 0.\+0, 0.\+0\}
+\item 
+float \hyperlink{classpixel_1_1graphics_1_1_sprite_ac637be9b9aa5227a47393d182658577b}{angle}
+\item 
+uint32\+\_\+t \hyperlink{classpixel_1_1graphics_1_1_sprite_a95d3f0b1d6c8ff179af138018ff61f7e}{flip\+\_\+flags}
+\item 
+\hyperlink{structpixel_1_1graphics_1_1_texture_region}{Texture\+Region} \hyperlink{classpixel_1_1graphics_1_1_sprite_a0c8e41f26015ad6e94a8f2d85f6bc9df}{texture\+\_\+region}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_a899da5dbedfe7486c6b4d009a8171c13}\label{classpixel_1_1graphics_1_1_sprite_a899da5dbedfe7486c6b4d009a8171c13}} 
+\index{pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}!Flip\+Flag@{Flip\+Flag}}
+\index{Flip\+Flag@{Flip\+Flag}!pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}}
+\subsubsection{\texorpdfstring{Flip\+Flag}{FlipFlag}}
+{\footnotesize\ttfamily enum \hyperlink{classpixel_1_1graphics_1_1_sprite_a899da5dbedfe7486c6b4d009a8171c13}{pixel\+::graphics\+::\+Sprite\+::\+Flip\+Flag}}
+
+
+
+\hyperlink{classpixel_1_1graphics_1_1_sprite}{Sprite} orientation flags. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{k\+Horizontal@{k\+Horizontal}!pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}}\index{pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}!k\+Horizontal@{k\+Horizontal}}}\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_a899da5dbedfe7486c6b4d009a8171c13a159212efa9c158a08a40799fcb389cb2}\label{classpixel_1_1graphics_1_1_sprite_a899da5dbedfe7486c6b4d009a8171c13a159212efa9c158a08a40799fcb389cb2}} 
+k\+Horizontal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{k\+Vertical@{k\+Vertical}!pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}}\index{pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}!k\+Vertical@{k\+Vertical}}}\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_a899da5dbedfe7486c6b4d009a8171c13acaef422fcf7e0e0cc363b3d94a8c87fb}\label{classpixel_1_1graphics_1_1_sprite_a899da5dbedfe7486c6b4d009a8171c13acaef422fcf7e0e0cc363b3d94a8c87fb}} 
+k\+Vertical&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{k\+Diagonal@{k\+Diagonal}!pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}}\index{pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}!k\+Diagonal@{k\+Diagonal}}}\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_a899da5dbedfe7486c6b4d009a8171c13ac877e28904da2fa88b27faf1f5250a9e}\label{classpixel_1_1graphics_1_1_sprite_a899da5dbedfe7486c6b4d009a8171c13ac877e28904da2fa88b27faf1f5250a9e}} 
+k\+Diagonal&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_a91c571276d509e111e41cb6b0346408c}\label{classpixel_1_1graphics_1_1_sprite_a91c571276d509e111e41cb6b0346408c}} 
+\index{pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}!flip\+\_\+d@{flip\+\_\+d}}
+\index{flip\+\_\+d@{flip\+\_\+d}!pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}}
+\subsubsection{\texorpdfstring{flip\+\_\+d()}{flip\_d()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void pixel\+::graphics\+::\+Sprite\+::flip\+\_\+d (\begin{DoxyParamCaption}\item[{bool}]{set }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_a0c07bc6cb4e07c0c14ec0b2ebe5d49d5}\label{classpixel_1_1graphics_1_1_sprite_a0c07bc6cb4e07c0c14ec0b2ebe5d49d5}} 
+\index{pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}!flip\+\_\+d@{flip\+\_\+d}}
+\index{flip\+\_\+d@{flip\+\_\+d}!pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}}
+\subsubsection{\texorpdfstring{flip\+\_\+d()}{flip\_d()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool pixel\+::graphics\+::\+Sprite\+::flip\+\_\+d (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_a50443f08383325b250bc375e1f5ee563}\label{classpixel_1_1graphics_1_1_sprite_a50443f08383325b250bc375e1f5ee563}} 
+\index{pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}!flip\+\_\+h@{flip\+\_\+h}}
+\index{flip\+\_\+h@{flip\+\_\+h}!pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}}
+\subsubsection{\texorpdfstring{flip\+\_\+h()}{flip\_h()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void pixel\+::graphics\+::\+Sprite\+::flip\+\_\+h (\begin{DoxyParamCaption}\item[{bool}]{set }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_a09ad44e665a5420cfaa41ace195f46f1}\label{classpixel_1_1graphics_1_1_sprite_a09ad44e665a5420cfaa41ace195f46f1}} 
+\index{pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}!flip\+\_\+h@{flip\+\_\+h}}
+\index{flip\+\_\+h@{flip\+\_\+h}!pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}}
+\subsubsection{\texorpdfstring{flip\+\_\+h()}{flip\_h()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool pixel\+::graphics\+::\+Sprite\+::flip\+\_\+h (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_a8541b2280778b2c8169e39e47afa06c7}\label{classpixel_1_1graphics_1_1_sprite_a8541b2280778b2c8169e39e47afa06c7}} 
+\index{pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}!flip\+\_\+v@{flip\+\_\+v}}
+\index{flip\+\_\+v@{flip\+\_\+v}!pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}}
+\subsubsection{\texorpdfstring{flip\+\_\+v()}{flip\_v()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void pixel\+::graphics\+::\+Sprite\+::flip\+\_\+v (\begin{DoxyParamCaption}\item[{bool}]{set }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_a4d9b8733ced8d9461e31bad35873973f}\label{classpixel_1_1graphics_1_1_sprite_a4d9b8733ced8d9461e31bad35873973f}} 
+\index{pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}!flip\+\_\+v@{flip\+\_\+v}}
+\index{flip\+\_\+v@{flip\+\_\+v}!pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}}
+\subsubsection{\texorpdfstring{flip\+\_\+v()}{flip\_v()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool pixel\+::graphics\+::\+Sprite\+::flip\+\_\+v (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_a4aa0ed72ba592de8002ca8841857a948}\label{classpixel_1_1graphics_1_1_sprite_a4aa0ed72ba592de8002ca8841857a948}} 
+\subsubsection{\texorpdfstring{"@1}{@1}}
+{\footnotesize\ttfamily union \{ ... \} }
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_ac637be9b9aa5227a47393d182658577b}\label{classpixel_1_1graphics_1_1_sprite_ac637be9b9aa5227a47393d182658577b}} 
+\index{pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}!angle@{angle}}
+\index{angle@{angle}!pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}}
+\subsubsection{\texorpdfstring{angle}{angle}}
+{\footnotesize\ttfamily float pixel\+::graphics\+::\+Sprite\+::angle}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_a0d777b08310cbd0e08d0d8162f3a1503}\label{classpixel_1_1graphics_1_1_sprite_a0d777b08310cbd0e08d0d8162f3a1503}} 
+\index{pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}!center@{center}}
+\index{center@{center}!pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}}
+\subsubsection{\texorpdfstring{center}{center}}
+{\footnotesize\ttfamily glm\+::vec2 pixel\+::graphics\+::\+Sprite\+::center}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_af99cdb2fb7cbef3155597017672f548f}\label{classpixel_1_1graphics_1_1_sprite_af99cdb2fb7cbef3155597017672f548f}} 
+\index{pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}!color@{color}}
+\index{color@{color}!pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}}
+\subsubsection{\texorpdfstring{color}{color}}
+{\footnotesize\ttfamily glm\+::vec4 pixel\+::graphics\+::\+Sprite\+::color \{1.\+0, 1.\+0, 1.\+0, 1.\+0\}}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_a95d3f0b1d6c8ff179af138018ff61f7e}\label{classpixel_1_1graphics_1_1_sprite_a95d3f0b1d6c8ff179af138018ff61f7e}} 
+\index{pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}!flip\+\_\+flags@{flip\+\_\+flags}}
+\index{flip\+\_\+flags@{flip\+\_\+flags}!pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}}
+\subsubsection{\texorpdfstring{flip\+\_\+flags}{flip\_flags}}
+{\footnotesize\ttfamily uint32\+\_\+t pixel\+::graphics\+::\+Sprite\+::flip\+\_\+flags}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_a37c176937802e95f13da186ff7740504}\label{classpixel_1_1graphics_1_1_sprite_a37c176937802e95f13da186ff7740504}} 
+\index{pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}!position@{position}}
+\index{position@{position}!pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}}
+\subsubsection{\texorpdfstring{position}{position}}
+{\footnotesize\ttfamily glm\+::vec3 pixel\+::graphics\+::\+Sprite\+::position \{\}}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_a0c8e41f26015ad6e94a8f2d85f6bc9df}\label{classpixel_1_1graphics_1_1_sprite_a0c8e41f26015ad6e94a8f2d85f6bc9df}} 
+\index{pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}!texture\+\_\+region@{texture\+\_\+region}}
+\index{texture\+\_\+region@{texture\+\_\+region}!pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}}
+\subsubsection{\texorpdfstring{texture\+\_\+region}{texture\_region}}
+{\footnotesize\ttfamily \hyperlink{structpixel_1_1graphics_1_1_texture_region}{Texture\+Region} pixel\+::graphics\+::\+Sprite\+::texture\+\_\+region}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_a09ba5e72c6a7bb5a994a521170e65cff}\label{classpixel_1_1graphics_1_1_sprite_a09ba5e72c6a7bb5a994a521170e65cff}} 
+\index{pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}!tint@{tint}}
+\index{tint@{tint}!pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}}
+\subsubsection{\texorpdfstring{tint}{tint}}
+{\footnotesize\ttfamily glm\+::vec4 pixel\+::graphics\+::\+Sprite\+::tint \{0.\+0, 0.\+0, 0.\+0, 0.\+0\}}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_a74142f0afee8c7d2ee1228017756425f}\label{classpixel_1_1graphics_1_1_sprite_a74142f0afee8c7d2ee1228017756425f}} 
+\index{pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}!x@{x}}
+\index{x@{x}!pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}}
+\subsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily float pixel\+::graphics\+::\+Sprite\+::x}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_a0ffb75d6a489e6ce3ba76027389d11dd}\label{classpixel_1_1graphics_1_1_sprite_a0ffb75d6a489e6ce3ba76027389d11dd}} 
+\index{pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}!y@{y}}
+\index{y@{y}!pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}}
+\subsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily float pixel\+::graphics\+::\+Sprite\+::y}
+
+\mbox{\Hypertarget{classpixel_1_1graphics_1_1_sprite_aab4803301c8480b03ab6a62370753694}\label{classpixel_1_1graphics_1_1_sprite_aab4803301c8480b03ab6a62370753694}} 
+\index{pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}!z@{z}}
+\index{z@{z}!pixel\+::graphics\+::\+Sprite@{pixel\+::graphics\+::\+Sprite}}
+\subsubsection{\texorpdfstring{z}{z}}
+{\footnotesize\ttfamily float pixel\+::graphics\+::\+Sprite\+::z}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+pixel/pixel/graphics/\hyperlink{sprite_8h}{sprite.\+h}\item 
+pixel/pixel/graphics/\hyperlink{pixel_2graphics_2sprite_8cpp}{sprite.\+cpp}\end{DoxyCompactItemize}

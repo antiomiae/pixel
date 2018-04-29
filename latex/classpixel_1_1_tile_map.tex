@@ -1,0 +1,142 @@
+\hypertarget{classpixel_1_1_tile_map}{}\section{pixel\+:\+:Tile\+Map Class Reference}
+\label{classpixel_1_1_tile_map}\index{pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}}
+
+
+{\ttfamily \#include $<$pixel/tilemap/tile\+\_\+map.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classpixel_1_1_tile_map_adf716168df4051a1f80294951bd7f547}{Tile\+Map} (const glm\+::uvec2 \&map\+\_\+size, const glm\+::uvec2 \&\hyperlink{classpixel_1_1_tile_map_a35e0e8c1f7e3a0739d494929111788cd}{tile\+\_\+size})
+\item 
+bool \hyperlink{classpixel_1_1_tile_map_a80157d358cbf2eac67adf489057f12fe}{load} (const tmx\+::\+Map \&map)
+\item 
+\hyperlink{classpixel_1_1_tile_atlas}{Tile\+Atlas} \& \hyperlink{classpixel_1_1_tile_map_a4e88b7241ae5372c0d5e8a102a8eb5e3}{atlas} ()
+\item 
+\hyperlink{classpixel_1_1_tileset}{Tileset} \& \hyperlink{classpixel_1_1_tile_map_a8c23bb5298f9287a200e29d0eb49ec2d}{tileset} ()
+\item 
+vector$<$ \hyperlink{classpixel_1_1_tile_layer}{pixel\+::\+Tile\+Layer} $>$ \& \hyperlink{classpixel_1_1_tile_map_a40f23bebe94eee1130692085235c14d5}{layers} ()
+\item 
+glm\+::uvec2 \hyperlink{classpixel_1_1_tile_map_a8e6564adbe2b58920c5f76369aa819a6}{tile\+\_\+count} () const
+\item 
+glm\+::uvec2 \hyperlink{classpixel_1_1_tile_map_a35e0e8c1f7e3a0739d494929111788cd}{tile\+\_\+size} () const
+\item 
+void \hyperlink{classpixel_1_1_tile_map_a34588a5a50421385dcd8f27d51698e12}{update} (float dt)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static unique\+\_\+ptr$<$ \hyperlink{classpixel_1_1_tile_map}{Tile\+Map} $>$ \hyperlink{classpixel_1_1_tile_map_a77e1743a14959704fb14a94948f7af66}{from\+\_\+path} (const string \&tmx\+\_\+path)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unique\+\_\+ptr$<$ \hyperlink{classpixel_1_1_tile_atlas}{Tile\+Atlas} $>$ \hyperlink{classpixel_1_1_tile_map_a810ad0cdbfde0ed51e61c780360b193f}{atlas\+\_\+}
+\item 
+\hyperlink{classpixel_1_1_tileset}{Tileset} \hyperlink{classpixel_1_1_tile_map_a03c3fb17814bbbf8dc344870499e7b76}{tileset\+\_\+}
+\item 
+vector$<$ \hyperlink{classpixel_1_1_tile_layer}{pixel\+::\+Tile\+Layer} $>$ \hyperlink{classpixel_1_1_tile_map_af24b467f025449cae2612dad8e9c2e2a}{layers\+\_\+}
+\item 
+glm\+::uvec2 \hyperlink{classpixel_1_1_tile_map_a3a21dfe07a89fdba673af740e8da46dd}{tile\+\_\+size\+\_\+}
+\item 
+glm\+::uvec2 \hyperlink{classpixel_1_1_tile_map_a13b10cea1dd537a6bcb7577bc0ea15cc}{tile\+\_\+count\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classpixel_1_1_tile_map_adf716168df4051a1f80294951bd7f547}\label{classpixel_1_1_tile_map_adf716168df4051a1f80294951bd7f547}} 
+\index{pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}!Tile\+Map@{Tile\+Map}}
+\index{Tile\+Map@{Tile\+Map}!pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{Tile\+Map()}{TileMap()}}
+{\footnotesize\ttfamily Tile\+Map\+::\+Tile\+Map (\begin{DoxyParamCaption}\item[{const glm\+::uvec2 \&}]{map\+\_\+size,  }\item[{const glm\+::uvec2 \&}]{tile\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classpixel_1_1_tile_map_a4e88b7241ae5372c0d5e8a102a8eb5e3}\label{classpixel_1_1_tile_map_a4e88b7241ae5372c0d5e8a102a8eb5e3}} 
+\index{pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}!atlas@{atlas}}
+\index{atlas@{atlas}!pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{atlas()}{atlas()}}
+{\footnotesize\ttfamily \hyperlink{classpixel_1_1_tile_atlas}{Tile\+Atlas} \& Tile\+Map\+::atlas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_map_a77e1743a14959704fb14a94948f7af66}\label{classpixel_1_1_tile_map_a77e1743a14959704fb14a94948f7af66}} 
+\index{pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}!from\+\_\+path@{from\+\_\+path}}
+\index{from\+\_\+path@{from\+\_\+path}!pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{from\+\_\+path()}{from\_path()}}
+{\footnotesize\ttfamily unique\+\_\+ptr$<$ \hyperlink{classpixel_1_1_tile_map}{Tile\+Map} $>$ Tile\+Map\+::from\+\_\+path (\begin{DoxyParamCaption}\item[{const string \&}]{tmx\+\_\+path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_map_a40f23bebe94eee1130692085235c14d5}\label{classpixel_1_1_tile_map_a40f23bebe94eee1130692085235c14d5}} 
+\index{pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}!layers@{layers}}
+\index{layers@{layers}!pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{layers()}{layers()}}
+{\footnotesize\ttfamily vector$<$ \hyperlink{classpixel_1_1_tile_layer}{Tile\+Layer} $>$ \& Tile\+Map\+::layers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_map_a80157d358cbf2eac67adf489057f12fe}\label{classpixel_1_1_tile_map_a80157d358cbf2eac67adf489057f12fe}} 
+\index{pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}!load@{load}}
+\index{load@{load}!pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily bool Tile\+Map\+::load (\begin{DoxyParamCaption}\item[{const tmx\+::\+Map \&}]{map }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_map_a8e6564adbe2b58920c5f76369aa819a6}\label{classpixel_1_1_tile_map_a8e6564adbe2b58920c5f76369aa819a6}} 
+\index{pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}!tile\+\_\+count@{tile\+\_\+count}}
+\index{tile\+\_\+count@{tile\+\_\+count}!pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{tile\+\_\+count()}{tile\_count()}}
+{\footnotesize\ttfamily glm\+::uvec2 Tile\+Map\+::tile\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_map_a35e0e8c1f7e3a0739d494929111788cd}\label{classpixel_1_1_tile_map_a35e0e8c1f7e3a0739d494929111788cd}} 
+\index{pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}!tile\+\_\+size@{tile\+\_\+size}}
+\index{tile\+\_\+size@{tile\+\_\+size}!pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{tile\+\_\+size()}{tile\_size()}}
+{\footnotesize\ttfamily glm\+::uvec2 Tile\+Map\+::tile\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_map_a8c23bb5298f9287a200e29d0eb49ec2d}\label{classpixel_1_1_tile_map_a8c23bb5298f9287a200e29d0eb49ec2d}} 
+\index{pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}!tileset@{tileset}}
+\index{tileset@{tileset}!pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{tileset()}{tileset()}}
+{\footnotesize\ttfamily \hyperlink{classpixel_1_1_tileset}{Tileset} \& Tile\+Map\+::tileset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_map_a34588a5a50421385dcd8f27d51698e12}\label{classpixel_1_1_tile_map_a34588a5a50421385dcd8f27d51698e12}} 
+\index{pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}!update@{update}}
+\index{update@{update}!pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void Tile\+Map\+::update (\begin{DoxyParamCaption}\item[{float}]{dt }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classpixel_1_1_tile_map_a810ad0cdbfde0ed51e61c780360b193f}\label{classpixel_1_1_tile_map_a810ad0cdbfde0ed51e61c780360b193f}} 
+\index{pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}!atlas\+\_\+@{atlas\+\_\+}}
+\index{atlas\+\_\+@{atlas\+\_\+}!pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{atlas\+\_\+}{atlas\_}}
+{\footnotesize\ttfamily unique\+\_\+ptr$<$\hyperlink{classpixel_1_1_tile_atlas}{Tile\+Atlas}$>$ pixel\+::\+Tile\+Map\+::atlas\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_map_af24b467f025449cae2612dad8e9c2e2a}\label{classpixel_1_1_tile_map_af24b467f025449cae2612dad8e9c2e2a}} 
+\index{pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}!layers\+\_\+@{layers\+\_\+}}
+\index{layers\+\_\+@{layers\+\_\+}!pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{layers\+\_\+}{layers\_}}
+{\footnotesize\ttfamily vector$<$\hyperlink{classpixel_1_1_tile_layer}{pixel\+::\+Tile\+Layer}$>$ pixel\+::\+Tile\+Map\+::layers\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_map_a13b10cea1dd537a6bcb7577bc0ea15cc}\label{classpixel_1_1_tile_map_a13b10cea1dd537a6bcb7577bc0ea15cc}} 
+\index{pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}!tile\+\_\+count\+\_\+@{tile\+\_\+count\+\_\+}}
+\index{tile\+\_\+count\+\_\+@{tile\+\_\+count\+\_\+}!pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{tile\+\_\+count\+\_\+}{tile\_count\_}}
+{\footnotesize\ttfamily glm\+::uvec2 pixel\+::\+Tile\+Map\+::tile\+\_\+count\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_map_a3a21dfe07a89fdba673af740e8da46dd}\label{classpixel_1_1_tile_map_a3a21dfe07a89fdba673af740e8da46dd}} 
+\index{pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}!tile\+\_\+size\+\_\+@{tile\+\_\+size\+\_\+}}
+\index{tile\+\_\+size\+\_\+@{tile\+\_\+size\+\_\+}!pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{tile\+\_\+size\+\_\+}{tile\_size\_}}
+{\footnotesize\ttfamily glm\+::uvec2 pixel\+::\+Tile\+Map\+::tile\+\_\+size\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_map_a03c3fb17814bbbf8dc344870499e7b76}\label{classpixel_1_1_tile_map_a03c3fb17814bbbf8dc344870499e7b76}} 
+\index{pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}!tileset\+\_\+@{tileset\+\_\+}}
+\index{tileset\+\_\+@{tileset\+\_\+}!pixel\+::\+Tile\+Map@{pixel\+::\+Tile\+Map}}
+\subsubsection{\texorpdfstring{tileset\+\_\+}{tileset\_}}
+{\footnotesize\ttfamily \hyperlink{classpixel_1_1_tileset}{Tileset} pixel\+::\+Tile\+Map\+::tileset\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+pixel/pixel/tilemap/\hyperlink{tile__map_8h}{tile\+\_\+map.\+h}\item 
+pixel/pixel/tilemap/\hyperlink{tile__map_8cpp}{tile\+\_\+map.\+cpp}\end{DoxyCompactItemize}

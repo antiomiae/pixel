@@ -1,0 +1,54 @@
+\hypertarget{error_8h}{}\section{pixel/pixel/error.h File Reference}
+\label{error_8h}\index{pixel/pixel/error.\+h@{pixel/pixel/error.\+h}}
+{\ttfamily \#include $<$exception$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$pixel/util/util.\+h$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classpixel_1_1_base_error}{pixel\+::\+Base\+Error}
+\begin{DoxyCompactList}\small\item\em Base exception class. \end{DoxyCompactList}\item 
+class \hyperlink{classpixel_1_1_argument_error}{pixel\+::\+Argument\+Error}
+\begin{DoxyCompactList}\small\item\em Exception thrown when argument to method or function is not acceptable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacepixel}{pixel}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{error_8h_ae74166abdfbb2f775027ee6e15bef55f}{pixel\+\_\+error}(str)~\hyperlink{namespacepixel_1_1util_a25ba63c542a62436db23183014cb16d4}{pixel\+::util\+::\+\_\+error}(\+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, str)
+\item 
+\#define \hyperlink{error_8h_ac7bb4fc8a19c2e2cd4b2264fe37c759e}{error\+\_\+if}(expr,  str)~\hyperlink{namespacepixel_1_1util_a32d24684a1bc7da7f5d746d7f40517b1}{pixel\+::util\+::\+\_\+error\+\_\+if}(\+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, expr, str);
+\item 
+\#define \hyperlink{error_8h_a82b0be713a0b542aa276ef5e0811af56}{error\+\_\+unless}(expr,  str)~\hyperlink{namespacepixel_1_1util_a32d24684a1bc7da7f5d746d7f40517b1}{pixel\+::util\+::\+\_\+error\+\_\+if}(\+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, !(expr), str);
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{namespacepixel_a58ea4609722bf807288c38aa6e00dd70}{pixel\+::argument\+\_\+error\+\_\+if} (bool expr, const std\+::string \&msg)
+\item 
+void \hyperlink{namespacepixel_a1f9d784c476fcab7016ed79d33af82d2}{pixel\+::argument\+\_\+error\+\_\+unless} (bool expr, const std\+::string \&msg)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{error_8h_ac7bb4fc8a19c2e2cd4b2264fe37c759e}\label{error_8h_ac7bb4fc8a19c2e2cd4b2264fe37c759e}} 
+\index{error.\+h@{error.\+h}!error\+\_\+if@{error\+\_\+if}}
+\index{error\+\_\+if@{error\+\_\+if}!error.\+h@{error.\+h}}
+\subsubsection{\texorpdfstring{error\+\_\+if}{error\_if}}
+{\footnotesize\ttfamily \#define error\+\_\+if(\begin{DoxyParamCaption}\item[{}]{expr,  }\item[{}]{str }\end{DoxyParamCaption})~\hyperlink{namespacepixel_1_1util_a32d24684a1bc7da7f5d746d7f40517b1}{pixel\+::util\+::\+\_\+error\+\_\+if}(\+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, expr, str);}
+
+\mbox{\Hypertarget{error_8h_a82b0be713a0b542aa276ef5e0811af56}\label{error_8h_a82b0be713a0b542aa276ef5e0811af56}} 
+\index{error.\+h@{error.\+h}!error\+\_\+unless@{error\+\_\+unless}}
+\index{error\+\_\+unless@{error\+\_\+unless}!error.\+h@{error.\+h}}
+\subsubsection{\texorpdfstring{error\+\_\+unless}{error\_unless}}
+{\footnotesize\ttfamily \#define error\+\_\+unless(\begin{DoxyParamCaption}\item[{}]{expr,  }\item[{}]{str }\end{DoxyParamCaption})~\hyperlink{namespacepixel_1_1util_a32d24684a1bc7da7f5d746d7f40517b1}{pixel\+::util\+::\+\_\+error\+\_\+if}(\+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, !(expr), str);}
+
+\mbox{\Hypertarget{error_8h_ae74166abdfbb2f775027ee6e15bef55f}\label{error_8h_ae74166abdfbb2f775027ee6e15bef55f}} 
+\index{error.\+h@{error.\+h}!pixel\+\_\+error@{pixel\+\_\+error}}
+\index{pixel\+\_\+error@{pixel\+\_\+error}!error.\+h@{error.\+h}}
+\subsubsection{\texorpdfstring{pixel\+\_\+error}{pixel\_error}}
+{\footnotesize\ttfamily \#define pixel\+\_\+error(\begin{DoxyParamCaption}\item[{}]{str }\end{DoxyParamCaption})~\hyperlink{namespacepixel_1_1util_a25ba63c542a62436db23183014cb16d4}{pixel\+::util\+::\+\_\+error}(\+\_\+\+\_\+\+L\+I\+N\+E\+\_\+\+\_\+, \+\_\+\+\_\+\+F\+I\+L\+E\+\_\+\+\_\+, str)}
+

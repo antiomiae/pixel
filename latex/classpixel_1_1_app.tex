@@ -1,0 +1,158 @@
+\hypertarget{classpixel_1_1_app}{}\section{pixel\+:\+:App Class Reference}
+\label{classpixel_1_1_app}\index{pixel\+::\+App@{pixel\+::\+App}}
+
+
+{\ttfamily \#include $<$pixel/app/app.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classpixel_1_1_app_af4a37ad9c00effc7cec0c255e03d70c4}{App} ()=default
+\item 
+\hyperlink{classpixel_1_1_app_a6fe4a8f0d585fb46ef777b772f33ee23}{App} (glm\+::ivec2 \hyperlink{app_8cpp_a93e893499cf4f577c814afbfefcef91e}{window\+\_\+size}, glm\+::vec4 \hyperlink{app_8cpp_a5fbf4b63994b492e6d4db94742408254}{clear\+\_\+color}, float pixel\+\_\+scale)
+\item 
+void \hyperlink{classpixel_1_1_app_a493e02e59da4f855f150da197c7635d2}{init} (int flags=0)
+\item 
+void \hyperlink{classpixel_1_1_app_ae09dc71078b64c56c673b1ad1d25b5d1}{run} ()
+\item 
+void \hyperlink{classpixel_1_1_app_a4c827ea9bb9a1d9c23a191e3cd5c9fd7}{set\+\_\+tick\+\_\+callback} (std\+::function$<$ void(void)$>$ cb)
+\item 
+void \hyperlink{classpixel_1_1_app_aeb5bd2f5b647c6d72e41675bbee75582}{late\+\_\+tick} ()
+\item 
+void \hyperlink{classpixel_1_1_app_a6bb62cf2cbcc3c7d161a0f94a75da1eb}{update\+\_\+render\+\_\+context} ()
+\item 
+G\+L\+F\+Wwindow $\ast$ \hyperlink{classpixel_1_1_app_a301a9d2271ae3bbd841d46412aec533d}{window} ()
+\item 
+\hyperlink{structpixel_1_1_render_context}{Render\+Context} \& \hyperlink{classpixel_1_1_app_a9200e57d78569df68303c9556f9bad8a}{render\+\_\+context} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classpixel_1_1_app_a100f1ea74491859e329bf4396c2ac4c7}{tick} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classpixel_1_1_app_ad4382173f28f58facfa722cccbda6e4b}{frames\+\_\+} \{\}
+\item 
+G\+L\+F\+Wwindow $\ast$ \hyperlink{classpixel_1_1_app_aaec703aee9656cf040b8c9f5eb4fc3ad}{window\+\_\+}
+\item 
+std\+::function$<$ void(void)$>$ \hyperlink{classpixel_1_1_app_a5648c144f79952b5c4c51acf304fb2f8}{tick\+\_\+callback\+\_\+} \{\}
+\item 
+\hyperlink{classpixel_1_1time_1_1_frame_counter}{pixel\+::time\+::\+Frame\+Counter} \hyperlink{classpixel_1_1_app_ac247cd22d9e67b36b360d6ba827ad0e5}{fps\+\_\+counter\+\_\+} \{\}
+\item 
+\hyperlink{structpixel_1_1_render_context}{Render\+Context} \hyperlink{classpixel_1_1_app_ab118f43ae1840ff7fbdd771694dbe194}{render\+\_\+context\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classpixel_1_1_app_af4a37ad9c00effc7cec0c255e03d70c4}\label{classpixel_1_1_app_af4a37ad9c00effc7cec0c255e03d70c4}} 
+\index{pixel\+::\+App@{pixel\+::\+App}!App@{App}}
+\index{App@{App}!pixel\+::\+App@{pixel\+::\+App}}
+\subsubsection{\texorpdfstring{App()}{App()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily pixel\+::\+App\+::\+App (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\mbox{\Hypertarget{classpixel_1_1_app_a6fe4a8f0d585fb46ef777b772f33ee23}\label{classpixel_1_1_app_a6fe4a8f0d585fb46ef777b772f33ee23}} 
+\index{pixel\+::\+App@{pixel\+::\+App}!App@{App}}
+\index{App@{App}!pixel\+::\+App@{pixel\+::\+App}}
+\subsubsection{\texorpdfstring{App()}{App()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily App\+::\+App (\begin{DoxyParamCaption}\item[{glm\+::ivec2}]{window\+\_\+size,  }\item[{glm\+::vec4}]{clear\+\_\+color,  }\item[{float}]{pixel\+\_\+scale }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classpixel_1_1_app_a493e02e59da4f855f150da197c7635d2}\label{classpixel_1_1_app_a493e02e59da4f855f150da197c7635d2}} 
+\index{pixel\+::\+App@{pixel\+::\+App}!init@{init}}
+\index{init@{init}!pixel\+::\+App@{pixel\+::\+App}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void App\+::init (\begin{DoxyParamCaption}\item[{int}]{flags = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_app_aeb5bd2f5b647c6d72e41675bbee75582}\label{classpixel_1_1_app_aeb5bd2f5b647c6d72e41675bbee75582}} 
+\index{pixel\+::\+App@{pixel\+::\+App}!late\+\_\+tick@{late\+\_\+tick}}
+\index{late\+\_\+tick@{late\+\_\+tick}!pixel\+::\+App@{pixel\+::\+App}}
+\subsubsection{\texorpdfstring{late\+\_\+tick()}{late\_tick()}}
+{\footnotesize\ttfamily void App\+::late\+\_\+tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_app_a9200e57d78569df68303c9556f9bad8a}\label{classpixel_1_1_app_a9200e57d78569df68303c9556f9bad8a}} 
+\index{pixel\+::\+App@{pixel\+::\+App}!render\+\_\+context@{render\+\_\+context}}
+\index{render\+\_\+context@{render\+\_\+context}!pixel\+::\+App@{pixel\+::\+App}}
+\subsubsection{\texorpdfstring{render\+\_\+context()}{render\_context()}}
+{\footnotesize\ttfamily \hyperlink{structpixel_1_1_render_context}{Render\+Context} \& App\+::render\+\_\+context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_app_ae09dc71078b64c56c673b1ad1d25b5d1}\label{classpixel_1_1_app_ae09dc71078b64c56c673b1ad1d25b5d1}} 
+\index{pixel\+::\+App@{pixel\+::\+App}!run@{run}}
+\index{run@{run}!pixel\+::\+App@{pixel\+::\+App}}
+\subsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void App\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_app_a4c827ea9bb9a1d9c23a191e3cd5c9fd7}\label{classpixel_1_1_app_a4c827ea9bb9a1d9c23a191e3cd5c9fd7}} 
+\index{pixel\+::\+App@{pixel\+::\+App}!set\+\_\+tick\+\_\+callback@{set\+\_\+tick\+\_\+callback}}
+\index{set\+\_\+tick\+\_\+callback@{set\+\_\+tick\+\_\+callback}!pixel\+::\+App@{pixel\+::\+App}}
+\subsubsection{\texorpdfstring{set\+\_\+tick\+\_\+callback()}{set\_tick\_callback()}}
+{\footnotesize\ttfamily void App\+::set\+\_\+tick\+\_\+callback (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(void)$>$}]{cb }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_app_a100f1ea74491859e329bf4396c2ac4c7}\label{classpixel_1_1_app_a100f1ea74491859e329bf4396c2ac4c7}} 
+\index{pixel\+::\+App@{pixel\+::\+App}!tick@{tick}}
+\index{tick@{tick}!pixel\+::\+App@{pixel\+::\+App}}
+\subsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily void App\+::tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_app_a6bb62cf2cbcc3c7d161a0f94a75da1eb}\label{classpixel_1_1_app_a6bb62cf2cbcc3c7d161a0f94a75da1eb}} 
+\index{pixel\+::\+App@{pixel\+::\+App}!update\+\_\+render\+\_\+context@{update\+\_\+render\+\_\+context}}
+\index{update\+\_\+render\+\_\+context@{update\+\_\+render\+\_\+context}!pixel\+::\+App@{pixel\+::\+App}}
+\subsubsection{\texorpdfstring{update\+\_\+render\+\_\+context()}{update\_render\_context()}}
+{\footnotesize\ttfamily void App\+::update\+\_\+render\+\_\+context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_app_a301a9d2271ae3bbd841d46412aec533d}\label{classpixel_1_1_app_a301a9d2271ae3bbd841d46412aec533d}} 
+\index{pixel\+::\+App@{pixel\+::\+App}!window@{window}}
+\index{window@{window}!pixel\+::\+App@{pixel\+::\+App}}
+\subsubsection{\texorpdfstring{window()}{window()}}
+{\footnotesize\ttfamily G\+L\+F\+Wwindow $\ast$ App\+::window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classpixel_1_1_app_ac247cd22d9e67b36b360d6ba827ad0e5}\label{classpixel_1_1_app_ac247cd22d9e67b36b360d6ba827ad0e5}} 
+\index{pixel\+::\+App@{pixel\+::\+App}!fps\+\_\+counter\+\_\+@{fps\+\_\+counter\+\_\+}}
+\index{fps\+\_\+counter\+\_\+@{fps\+\_\+counter\+\_\+}!pixel\+::\+App@{pixel\+::\+App}}
+\subsubsection{\texorpdfstring{fps\+\_\+counter\+\_\+}{fps\_counter\_}}
+{\footnotesize\ttfamily \hyperlink{classpixel_1_1time_1_1_frame_counter}{pixel\+::time\+::\+Frame\+Counter} pixel\+::\+App\+::fps\+\_\+counter\+\_\+ \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_app_ad4382173f28f58facfa722cccbda6e4b}\label{classpixel_1_1_app_ad4382173f28f58facfa722cccbda6e4b}} 
+\index{pixel\+::\+App@{pixel\+::\+App}!frames\+\_\+@{frames\+\_\+}}
+\index{frames\+\_\+@{frames\+\_\+}!pixel\+::\+App@{pixel\+::\+App}}
+\subsubsection{\texorpdfstring{frames\+\_\+}{frames\_}}
+{\footnotesize\ttfamily int pixel\+::\+App\+::frames\+\_\+ \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_app_ab118f43ae1840ff7fbdd771694dbe194}\label{classpixel_1_1_app_ab118f43ae1840ff7fbdd771694dbe194}} 
+\index{pixel\+::\+App@{pixel\+::\+App}!render\+\_\+context\+\_\+@{render\+\_\+context\+\_\+}}
+\index{render\+\_\+context\+\_\+@{render\+\_\+context\+\_\+}!pixel\+::\+App@{pixel\+::\+App}}
+\subsubsection{\texorpdfstring{render\+\_\+context\+\_\+}{render\_context\_}}
+{\footnotesize\ttfamily \hyperlink{structpixel_1_1_render_context}{Render\+Context} pixel\+::\+App\+::render\+\_\+context\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+\{
+        \hyperlink{namespacepixel_a9c38287d50c84fb5c1f25c965db0a6a5}{DEFAULT\_WINDOW\_SIZE},
+        \hyperlink{namespacepixel_aa4c296a437eb1e0def40cff29b699be2}{DEFAULT\_CLEAR\_COLOR},
+        \hyperlink{namespacepixel_ae08ee7e855f850855389107cb37ae167}{DEFAULT\_PIXEL\_SCALE}
+    \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classpixel_1_1_app_a5648c144f79952b5c4c51acf304fb2f8}\label{classpixel_1_1_app_a5648c144f79952b5c4c51acf304fb2f8}} 
+\index{pixel\+::\+App@{pixel\+::\+App}!tick\+\_\+callback\+\_\+@{tick\+\_\+callback\+\_\+}}
+\index{tick\+\_\+callback\+\_\+@{tick\+\_\+callback\+\_\+}!pixel\+::\+App@{pixel\+::\+App}}
+\subsubsection{\texorpdfstring{tick\+\_\+callback\+\_\+}{tick\_callback\_}}
+{\footnotesize\ttfamily std\+::function$<$void(void)$>$ pixel\+::\+App\+::tick\+\_\+callback\+\_\+ \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_app_aaec703aee9656cf040b8c9f5eb4fc3ad}\label{classpixel_1_1_app_aaec703aee9656cf040b8c9f5eb4fc3ad}} 
+\index{pixel\+::\+App@{pixel\+::\+App}!window\+\_\+@{window\+\_\+}}
+\index{window\+\_\+@{window\+\_\+}!pixel\+::\+App@{pixel\+::\+App}}
+\subsubsection{\texorpdfstring{window\+\_\+}{window\_}}
+{\footnotesize\ttfamily G\+L\+F\+Wwindow$\ast$ pixel\+::\+App\+::window\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+pixel/pixel/app/\hyperlink{app_8h}{app.\+h}\item 
+pixel/pixel/app/\hyperlink{app_8cpp}{app.\+cpp}\end{DoxyCompactItemize}

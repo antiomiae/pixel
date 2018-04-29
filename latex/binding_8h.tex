@@ -1,0 +1,65 @@
+\hypertarget{binding_8h}{}\section{pixel/pixel/lua/binding.h File Reference}
+\label{binding_8h}\index{pixel/pixel/lua/binding.\+h@{pixel/pixel/lua/binding.\+h}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include $<$sol.\+hpp$>$}\newline
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacepixel_1_1binding}{pixel\+::binding}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{binding_8h_a41272530759e713f102cc200d1f5a484}{S\+O\+L\+\_\+\+C\+H\+E\+C\+K\+\_\+\+A\+R\+G\+U\+M\+E\+N\+TS}~1
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+sol\+::table \hyperlink{namespacepixel_1_1binding_ab272e0e67cf55a0e247549bb29b1deda}{pixel\+::binding\+::bind\+\_\+pixel} (sol\+::state \&lua)
+\item 
+void \hyperlink{namespacepixel_1_1binding_a2a97de4cd72e526976d52014036bb423}{pixel\+::binding\+::bind\+\_\+glm} (sol\+::state \&lua, sol\+::table \&binding, const string \&module\+\_\+name=\char`\"{}glm\char`\"{})
+\item 
+void \hyperlink{namespacepixel_1_1binding_aba74c7113476d1ba0aeaf6d396ccc7b0}{pixel\+::binding\+::bind\+\_\+opengl} (sol\+::state \&lua, sol\+::table \&binding, const string \&module\+\_\+name=\char`\"{}gl\char`\"{})
+\item 
+void \hyperlink{namespacepixel_1_1binding_a3d31a63c2925c5124d5d56a564d21d74}{pixel\+::binding\+::bind\+\_\+app} (sol\+::state \&lua, sol\+::table \&binding, const string \&type\+\_\+name)
+\item 
+void \hyperlink{namespacepixel_1_1binding_a2e196ac7c3331bd6d70bf4832fe3e0a4}{pixel\+::binding\+::bind\+\_\+tile\+\_\+map} (sol\+::state \&lua, sol\+::table \&binding, const string \&type\+\_\+name)
+\item 
+void \hyperlink{namespacepixel_1_1binding_af8bd42a777032db179b42a8cbf5d26df}{pixel\+::binding\+::bind\+\_\+tileset} (sol\+::state \&lua, sol\+::table \&binding, const string \&type\+\_\+name=\char`\"{}Tileset\char`\"{})
+\item 
+void \hyperlink{namespacepixel_1_1binding_a0ef36fda30c27f9e76a812a0eb2b0462}{pixel\+::binding\+::bind\+\_\+tile\+\_\+layer} (sol\+::state \&lua, sol\+::table \&binding, const string \&type\+\_\+name)
+\item 
+void \hyperlink{namespacepixel_1_1binding_a2cb37d36e82884138762de826c9160cd}{pixel\+::binding\+::bind\+\_\+tile\+\_\+map\+\_\+renderer} (sol\+::state \&lua, sol\+::table \&binding, const string \&type\+\_\+name)
+\item 
+void \hyperlink{namespacepixel_1_1binding_abcf205a5df34f7732e65716c10c56b45}{pixel\+::binding\+::bind\+\_\+sprite\+\_\+renderer} (sol\+::state \&lua, sol\+::table \&binding, const string \&type\+\_\+name)
+\item 
+void \hyperlink{namespacepixel_1_1binding_a5229f3770ff8aa6b35955c6ec565fd23}{pixel\+::binding\+::bind\+\_\+camera} (sol\+::state \&lua, sol\+::table \&binding, const string \&type\+\_\+name=\char`\"{}Camera\char`\"{})
+\item 
+void \hyperlink{namespacepixel_1_1binding_abb52911bc71cd248f5aa1f1749f850fe}{pixel\+::binding\+::bind\+\_\+texture\+\_\+atlas} (sol\+::state \&lua, sol\+::table \&binding, const string \&type\+\_\+name)
+\item 
+void \hyperlink{namespacepixel_1_1binding_a37d5dbd00ccd535932c8f2c43146ab2f}{pixel\+::binding\+::bind\+\_\+sprite\+\_\+animation} (sol\+::state \&lua, sol\+::table \&binding, const string \&type\+\_\+name)
+\item 
+void \hyperlink{namespacepixel_1_1binding_a71a96e382c301a5b48e0ff142a6ebb35}{pixel\+::binding\+::bind\+\_\+sprite} (sol\+::state \&lua, sol\+::table \&binding, const string \&type\+\_\+name)
+\item 
+void \hyperlink{namespacepixel_1_1binding_a1ad54a40f2ea5aa27a8dd3a173ae1c18}{pixel\+::binding\+::bind\+\_\+sprite\+\_\+batch} (sol\+::state \&lua, sol\+::table \&binding, const string \&type\+\_\+name)
+\item 
+void \hyperlink{namespacepixel_1_1binding_a2e79543c93630c2c32b2defd8ce6d90c}{pixel\+::binding\+::bind\+\_\+texture\+\_\+region} (sol\+::state \&lua, sol\+::table \&binding, const string \&type\+\_\+name)
+\item 
+void \hyperlink{namespacepixel_1_1binding_a8710271205036eb70d213b0a81b9ce48}{pixel\+::binding\+::bind\+\_\+keyboard} (sol\+::state \&lua, sol\+::table \&binding, const string \&type\+\_\+name)
+\item 
+void \hyperlink{namespacepixel_1_1binding_ab1d6b8f35766477a2a49cdb658f8e799}{pixel\+::binding\+::bind\+\_\+image\+\_\+data} (sol\+::state \&lua, sol\+::table \&binding, const string \&type\+\_\+name=\char`\"{}Image\+Data\char`\"{})
+\item 
+void \hyperlink{namespacepixel_1_1binding_a9486ccd069276d9bdc7b4efda484c020}{pixel\+::binding\+::bind\+\_\+offscreen\+\_\+render\+\_\+target} (sol\+::state \&lua, sol\+::table \&binding, const string \&type\+\_\+name)
+\item 
+void \hyperlink{namespacepixel_1_1binding_a8cd7af28e7ef023bdc6d2868961e9614}{pixel\+::binding\+::bind\+\_\+collision\+\_\+map} (sol\+::state \&lua, sol\+::table \&binding, const string \&type\+\_\+name=\char`\"{}Collision\+Map\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{binding_8h_a41272530759e713f102cc200d1f5a484}\label{binding_8h_a41272530759e713f102cc200d1f5a484}} 
+\index{binding.\+h@{binding.\+h}!S\+O\+L\+\_\+\+C\+H\+E\+C\+K\+\_\+\+A\+R\+G\+U\+M\+E\+N\+TS@{S\+O\+L\+\_\+\+C\+H\+E\+C\+K\+\_\+\+A\+R\+G\+U\+M\+E\+N\+TS}}
+\index{S\+O\+L\+\_\+\+C\+H\+E\+C\+K\+\_\+\+A\+R\+G\+U\+M\+E\+N\+TS@{S\+O\+L\+\_\+\+C\+H\+E\+C\+K\+\_\+\+A\+R\+G\+U\+M\+E\+N\+TS}!binding.\+h@{binding.\+h}}
+\subsubsection{\texorpdfstring{S\+O\+L\+\_\+\+C\+H\+E\+C\+K\+\_\+\+A\+R\+G\+U\+M\+E\+N\+TS}{SOL\_CHECK\_ARGUMENTS}}
+{\footnotesize\ttfamily \#define S\+O\+L\+\_\+\+C\+H\+E\+C\+K\+\_\+\+A\+R\+G\+U\+M\+E\+N\+TS~1}
+

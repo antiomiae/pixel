@@ -1,0 +1,107 @@
+\hypertarget{classpixel_1_1collision_1_1_collision_map}{}\section{pixel\+:\+:collision\+:\+:Collision\+Map Class Reference}
+\label{classpixel_1_1collision_1_1_collision_map}\index{pixel\+::collision\+::\+Collision\+Map@{pixel\+::collision\+::\+Collision\+Map}}
+
+
+{\ttfamily \#include $<$pixel/collision/collision.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classpixel_1_1collision_1_1_collision_map_ad4b43c70e9f33a560d2f9ed9f0a2455c}{Collision\+Map} (\hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint} width, \hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint} height)
+\item 
+void \hyperlink{classpixel_1_1collision_1_1_collision_map_a78d6d7d3fed586c7b6fa1ea83f28c9b6}{set} (int x, int y, bool solid)
+\item 
+bool \hyperlink{classpixel_1_1collision_1_1_collision_map_af2f5629a4500bba2d172964d740699b1}{collide\+\_\+row} (\hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint} row, \hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint} start, \hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint} stop)
+\item 
+bool \hyperlink{classpixel_1_1collision_1_1_collision_map_a49a0a8ae03166393be6364a874f24de7}{collide\+\_\+column} (\hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint} col, \hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint} start, \hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint} stop)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ uint8\+\_\+t $>$ \hyperlink{classpixel_1_1collision_1_1_collision_map_a9500d6d9822018355058fd9f58563a34}{bitmap\+\_\+rows\+\_\+}
+\item 
+vector$<$ uint8\+\_\+t $>$ \hyperlink{classpixel_1_1collision_1_1_collision_map_adfad13a45d1e3c1b88b674e08613a94c}{bitmap\+\_\+columns\+\_\+}
+\item 
+\hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint} \hyperlink{classpixel_1_1collision_1_1_collision_map_aadad7aa7bdfb345b83a39c5884e4ea2e}{bitmap\+\_\+width\+\_\+}
+\item 
+\hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint} \hyperlink{classpixel_1_1collision_1_1_collision_map_af7cfb78af620a0d0d419d240150f6a1d}{bitmap\+\_\+height\+\_\+}
+\item 
+\hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint} \hyperlink{classpixel_1_1collision_1_1_collision_map_a64495af476c19c01be52af4312d147d5}{map\+\_\+width\+\_\+}
+\item 
+\hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint} \hyperlink{classpixel_1_1collision_1_1_collision_map_a5675e0fd02f93fe970816d8ed1006dcb}{map\+\_\+height\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classpixel_1_1collision_1_1_collision_map_ad4b43c70e9f33a560d2f9ed9f0a2455c}\label{classpixel_1_1collision_1_1_collision_map_ad4b43c70e9f33a560d2f9ed9f0a2455c}} 
+\index{pixel\+::collision\+::\+Collision\+Map@{pixel\+::collision\+::\+Collision\+Map}!Collision\+Map@{Collision\+Map}}
+\index{Collision\+Map@{Collision\+Map}!pixel\+::collision\+::\+Collision\+Map@{pixel\+::collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{Collision\+Map()}{CollisionMap()}}
+{\footnotesize\ttfamily pixel\+::collision\+::\+Collision\+Map\+::\+Collision\+Map (\begin{DoxyParamCaption}\item[{\hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint}}]{width,  }\item[{\hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint}}]{height }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classpixel_1_1collision_1_1_collision_map_a49a0a8ae03166393be6364a874f24de7}\label{classpixel_1_1collision_1_1_collision_map_a49a0a8ae03166393be6364a874f24de7}} 
+\index{pixel\+::collision\+::\+Collision\+Map@{pixel\+::collision\+::\+Collision\+Map}!collide\+\_\+column@{collide\+\_\+column}}
+\index{collide\+\_\+column@{collide\+\_\+column}!pixel\+::collision\+::\+Collision\+Map@{pixel\+::collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{collide\+\_\+column()}{collide\_column()}}
+{\footnotesize\ttfamily bool pixel\+::collision\+::\+Collision\+Map\+::collide\+\_\+column (\begin{DoxyParamCaption}\item[{\hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint}}]{col,  }\item[{\hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint}}]{start,  }\item[{\hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint}}]{stop }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1collision_1_1_collision_map_af2f5629a4500bba2d172964d740699b1}\label{classpixel_1_1collision_1_1_collision_map_af2f5629a4500bba2d172964d740699b1}} 
+\index{pixel\+::collision\+::\+Collision\+Map@{pixel\+::collision\+::\+Collision\+Map}!collide\+\_\+row@{collide\+\_\+row}}
+\index{collide\+\_\+row@{collide\+\_\+row}!pixel\+::collision\+::\+Collision\+Map@{pixel\+::collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{collide\+\_\+row()}{collide\_row()}}
+{\footnotesize\ttfamily bool pixel\+::collision\+::\+Collision\+Map\+::collide\+\_\+row (\begin{DoxyParamCaption}\item[{\hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint}}]{row,  }\item[{\hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint}}]{start,  }\item[{\hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint}}]{stop }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1collision_1_1_collision_map_a78d6d7d3fed586c7b6fa1ea83f28c9b6}\label{classpixel_1_1collision_1_1_collision_map_a78d6d7d3fed586c7b6fa1ea83f28c9b6}} 
+\index{pixel\+::collision\+::\+Collision\+Map@{pixel\+::collision\+::\+Collision\+Map}!set@{set}}
+\index{set@{set}!pixel\+::collision\+::\+Collision\+Map@{pixel\+::collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily void pixel\+::collision\+::\+Collision\+Map\+::set (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{bool}]{solid }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classpixel_1_1collision_1_1_collision_map_adfad13a45d1e3c1b88b674e08613a94c}\label{classpixel_1_1collision_1_1_collision_map_adfad13a45d1e3c1b88b674e08613a94c}} 
+\index{pixel\+::collision\+::\+Collision\+Map@{pixel\+::collision\+::\+Collision\+Map}!bitmap\+\_\+columns\+\_\+@{bitmap\+\_\+columns\+\_\+}}
+\index{bitmap\+\_\+columns\+\_\+@{bitmap\+\_\+columns\+\_\+}!pixel\+::collision\+::\+Collision\+Map@{pixel\+::collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{bitmap\+\_\+columns\+\_\+}{bitmap\_columns\_}}
+{\footnotesize\ttfamily vector$<$uint8\+\_\+t$>$ pixel\+::collision\+::\+Collision\+Map\+::bitmap\+\_\+columns\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1collision_1_1_collision_map_af7cfb78af620a0d0d419d240150f6a1d}\label{classpixel_1_1collision_1_1_collision_map_af7cfb78af620a0d0d419d240150f6a1d}} 
+\index{pixel\+::collision\+::\+Collision\+Map@{pixel\+::collision\+::\+Collision\+Map}!bitmap\+\_\+height\+\_\+@{bitmap\+\_\+height\+\_\+}}
+\index{bitmap\+\_\+height\+\_\+@{bitmap\+\_\+height\+\_\+}!pixel\+::collision\+::\+Collision\+Map@{pixel\+::collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{bitmap\+\_\+height\+\_\+}{bitmap\_height\_}}
+{\footnotesize\ttfamily \hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint} pixel\+::collision\+::\+Collision\+Map\+::bitmap\+\_\+height\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1collision_1_1_collision_map_a9500d6d9822018355058fd9f58563a34}\label{classpixel_1_1collision_1_1_collision_map_a9500d6d9822018355058fd9f58563a34}} 
+\index{pixel\+::collision\+::\+Collision\+Map@{pixel\+::collision\+::\+Collision\+Map}!bitmap\+\_\+rows\+\_\+@{bitmap\+\_\+rows\+\_\+}}
+\index{bitmap\+\_\+rows\+\_\+@{bitmap\+\_\+rows\+\_\+}!pixel\+::collision\+::\+Collision\+Map@{pixel\+::collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{bitmap\+\_\+rows\+\_\+}{bitmap\_rows\_}}
+{\footnotesize\ttfamily vector$<$uint8\+\_\+t$>$ pixel\+::collision\+::\+Collision\+Map\+::bitmap\+\_\+rows\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1collision_1_1_collision_map_aadad7aa7bdfb345b83a39c5884e4ea2e}\label{classpixel_1_1collision_1_1_collision_map_aadad7aa7bdfb345b83a39c5884e4ea2e}} 
+\index{pixel\+::collision\+::\+Collision\+Map@{pixel\+::collision\+::\+Collision\+Map}!bitmap\+\_\+width\+\_\+@{bitmap\+\_\+width\+\_\+}}
+\index{bitmap\+\_\+width\+\_\+@{bitmap\+\_\+width\+\_\+}!pixel\+::collision\+::\+Collision\+Map@{pixel\+::collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{bitmap\+\_\+width\+\_\+}{bitmap\_width\_}}
+{\footnotesize\ttfamily \hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint} pixel\+::collision\+::\+Collision\+Map\+::bitmap\+\_\+width\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1collision_1_1_collision_map_a5675e0fd02f93fe970816d8ed1006dcb}\label{classpixel_1_1collision_1_1_collision_map_a5675e0fd02f93fe970816d8ed1006dcb}} 
+\index{pixel\+::collision\+::\+Collision\+Map@{pixel\+::collision\+::\+Collision\+Map}!map\+\_\+height\+\_\+@{map\+\_\+height\+\_\+}}
+\index{map\+\_\+height\+\_\+@{map\+\_\+height\+\_\+}!pixel\+::collision\+::\+Collision\+Map@{pixel\+::collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{map\+\_\+height\+\_\+}{map\_height\_}}
+{\footnotesize\ttfamily \hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint} pixel\+::collision\+::\+Collision\+Map\+::map\+\_\+height\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1collision_1_1_collision_map_a64495af476c19c01be52af4312d147d5}\label{classpixel_1_1collision_1_1_collision_map_a64495af476c19c01be52af4312d147d5}} 
+\index{pixel\+::collision\+::\+Collision\+Map@{pixel\+::collision\+::\+Collision\+Map}!map\+\_\+width\+\_\+@{map\+\_\+width\+\_\+}}
+\index{map\+\_\+width\+\_\+@{map\+\_\+width\+\_\+}!pixel\+::collision\+::\+Collision\+Map@{pixel\+::collision\+::\+Collision\+Map}}
+\subsubsection{\texorpdfstring{map\+\_\+width\+\_\+}{map\_width\_}}
+{\footnotesize\ttfamily \hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint} pixel\+::collision\+::\+Collision\+Map\+::map\+\_\+width\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+pixel/pixel/collision/\hyperlink{collision_8h}{collision.\+h}\item 
+pixel/pixel/collision/\hyperlink{collision_8cpp}{collision.\+cpp}\end{DoxyCompactItemize}

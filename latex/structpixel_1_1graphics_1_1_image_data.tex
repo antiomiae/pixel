@@ -1,0 +1,174 @@
+\hypertarget{structpixel_1_1graphics_1_1_image_data}{}\section{pixel\+:\+:graphics\+:\+:Image\+Data Struct Reference}
+\label{structpixel_1_1graphics_1_1_image_data}\index{pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}}
+
+
+{\ttfamily \#include $<$pixel/graphics/image.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structpixel_1_1graphics_1_1_image_data_a96e29e2b15177d6eca5cf866aba4ead5}{Image\+Data} (const std\+::string \&path)
+\item 
+\hyperlink{structpixel_1_1graphics_1_1_image_data_a7f64f2823dec8ac7ee891285a43ee318}{Image\+Data} (unsigned int \hyperlink{structpixel_1_1graphics_1_1_image_data_a783c857c18bf3d306f08ff990d0a0387}{width}, unsigned int \hyperlink{structpixel_1_1graphics_1_1_image_data_a0cdbbd8ac40876965eb439f6fb8b8b74}{height})
+\item 
+\hyperlink{structpixel_1_1graphics_1_1_image_data_a1e4ad1ff6ece0b9e3cf849531ca974b9}{Image\+Data} (unsigned int \+\_\+width, unsigned int \+\_\+height, uint8\+\_\+t $\ast$\+\_\+data)
+\item 
+\hyperlink{structpixel_1_1graphics_1_1_image_data_a7543c7d858923e3f5cb3f4042c07955d}{Image\+Data} (\hyperlink{structpixel_1_1graphics_1_1_image_data}{Image\+Data} \&\&other) noexcept
+\item 
+\hyperlink{structpixel_1_1graphics_1_1_image_data_a041260a3b269702c74b645f59c62ac19}{Image\+Data} (const \hyperlink{structpixel_1_1graphics_1_1_image_data}{Image\+Data} \&)
+\item 
+\hyperlink{structpixel_1_1graphics_1_1_image_data}{Image\+Data} \& \hyperlink{structpixel_1_1graphics_1_1_image_data_a5ccd3224c95beac9deeef32cefcbcef4}{operator=} (const \hyperlink{structpixel_1_1graphics_1_1_image_data}{Image\+Data} \&)
+\item 
+\hyperlink{structpixel_1_1graphics_1_1_image_data_a539a8d95c83c29749dc039484f03025b}{$\sim$\+Image\+Data} ()
+\item 
+size\+\_\+t \hyperlink{structpixel_1_1graphics_1_1_image_data_ae0a77895bec7cc75b01c75f266bd3981}{length} ()
+\item 
+\hyperlink{structpixel_1_1graphics_1_1_image_data}{Image\+Data} \hyperlink{structpixel_1_1graphics_1_1_image_data_a906eb1e4aa34ab928cfe5500a5ed70e4}{subregion} (unsigned int x0, unsigned int y0, unsigned int \+\_\+width, unsigned int \+\_\+height) const
+\item 
+bool \hyperlink{structpixel_1_1graphics_1_1_image_data_a2881f91adbd6e438f58a5a832d6cfdf4}{load\+\_\+subregion} (const \hyperlink{structpixel_1_1graphics_1_1_image_data}{Image\+Data} \&, unsigned src\+\_\+x, unsigned src\+\_\+y, unsigned src\+\_\+width, unsigned src\+\_\+height, unsigned dest\+\_\+x, unsigned dest\+\_\+y)
+\item 
+bool \hyperlink{structpixel_1_1graphics_1_1_image_data_adca97f9888d7da5f9d95c781a2700cd4}{save} (const std\+::string \&path) const
+\item 
+void \hyperlink{structpixel_1_1graphics_1_1_image_data_af3a5790a3f3a336ddc5edd030b6fc7a3}{clear} ()
+\item 
+\hyperlink{structpixel_1_1graphics_1_1_image_data}{Image\+Data} \hyperlink{structpixel_1_1graphics_1_1_image_data_aaed4255fc7c7edc0282ce58c111e27ed}{transpose} () const
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \hyperlink{structpixel_1_1graphics_1_1_image_data_a783c857c18bf3d306f08ff990d0a0387}{width}
+\item 
+unsigned \hyperlink{structpixel_1_1graphics_1_1_image_data_a0cdbbd8ac40876965eb439f6fb8b8b74}{height}
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{structpixel_1_1graphics_1_1_image_data_a0ae00692d59dfe806c4fc4717c4a8598}{data}
+\item 
+bool \hyperlink{structpixel_1_1graphics_1_1_image_data_adbb7e4f741fefc4f347526a26b2920b8}{external\+\_\+data}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{structpixel_1_1graphics_1_1_image_data_a20702befa5bfceaf6754ce1d611fe438}{bpp} = 4
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structpixel_1_1graphics_1_1_image_data_a96e29e2b15177d6eca5cf866aba4ead5}\label{structpixel_1_1graphics_1_1_image_data_a96e29e2b15177d6eca5cf866aba4ead5}} 
+\index{pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}!Image\+Data@{Image\+Data}}
+\index{Image\+Data@{Image\+Data}!pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}}
+\subsubsection{\texorpdfstring{Image\+Data()}{ImageData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/5]}}
+{\footnotesize\ttfamily Image\+Data\+::\+Image\+Data (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+\mbox{\Hypertarget{structpixel_1_1graphics_1_1_image_data_a7f64f2823dec8ac7ee891285a43ee318}\label{structpixel_1_1graphics_1_1_image_data_a7f64f2823dec8ac7ee891285a43ee318}} 
+\index{pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}!Image\+Data@{Image\+Data}}
+\index{Image\+Data@{Image\+Data}!pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}}
+\subsubsection{\texorpdfstring{Image\+Data()}{ImageData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/5]}}
+{\footnotesize\ttfamily Image\+Data\+::\+Image\+Data (\begin{DoxyParamCaption}\item[{unsigned int}]{width,  }\item[{unsigned int}]{height }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{structpixel_1_1graphics_1_1_image_data_a1e4ad1ff6ece0b9e3cf849531ca974b9}\label{structpixel_1_1graphics_1_1_image_data_a1e4ad1ff6ece0b9e3cf849531ca974b9}} 
+\index{pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}!Image\+Data@{Image\+Data}}
+\index{Image\+Data@{Image\+Data}!pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}}
+\subsubsection{\texorpdfstring{Image\+Data()}{ImageData()}\hspace{0.1cm}{\footnotesize\ttfamily [3/5]}}
+{\footnotesize\ttfamily Image\+Data\+::\+Image\+Data (\begin{DoxyParamCaption}\item[{unsigned int}]{\+\_\+width,  }\item[{unsigned int}]{\+\_\+height,  }\item[{uint8\+\_\+t $\ast$}]{\+\_\+data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{structpixel_1_1graphics_1_1_image_data_a7543c7d858923e3f5cb3f4042c07955d}\label{structpixel_1_1graphics_1_1_image_data_a7543c7d858923e3f5cb3f4042c07955d}} 
+\index{pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}!Image\+Data@{Image\+Data}}
+\index{Image\+Data@{Image\+Data}!pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}}
+\subsubsection{\texorpdfstring{Image\+Data()}{ImageData()}\hspace{0.1cm}{\footnotesize\ttfamily [4/5]}}
+{\footnotesize\ttfamily Image\+Data\+::\+Image\+Data (\begin{DoxyParamCaption}\item[{\hyperlink{structpixel_1_1graphics_1_1_image_data}{Image\+Data} \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+\mbox{\Hypertarget{structpixel_1_1graphics_1_1_image_data_a041260a3b269702c74b645f59c62ac19}\label{structpixel_1_1graphics_1_1_image_data_a041260a3b269702c74b645f59c62ac19}} 
+\index{pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}!Image\+Data@{Image\+Data}}
+\index{Image\+Data@{Image\+Data}!pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}}
+\subsubsection{\texorpdfstring{Image\+Data()}{ImageData()}\hspace{0.1cm}{\footnotesize\ttfamily [5/5]}}
+{\footnotesize\ttfamily Image\+Data\+::\+Image\+Data (\begin{DoxyParamCaption}\item[{const \hyperlink{structpixel_1_1graphics_1_1_image_data}{Image\+Data} \&}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{structpixel_1_1graphics_1_1_image_data_a539a8d95c83c29749dc039484f03025b}\label{structpixel_1_1graphics_1_1_image_data_a539a8d95c83c29749dc039484f03025b}} 
+\index{pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}!````~Image\+Data@{$\sim$\+Image\+Data}}
+\index{````~Image\+Data@{$\sim$\+Image\+Data}!pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}}
+\subsubsection{\texorpdfstring{$\sim$\+Image\+Data()}{~ImageData()}}
+{\footnotesize\ttfamily Image\+Data\+::$\sim$\+Image\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{structpixel_1_1graphics_1_1_image_data_af3a5790a3f3a336ddc5edd030b6fc7a3}\label{structpixel_1_1graphics_1_1_image_data_af3a5790a3f3a336ddc5edd030b6fc7a3}} 
+\index{pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}!clear@{clear}}
+\index{clear@{clear}!pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}}
+\subsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void Image\+Data\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{structpixel_1_1graphics_1_1_image_data_ae0a77895bec7cc75b01c75f266bd3981}\label{structpixel_1_1graphics_1_1_image_data_ae0a77895bec7cc75b01c75f266bd3981}} 
+\index{pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}!length@{length}}
+\index{length@{length}!pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}}
+\subsubsection{\texorpdfstring{length()}{length()}}
+{\footnotesize\ttfamily size\+\_\+t Image\+Data\+::length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{structpixel_1_1graphics_1_1_image_data_a2881f91adbd6e438f58a5a832d6cfdf4}\label{structpixel_1_1graphics_1_1_image_data_a2881f91adbd6e438f58a5a832d6cfdf4}} 
+\index{pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}!load\+\_\+subregion@{load\+\_\+subregion}}
+\index{load\+\_\+subregion@{load\+\_\+subregion}!pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}}
+\subsubsection{\texorpdfstring{load\+\_\+subregion()}{load\_subregion()}}
+{\footnotesize\ttfamily bool Image\+Data\+::load\+\_\+subregion (\begin{DoxyParamCaption}\item[{const \hyperlink{structpixel_1_1graphics_1_1_image_data}{Image\+Data} \&}]{other,  }\item[{unsigned}]{src\+\_\+x,  }\item[{unsigned}]{src\+\_\+y,  }\item[{unsigned}]{src\+\_\+width,  }\item[{unsigned}]{src\+\_\+height,  }\item[{unsigned}]{dest\+\_\+x,  }\item[{unsigned}]{dest\+\_\+y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{structpixel_1_1graphics_1_1_image_data_a5ccd3224c95beac9deeef32cefcbcef4}\label{structpixel_1_1graphics_1_1_image_data_a5ccd3224c95beac9deeef32cefcbcef4}} 
+\index{pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}!operator=@{operator=}}
+\index{operator=@{operator=}!pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \hyperlink{structpixel_1_1graphics_1_1_image_data}{Image\+Data} \& Image\+Data\+::operator= (\begin{DoxyParamCaption}\item[{const \hyperlink{structpixel_1_1graphics_1_1_image_data}{Image\+Data} \&}]{o }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{structpixel_1_1graphics_1_1_image_data_adca97f9888d7da5f9d95c781a2700cd4}\label{structpixel_1_1graphics_1_1_image_data_adca97f9888d7da5f9d95c781a2700cd4}} 
+\index{pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}!save@{save}}
+\index{save@{save}!pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}}
+\subsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily bool Image\+Data\+::save (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{structpixel_1_1graphics_1_1_image_data_a906eb1e4aa34ab928cfe5500a5ed70e4}\label{structpixel_1_1graphics_1_1_image_data_a906eb1e4aa34ab928cfe5500a5ed70e4}} 
+\index{pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}!subregion@{subregion}}
+\index{subregion@{subregion}!pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}}
+\subsubsection{\texorpdfstring{subregion()}{subregion()}}
+{\footnotesize\ttfamily \hyperlink{structpixel_1_1graphics_1_1_image_data}{Image\+Data} Image\+Data\+::subregion (\begin{DoxyParamCaption}\item[{unsigned int}]{x0,  }\item[{unsigned int}]{y0,  }\item[{unsigned int}]{\+\_\+width,  }\item[{unsigned int}]{\+\_\+height }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{structpixel_1_1graphics_1_1_image_data_aaed4255fc7c7edc0282ce58c111e27ed}\label{structpixel_1_1graphics_1_1_image_data_aaed4255fc7c7edc0282ce58c111e27ed}} 
+\index{pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}!transpose@{transpose}}
+\index{transpose@{transpose}!pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}}
+\subsubsection{\texorpdfstring{transpose()}{transpose()}}
+{\footnotesize\ttfamily \hyperlink{structpixel_1_1graphics_1_1_image_data}{Image\+Data} Image\+Data\+::transpose (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structpixel_1_1graphics_1_1_image_data_a20702befa5bfceaf6754ce1d611fe438}\label{structpixel_1_1graphics_1_1_image_data_a20702befa5bfceaf6754ce1d611fe438}} 
+\index{pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}!bpp@{bpp}}
+\index{bpp@{bpp}!pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}}
+\subsubsection{\texorpdfstring{bpp}{bpp}}
+{\footnotesize\ttfamily const int pixel\+::graphics\+::\+Image\+Data\+::bpp = 4\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{structpixel_1_1graphics_1_1_image_data_a0ae00692d59dfe806c4fc4717c4a8598}\label{structpixel_1_1graphics_1_1_image_data_a0ae00692d59dfe806c4fc4717c4a8598}} 
+\index{pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}!data@{data}}
+\index{data@{data}!pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}}
+\subsubsection{\texorpdfstring{data}{data}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ pixel\+::graphics\+::\+Image\+Data\+::data}
+
+\mbox{\Hypertarget{structpixel_1_1graphics_1_1_image_data_adbb7e4f741fefc4f347526a26b2920b8}\label{structpixel_1_1graphics_1_1_image_data_adbb7e4f741fefc4f347526a26b2920b8}} 
+\index{pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}!external\+\_\+data@{external\+\_\+data}}
+\index{external\+\_\+data@{external\+\_\+data}!pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}}
+\subsubsection{\texorpdfstring{external\+\_\+data}{external\_data}}
+{\footnotesize\ttfamily bool pixel\+::graphics\+::\+Image\+Data\+::external\+\_\+data}
+
+\mbox{\Hypertarget{structpixel_1_1graphics_1_1_image_data_a0cdbbd8ac40876965eb439f6fb8b8b74}\label{structpixel_1_1graphics_1_1_image_data_a0cdbbd8ac40876965eb439f6fb8b8b74}} 
+\index{pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}!height@{height}}
+\index{height@{height}!pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}}
+\subsubsection{\texorpdfstring{height}{height}}
+{\footnotesize\ttfamily unsigned pixel\+::graphics\+::\+Image\+Data\+::height}
+
+\mbox{\Hypertarget{structpixel_1_1graphics_1_1_image_data_a783c857c18bf3d306f08ff990d0a0387}\label{structpixel_1_1graphics_1_1_image_data_a783c857c18bf3d306f08ff990d0a0387}} 
+\index{pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}!width@{width}}
+\index{width@{width}!pixel\+::graphics\+::\+Image\+Data@{pixel\+::graphics\+::\+Image\+Data}}
+\subsubsection{\texorpdfstring{width}{width}}
+{\footnotesize\ttfamily unsigned pixel\+::graphics\+::\+Image\+Data\+::width}
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+pixel/pixel/graphics/\hyperlink{image_8h}{image.\+h}\item 
+pixel/pixel/graphics/\hyperlink{image_8cpp}{image.\+cpp}\end{DoxyCompactItemize}

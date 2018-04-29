@@ -1,0 +1,198 @@
+\hypertarget{classpixel_1_1_tile_layer}{}\section{pixel\+:\+:Tile\+Layer Class Reference}
+\label{classpixel_1_1_tile_layer}\index{pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}}
+
+
+Container of tile map data.  
+
+
+
+
+{\ttfamily \#include $<$pixel/tilemap/tile\+\_\+layer.\+h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structpixel_1_1_tile_layer_1_1_properties}{Properties}
+\item 
+struct \hyperlink{structpixel_1_1_tile_layer_1_1_tile}{Tile}
+\begin{DoxyCompactList}\small\item\em \hyperlink{structpixel_1_1_tile_layer_1_1_tile}{Tile} map data. \end{DoxyCompactList}\item 
+class \hyperlink{classpixel_1_1_tile_layer_1_1_tile_animation}{Tile\+Animation}
+\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{classpixel_1_1_tile_layer_a574b12c49854419c8ffb25e3a0929b57}{Property\+Map} = std\+::unordered\+\_\+map$<$ uint32\+\_\+t, \hyperlink{structpixel_1_1_tile_layer_1_1_properties}{Properties} $>$
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classpixel_1_1_tile_layer_af2c7a21a841b0d7c079844953f82e983}{Tile\+Layer} (\hyperlink{classpixel_1_1_tile_map}{Tile\+Map} $\ast$parent)
+\item 
+\hyperlink{classpixel_1_1_tile_layer_ab9db42e7f9328be9d02383a47723bd4c}{Tile\+Layer} (const \hyperlink{classpixel_1_1_tile_layer}{Tile\+Layer} \&)=default
+\item 
+bool \hyperlink{classpixel_1_1_tile_layer_a46c041e1520a373e5f40433fdf4bbbb3}{load} (const tmx\+::\+Tile\+Layer \&t)
+\item 
+void \hyperlink{classpixel_1_1_tile_layer_ab238fb2c10840f8d4ff549a586426d6b}{update} (float dt)
+\item 
+const std\+::vector$<$ \hyperlink{structpixel_1_1_tile_layer_1_1_tile}{Tile} $>$ \& \hyperlink{classpixel_1_1_tile_layer_a7e26612b03d22048540c4a117761dcc3}{tiles} () const
+\item 
+std\+::unordered\+\_\+map$<$ uint32\+\_\+t, \hyperlink{classpixel_1_1_tile_layer_1_1_tile_animation}{Tile\+Animation} $>$ \hyperlink{classpixel_1_1_tile_layer_a40c1016a17820376f26bca1d716db9ba}{animations} ()
+\item 
+unsigned \hyperlink{classpixel_1_1_tile_layer_ab001179cccf44cc4c92f47d32e5851b1}{width} () const
+\item 
+unsigned \hyperlink{classpixel_1_1_tile_layer_a97798e165a5ba01f5a2bf543e683ac34}{height} () const
+\item 
+glm\+::vec2 \hyperlink{classpixel_1_1_tile_layer_a5c1a71e3c62f7b9b0696165475b2e3f2}{parallax} () const
+\item 
+\hyperlink{structpixel_1_1_tile_layer_1_1_tile}{Tile} \& \hyperlink{classpixel_1_1_tile_layer_a290919b189e12f179cbbda6b0609ce60}{at} (\hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint} x, \hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint} y)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classpixel_1_1_tile_map}{Tile\+Map} $\ast$ \hyperlink{classpixel_1_1_tile_layer_af4ce211cba5a10a4bf124abefe1ead3c}{parent\+\_\+}
+\item 
+std\+::unordered\+\_\+map$<$ uint32\+\_\+t, \hyperlink{classpixel_1_1_tile_layer_1_1_tile_animation}{Tile\+Animation} $>$ \hyperlink{classpixel_1_1_tile_layer_acfdf684d2b5068389f7af757cd7c564e}{animations\+\_\+}
+\item 
+\hyperlink{classpixel_1_1_tile_layer_a574b12c49854419c8ffb25e3a0929b57}{Property\+Map} \hyperlink{classpixel_1_1_tile_layer_a24b7aa1484904926e2ff68958269448c}{props\+\_\+}
+\item 
+std\+::vector$<$ \hyperlink{structpixel_1_1_tile_layer_1_1_tile}{Tile} $>$ \hyperlink{classpixel_1_1_tile_layer_ab94b13dc20c47ddf7e26546bdcfff497}{tiles\+\_\+}
+\item 
+unsigned int \hyperlink{classpixel_1_1_tile_layer_a5a2c300689cf5fd25f44eea6b1ac5cd7}{width\+\_\+}
+\item 
+unsigned int \hyperlink{classpixel_1_1_tile_layer_abc0fb75ecadd59981e7148d3399e9631}{height\+\_\+}
+\item 
+glm\+::vec2 \hyperlink{classpixel_1_1_tile_layer_a3bea19601f8f1647503aee823664f91f}{parallax\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Container of tile map data. 
+
+Logically, a rectangular array of tile map tiles, regularly arranged and identically sized objects that are drawn as a contiguous image, and which may carry additional information to be used in collision detection or pathfinding.
+
+Maintains a collection of \hyperlink{structpixel_1_1_tile_layer_1_1_tile}{Tile\+Layer\+::\+Tile}. 
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_a574b12c49854419c8ffb25e3a0929b57}\label{classpixel_1_1_tile_layer_a574b12c49854419c8ffb25e3a0929b57}} 
+\index{pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}!Property\+Map@{Property\+Map}}
+\index{Property\+Map@{Property\+Map}!pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}}
+\subsubsection{\texorpdfstring{Property\+Map}{PropertyMap}}
+{\footnotesize\ttfamily using \hyperlink{classpixel_1_1_tile_layer_a574b12c49854419c8ffb25e3a0929b57}{pixel\+::\+Tile\+Layer\+::\+Property\+Map} =  std\+::unordered\+\_\+map$<$uint32\+\_\+t, \hyperlink{structpixel_1_1_tile_layer_1_1_properties}{Properties}$>$}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_af2c7a21a841b0d7c079844953f82e983}\label{classpixel_1_1_tile_layer_af2c7a21a841b0d7c079844953f82e983}} 
+\index{pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}!Tile\+Layer@{Tile\+Layer}}
+\index{Tile\+Layer@{Tile\+Layer}!pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}}
+\subsubsection{\texorpdfstring{Tile\+Layer()}{TileLayer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily pixel\+::\+Tile\+Layer\+::\+Tile\+Layer (\begin{DoxyParamCaption}\item[{\hyperlink{classpixel_1_1_tile_map}{Tile\+Map} $\ast$}]{parent }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_ab9db42e7f9328be9d02383a47723bd4c}\label{classpixel_1_1_tile_layer_ab9db42e7f9328be9d02383a47723bd4c}} 
+\index{pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}!Tile\+Layer@{Tile\+Layer}}
+\index{Tile\+Layer@{Tile\+Layer}!pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}}
+\subsubsection{\texorpdfstring{Tile\+Layer()}{TileLayer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily pixel\+::\+Tile\+Layer\+::\+Tile\+Layer (\begin{DoxyParamCaption}\item[{const \hyperlink{classpixel_1_1_tile_layer}{Tile\+Layer} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_a40c1016a17820376f26bca1d716db9ba}\label{classpixel_1_1_tile_layer_a40c1016a17820376f26bca1d716db9ba}} 
+\index{pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}!animations@{animations}}
+\index{animations@{animations}!pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}}
+\subsubsection{\texorpdfstring{animations()}{animations()}}
+{\footnotesize\ttfamily unordered\+\_\+map$<$ uint32\+\_\+t, \hyperlink{classpixel_1_1_tile_layer_1_1_tile_animation}{Tile\+Layer\+::\+Tile\+Animation} $>$ pixel\+::\+Tile\+Layer\+::animations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_a290919b189e12f179cbbda6b0609ce60}\label{classpixel_1_1_tile_layer_a290919b189e12f179cbbda6b0609ce60}} 
+\index{pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}!at@{at}}
+\index{at@{at}!pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}}
+\subsubsection{\texorpdfstring{at()}{at()}}
+{\footnotesize\ttfamily \hyperlink{structpixel_1_1_tile_layer_1_1_tile}{Tile\+Layer\+::\+Tile} \& pixel\+::\+Tile\+Layer\+::at (\begin{DoxyParamCaption}\item[{\hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint}}]{x,  }\item[{\hyperlink{namespacepixel_a6706355faabffaabebd430b2fa55843a}{uint}}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_a97798e165a5ba01f5a2bf543e683ac34}\label{classpixel_1_1_tile_layer_a97798e165a5ba01f5a2bf543e683ac34}} 
+\index{pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}!height@{height}}
+\index{height@{height}!pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}}
+\subsubsection{\texorpdfstring{height()}{height()}}
+{\footnotesize\ttfamily unsigned pixel\+::\+Tile\+Layer\+::height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_a46c041e1520a373e5f40433fdf4bbbb3}\label{classpixel_1_1_tile_layer_a46c041e1520a373e5f40433fdf4bbbb3}} 
+\index{pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}!load@{load}}
+\index{load@{load}!pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}}
+\subsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily bool pixel\+::\+Tile\+Layer\+::load (\begin{DoxyParamCaption}\item[{const tmx\+::\+Tile\+Layer \&}]{t }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_a5c1a71e3c62f7b9b0696165475b2e3f2}\label{classpixel_1_1_tile_layer_a5c1a71e3c62f7b9b0696165475b2e3f2}} 
+\index{pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}!parallax@{parallax}}
+\index{parallax@{parallax}!pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}}
+\subsubsection{\texorpdfstring{parallax()}{parallax()}}
+{\footnotesize\ttfamily glm\+::vec2 pixel\+::\+Tile\+Layer\+::parallax (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_a7e26612b03d22048540c4a117761dcc3}\label{classpixel_1_1_tile_layer_a7e26612b03d22048540c4a117761dcc3}} 
+\index{pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}!tiles@{tiles}}
+\index{tiles@{tiles}!pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}}
+\subsubsection{\texorpdfstring{tiles()}{tiles()}}
+{\footnotesize\ttfamily const vector$<$ \hyperlink{structpixel_1_1_tile_layer_1_1_tile}{Tile\+Layer\+::\+Tile} $>$ \& pixel\+::\+Tile\+Layer\+::tiles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_ab238fb2c10840f8d4ff549a586426d6b}\label{classpixel_1_1_tile_layer_ab238fb2c10840f8d4ff549a586426d6b}} 
+\index{pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}!update@{update}}
+\index{update@{update}!pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void pixel\+::\+Tile\+Layer\+::update (\begin{DoxyParamCaption}\item[{float}]{dt }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_ab001179cccf44cc4c92f47d32e5851b1}\label{classpixel_1_1_tile_layer_ab001179cccf44cc4c92f47d32e5851b1}} 
+\index{pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}!width@{width}}
+\index{width@{width}!pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}}
+\subsubsection{\texorpdfstring{width()}{width()}}
+{\footnotesize\ttfamily unsigned pixel\+::\+Tile\+Layer\+::width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_acfdf684d2b5068389f7af757cd7c564e}\label{classpixel_1_1_tile_layer_acfdf684d2b5068389f7af757cd7c564e}} 
+\index{pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}!animations\+\_\+@{animations\+\_\+}}
+\index{animations\+\_\+@{animations\+\_\+}!pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}}
+\subsubsection{\texorpdfstring{animations\+\_\+}{animations\_}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$uint32\+\_\+t, \hyperlink{classpixel_1_1_tile_layer_1_1_tile_animation}{Tile\+Animation}$>$ pixel\+::\+Tile\+Layer\+::animations\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_abc0fb75ecadd59981e7148d3399e9631}\label{classpixel_1_1_tile_layer_abc0fb75ecadd59981e7148d3399e9631}} 
+\index{pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}!height\+\_\+@{height\+\_\+}}
+\index{height\+\_\+@{height\+\_\+}!pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}}
+\subsubsection{\texorpdfstring{height\+\_\+}{height\_}}
+{\footnotesize\ttfamily unsigned int pixel\+::\+Tile\+Layer\+::height\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_a3bea19601f8f1647503aee823664f91f}\label{classpixel_1_1_tile_layer_a3bea19601f8f1647503aee823664f91f}} 
+\index{pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}!parallax\+\_\+@{parallax\+\_\+}}
+\index{parallax\+\_\+@{parallax\+\_\+}!pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}}
+\subsubsection{\texorpdfstring{parallax\+\_\+}{parallax\_}}
+{\footnotesize\ttfamily glm\+::vec2 pixel\+::\+Tile\+Layer\+::parallax\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_af4ce211cba5a10a4bf124abefe1ead3c}\label{classpixel_1_1_tile_layer_af4ce211cba5a10a4bf124abefe1ead3c}} 
+\index{pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}!parent\+\_\+@{parent\+\_\+}}
+\index{parent\+\_\+@{parent\+\_\+}!pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}}
+\subsubsection{\texorpdfstring{parent\+\_\+}{parent\_}}
+{\footnotesize\ttfamily \hyperlink{classpixel_1_1_tile_map}{Tile\+Map}$\ast$ pixel\+::\+Tile\+Layer\+::parent\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_a24b7aa1484904926e2ff68958269448c}\label{classpixel_1_1_tile_layer_a24b7aa1484904926e2ff68958269448c}} 
+\index{pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}!props\+\_\+@{props\+\_\+}}
+\index{props\+\_\+@{props\+\_\+}!pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}}
+\subsubsection{\texorpdfstring{props\+\_\+}{props\_}}
+{\footnotesize\ttfamily \hyperlink{classpixel_1_1_tile_layer_a574b12c49854419c8ffb25e3a0929b57}{Property\+Map} pixel\+::\+Tile\+Layer\+::props\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_ab94b13dc20c47ddf7e26546bdcfff497}\label{classpixel_1_1_tile_layer_ab94b13dc20c47ddf7e26546bdcfff497}} 
+\index{pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}!tiles\+\_\+@{tiles\+\_\+}}
+\index{tiles\+\_\+@{tiles\+\_\+}!pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}}
+\subsubsection{\texorpdfstring{tiles\+\_\+}{tiles\_}}
+{\footnotesize\ttfamily std\+::vector$<$\hyperlink{structpixel_1_1_tile_layer_1_1_tile}{Tile}$>$ pixel\+::\+Tile\+Layer\+::tiles\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classpixel_1_1_tile_layer_a5a2c300689cf5fd25f44eea6b1ac5cd7}\label{classpixel_1_1_tile_layer_a5a2c300689cf5fd25f44eea6b1ac5cd7}} 
+\index{pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}!width\+\_\+@{width\+\_\+}}
+\index{width\+\_\+@{width\+\_\+}!pixel\+::\+Tile\+Layer@{pixel\+::\+Tile\+Layer}}
+\subsubsection{\texorpdfstring{width\+\_\+}{width\_}}
+{\footnotesize\ttfamily unsigned int pixel\+::\+Tile\+Layer\+::width\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+pixel/pixel/tilemap/\hyperlink{tile__layer_8h}{tile\+\_\+layer.\+h}\item 
+pixel/pixel/tilemap/\hyperlink{tile__layer_8cpp}{tile\+\_\+layer.\+cpp}\end{DoxyCompactItemize}

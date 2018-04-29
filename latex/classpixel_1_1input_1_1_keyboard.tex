@@ -1,0 +1,84 @@
+\hypertarget{classpixel_1_1input_1_1_keyboard}{}\section{pixel\+:\+:input\+:\+:Keyboard Class Reference}
+\label{classpixel_1_1input_1_1_keyboard}\index{pixel\+::input\+::\+Keyboard@{pixel\+::input\+::\+Keyboard}}
+
+
+{\ttfamily \#include $<$pixel/input/keyboard.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{classpixel_1_1input_1_1_keyboard_a9c2e61fefeba656cf2eb1adfccacc58a}{Keymap} = unordered\+\_\+map$<$ uint32\+\_\+t, bool $>$
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classpixel_1_1input_1_1_keyboard_a2604776e54e7511a26d0b1c7e03c44e2}{Keyboard} ()=default
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classpixel_1_1input_1_1_keyboard_abb0164a3125839568abc8447ac671a87}{register\+\_\+callback} (G\+L\+F\+Wwindow $\ast$window)
+\item 
+static void \hyperlink{classpixel_1_1input_1_1_keyboard_a56a80cab312b6241d368e77f07f1b126}{key\+\_\+callback} (G\+L\+F\+Wwindow $\ast$window, int key, int scancode, int action, int mods)
+\item 
+static void \hyperlink{classpixel_1_1input_1_1_keyboard_a5c220f10381043f8c784ce69f4ae6015}{clear\+\_\+keymap} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classpixel_1_1input_1_1_keyboard_a9c2e61fefeba656cf2eb1adfccacc58a}{Keymap} \hyperlink{classpixel_1_1input_1_1_keyboard_ac0044c74f811cec7f45dd36038982725}{keymap} = \hyperlink{classpixel_1_1input_1_1_keyboard_a9c2e61fefeba656cf2eb1adfccacc58a}{Keyboard\+::\+Keymap}()
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classpixel_1_1input_1_1_keyboard_a9c2e61fefeba656cf2eb1adfccacc58a}\label{classpixel_1_1input_1_1_keyboard_a9c2e61fefeba656cf2eb1adfccacc58a}} 
+\index{pixel\+::input\+::\+Keyboard@{pixel\+::input\+::\+Keyboard}!Keymap@{Keymap}}
+\index{Keymap@{Keymap}!pixel\+::input\+::\+Keyboard@{pixel\+::input\+::\+Keyboard}}
+\subsubsection{\texorpdfstring{Keymap}{Keymap}}
+{\footnotesize\ttfamily using \hyperlink{classpixel_1_1input_1_1_keyboard_a9c2e61fefeba656cf2eb1adfccacc58a}{pixel\+::input\+::\+Keyboard\+::\+Keymap} =  unordered\+\_\+map$<$uint32\+\_\+t, bool$>$}
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classpixel_1_1input_1_1_keyboard_a2604776e54e7511a26d0b1c7e03c44e2}\label{classpixel_1_1input_1_1_keyboard_a2604776e54e7511a26d0b1c7e03c44e2}} 
+\index{pixel\+::input\+::\+Keyboard@{pixel\+::input\+::\+Keyboard}!Keyboard@{Keyboard}}
+\index{Keyboard@{Keyboard}!pixel\+::input\+::\+Keyboard@{pixel\+::input\+::\+Keyboard}}
+\subsubsection{\texorpdfstring{Keyboard()}{Keyboard()}}
+{\footnotesize\ttfamily pixel\+::input\+::\+Keyboard\+::\+Keyboard (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classpixel_1_1input_1_1_keyboard_a5c220f10381043f8c784ce69f4ae6015}\label{classpixel_1_1input_1_1_keyboard_a5c220f10381043f8c784ce69f4ae6015}} 
+\index{pixel\+::input\+::\+Keyboard@{pixel\+::input\+::\+Keyboard}!clear\+\_\+keymap@{clear\+\_\+keymap}}
+\index{clear\+\_\+keymap@{clear\+\_\+keymap}!pixel\+::input\+::\+Keyboard@{pixel\+::input\+::\+Keyboard}}
+\subsubsection{\texorpdfstring{clear\+\_\+keymap()}{clear\_keymap()}}
+{\footnotesize\ttfamily void pixel\+::input\+::\+Keyboard\+::clear\+\_\+keymap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classpixel_1_1input_1_1_keyboard_a56a80cab312b6241d368e77f07f1b126}\label{classpixel_1_1input_1_1_keyboard_a56a80cab312b6241d368e77f07f1b126}} 
+\index{pixel\+::input\+::\+Keyboard@{pixel\+::input\+::\+Keyboard}!key\+\_\+callback@{key\+\_\+callback}}
+\index{key\+\_\+callback@{key\+\_\+callback}!pixel\+::input\+::\+Keyboard@{pixel\+::input\+::\+Keyboard}}
+\subsubsection{\texorpdfstring{key\+\_\+callback()}{key\_callback()}}
+{\footnotesize\ttfamily void pixel\+::input\+::\+Keyboard\+::key\+\_\+callback (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window,  }\item[{int}]{key,  }\item[{int}]{scancode,  }\item[{int}]{action,  }\item[{int}]{mods }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classpixel_1_1input_1_1_keyboard_abb0164a3125839568abc8447ac671a87}\label{classpixel_1_1input_1_1_keyboard_abb0164a3125839568abc8447ac671a87}} 
+\index{pixel\+::input\+::\+Keyboard@{pixel\+::input\+::\+Keyboard}!register\+\_\+callback@{register\+\_\+callback}}
+\index{register\+\_\+callback@{register\+\_\+callback}!pixel\+::input\+::\+Keyboard@{pixel\+::input\+::\+Keyboard}}
+\subsubsection{\texorpdfstring{register\+\_\+callback()}{register\_callback()}}
+{\footnotesize\ttfamily void pixel\+::input\+::\+Keyboard\+::register\+\_\+callback (\begin{DoxyParamCaption}\item[{G\+L\+F\+Wwindow $\ast$}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classpixel_1_1input_1_1_keyboard_ac0044c74f811cec7f45dd36038982725}\label{classpixel_1_1input_1_1_keyboard_ac0044c74f811cec7f45dd36038982725}} 
+\index{pixel\+::input\+::\+Keyboard@{pixel\+::input\+::\+Keyboard}!keymap@{keymap}}
+\index{keymap@{keymap}!pixel\+::input\+::\+Keyboard@{pixel\+::input\+::\+Keyboard}}
+\subsubsection{\texorpdfstring{keymap}{keymap}}
+{\footnotesize\ttfamily \hyperlink{classpixel_1_1input_1_1_keyboard_a9c2e61fefeba656cf2eb1adfccacc58a}{Keyboard\+::\+Keymap} pixel\+::input\+::\+Keyboard\+::keymap = \hyperlink{classpixel_1_1input_1_1_keyboard_a9c2e61fefeba656cf2eb1adfccacc58a}{Keyboard\+::\+Keymap}()\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+pixel/pixel/input/\hyperlink{keyboard_8h}{keyboard.\+h}\item 
+pixel/pixel/input/\hyperlink{keyboard_8cpp}{keyboard.\+cpp}\end{DoxyCompactItemize}
