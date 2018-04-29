@@ -14,6 +14,11 @@ using namespace std;
 
 using uint = unsigned int;
 
+
+/**
+ * Generic rectangle class
+ * \tparam T numeric type for position and size fields
+ */
 template<typename T>
 class Rect
 {
@@ -30,7 +35,13 @@ public:
     }
 };
 
+/**
+ * int Rect specialization
+ */
 using RectI = Rect<int>;
+/**
+ * float Rect specialization
+ */
 using RectF = Rect<float>;
 
 template<class RectType>
@@ -45,10 +56,14 @@ glm::vec2 size(const RectType& r)
     return {r.w, r.h};
 }
 
+/**
+ * Simple data structure for representing line segments
+ */
 class LineSegment
 {
 
 public:
+
     LineSegment() = default;
     LineSegment(float x0, float y0, float x1, float y1)
         : x0(x0),
