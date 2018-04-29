@@ -1,1 +1,1 @@
-[Doxygen Docs!](https://antiomiae.github.io/pixel/)
+Docs: [Doxygen!](https://antiomiae.github.io/pixel/)
