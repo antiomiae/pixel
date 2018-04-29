@@ -4,6 +4,15 @@ sudo: required
 install: true
 
 script:
-  - docker build -t pixel-$TRAVIS_BRANCH .
-  - sh publishdocs
+  - docker build -t pixel-docs -f Dockerfile.docs .
+  - docker create --name pixel-docs pixel-docs
+  - docker cp pixel-docs:/docs docs
 
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  keep-history: true
+  local-dir: docs
+  on:
+    branch: master

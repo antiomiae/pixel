@@ -1,0 +1,9 @@
+FROM ubuntu:artful
+
+RUN apt-get update && apt-get install -y build-essential doxygen
+
+WORKDIR /src
+
+COPY . ./
+
+RUN doxygen .doxygen && cp -r docs /docs
