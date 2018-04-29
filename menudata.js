@@ -12,7 +12,6 @@ var menudata={children:[
 {text:"e",url:"namespacemembers.html#index_e"},
 {text:"f",url:"namespacemembers.html#index_f"},
 {text:"l",url:"namespacemembers.html#index_l"},
-{text:"m",url:"namespacemembers.html#index_m"},
 {text:"p",url:"namespacemembers.html#index_p"},
 {text:"r",url:"namespacemembers.html#index_r"},
 {text:"s",url:"namespacemembers.html#index_s"},

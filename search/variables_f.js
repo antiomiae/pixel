@@ -7,6 +7,6 @@ var searchData=
   ['registry_5f',['registry_',['../classpixel_1_1_tileset.html#ae1ead42caea0c607c07975e354fc4c1c',1,'pixel::Tileset']]],
   ['render_5fcontext_5f',['render_context_',['../classpixel_1_1_app.html#ab118f43ae1840ff7fbdd771694dbe194',1,'pixel::App']]],
   ['right',['right',['../structpixel_1_1pack_1_1_pack_node.html#a3622911c5c2374af970989dff1cb8485',1,'pixel::pack::PackNode']]],
-  ['row_5fmask',['ROW_MASK',['../namespacepixel.html#aea89b4b69dfad5a5cf380d6968eaab50',1,'pixel']]],
-  ['row_5fshift',['ROW_SHIFT',['../namespacepixel.html#a0b6a80d3466444afcc23925231216d21',1,'pixel']]]
+  ['row_5fmask',['ROW_MASK',['../classpixel_1_1_tile_atlas.html#a99eef6b950935461e66dbf770bb1d161',1,'pixel::TileAtlas']]],
+  ['row_5fshift',['ROW_SHIFT',['../classpixel_1_1_tile_atlas.html#ab1f854688325292069d307ee6ae9b57b',1,'pixel::TileAtlas']]]
 ];

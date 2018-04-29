@@ -25,7 +25,7 @@ var searchData=
   ['resourcepool',['ResourcePool',['../classpixel_1_1resources_1_1_resource_pool.html',1,'pixel::resources']]],
   ['restart',['restart',['../classpixel_1_1graphics_1_1_sprite_batch.html#a6c868cee20f62769c0d1130af15e9e16',1,'pixel::graphics::SpriteBatch']]],
   ['right',['right',['../structpixel_1_1pack_1_1_pack_node.html#a3622911c5c2374af970989dff1cb8485',1,'pixel::pack::PackNode']]],
-  ['row_5fmask',['ROW_MASK',['../namespacepixel.html#aea89b4b69dfad5a5cf380d6968eaab50',1,'pixel']]],
-  ['row_5fshift',['ROW_SHIFT',['../namespacepixel.html#a0b6a80d3466444afcc23925231216d21',1,'pixel']]],
+  ['row_5fmask',['ROW_MASK',['../classpixel_1_1_tile_atlas.html#a99eef6b950935461e66dbf770bb1d161',1,'pixel::TileAtlas']]],
+  ['row_5fshift',['ROW_SHIFT',['../classpixel_1_1_tile_atlas.html#ab1f854688325292069d307ee6ae9b57b',1,'pixel::TileAtlas']]],
   ['run',['run',['../classpixel_1_1_app.html#ae09dc71078b64c56c673b1ad1d25b5d1',1,'pixel::App']]]
 ];

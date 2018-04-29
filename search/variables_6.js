@@ -2,8 +2,8 @@ var searchData=
 [
   ['fbo_5f',['fbo_',['../classpixel_1_1graphics_1_1_offscreen_render_target.html#ab040cfa6c283593124e05bf2e668176a',1,'pixel::graphics::OffscreenRenderTarget']]],
   ['flags',['flags',['../structpixel_1_1_tile_layer_1_1_properties.html#a67fcb4eb4b6b041324a08ec2aa8ef3f7',1,'pixel::TileLayer::Properties']]],
-  ['flags_5fmask',['FLAGS_MASK',['../namespacepixel.html#abb267adea85e005428256b927067e7a6',1,'pixel']]],
-  ['flags_5fshift',['FLAGS_SHIFT',['../namespacepixel.html#a4720c8ed87add19bc1079e98087192fc',1,'pixel']]],
+  ['flags_5fmask',['FLAGS_MASK',['../classpixel_1_1_tile_atlas.html#a997b19c65eb559fc5eefb2e9337c145b',1,'pixel::TileAtlas']]],
+  ['flags_5fshift',['FLAGS_SHIFT',['../classpixel_1_1_tile_atlas.html#abd1876fd24e9a6d964be3f870a7c6369',1,'pixel::TileAtlas']]],
   ['flip_5fflags',['flip_flags',['../classpixel_1_1graphics_1_1_sprite.html#a95d3f0b1d6c8ff179af138018ff61f7e',1,'pixel::graphics::Sprite::flip_flags()'],['../structpixel_1_1_tile_layer_1_1_tile.html#a69642d11eccac2819b3b56dc07859f63',1,'pixel::TileLayer::Tile::flip_flags()']]],
   ['flipped',['flipped',['../structpixel_1_1pack_1_1_pack_params.html#a36e94201bd65095fed383599f2b50ac3',1,'pixel::pack::PackParams::flipped()'],['../structpixel_1_1pack_1_1_pack_node.html#ae718b2584684e9b08e76d8619674d301',1,'pixel::pack::PackNode::flipped()'],['../structpixel_1_1graphics_1_1_texture_region.html#abbd4cd9bdb8d5fd6502d80d55dfec2e8',1,'pixel::graphics::TextureRegion::flipped()']]],
   ['format_5f',['format_',['../classpixel_1_1graphics_1_1_texture.html#ade4f604868a1cbd7616ae97878a0732e',1,'pixel::graphics::Texture']]],
