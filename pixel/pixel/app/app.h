@@ -17,18 +17,27 @@ const float DEFAULT_PIXEL_SCALE = 2.0;
 
 class App
 {
+
 public:
+
     App() = default;
     App(glm::ivec2 window_size, glm::vec4 clear_color, float pixel_scale);
+
     void init(int flags = 0);
+
     void run();
-    void set_tick_callback(std::function<void(void)> cb);
+    void tick();
     void late_tick();
+
+    void set_tick_callback(std::function<void(void)> cb);
+
     void update_render_context();
+
     GLFWwindow* window();
     RenderContext& render_context();
 
 private:
+
     int frames_{};
     GLFWwindow* window_;
     std::function<void(void)> tick_callback_{};
@@ -39,7 +48,7 @@ private:
         DEFAULT_PIXEL_SCALE
     };
 
-    void tick();
+
 };
 
 };
