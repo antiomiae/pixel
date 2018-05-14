@@ -4,3 +4,6 @@
 [submodule "pixel/lib/sol2"]
 	path = pixel/lib/sol2
 	url = https://github.com/ThePhD/sol2.git
+[submodule "pixel/lib/glm"]
+	path = pixel/lib/glm
+	url = https://github.com/g-truc/glm.git

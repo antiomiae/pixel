@@ -5,8 +5,8 @@ cmake_policy(SET CMP0042 NEW)
 include(cmake/HunterGate.cmake)
 
 HunterGate(
-        URL "https://github.com/ruslo/hunter/archive/v0.20.50.tar.gz"
-        SHA1 "f119fdbbab3638472840464abb68b440ce5883da"
+        URL "https://github.com/ruslo/hunter/archive/v0.20.73.tar.gz"
+        SHA1 "5cd594b2bb12b2d66983a40b230f760187abbe5a"
         LOCAL
 )
 
@@ -36,7 +36,7 @@ endif (UNIX AND NOT APPLE)
 hunter_add_package(GTest)
 hunter_add_package(glew)
 hunter_add_package(glfw)
-hunter_add_package(glm)
+#hunter_add_package(glm)
 hunter_add_package(PNG)
 hunter_add_package(Lua)
 #hunter_add_package(Box2D)
@@ -45,7 +45,7 @@ hunter_add_package(Boost COMPONENTS system filesystem)
 find_package(GTest CONFIG REQUIRED)
 find_package(glew CONFIG REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
-find_package(glm CONFIG REQUIRED)
+#find_package(glm CONFIG REQUIRED)
 find_package(PNG CONFIG REQUIRED)
 find_package(Lua CONFIG REQUIRED)
 #find_package(Box2D CONFIG REQUIRED)

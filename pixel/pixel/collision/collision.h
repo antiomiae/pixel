@@ -11,7 +11,9 @@ using namespace std;
 
 class CollisionMap
 {
+
 public:
+    
     CollisionMap(uint width, uint height);
 
     void set(int x, int y, bool solid);
@@ -20,6 +22,7 @@ public:
     bool collide_column(uint col, uint start, uint stop);
 
 private:
+
     vector<uint8_t> bitmap_rows_;
     vector<uint8_t> bitmap_columns_;
     uint bitmap_width_;
