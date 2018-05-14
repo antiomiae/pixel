@@ -16,7 +16,7 @@ app:init(0)
 pixel.Keyboard.register_callback(app:window())
 
 local KEYS = {
-    W = string.byte(\'W'),
+    W = string.byte('W'),
     A = string.byte('A'),
     S = string.byte('S'),
     D = string.byte('D'),
