@@ -1,8 +1,8 @@
 var searchData=
 [
   ['layer',['layer',['../structpixel_1_1graphics_1_1_texture_region.html#ac17cc15ef453654e9a60bda0501ce2fb',1,'pixel::graphics::TextureRegion']]],
-  ['layer_5fmask',['LAYER_MASK',['../classpixel_1_1_tile_atlas.html#a7c86486c24eaa89994f9ab62bd2c5c61',1,'pixel::TileAtlas']]],
-  ['layer_5fshift',['LAYER_SHIFT',['../classpixel_1_1_tile_atlas.html#a218f11b74e77ce7c6bac786997b374d2',1,'pixel::TileAtlas']]],
+  ['layer_5fmask',['LAYER_MASK',['../classpixel_1_1_tile_atlas.html#a77ff53adae5ce922adbca37b5e315020',1,'pixel::TileAtlas']]],
+  ['layer_5fshift',['LAYER_SHIFT',['../classpixel_1_1_tile_atlas.html#a5d8575f5393fd692d338dc01a2614975',1,'pixel::TileAtlas']]],
   ['layers_5f',['layers_',['../classpixel_1_1graphics_1_1_texture_atlas.html#a3bd29372dd04c522a4cde4227d577946',1,'pixel::graphics::TextureAtlas::layers_()'],['../classpixel_1_1_tile_map.html#af24b467f025449cae2612dad8e9c2e2a',1,'pixel::TileMap::layers_()']]],
   ['location',['location',['../structpixel_1_1graphics_1_1_attribute.html#a4547040e98863207d138e265941781ef',1,'pixel::graphics::Attribute']]],
   ['locationspan',['locationSpan',['../struct_layout.html#a483e349db82792cfbd393797c2396957',1,'Layout']]],
