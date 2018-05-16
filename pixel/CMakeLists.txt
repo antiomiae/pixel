@@ -69,11 +69,14 @@ ADD_SUBDIRECTORY(lib/sol2)
 ADD_SUBDIRECTORY(lib/tmxlite/tmxlite)
 
 
-TARGET_LINK_LIBRARIES(pixel
+TARGET_LINK_LIBRARIES(
+    pixel
     PUBLIC Boost::system Boost::filesystem tinypng glfw glew::glew tmxlite
     Lua::lua_lib
     sol2
-    )
+    glm)
+
+TARGET_COMPILE_DEFINITIONS(glm INTERFACE GLM_ENABLE_EXPERIMENTAL)
 
 IF (CMAKE_C_FLAGS_DEBUG)
   TARGET_COMPILE_DEFINITIONS(pixel PUBLIC PIXEL_DEBUG=1)
