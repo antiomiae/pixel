@@ -22,21 +22,21 @@ class TileAtlas
 
 public:
 
-    constexpr static unsigned MAX_ATLAS_WIDTH = 2048;
-    constexpr static unsigned MAX_ATLAS_HEIGHT = 2048;
-    constexpr static unsigned MAX_ATLAS_LAYERS = 256;
-    constexpr static unsigned MAX_ATLAS_COLUMNS = 16;
-    constexpr static unsigned MAX_ATLAS_ROWS = 16;
+    const unsigned MAX_ATLAS_WIDTH = 2048;
+    const unsigned MAX_ATLAS_HEIGHT = 2048;
+    const unsigned MAX_ATLAS_LAYERS = 256;
+    const unsigned MAX_ATLAS_COLUMNS = 16;
+    const unsigned MAX_ATLAS_ROWS = 16;
 
-    constexpr static unsigned COLUMN_MASK = 0x000F;
-    constexpr static unsigned ROW_MASK = 0x00F0;
-    constexpr static unsigned LAYER_MASK = 0x0F00;
-    constexpr static unsigned FLAGS_MASK = 0xF000;
+    const unsigned COLUMN_MASK = 0x000F;
+    const unsigned ROW_MASK = 0x00F0;
+    const unsigned LAYER_MASK = 0x0F00;
+    const unsigned FLAGS_MASK = 0xF000;
 
-    constexpr static unsigned COLUMN_SHIFT = 0;
-    constexpr static unsigned ROW_SHIFT = 4;
-    constexpr static unsigned LAYER_SHIFT = 8;
-    constexpr static unsigned FLAGS_SHIFT = 12;
+    const unsigned COLUMN_SHIFT = 0;
+    const unsigned ROW_SHIFT = 4;
+    const unsigned LAYER_SHIFT = 8;
+    const unsigned FLAGS_SHIFT = 12;
 
     TileAtlas(unsigned tile_width, unsigned tile_height, unsigned max_tiles);
 
