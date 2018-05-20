@@ -73,8 +73,8 @@ ADD_LIBRARY(pixel
     pixel/tilemap/tile_layer_texture.h
     pixel/tilemap/tile_map.cpp
     pixel/tilemap/tile_map.h
-    pixel/tilemap/tile_map_renderer.cpp
-    pixel/tilemap/tile_map_renderer.h
+    pixel/graphics/renderers/tile_map_renderer.cpp
+    pixel/graphics/renderers/tile_map_renderer.h
     pixel/tilemap/tileset.cpp
     pixel/tilemap/tileset.h
     pixel/time/frame_counter.cpp

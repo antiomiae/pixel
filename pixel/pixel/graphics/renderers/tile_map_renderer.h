@@ -3,8 +3,8 @@
 
 #include <string>
 #include <pixel/graphics/graphics.h>
-#include "tile_map.h"
-#include "tile_layer_texture.h"
+#include "pixel/tilemap/tile_map.h"
+#include "pixel/tilemap/tile_layer_texture.h"
 
 namespace pixel::graphics::renderers
 {
