@@ -6,7 +6,7 @@
 #include "tile_map.h"
 #include "tile_layer_texture.h"
 
-namespace pixel
+namespace pixel::graphics::renderers
 {
 
 using graphics::Shader;
@@ -20,12 +20,12 @@ class TileMapRenderer
 public:
 
     TileMapRenderer();
-    void set_program(Shader&& p);
+
     void render(pixel::TileMap& t, Camera& camera);
 
 private:
     
-    unique_ptr<Shader> program_;
+    Shader program_;
     Buffer buffer_;
     Vao vao_;
     unique_ptr<TileLayerTexture> tile_layer_texture_;

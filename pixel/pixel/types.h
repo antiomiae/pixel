@@ -63,6 +63,7 @@ class LineSegment
 {
 
 public:
+    float x0, y0, x1, y1;
 
     LineSegment() = default;
     LineSegment(float x0, float y0, float x1, float y1)
@@ -71,8 +72,6 @@ public:
           x1(x1),
           y1(y1)
     {}
-
-    float x0, y0, x1, y1;
 
     float length()
     {

@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
 
     Keyboard::register_callback(app.window());
 
-    pixel::TileMapRenderer renderer{};
+    pixel::graphics::renderers::TileMapRenderer renderer{};
 
     tmx::Map tmx_map;
     error_if(!tmx_map.load(map_file), "Unable to load map file");

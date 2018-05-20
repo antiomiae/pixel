@@ -3,6 +3,7 @@
 
 using namespace pixel;
 using namespace pixel::graphics;
+using namespace pixel::graphics::renderers;
 
 void updateSprite(vector<Sprite>& sprites, GLFWwindow& window_)
 {

@@ -1,6 +1,3 @@
-//
-//
-
 #ifndef PIXEL_SPRITE_H
 #define PIXEL_SPRITE_H
 
@@ -15,7 +12,7 @@ public:
     /**
         * Sprite orientation flags
         * */
-    enum FlipFlag
+    enum FlipFlag : uint8_t
     {
         kHorizontal = 0x8,
         kVertical = 0x4,
@@ -30,11 +27,17 @@ public:
             float x, y, z;
         };
     };
+
     glm::vec2 center;
+
     glm::vec4 color{1.0, 1.0, 1.0, 1.0};
+
     glm::vec4 tint{0.0, 0.0, 0.0, 0.0};
+
     float angle;
+
     uint32_t flip_flags;
+
     TextureRegion texture_region;
 
     void flip_h(bool);

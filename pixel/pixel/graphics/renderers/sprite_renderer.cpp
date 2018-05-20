@@ -4,7 +4,7 @@
 #include <pixel/pixel.h>
 #include "sprite_renderer.h"
 
-namespace pixel::graphics
+namespace pixel::graphics::renderers
 {
 
 struct Vertex
@@ -21,7 +21,7 @@ SpriteRenderer::SpriteRenderer()
     init();
 }
 
-void SpriteRenderer::SpriteRenderer::bindAttributes()
+void SpriteRenderer::bindAttributes()
 {
     program_.activate();
     vao_.activate();
@@ -119,14 +119,14 @@ void SpriteRenderer::SpriteRenderer::bindAttributes()
     vao_.deactivate();
 }
 
-void SpriteRenderer::SpriteRenderer::init()
+void SpriteRenderer::init()
 {
     bindAttributes();
     initVertexBuffer();
     initIndexBuffer();
 }
 
-void SpriteRenderer::SpriteRenderer::initVertexBuffer()
+void SpriteRenderer::initVertexBuffer()
 {
     Vertex vertices[] = {
         {0, 0, 0, 1},
@@ -138,7 +138,7 @@ void SpriteRenderer::SpriteRenderer::initVertexBuffer()
     vertex_buffer_.loadData(vertices, sizeof(vertices));
 }
 
-void SpriteRenderer::SpriteRenderer::initIndexBuffer()
+void SpriteRenderer::initIndexBuffer()
 {
     uint8_t indices[] = {
         0, 1, 2,
@@ -148,7 +148,7 @@ void SpriteRenderer::SpriteRenderer::initIndexBuffer()
     index_buffer_.loadData(indices, sizeof(indices));
 }
 
-void SpriteRenderer::SpriteRenderer::render(const vector<Sprite>& sprites, Texture& atlas_texture, Camera& camera)
+void SpriteRenderer::render(const vector<Sprite>& sprites, Texture& atlas_texture, Camera& camera)
 {
     auto projection = camera.projection_matrix();
     auto view = camera.view_matrix();
@@ -185,7 +185,7 @@ void SpriteRenderer::SpriteRenderer::render(const vector<Sprite>& sprites, Textu
     log_gl_errors();
 }
 
-pixel::graphics::Shader& pixel::graphics::SpriteRenderer::program()
+Shader& SpriteRenderer::program()
 {
     return program_;
 }

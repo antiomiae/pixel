@@ -3,45 +3,51 @@
 
 #include "sprite.h"
 
-void pixel::graphics::Sprite::flip_h(bool set)
+namespace pixel::graphics
+{
+
+
+void Sprite::flip_h(bool set)
 {
     if (set) {
-        flip_flags |= kHorizontal;
+        flip_flags |= FlipFlag::kHorizontal;
     } else {
-        flip_flags &= ~kHorizontal;
+        flip_flags &= ~FlipFlag::kHorizontal;
     }
 }
 
-bool pixel::graphics::Sprite::flip_h()
+bool Sprite::flip_h()
 {
-    return flip_flags & kHorizontal;
+    return flip_flags & FlipFlag::kHorizontal;
 }
 
-void pixel::graphics::Sprite::flip_v(bool set)
+void Sprite::flip_v(bool set)
 {
 
     if (set) {
-        flip_flags |= kVertical;
+        flip_flags |= FlipFlag::kVertical;
     } else {
-        flip_flags &= ~kVertical;
+        flip_flags &= ~FlipFlag::kVertical;
     }
 }
 
-bool pixel::graphics::Sprite::flip_v()
+bool Sprite::flip_v()
 {
-    return flip_flags & kHorizontal;
+    return flip_flags & FlipFlag::kHorizontal;
 }
 
-void pixel::graphics::Sprite::flip_d(bool set)
+void Sprite::flip_d(bool set)
 {
     if (set) {
-        flip_flags |= kDiagonal;
+        flip_flags |= FlipFlag::kDiagonal;
     } else {
-        flip_flags &= ~kDiagonal;
+        flip_flags &= ~FlipFlag::kDiagonal;
     }
 }
 
-bool pixel::graphics::Sprite::flip_d()
+bool Sprite::flip_d()
 {
-    return flip_flags & kHorizontal;
+    return flip_flags & FlipFlag::kHorizontal;
+}
+
 }

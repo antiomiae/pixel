@@ -118,6 +118,7 @@ void bind_tile_layer(sol::state& lua, sol::table& binding, const string& type_na
 
 void bind_tile_map_renderer(sol::state& lua, sol::table& binding, const string& type_name)
 {
+    using namespace pixel::graphics::renderers;
     binding.new_usertype<TileMapRenderer>(
         type_name,
         "new", sol::constructors<TileMapRenderer()>(),
@@ -127,10 +128,11 @@ void bind_tile_map_renderer(sol::state& lua, sol::table& binding, const string& 
 
 void bind_sprite_renderer(sol::state& lua, sol::table& binding, const string& type_name)
 {
-    binding.new_usertype<graphics::SpriteRenderer>(
+    using namespace pixel::graphics::renderers;
+    binding.new_usertype<SpriteRenderer>(
         type_name,
-        "new", sol::constructors<graphics::SpriteRenderer()>(),
-        "render", &graphics::SpriteRenderer::render
+        "new", sol::constructors<SpriteRenderer()>(),
+        "render", &SpriteRenderer::render
     );
 }
 

@@ -3,11 +3,11 @@
 namespace
 {
 
-using pixel::TileMapRenderer;
+using pixel::graphics::renderers::TileMapRenderer;
 
 TEST(TileMapRenderer, DefaultConstructor)
 {
-    pixel::TileMapRenderer r2;
+    TileMapRenderer r2;
 };
 
 };

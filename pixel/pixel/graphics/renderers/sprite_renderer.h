@@ -5,17 +5,18 @@
 #define PIXEL_SPRITE_RENDERER_H
 
 #include <vector>
-#include "graphics.h"
-#include "camera.h"
+#include "pixel/graphics/graphics.h"
+#include "pixel/graphics/camera.h"
 
 
-namespace pixel::graphics
+namespace pixel::graphics::renderers
 {
 
 using namespace std;
 
 class SpriteRenderer
 {
+
 public:
     SpriteRenderer();
     void initVertexBuffer();
@@ -32,6 +33,7 @@ private:
     Shader program_;
 
     void init();
+    
 };
 
 };
