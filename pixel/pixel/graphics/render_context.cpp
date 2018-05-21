@@ -6,15 +6,15 @@
 using namespace pixel;
 
 
-RenderContext::RenderContext(glm::ivec2 size, glm::vec4 color, float scale)
-    : window_size{size},
-      default_clear_color{color},
-      pixel_scale{scale}
+RenderContext::RenderContext(const glm::ivec2& real_size, const glm::ivec2& virtual_size, const glm::vec4& color)
+    : window_size{real_size},
+      virtual_window_size{virtual_size},
+      default_clear_color{color}
 {
 }
 
 
 glm::mat4 RenderContext::projection() const
 {
-    return glm::ortho(0.0f, (float) window_size.x / pixel_scale, 0.0f, (float) window_size.y / pixel_scale);
+    return glm::ortho(0.0f, (float) virtual_window_size.x, 0.0f, (float) virtual_window_size.y);
 }

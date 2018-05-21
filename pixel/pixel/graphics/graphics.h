@@ -11,6 +11,7 @@
 #include "texture.h"
 #include "texture_region.h"
 #include "renderers/sprite_renderer.h"
+#include "renderers/tile_map_renderer.h"
 #include "render_context.h"
 #include "texture_atlas.h"
 #include "camera.h"

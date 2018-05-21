@@ -16,7 +16,7 @@ int main(int argc, char** argv)
 
     pixeltest::setup();
 
-    pixeltest::app().update_render_context();
+    pixel::app().update_render_context();
 
     int ret = RUN_ALL_TESTS();
 

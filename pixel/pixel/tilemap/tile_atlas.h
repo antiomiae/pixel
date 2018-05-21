@@ -1,5 +1,5 @@
-#ifndef PIXEL_TILESET_ATLAS_H
-#define PIXEL_TILESET_ATLAS_H
+#ifndef PIXEL_TILE_ATLAS_H
+#define PIXEL_TILE_ATLAS_H
 
 #include <vector>
 #include <cstdint>
@@ -74,4 +74,4 @@ private:
 };
 
 }
-#endif //PIXEL_TILESET_ATLAS_H
+#endif //PIXEL_TILE_ATLAS_H

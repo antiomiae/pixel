@@ -12,7 +12,6 @@
 #include "./tilemap/tile_layer.h"
 #include "./tilemap/tile_atlas.h"
 #include "./tilemap/tile_map.h"
-#include "pixel/graphics/renderers/tile_map_renderer.h"
 #include "./input/keyboard.h"
 
 #endif //PIXEL_PIXEL_H

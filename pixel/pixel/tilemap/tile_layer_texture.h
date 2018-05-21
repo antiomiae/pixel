@@ -1,14 +1,16 @@
 #ifndef PIXEL_TILE_LAYER_TEXTURE_H
 #define PIXEL_TILE_LAYER_TEXTURE_H
 
-#include <pixel/graphics/graphics.h>
 #include "tile_layer.h"
 #include "tile_atlas.h"
+#include <pixel/graphics/graphics.h>
 
 namespace pixel
 {
 
 using pixel::graphics::Texture;
+
+class TileLayer;
 
 /**
  * A texture of tile map data

@@ -6,6 +6,14 @@
 #include "pixel/tilemap/tile_map.h"
 #include "pixel/tilemap/tile_layer_texture.h"
 
+
+namespace pixel
+{
+class TileLayerTexture;
+class TileMap;
+class TileAtlas;
+}
+
 namespace pixel::graphics::renderers
 {
 
@@ -24,7 +32,7 @@ public:
     void render(pixel::TileMap& t, Camera& camera);
 
 private:
-    
+
     Shader program_;
     Buffer buffer_;
     Vao vao_;

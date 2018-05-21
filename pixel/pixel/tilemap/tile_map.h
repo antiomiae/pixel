@@ -14,6 +14,9 @@ namespace pixel
 
 using namespace std;
 
+class TileLayer;
+class TileAtlas;
+
 class TileMap
 {
 

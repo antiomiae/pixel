@@ -1,6 +1,7 @@
 #include <functional>
 #include <pixel/pixel.h>
-#include <pixel/graphics/common.h>
+#include <pixel/graphics/graphics.h>
+//#include <pixel/graphics/common.h>
 #include "binding.h"
 
 
@@ -60,12 +61,12 @@ void bind_app(sol::state& lua, sol::table& binding, const string& type_name)
 
         cout << "w = " << w << " h = " << h << " color = " << bg_color.x << " pixel_scale = " << pixel_scale << endl;
 
-        return std::make_unique<App>(glm::ivec2{w, h}, bg_color, pixel_scale);
+        return std::make_unique<App>(glm::ivec2{w * pixel_scale, h * pixel_scale}, glm::ivec2{w, h}, bg_color);
     };
 
     binding.new_usertype<App>(
         type_name,
-        sol::constructors<App(), App(glm::ivec2, glm::vec4, float)>(),
+        sol::constructors<App(), App(glm::ivec2, glm::ivec2), App(glm::ivec2, glm::ivec2, glm::vec4)>(),
         "init", &App::init,
         "run", &App::run,
         "set_tick_callback", &App::set_tick_callback,

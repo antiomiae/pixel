@@ -10,8 +10,6 @@
 namespace pixeltest
 {
 
-pixel::App& app();
-
 void setup();
 void teardown();
 

@@ -11,10 +11,6 @@ local app = pixel.App.create {
     pixel_scale = 2.0
 }
 
-app:init(0)
-
-pixel.Keyboard.register_callback(app:window())
-
 local KEYS = {
     W = string.byte('W'),
     A = string.byte('A'),

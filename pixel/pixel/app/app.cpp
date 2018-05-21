@@ -2,22 +2,49 @@
 #include "app.h"
 #include <pixel/error.h>
 #include <pixel/time/frame_rate_limiter.h>
-#include <pixel/util/util.h>
 
-using namespace pixel;
+namespace pixel
+{
+
 using namespace std;
 
-void glfw_error_callback(int err, const char *description) {
+App* shared_app = nullptr;
+
+void clear_color(const glm::vec4& color)
+{
+    glClearColor(color.r, color.g, color.b, color.a);
+}
+
+void glfw_error_callback(int err, const char* description)
+{
     cerr << "GLFW error encountered: " << err << endl;
     cerr << "Error description from glfw:" << endl;
     cerr << description << endl << endl;
 }
 
-glm::ivec2 window_size(GLFWwindow* window) {
+glm::ivec2 window_size(GLFWwindow* window)
+{
     int w, h;
     glfwGetWindowSize(window, &w, &h);
     return {w, h};
 };
+
+App::App()
+{
+    init();
+}
+
+
+App::App(const glm::ivec2& window_size, const glm::ivec2& virtual_window_size)
+    : App{window_size, virtual_window_size, DEFAULT_CLEAR_COLOR}
+{
+}
+
+App::App(const glm::ivec2& window_size, const glm::ivec2& virtual_window_size, const glm::vec4& clear_color)
+    : render_context_{window_size, virtual_window_size, clear_color}
+{
+    init();
+}
 
 void App::init(int flags)
 {
@@ -53,13 +80,9 @@ void App::init(int flags)
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
-void App::update_render_context() {
-   render_context_.window_size = window_size(window_);
-}
-
-void clear_color(const glm::vec4& color)
+void App::update_render_context()
 {
-    glClearColor(color.r, color.g, color.b, color.a);
+    render_context_.window_size = window_size(window_);
 }
 
 void App::run()
@@ -109,7 +132,7 @@ void App::tick()
 
 void App::late_tick()
 {
-    static pixel::time::FrameRateLimiter limiter(1/60.0, (1/60.0) / 1000);
+    static pixel::time::FrameRateLimiter limiter(1 / 60.0, (1 / 60.0) / 1000);
 
     limiter.delay(fps_counter_.timeSinceFrameStart());
 }
@@ -120,13 +143,19 @@ RenderContext& App::render_context()
 }
 
 
-App::App(glm::ivec2 window_size, glm::vec4 clear_color, float pixel_scale)
-    : render_context_{window_size, clear_color, pixel_scale}
-{
-}
-
-
 GLFWwindow* App::window()
 {
     return window_;
 }
+
+App& app()
+{
+    return *shared_app;
+}
+
+void set_app(App* new_shared_app)
+{
+    shared_app = new_shared_app;
+}
+
+};

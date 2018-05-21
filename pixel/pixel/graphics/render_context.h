@@ -11,19 +11,19 @@ namespace pixel
 struct RenderContext
 {
     /**
-     * Dimensions of drawing area
+     * Dimensions of window
      */
     glm::ivec2 window_size{0, 0};
 
     /**
-     * Number of screen pixels per internal pixel
-     */
-    float pixel_scale{1.0};
+      * Dimensions of virtual drawing area
+      */
+    glm::ivec2 virtual_window_size{0, 0};
 
     glm::vec4 default_clear_color{0.0, 0.0, 0.0, 1.0};
 
     RenderContext() = default;
-    RenderContext(glm::ivec2 size, glm::vec4 color, float scale);
+    RenderContext(const glm::ivec2& real_size, const glm::ivec2& virtual_size, const glm::vec4& color);
 
     /**
      * Orthographic projection matrix derived from `window_size` and `pixel_scale`

@@ -8,7 +8,7 @@ using namespace pixel::input;
 
 TEST(Keyboard, register_callback)
 {
-    Keyboard::register_callback(pixeltest::app().window());
+    Keyboard::register_callback(pixel::app().window());
 }
 
 }

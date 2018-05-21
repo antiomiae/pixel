@@ -65,14 +65,14 @@ ADD_LIBRARY(pixel
     pixel/graphics/renderers/line_renderer.h
     pixel/system/system.h
     pixel/system/version.h
-    pixel/tilemap/tile_atlas.cpp
-    pixel/tilemap/tile_atlas.h
     pixel/tilemap/tile_layer.cpp
     pixel/tilemap/tile_layer.h
     pixel/tilemap/tile_layer_texture.cpp
     pixel/tilemap/tile_layer_texture.h
     pixel/tilemap/tile_map.cpp
     pixel/tilemap/tile_map.h
+    pixel/tilemap/tile_atlas.cpp
+    pixel/tilemap/tile_atlas.h
     pixel/graphics/renderers/tile_map_renderer.cpp
     pixel/graphics/renderers/tile_map_renderer.h
     pixel/tilemap/tileset.cpp
@@ -87,7 +87,7 @@ ADD_LIBRARY(pixel
     pixel/util/symbol_map.h
     pixel/util/util.cpp
     pixel/util/util.h
-    )
+    pixel/system/system.cpp)
 
 
 ADD_DEPENDENCIES(pixel pixel_source_version)

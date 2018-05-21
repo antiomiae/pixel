@@ -17,7 +17,7 @@ public:
         pixel::binding::bind_pixel(lua);
         lua.script("package.path = package.path .. ';pixel/lua/?.lua'");
         lua.script("require 'pixel'");
-        lua["app"] = pixeltest::app();
+        lua["app"] = pixel::app();
     }
 };
 

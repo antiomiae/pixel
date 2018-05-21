@@ -3,6 +3,6 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-cd build-ninja && ninja -j4
+cd build-ninja && ninja -j8
 
 

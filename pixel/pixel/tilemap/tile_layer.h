@@ -8,6 +8,7 @@
 #include <tmxlite/Map.hpp>
 #include <tmxlite/TileLayer.hpp>
 #include <pixel/graphics/graphics.h>
+#include <pixel/tilemap/tile_map.h>
 #include "tileset.h"
 
 namespace pixel

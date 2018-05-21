@@ -18,7 +18,7 @@ TEST(SolTest, bind_pixel)
 
     auto binding = pixel::binding::bind_pixel(lua);
 
-    binding.set("app", &pixeltest::app);
+    binding.set("app", &pixel::app);
 
     ASSERT_NO_THROW(
         lua.script("pixel.app()")
