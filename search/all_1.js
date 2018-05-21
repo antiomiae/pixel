@@ -16,7 +16,7 @@ var searchData=
   ['animation_5fdefinition',['animation_definition',['../classpixel_1_1_tile_layer_1_1_tile_animation.html#a768c92f745be44a78a96635f5088c662',1,'pixel::TileLayer::TileAnimation']]],
   ['animations',['animations',['../classpixel_1_1_tile_layer.html#a40c1016a17820376f26bca1d716db9ba',1,'pixel::TileLayer']]],
   ['animations_5f',['animations_',['../classpixel_1_1_tile_layer.html#acfdf684d2b5068389f7af757cd7c564e',1,'pixel::TileLayer']]],
-  ['app',['App',['../classpixel_1_1_app.html',1,'pixel::App'],['../classpixel_1_1_app.html#af4a37ad9c00effc7cec0c255e03d70c4',1,'pixel::App::App()=default'],['../classpixel_1_1_app.html#a6fe4a8f0d585fb46ef777b772f33ee23',1,'pixel::App::App(glm::ivec2 window_size, glm::vec4 clear_color, float pixel_scale)'],['../namespacepixeltest.html#aa77e41da0fefe92099aa392ba6252883',1,'pixeltest::app()']]],
+  ['app',['App',['../classpixel_1_1_app.html',1,'pixel::App'],['../classpixel_1_1_app.html#af70e283ee1ce466b58a29dcdc7d19162',1,'pixel::App::App()'],['../classpixel_1_1_app.html#a15203ca8083114a10c6dc7ef95634cde',1,'pixel::App::App(const glm::ivec2 &amp;window_size, const glm::ivec2 &amp;virtual_window_size)'],['../classpixel_1_1_app.html#a55ff73ad6e090cddec349411a475d6b9',1,'pixel::App::App(const glm::ivec2 &amp;window_size, const glm::ivec2 &amp;virtual_window_size, const glm::vec4 &amp;clear_color)'],['../namespacepixel.html#aca75eb1946c932029ee67299a903edd7',1,'pixel::app()']]],
   ['app_2ecpp',['app.cpp',['../app_8cpp.html',1,'']]],
   ['app_2eh',['app.h',['../app_8h.html',1,'']]],
   ['argument_5ferror_5fif',['argument_error_if',['../namespacepixel.html#a58ea4609722bf807288c38aa6e00dd70',1,'pixel']]],

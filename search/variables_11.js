@@ -2,7 +2,7 @@ var searchData=
 [
   ['tex_5fregions_5f',['tex_regions_',['../classpixel_1_1graphics_1_1_texture_atlas.html#ae3b2220f2c72691db3f01b13bb461d63',1,'pixel::graphics::TextureAtlas']]],
   ['texture_5f',['texture_',['../classpixel_1_1_tile_atlas.html#ae8a6a2c5ef5ba5ec62074fe9ef6f46a5',1,'pixel::TileAtlas::texture_()'],['../classpixel_1_1_tile_layer_texture.html#aa37d5b79760867af790492c692a4cb36',1,'pixel::TileLayerTexture::texture_()']]],
-  ['texture_5fcoord',['texture_coord',['../structvertex.html#af8b7ebec37c34d9905c8b2a37bb9446b',1,'vertex::texture_coord()'],['../structpixel_1_1graphics_1_1_vertex.html#ac5f136e6d94c4cda12c5bd5922932b40',1,'pixel::graphics::Vertex::texture_coord()']]],
+  ['texture_5fcoord',['texture_coord',['../structpixel_1_1graphics_1_1renderers_1_1_vertex.html#add6a9ffa194c9982e6cef50ef58bb195',1,'pixel::graphics::renderers::Vertex']]],
   ['texture_5fid_5f',['texture_id_',['../classpixel_1_1graphics_1_1_texture.html#a7100104832df040d48a8c58faae3e6b6',1,'pixel::graphics::Texture']]],
   ['texture_5fregion',['texture_region',['../classpixel_1_1graphics_1_1_sprite.html#a0c8e41f26015ad6e94a8f2d85f6bc9df',1,'pixel::graphics::Sprite::texture_region()'],['../structpixel_1_1graphics_1_1_sprite_animation_1_1_frame.html#af723e632a129c9f9fded4a1b35dd378c',1,'pixel::graphics::SpriteAnimation::Frame::texture_region()']]],
   ['texture_5ftype_5f',['texture_type_',['../classpixel_1_1graphics_1_1_texture.html#ae1b0bc738c143b0240832129f18d4844',1,'pixel::graphics::Texture']]],
@@ -10,7 +10,7 @@ var searchData=
   ['tile_5fcount_5f',['tile_count_',['../classpixel_1_1_tile_map.html#a13b10cea1dd537a6bcb7577bc0ea15cc',1,'pixel::TileMap']]],
   ['tile_5fheight_5f',['tile_height_',['../classpixel_1_1_tile_atlas.html#a6df6a1d935e21370975029291196e2da',1,'pixel::TileAtlas']]],
   ['tile_5fid',['tile_id',['../structpixel_1_1_tile_layer_1_1_tile.html#a5f4c70323cd0793bd2cbe0c23247de56',1,'pixel::TileLayer::Tile::tile_id()'],['../structpixel_1_1_tileset_1_1_tile_1_1_animation_1_1_frame.html#ac6399710628ccbf534b19b439a33aa81',1,'pixel::Tileset::Tile::Animation::Frame::tile_id()'],['../structpixel_1_1_tileset_1_1_tile.html#aea8eb01c2f67c1cac8cbf12bbbf3d741',1,'pixel::Tileset::Tile::tile_id()']]],
-  ['tile_5flayer_5ftexture_5f',['tile_layer_texture_',['../classpixel_1_1_tile_map_renderer.html#a5a69f4f77b503ffeadffb0269050a2b1',1,'pixel::TileMapRenderer']]],
+  ['tile_5flayer_5ftexture_5f',['tile_layer_texture_',['../classpixel_1_1graphics_1_1renderers_1_1_tile_map_renderer.html#a233b3599c3c221df3a0dc99e2539cd8f',1,'pixel::graphics::renderers::TileMapRenderer']]],
   ['tile_5fsize_5f',['tile_size_',['../classpixel_1_1_tile_map.html#a3a21dfe07a89fdba673af740e8da46dd',1,'pixel::TileMap']]],
   ['tile_5fwidth_5f',['tile_width_',['../classpixel_1_1_tile_atlas.html#a03f53cf1b9bd75e4f02cff6907f074a8',1,'pixel::TileAtlas']]],
   ['tiles',['tiles',['../classpixel_1_1_tile_layer_1_1_tile_animation.html#aa149a12e4eae31c60714565b2d64861e',1,'pixel::TileLayer::TileAnimation']]],

@@ -4,7 +4,7 @@ var searchData=
   ['can_5ffit',['can_fit',['../structpixel_1_1pack_1_1_pack_node.html#a106addb740c67e52ea781ecbfb778d22',1,'pixel::pack::PackNode']]],
   ['center_5fat',['center_at',['../classpixel_1_1graphics_1_1_camera.html#a3f67a033a8b22e83c78ecfb2f9fc52a7',1,'pixel::graphics::Camera::center_at(float x, float y)'],['../classpixel_1_1graphics_1_1_camera.html#ac011c85f13b10176b023d9e02f73f1f7',1,'pixel::graphics::Camera::center_at(const glm::vec2 &amp;)']]],
   ['clear',['clear',['../structpixel_1_1graphics_1_1_image_data.html#af3a5790a3f3a336ddc5edd030b6fc7a3',1,'pixel::graphics::ImageData']]],
-  ['clear_5fcolor',['clear_color',['../app_8cpp.html#a5fbf4b63994b492e6d4db94742408254',1,'app.cpp']]],
+  ['clear_5fcolor',['clear_color',['../namespacepixel.html#a24f0e498cd20ed91cc7528405f0a03fb',1,'pixel']]],
   ['clear_5fkeymap',['clear_keymap',['../classpixel_1_1input_1_1_keyboard.html#a5c220f10381043f8c784ce69f4ae6015',1,'pixel::input::Keyboard']]],
   ['collide_5fcolumn',['collide_column',['../classpixel_1_1collision_1_1_collision_map.html#a49a0a8ae03166393be6364a874f24de7',1,'pixel::collision::CollisionMap']]],
   ['collide_5frow',['collide_row',['../classpixel_1_1collision_1_1_collision_map.html#af2f5629a4500bba2d172964d740699b1',1,'pixel::collision::CollisionMap']]],

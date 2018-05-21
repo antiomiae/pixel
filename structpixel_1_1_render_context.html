@@ -82,8 +82,8 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae08ab393a489732b6a0c38fa50adae56"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1_render_context.html#ae08ab393a489732b6a0c38fa50adae56">RenderContext</a> ()=default</td></tr>
 <tr class="separator:ae08ab393a489732b6a0c38fa50adae56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8444032f302469f5fb925b9b6e2078c3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1_render_context.html#a8444032f302469f5fb925b9b6e2078c3">RenderContext</a> (glm::ivec2 <a class="el" href="namespacepixel.html#a465745e3b1a334686475c629948876f0">size</a>, glm::vec4 color, float scale)</td></tr>
-<tr class="separator:a8444032f302469f5fb925b9b6e2078c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afce278c9af21fb8f991cd506b0e6248b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1_render_context.html#afce278c9af21fb8f991cd506b0e6248b">RenderContext</a> (const glm::ivec2 &amp;real_size, const glm::ivec2 &amp;virtual_size, const glm::vec4 &amp;color)</td></tr>
+<tr class="separator:afce278c9af21fb8f991cd506b0e6248b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a337152d3d3362d25ef7b0ddab3cddd41"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1_render_context.html#a337152d3d3362d25ef7b0ddab3cddd41">projection</a> () const</td></tr>
 <tr class="memdesc:a337152d3d3362d25ef7b0ddab3cddd41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orthographic projection matrix derived from <code>window_size</code> and <code>pixel_scale</code> Transforms the region [(0, 0), (window_size / pixel_scale)] to [(-1, -1), (1, 1)].  <a href="#a337152d3d3362d25ef7b0ddab3cddd41">More...</a><br /></td></tr>
 <tr class="separator:a337152d3d3362d25ef7b0ddab3cddd41"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -91,11 +91,11 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aca15b0c7467b431a824c5adaf8286fbb"><td class="memItemLeft" align="right" valign="top">glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1_render_context.html#aca15b0c7467b431a824c5adaf8286fbb">window_size</a> {0, 0}</td></tr>
-<tr class="memdesc:aca15b0c7467b431a824c5adaf8286fbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensions of drawing area.  <a href="#aca15b0c7467b431a824c5adaf8286fbb">More...</a><br /></td></tr>
+<tr class="memdesc:aca15b0c7467b431a824c5adaf8286fbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensions of window.  <a href="#aca15b0c7467b431a824c5adaf8286fbb">More...</a><br /></td></tr>
 <tr class="separator:aca15b0c7467b431a824c5adaf8286fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa69e9ab9ae6832885d8c4390e95d810a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1_render_context.html#aa69e9ab9ae6832885d8c4390e95d810a">pixel_scale</a> {1.0}</td></tr>
-<tr class="memdesc:aa69e9ab9ae6832885d8c4390e95d810a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of screen pixels per internal pixel.  <a href="#aa69e9ab9ae6832885d8c4390e95d810a">More...</a><br /></td></tr>
-<tr class="separator:aa69e9ab9ae6832885d8c4390e95d810a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcece4a5b1d51b27cb4083efdb5e9e58"><td class="memItemLeft" align="right" valign="top">glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1_render_context.html#afcece4a5b1d51b27cb4083efdb5e9e58">virtual_window_size</a> {0, 0}</td></tr>
+<tr class="memdesc:afcece4a5b1d51b27cb4083efdb5e9e58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensions of virtual drawing area.  <a href="#afcece4a5b1d51b27cb4083efdb5e9e58">More...</a><br /></td></tr>
+<tr class="separator:afcece4a5b1d51b27cb4083efdb5e9e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafda602522210ff2cd46ff0cb8ec6396"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1_render_context.html#aafda602522210ff2cd46ff0cb8ec6396">default_clear_color</a> {0.0, 0.0, 0.0, 1.0}</td></tr>
 <tr class="separator:aafda602522210ff2cd46ff0cb8ec6396"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -127,8 +127,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a8444032f302469f5fb925b9b6e2078c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8444032f302469f5fb925b9b6e2078c3">&#9670;&nbsp;</a></span>RenderContext() <span class="overload">[2/2]</span></h2>
+<a id="afce278c9af21fb8f991cd506b0e6248b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afce278c9af21fb8f991cd506b0e6248b">&#9670;&nbsp;</a></span>RenderContext() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -136,20 +136,20 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">RenderContext::RenderContext </td>
           <td>(</td>
-          <td class="paramtype">glm::ivec2&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
+          <td class="paramtype">const glm::ivec2 &amp;&#160;</td>
+          <td class="paramname"><em>real_size</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">glm::vec4&#160;</td>
-          <td class="paramname"><em>color</em>, </td>
+          <td class="paramtype">const glm::ivec2 &amp;&#160;</td>
+          <td class="paramname"><em>virtual_size</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>scale</em>&#160;</td>
+          <td class="paramtype">const glm::vec4 &amp;&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -197,19 +197,19 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aa69e9ab9ae6832885d8c4390e95d810a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa69e9ab9ae6832885d8c4390e95d810a">&#9670;&nbsp;</a></span>pixel_scale</h2>
+<a id="afcece4a5b1d51b27cb4083efdb5e9e58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcece4a5b1d51b27cb4083efdb5e9e58">&#9670;&nbsp;</a></span>virtual_window_size</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float pixel::RenderContext::pixel_scale {1.0}</td>
+          <td class="memname">glm::ivec2 pixel::RenderContext::virtual_window_size {0, 0}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Number of screen pixels per internal pixel. </p>
+<p>Dimensions of virtual drawing area. </p>
 
 </div>
 </div>
@@ -225,7 +225,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Dimensions of drawing area. </p>
+<p>Dimensions of window. </p>
 
 </div>
 </div>

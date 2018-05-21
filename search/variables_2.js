@@ -9,7 +9,7 @@ var searchData=
   ['blocks_5f',['blocks_',['../classpixel_1_1graphics_1_1_texture_atlas.html#aea73fa43e6505c3f85afeb1566f4aa21',1,'pixel::graphics::TextureAtlas']]],
   ['bounds_5f',['bounds_',['../classpixel_1_1graphics_1_1_camera.html#a096d3316f5e63f939bce6dce6a115e4d',1,'pixel::graphics::Camera']]],
   ['bpp',['bpp',['../structpixel_1_1graphics_1_1_image_data.html#a20702befa5bfceaf6754ce1d611fe438',1,'pixel::graphics::ImageData']]],
-  ['buffer_5f',['buffer_',['../classpixel_1_1_tile_map_renderer.html#a328d33f149e2ccd63f033263ac9cd22a',1,'pixel::TileMapRenderer']]],
+  ['buffer_5f',['buffer_',['../classpixel_1_1graphics_1_1renderers_1_1_tile_map_renderer.html#a4defc549857506474b0f5b8fdd5f882a',1,'pixel::graphics::renderers::TileMapRenderer']]],
   ['buffer_5fid_5f',['buffer_id_',['../classpixel_1_1graphics_1_1_buffer.html#a3c9df71bba83b43e11784699cdc0d44a',1,'pixel::graphics::Buffer::buffer_id_()'],['../classpixel_1_1graphics_1_1_index_buffer.html#a85ecce71a34c017da3d2f45d89a07d11',1,'pixel::graphics::IndexBuffer::buffer_id_()']]],
   ['build_5fversion',['build_version',['../namespacepixel.html#a6e11b54e14afd660e5a36b3abe987836',1,'pixel']]]
 ];

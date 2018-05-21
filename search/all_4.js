@@ -9,7 +9,7 @@ var searchData=
   ['debugprint',['debugPrint',['../structpixel_1_1graphics_1_1_attribute.html#abbf0a8cc12603b77f26dee1b841cdac8',1,'pixel::graphics::Attribute::debugPrint()'],['../classpixel_1_1graphics_1_1_shader.html#a9af96d40a1d237e707737f6206ac5149',1,'pixel::graphics::Shader::debugPrint()']]],
   ['decode_5fatlas_5fid',['decode_atlas_id',['../classpixel_1_1_tile_atlas.html#aa117e34475453f9809d04ab2c29b543d',1,'pixel::TileAtlas']]],
   ['default_5fclear_5fcolor',['default_clear_color',['../structpixel_1_1_render_context.html#aafda602522210ff2cd46ff0cb8ec6396',1,'pixel::RenderContext::default_clear_color()'],['../namespacepixel.html#aa4c296a437eb1e0def40cff29b699be2',1,'pixel::DEFAULT_CLEAR_COLOR()']]],
-  ['default_5fpixel_5fscale',['DEFAULT_PIXEL_SCALE',['../namespacepixel.html#ae08ee7e855f850855389107cb37ae167',1,'pixel']]],
+  ['default_5fpixel_5fscale',['DEFAULT_PIXEL_SCALE',['../namespacepixel.html#a4d758178da14be29ba059e0fa3b57ffb',1,'pixel']]],
   ['default_5fwindow_5fsize',['DEFAULT_WINDOW_SIZE',['../namespacepixel.html#a9c38287d50c84fb5c1f25c965db0a6a5',1,'pixel']]],
   ['delay',['delay',['../classpixel_1_1time_1_1_frame_rate_limiter.html#af21dd5d6c44237e3080a955807f399f2',1,'pixel::time::FrameRateLimiter']]],
   ['depth',['depth',['../classpixel_1_1graphics_1_1_texture.html#ae90ae0823981c742f0481eb315f071ab',1,'pixel::graphics::Texture']]],

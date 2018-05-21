@@ -9,7 +9,7 @@ var searchData=
   ['shader_5futils_2eh',['shader_utils.h',['../shader__utils_8h.html',1,'']]],
   ['shadercheck_2ecpp',['shadercheck.cpp',['../shadercheck_8cpp.html',1,'']]],
   ['shadercheck_2eh',['shadercheck.h',['../shadercheck_8h.html',1,'']]],
-  ['sprite_2ecpp',['sprite.cpp',['../demos_2sprite_8cpp.html',1,'(Global Namespace)'],['../pixel_2graphics_2sprite_8cpp.html',1,'(Global Namespace)']]],
+  ['sprite_2ecpp',['sprite.cpp',['../sprite_8cpp.html',1,'']]],
   ['sprite_2eh',['sprite.h',['../sprite_8h.html',1,'']]],
   ['sprite_5fanimation_2ecpp',['sprite_animation.cpp',['../sprite__animation_8cpp.html',1,'']]],
   ['sprite_5fanimation_2eh',['sprite_animation.h',['../sprite__animation_8h.html',1,'']]],
@@ -19,5 +19,6 @@ var searchData=
   ['sprite_5frenderer_2eh',['sprite_renderer.h',['../sprite__renderer_8h.html',1,'']]],
   ['symbol_5fmap_2ecpp',['symbol_map.cpp',['../symbol__map_8cpp.html',1,'']]],
   ['symbol_5fmap_2eh',['symbol_map.h',['../symbol__map_8h.html',1,'']]],
+  ['system_2ecpp',['system.cpp',['../system_8cpp.html',1,'']]],
   ['system_2eh',['system.h',['../system_8h.html',1,'']]]
 ];

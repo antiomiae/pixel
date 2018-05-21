@@ -1,7 +1,7 @@
 var searchData=
 [
+  ['template_2ecpp',['template.cpp',['../template_8cpp.html',1,'']]],
   ['test_2ecpp',['test.cpp',['../test_8cpp.html',1,'']]],
-  ['test_5fapp_2ecpp',['test_app.cpp',['../test__app_8cpp.html',1,'']]],
   ['test_5fbinding_2ecpp',['test_binding.cpp',['../test__binding_8cpp.html',1,'']]],
   ['test_5fcamera_2ecpp',['test_camera.cpp',['../test__camera_8cpp.html',1,'']]],
   ['test_5fcollision_2ecpp',['test_collision.cpp',['../test__collision_8cpp.html',1,'']]],
@@ -9,7 +9,6 @@ var searchData=
   ['test_5foffscreen_5frender_5ftarget_2ecpp',['test_offscreen_render_target.cpp',['../test__offscreen__render__target_8cpp.html',1,'']]],
   ['test_5fpack_2ecpp',['test_pack.cpp',['../test__pack_8cpp.html',1,'']]],
   ['test_5frenderers_2ecpp',['test_renderers.cpp',['../test__renderers_8cpp.html',1,'']]],
-  ['test_5fsetup_2ecpp',['test_setup.cpp',['../test__setup_8cpp.html',1,'']]],
   ['test_5fsol_2ecpp',['test_sol.cpp',['../test__sol_8cpp.html',1,'']]],
   ['test_5fsprite_5fanimation_2ecpp',['test_sprite_animation.cpp',['../test__sprite__animation_8cpp.html',1,'']]],
   ['test_5ftexture_5fatlas_2ecpp',['test_texture_atlas.cpp',['../test__texture__atlas_8cpp.html',1,'']]],
