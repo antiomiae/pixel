@@ -1,13 +1,9 @@
-//
-//
-
-#include "shader.h"
+#include "graphics.h"
 #include "shader_utils.h"
 #include "../util/symbol_map.h"
 #include "../util/util.h"
 #include "../util/collections.h"
 #include <pixel/error.h>
-#include <iostream>
 #include <sstream>
 #include <fstream>
 

@@ -1,5 +1,5 @@
 #include "system.h"
-#include <pixel/input/keyboard.h>
+#include <pixel/input/input.h>
 
 void pixel::init()
 {

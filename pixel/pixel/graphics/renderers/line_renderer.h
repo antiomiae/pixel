@@ -2,10 +2,7 @@
 #define PIXEL_LINE_RENDERER_H
 
 #include <vector>
-#include <pixel/graphics/shader.h>
-#include <pixel/graphics/camera.h>
-#include <pixel/graphics/vao.h>
-#include <pixel/graphics/buffer.h>
+#include <pixel/graphics/graphics.h>
 #include <pixel/types.h>
 
 namespace pixel::graphics::renderers

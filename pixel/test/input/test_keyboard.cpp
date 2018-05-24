@@ -1,4 +1,4 @@
-#include <pixel/input/keyboard.h>
+#include <pixel/input/input.h>
 #include <test/setup.h>
 
 namespace

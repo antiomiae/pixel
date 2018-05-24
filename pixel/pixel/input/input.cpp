@@ -1,5 +1,5 @@
 #include <functional>
-#include "keyboard.h"
+#include "input.h"
 
 namespace pixel::input {
 

@@ -15,16 +15,10 @@ ADD_LIBRARY(pixel
     pixel/collision/collision.cpp
     pixel/collision/collision.h
     pixel/error.h
-    pixel/graphics/attribute.cpp
-    pixel/graphics/attribute.h
     pixel/graphics/buffer.cpp
-    pixel/graphics/buffer.h
-    pixel/graphics/camera.cpp
-    pixel/graphics/camera.h
     pixel/graphics/common.h
     pixel/graphics/graphics.h
     pixel/graphics/image.cpp
-    pixel/graphics/image.h
     pixel/graphics/offscreen_render_target.cpp
     pixel/graphics/offscreen_render_target.h
     pixel/graphics/pack.cpp
@@ -32,25 +26,15 @@ ADD_LIBRARY(pixel
     pixel/graphics/render_context.cpp
     pixel/graphics/render_context.h
     pixel/graphics/shader.cpp
-    pixel/graphics/shader.h
     pixel/graphics/shader_utils.cpp
     pixel/graphics/shader_utils.h
     pixel/graphics/sprite.cpp
     pixel/graphics/sprite.h
-    pixel/graphics/sprite_animation.cpp
-    pixel/graphics/sprite_animation.h
-    pixel/graphics/sprite_batch.cpp
-    pixel/graphics/sprite_batch.h
     pixel/graphics/renderers/sprite_renderer.cpp
     pixel/graphics/renderers/sprite_renderer.h
-    pixel/graphics/texture.cpp
-    pixel/graphics/texture.h
     pixel/graphics/texture_atlas.cpp
-    pixel/graphics/texture_atlas.h
-    pixel/graphics/vao.cpp
-    pixel/graphics/vao.h
-    pixel/input/keyboard.cpp
-    pixel/input/keyboard.h
+    pixel/input/input.cpp
+    pixel/input/input.h
     pixel/lua/binding.cpp
     pixel/lua/binding.h
     pixel/lua/wrap_camera.cpp
@@ -87,7 +71,7 @@ ADD_LIBRARY(pixel
     pixel/util/symbol_map.h
     pixel/util/util.cpp
     pixel/util/util.h
-    pixel/system/system.cpp)
+    pixel/system/system.cpp pixel/graphics/graphics.cpp)
 
 
 ADD_DEPENDENCIES(pixel pixel_source_version)

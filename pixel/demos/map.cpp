@@ -1,7 +1,7 @@
 #include <pixel/pixel.h>
 #include <unistd.h>
 #include <pixel/error.h>
-#include <pixel/input/keyboard.h>
+#include <pixel/input/input.h>
 
 using namespace std;
 using namespace pixel;

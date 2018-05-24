@@ -1,4 +1,4 @@
-#include <pixel/graphics/camera.h>
+#include <pixel/graphics/graphics.h>
 #include <test/setup.h>
 
 namespace

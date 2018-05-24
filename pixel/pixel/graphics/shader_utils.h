@@ -5,8 +5,7 @@
 #define PIXEL_SHADER_UTILS_H
 
 #include "common.h"
-#include "attribute.h"
-#include "attribute.h"
+#include "graphics.h"
 
 namespace pixel::graphics
 {

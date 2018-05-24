@@ -1,14 +1,16 @@
 #include "image.h"
-
+#include "graphics.h"
 #include <tinypng/png.h>
 #include "../util/util.h"
 #include "../error.h"
 
-using namespace pixel::graphics;
 using namespace pixel::util;
 
+namespace pixel::graphics
+{
 
-ImageData pixel::graphics::load_png(const string& path)
+
+ImageData load_png(const string& path)
 {
     if (!file_exists(path)) {
         pixel_error("file does not exist at path: " + path);
@@ -24,7 +26,7 @@ ImageData pixel::graphics::load_png(const string& path)
 };
 
 
-bool pixel::graphics::save_png(const ImageData& img, const std::string& path)
+bool save_png(const ImageData& img, const std::string& path)
 {
     tinypng::PNG png(img.width, img.height, img.data);
 
@@ -190,3 +192,5 @@ ImageData ImageData::transpose() const
 
     return out;
 }
+
+};

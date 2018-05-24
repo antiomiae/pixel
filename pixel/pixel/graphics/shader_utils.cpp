@@ -1,12 +1,9 @@
-//
-//
-
 #include "shader_utils.h"
+#include "graphics.h"
 #include "../util/symbol_map.h"
 #include "../util/util.h"
 #include "../util/collections.h"
 #include <pixel/error.h>
-#include <iostream>
 #include <sstream>
 #include <fstream>
 
@@ -41,7 +38,7 @@ void log_shader_error(GLuint shader)
         return;
     }
 
-    vector<GLchar> log((unsigned)maxLength);
+    vector<GLchar> log((unsigned) maxLength);
     glGetShaderInfoLog(shader, maxLength, &maxLength, &log[0]);
     log_gl_errors();
 

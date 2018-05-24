@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-#include "buffer.h"
+#include "graphics.h"
 #include "../util/util.h"
 #include <pixel/error.h>
 

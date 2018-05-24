@@ -1,4 +1,4 @@
-#include <pixel/graphics/sprite_animation.h>
+#include <pixel/graphics/graphics.h>
 #include "test/setup.h"
 
 namespace

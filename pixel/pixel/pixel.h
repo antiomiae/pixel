@@ -12,6 +12,6 @@
 #include "./tilemap/tile_layer.h"
 #include "./tilemap/tile_atlas.h"
 #include "./tilemap/tile_map.h"
-#include "./input/keyboard.h"
+#include "pixel/input/input.h"
 
 #endif //PIXEL_PIXEL_H

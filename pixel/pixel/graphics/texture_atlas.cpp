@@ -1,5 +1,4 @@
 #include <pixel/pixel.h>
-#include "texture_atlas.h"
 #include "pack.h"
 #include <sstream>
 
