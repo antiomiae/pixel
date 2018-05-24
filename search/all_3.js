@@ -1,12 +1,10 @@
 var searchData=
 [
   ['camera',['Camera',['../classpixel_1_1graphics_1_1_camera.html',1,'pixel::graphics::Camera'],['../classpixel_1_1graphics_1_1_camera.html#ab919425fc4978e0846a19a9ff446b621',1,'pixel::graphics::Camera::Camera(const glm::ivec2 &amp;window_size, const glm::vec4 &amp;bounds)'],['../classpixel_1_1graphics_1_1_camera.html#a0c6568dcfd5bf88473afdce0e37a8626',1,'pixel::graphics::Camera::Camera()=default']]],
-  ['camera_2ecpp',['camera.cpp',['../camera_8cpp.html',1,'']]],
-  ['camera_2eh',['camera.h',['../camera_8h.html',1,'']]],
   ['can_5ffit',['can_fit',['../structpixel_1_1pack_1_1_pack_node.html#a106addb740c67e52ea781ecbfb778d22',1,'pixel::pack::PackNode']]],
   ['center',['center',['../classpixel_1_1graphics_1_1_sprite.html#a0d777b08310cbd0e08d0d8162f3a1503',1,'pixel::graphics::Sprite']]],
   ['center_5fat',['center_at',['../classpixel_1_1graphics_1_1_camera.html#a3f67a033a8b22e83c78ecfb2f9fc52a7',1,'pixel::graphics::Camera::center_at(float x, float y)'],['../classpixel_1_1graphics_1_1_camera.html#ac011c85f13b10176b023d9e02f73f1f7',1,'pixel::graphics::Camera::center_at(const glm::vec2 &amp;)']]],
-  ['clear',['clear',['../structpixel_1_1graphics_1_1_image_data.html#af3a5790a3f3a336ddc5edd030b6fc7a3',1,'pixel::graphics::ImageData']]],
+  ['clear',['clear',['../structpixel_1_1graphics_1_1_image_data.html#a28f45b533500fdca9c65c6726b8cd174',1,'pixel::graphics::ImageData']]],
   ['clear_5fcolor',['clear_color',['../namespacepixel.html#a24f0e498cd20ed91cc7528405f0a03fb',1,'pixel']]],
   ['clear_5fkeymap',['clear_keymap',['../classpixel_1_1input_1_1_keyboard.html#a5c220f10381043f8c784ce69f4ae6015',1,'pixel::input::Keyboard']]],
   ['collections_2eh',['collections.h',['../collections_8h.html',1,'']]],

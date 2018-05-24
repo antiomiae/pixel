@@ -2,7 +2,7 @@ var searchData=
 [
   ['rbo_5fcolor_5f',['rbo_color_',['../classpixel_1_1graphics_1_1_offscreen_render_target.html#a4ad6892135a7e4f68953944c287c2645',1,'pixel::graphics::OffscreenRenderTarget']]],
   ['rbo_5fdepth_5fstencil_5f',['rbo_depth_stencil_',['../classpixel_1_1graphics_1_1_offscreen_render_target.html#a862be1d24be8b6a08132e36796d46085',1,'pixel::graphics::OffscreenRenderTarget']]],
-  ['read',['read',['../classpixel_1_1graphics_1_1_texture.html#ae8511c01f2a46a482befaa003a224236',1,'pixel::graphics::Texture']]],
+  ['read',['read',['../classpixel_1_1graphics_1_1_texture.html#ae2bbbdfd11ba832052f736e3bbfa21c1',1,'pixel::graphics::Texture']]],
   ['rect',['Rect',['../classpixel_1_1_rect.html',1,'pixel::Rect&lt; T &gt;'],['../structpixel_1_1graphics_1_1_texture_region.html#ae6ae8f0c8f95225e7e977d8f08b0ed05',1,'pixel::graphics::TextureRegion::rect()']]],
   ['rectf',['RectF',['../namespacepixel.html#aebc99b06b2550630ffed4e1efe9fef13',1,'pixel']]],
   ['recti',['RectI',['../namespacepixel.html#a011b6ca4edb82531cde9d358b2caa10c',1,'pixel']]],
@@ -12,7 +12,7 @@ var searchData=
   ['register_5fcallback',['register_callback',['../classpixel_1_1input_1_1_keyboard.html#abb0164a3125839568abc8447ac671a87',1,'pixel::input::Keyboard']]],
   ['registry',['registry',['../classpixel_1_1_tileset.html#a762d3d382fdc40375f1c3f224d7e6cad',1,'pixel::Tileset']]],
   ['registry_5f',['registry_',['../classpixel_1_1_tileset.html#ae1ead42caea0c607c07975e354fc4c1c',1,'pixel::Tileset']]],
-  ['render',['render',['../classpixel_1_1graphics_1_1renderers_1_1_line_renderer.html#aef2c6d91eb1a9a302b4b6763d081d255',1,'pixel::graphics::renderers::LineRenderer::render()'],['../classpixel_1_1graphics_1_1renderers_1_1_sprite_renderer.html#a72982e19179e74608f2481c51131b741',1,'pixel::graphics::renderers::SpriteRenderer::render()'],['../classpixel_1_1graphics_1_1renderers_1_1_tile_map_renderer.html#a5fddd99a1409517b45b8f5af669cae8c',1,'pixel::graphics::renderers::TileMapRenderer::render()']]],
+  ['render',['render',['../classpixel_1_1graphics_1_1renderers_1_1_line_renderer.html#aef2c6d91eb1a9a302b4b6763d081d255',1,'pixel::graphics::renderers::LineRenderer::render()'],['../classpixel_1_1graphics_1_1renderers_1_1_sprite_renderer.html#a8e1bfd5bcebb5716da608b2a0b366066',1,'pixel::graphics::renderers::SpriteRenderer::render()'],['../classpixel_1_1graphics_1_1renderers_1_1_tile_map_renderer.html#a5fddd99a1409517b45b8f5af669cae8c',1,'pixel::graphics::renderers::TileMapRenderer::render()']]],
   ['render_5fcontext',['render_context',['../classpixel_1_1_app.html#a2786265ad095bf90f2bf486ccb0692d6',1,'pixel::App']]],
   ['render_5fcontext_2ecpp',['render_context.cpp',['../render__context_8cpp.html',1,'']]],
   ['render_5fcontext_2eh',['render_context.h',['../render__context_8h.html',1,'']]],
