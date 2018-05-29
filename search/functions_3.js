@@ -9,6 +9,7 @@ var searchData=
   ['collide_5fcolumn',['collide_column',['../classpixel_1_1collision_1_1_collision_map.html#a49a0a8ae03166393be6364a874f24de7',1,'pixel::collision::CollisionMap']]],
   ['collide_5frow',['collide_row',['../classpixel_1_1collision_1_1_collision_map.html#af2f5629a4500bba2d172964d740699b1',1,'pixel::collision::CollisionMap']]],
   ['collisionmap',['CollisionMap',['../classpixel_1_1collision_1_1_collision_map.html#ad4b43c70e9f33a560d2f9ed9f0a2455c',1,'pixel::collision::CollisionMap']]],
+  ['color',['color',['../classtetrominos_1_1_tetromino.html#a5e37ff45ae960fee40e4c139ee1e88dc',1,'tetrominos::Tetromino']]],
   ['compile_5fshader',['compile_shader',['../namespacepixel_1_1graphics.html#a46b2582a20b7efd452ad00943782116f',1,'pixel::graphics']]],
   ['componentsforattributetype',['componentsForAttributeType',['../buffer_8cpp.html#afa8fa4fb7371d1051d84b6c41beb39ab',1,'buffer.cpp']]],
   ['copy',['copy',['../classpixel_1_1graphics_1_1_sprite_animation.html#a9645ce48ccaf3a207038a9bb61373f68',1,'pixel::graphics::SpriteAnimation']]],
