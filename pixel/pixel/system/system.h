@@ -13,7 +13,10 @@ namespace pixel
 
 void init();
 
-void init(glm::ivec2 actual_window_size, glm::ivec2 virtual_window_size);
+void init(
+    glm::ivec2 actual_window_size, glm::ivec2 virtual_window_size,
+    int argc = 0, char** argv = nullptr
+);
 
 }
 

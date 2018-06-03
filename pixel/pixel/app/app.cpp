@@ -1,4 +1,6 @@
 #include <string>
+#include <unistd.h>
+
 #include "app.h"
 #include <pixel/error.h>
 #include <pixel/time/frame_rate_limiter.h>
@@ -146,6 +148,22 @@ RenderContext& App::render_context()
 GLFWwindow* App::window()
 {
     return window_;
+}
+
+const string& App::app_dir()
+{
+    return app_dir_;
+}
+
+void App::set_app_dir(const string& path)
+{
+    app_dir_ = path;
+}
+
+void App::change_to_app_dir()
+{
+    std::cout << "Changing to app directory " << app_dir_ << std::endl;
+    chdir(app_dir_.c_str());
 }
 
 App& app()

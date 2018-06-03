@@ -33,10 +33,15 @@ public:
 
     void update_render_context();
 
+    const string& app_dir();
+    void set_app_dir(const string& path);
+    void change_to_app_dir();
+
     GLFWwindow* window();
     RenderContext& render_context();
 
 private:
+    string app_dir_;
 
     int frames_{};
 

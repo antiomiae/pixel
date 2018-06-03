@@ -1,13 +1,10 @@
 #include <pixel/pixel.h>
 #include <array>
-#include <unistd.h>
 
 using namespace std;
 using namespace pixel;
 using namespace pixel::graphics;
 using namespace pixel::input;
-
-using namespace std;
 
 
 namespace tetrominos
@@ -121,17 +118,10 @@ private:
 
 int main(int argc, char* argv[])
 {
-    if (argc >= 2) {
-        std::cout << "Changing to directory " << argv[1] << std::endl;
-        chdir(argv[1]);
-        argv = &argv[2];
-        argc -= 2;
-    }
-
     glm::ivec2 virtual_window_size = {320, 224};
     glm::ivec2 actual_window_size = virtual_window_size * 3;
 
-    pixel::init(actual_window_size, virtual_window_size);
+    pixel::init(actual_window_size, virtual_window_size, argc, argv);
 
     Camera camera({0, 0}, {0, 0, 2000, 2000});
 
