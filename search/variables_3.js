@@ -6,5 +6,6 @@ var searchData=
   ['color_5fbuffer_5f',['color_buffer_',['../classpixel_1_1graphics_1_1renderers_1_1_line_renderer.html#a8700d99cb3ce0b5bf88981b7639ce365',1,'pixel::graphics::renderers::LineRenderer']]],
   ['column_5fmask',['COLUMN_MASK',['../classpixel_1_1_tile_atlas.html#ae007852f30a7adf7b33f85b130d8f74b',1,'pixel::TileAtlas']]],
   ['column_5fshift',['COLUMN_SHIFT',['../classpixel_1_1_tile_atlas.html#a71347559463ac19563206c823c7f38dd',1,'pixel::TileAtlas']]],
-  ['current_5fframe_5f',['current_frame_',['../classpixel_1_1graphics_1_1_sprite_animation.html#aaf052623c8f72272078a833c46f28437',1,'pixel::graphics::SpriteAnimation']]]
+  ['current_5fframe_5f',['current_frame_',['../classpixel_1_1graphics_1_1_sprite_animation.html#aaf052623c8f72272078a833c46f28437',1,'pixel::graphics::SpriteAnimation']]],
+  ['current_5fpiece_5f',['current_piece_',['../classtetrominos_1_1_level.html#aec36068b4557f654c751170dc69792d7',1,'tetrominos::Level']]]
 ];

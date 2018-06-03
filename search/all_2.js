@@ -35,6 +35,7 @@ var searchData=
   ['bitmap_5fwidth_5f',['bitmap_width_',['../classpixel_1_1collision_1_1_collision_map.html#aadad7aa7bdfb345b83a39c5884e4ea2e',1,'pixel::collision::CollisionMap']]],
   ['blocks_5f',['blocks_',['../classpixel_1_1graphics_1_1_texture_atlas.html#aea73fa43e6505c3f85afeb1566f4aa21',1,'pixel::graphics::TextureAtlas']]],
   ['board',['Board',['../classtetrominos_1_1_board.html',1,'tetrominos']]],
+  ['board_5f',['board_',['../classtetrominos_1_1_level.html#addf48e94073bba6483dac067200bcced',1,'tetrominos::Level']]],
   ['board_5fheight',['BOARD_HEIGHT',['../classtetrominos_1_1_board.html#a3d55fdf31065c66d38323b04be198c72',1,'tetrominos::Board']]],
   ['board_5fwidth',['BOARD_WIDTH',['../classtetrominos_1_1_board.html#ae9413908439ebc9c042cd023350303ca',1,'tetrominos::Board']]],
   ['bounds_5f',['bounds_',['../classpixel_1_1graphics_1_1_camera.html#a096d3316f5e63f939bce6dce6a115e4d',1,'pixel::graphics::Camera']]],

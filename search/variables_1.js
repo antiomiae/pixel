@@ -7,6 +7,7 @@ var searchData=
   ['animation',['animation',['../structpixel_1_1_tileset_1_1_tile.html#a4bb48a8df11fd7c4b8dc5959c0da54ce',1,'pixel::Tileset::Tile']]],
   ['animation_5fdefinition',['animation_definition',['../classpixel_1_1_tile_layer_1_1_tile_animation.html#a768c92f745be44a78a96635f5088c662',1,'pixel::TileLayer::TileAnimation']]],
   ['animations_5f',['animations_',['../classpixel_1_1_tile_layer.html#acfdf684d2b5068389f7af757cd7c564e',1,'pixel::TileLayer']]],
+  ['app_5fdir_5f',['app_dir_',['../classpixel_1_1_app.html#a9c9c9659c4d0bc64c8b2fd93670b2bc2',1,'pixel::App']]],
   ['atlas_5f',['atlas_',['../classpixel_1_1_tile_map.html#a810ad0cdbfde0ed51e61c780360b193f',1,'pixel::TileMap']]],
   ['atlas_5fcols_5f',['atlas_cols_',['../classpixel_1_1_tile_atlas.html#abc7626bf6b8b80a2f2fa2005236af27b',1,'pixel::TileAtlas']]],
   ['atlas_5flayers_5f',['atlas_layers_',['../classpixel_1_1_tile_atlas.html#af76d22ff6a5c60a535704b97c3faf336',1,'pixel::TileAtlas']]],

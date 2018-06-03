@@ -75,8 +75,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac8a20d8cb90baf0baa2a38e05eca01c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtetrominos_1_1_level.html#ac8a20d8cb90baf0baa2a38e05eca01c4">tick</a> ()</td></tr>
-<tr class="separator:ac8a20d8cb90baf0baa2a38e05eca01c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a685097c17907856d7f5913c9760ef9a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtetrominos_1_1_level.html#a685097c17907856d7f5913c9760ef9a6">update</a> ()</td></tr>
+<tr class="separator:a685097c17907856d7f5913c9760ef9a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a5cffcb7d9067f5d14b3ebbf733614f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtetrominos_1_1_level.html#a3a5cffcb7d9067f5d14b3ebbf733614f">render</a> ()</td></tr>
 <tr class="separator:a3a5cffcb7d9067f5d14b3ebbf733614f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -88,6 +88,10 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a95b5c38304e29fa6d7453b2223b8069b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80b42cf11bc351999d80269c5ae4fe3b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpixel_1_1graphics_1_1_texture_atlas.html">pixel::graphics::TextureAtlas</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtetrominos_1_1_level.html#a80b42cf11bc351999d80269c5ae4fe3b">texture_atlas_</a></td></tr>
 <tr class="separator:a80b42cf11bc351999d80269c5ae4fe3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addf48e94073bba6483dac067200bcced"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtetrominos_1_1_board.html">Board</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtetrominos_1_1_level.html#addf48e94073bba6483dac067200bcced">board_</a></td></tr>
+<tr class="separator:addf48e94073bba6483dac067200bcced"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec36068b4557f654c751170dc69792d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtetrominos_1_1_tetromino.html">Tetromino</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtetrominos_1_1_level.html#aec36068b4557f654c751170dc69792d7">current_piece_</a></td></tr>
+<tr class="separator:aec36068b4557f654c751170dc69792d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a3a5cffcb7d9067f5d14b3ebbf733614f"></a>
@@ -95,6 +99,9 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void tetrominos::Level::render </td>
@@ -103,28 +110,85 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ac8a20d8cb90baf0baa2a38e05eca01c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8a20d8cb90baf0baa2a38e05eca01c4">&#9670;&nbsp;</a></span>tick()</h2>
+<a id="a685097c17907856d7f5913c9760ef9a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a685097c17907856d7f5913c9760ef9a6">&#9670;&nbsp;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void tetrominos::Level::tick </td>
+          <td class="memname">void tetrominos::Level::update </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="addf48e94073bba6483dac067200bcced"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addf48e94073bba6483dac067200bcced">&#9670;&nbsp;</a></span>board_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtetrominos_1_1_board.html">Board</a> tetrominos::Level::board_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aec36068b4557f654c751170dc69792d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec36068b4557f654c751170dc69792d7">&#9670;&nbsp;</a></span>current_piece_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtetrominos_1_1_tetromino.html">Tetromino</a> tetrominos::Level::current_piece_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a66f56986e49d2f1ef3a31114f1c16c2c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a66f56986e49d2f1ef3a31114f1c16c2c">&#9670;&nbsp;</a></span>sprite_batch_</h2>
 

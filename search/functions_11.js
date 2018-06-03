@@ -7,6 +7,7 @@ var searchData=
   ['set',['set',['../classpixel_1_1collision_1_1_collision_map.html#a78d6d7d3fed586c7b6fa1ea83f28c9b6',1,'pixel::collision::CollisionMap']]],
   ['set_5fangle',['set_angle',['../classpixel_1_1graphics_1_1_camera.html#a2932bdf2ad5ca37548a255795d4b0e53',1,'pixel::graphics::Camera']]],
   ['set_5fapp',['set_app',['../namespacepixel.html#a9be5ce1f8bdc70837654022e3acfe563',1,'pixel']]],
+  ['set_5fapp_5fdir',['set_app_dir',['../classpixel_1_1_app.html#ab67c71db0e518a8bdedb0a5ce005abbd',1,'pixel::App']]],
   ['set_5fbuffer_5fdata',['set_buffer_data',['../classpixel_1_1graphics_1_1renderers_1_1_tile_map_renderer.html#aaffa8474487fb29c4f37fa2b6071973c',1,'pixel::graphics::renderers::TileMapRenderer']]],
   ['set_5fcolor',['set_color',['../classtetrominos_1_1_tetromino.html#a1f678837b40a0a69eecda69d8de19535',1,'tetrominos::Tetromino']]],
   ['set_5fshape',['set_shape',['../classtetrominos_1_1_tetromino.html#a5032aecfad13d279ed35668f67f96310',1,'tetrominos::Tetromino::set_shape(const vector&lt; vector&lt; Board::Piece &gt;&gt; &amp;shape)'],['../classtetrominos_1_1_tetromino.html#af8297c250888606e8dc78156858cd301',1,'tetrominos::Tetromino::set_shape(const vector&lt; vector&lt; int &gt;&gt; &amp;shape)']]],

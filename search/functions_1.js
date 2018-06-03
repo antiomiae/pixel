@@ -9,6 +9,7 @@ var searchData=
   ['advance',['advance',['../classpixel_1_1graphics_1_1_sprite_animation.html#aeb00982221f4c5ebd081d7c764d0c2a6',1,'pixel::graphics::SpriteAnimation']]],
   ['animations',['animations',['../classpixel_1_1_tile_layer.html#a40c1016a17820376f26bca1d716db9ba',1,'pixel::TileLayer']]],
   ['app',['App',['../classpixel_1_1_app.html#af70e283ee1ce466b58a29dcdc7d19162',1,'pixel::App::App()'],['../classpixel_1_1_app.html#a15203ca8083114a10c6dc7ef95634cde',1,'pixel::App::App(const glm::ivec2 &amp;window_size, const glm::ivec2 &amp;virtual_window_size)'],['../classpixel_1_1_app.html#a55ff73ad6e090cddec349411a475d6b9',1,'pixel::App::App(const glm::ivec2 &amp;window_size, const glm::ivec2 &amp;virtual_window_size, const glm::vec4 &amp;clear_color)'],['../namespacepixel.html#aca75eb1946c932029ee67299a903edd7',1,'pixel::app()']]],
+  ['app_5fdir',['app_dir',['../classpixel_1_1_app.html#a4dc4de11de7cf89b080006f02a523c22',1,'pixel::App']]],
   ['argument_5ferror_5fif',['argument_error_if',['../namespacepixel.html#a58ea4609722bf807288c38aa6e00dd70',1,'pixel']]],
   ['argument_5ferror_5funless',['argument_error_unless',['../namespacepixel.html#a1f9d784c476fcab7016ed79d33af82d2',1,'pixel']]],
   ['as_5ftexture',['as_texture',['../classpixel_1_1graphics_1_1_texture_atlas.html#af54a81d380abe7a8faec3e148215f9c4',1,'pixel::graphics::TextureAtlas']]],

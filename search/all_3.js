@@ -4,6 +4,7 @@ var searchData=
   ['can_5ffit',['can_fit',['../structpixel_1_1pack_1_1_pack_node.html#a106addb740c67e52ea781ecbfb778d22',1,'pixel::pack::PackNode']]],
   ['center',['center',['../classpixel_1_1graphics_1_1_sprite.html#a0d777b08310cbd0e08d0d8162f3a1503',1,'pixel::graphics::Sprite']]],
   ['center_5fat',['center_at',['../classpixel_1_1graphics_1_1_camera.html#a3f67a033a8b22e83c78ecfb2f9fc52a7',1,'pixel::graphics::Camera::center_at(float x, float y)'],['../classpixel_1_1graphics_1_1_camera.html#ac011c85f13b10176b023d9e02f73f1f7',1,'pixel::graphics::Camera::center_at(const glm::vec2 &amp;)']]],
+  ['change_5fto_5fapp_5fdir',['change_to_app_dir',['../classpixel_1_1_app.html#a658ae7b4b2f3fd60a7ff9dc51f0536cf',1,'pixel::App']]],
   ['clear',['clear',['../structpixel_1_1graphics_1_1_image_data.html#a28f45b533500fdca9c65c6726b8cd174',1,'pixel::graphics::ImageData']]],
   ['clear_5fcolor',['clear_color',['../namespacepixel.html#a24f0e498cd20ed91cc7528405f0a03fb',1,'pixel']]],
   ['clear_5fkeymap',['clear_keymap',['../classpixel_1_1input_1_1_keyboard.html#a5c220f10381043f8c784ce69f4ae6015',1,'pixel::input::Keyboard']]],
@@ -24,5 +25,6 @@ var searchData=
   ['copy',['copy',['../classpixel_1_1graphics_1_1_sprite_animation.html#a9645ce48ccaf3a207038a9bb61373f68',1,'pixel::graphics::SpriteAnimation']]],
   ['current_5fframe',['current_frame',['../classpixel_1_1graphics_1_1_sprite_animation.html#a2dea97818dcf960df3375c0070f8e0e4',1,'pixel::graphics::SpriteAnimation']]],
   ['current_5fframe_5f',['current_frame_',['../classpixel_1_1graphics_1_1_sprite_animation.html#aaf052623c8f72272078a833c46f28437',1,'pixel::graphics::SpriteAnimation']]],
+  ['current_5fpiece_5f',['current_piece_',['../classtetrominos_1_1_level.html#aec36068b4557f654c751170dc69792d7',1,'tetrominos::Level']]],
   ['current_5ftile_5fid',['current_tile_id',['../classpixel_1_1_tile_layer_1_1_tile_animation.html#a30537e1452f40ebd8a67370e425714c2',1,'pixel::TileLayer::TileAnimation']]]
 ];

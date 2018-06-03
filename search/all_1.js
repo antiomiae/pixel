@@ -19,6 +19,8 @@ var searchData=
   ['app',['App',['../classpixel_1_1_app.html',1,'pixel::App'],['../classpixel_1_1_app.html#af70e283ee1ce466b58a29dcdc7d19162',1,'pixel::App::App()'],['../classpixel_1_1_app.html#a15203ca8083114a10c6dc7ef95634cde',1,'pixel::App::App(const glm::ivec2 &amp;window_size, const glm::ivec2 &amp;virtual_window_size)'],['../classpixel_1_1_app.html#a55ff73ad6e090cddec349411a475d6b9',1,'pixel::App::App(const glm::ivec2 &amp;window_size, const glm::ivec2 &amp;virtual_window_size, const glm::vec4 &amp;clear_color)'],['../namespacepixel.html#aca75eb1946c932029ee67299a903edd7',1,'pixel::app()']]],
   ['app_2ecpp',['app.cpp',['../app_8cpp.html',1,'']]],
   ['app_2eh',['app.h',['../app_8h.html',1,'']]],
+  ['app_5fdir',['app_dir',['../classpixel_1_1_app.html#a4dc4de11de7cf89b080006f02a523c22',1,'pixel::App']]],
+  ['app_5fdir_5f',['app_dir_',['../classpixel_1_1_app.html#a9c9c9659c4d0bc64c8b2fd93670b2bc2',1,'pixel::App']]],
   ['argument_5ferror_5fif',['argument_error_if',['../namespacepixel.html#a58ea4609722bf807288c38aa6e00dd70',1,'pixel']]],
   ['argument_5ferror_5funless',['argument_error_unless',['../namespacepixel.html#a1f9d784c476fcab7016ed79d33af82d2',1,'pixel']]],
   ['argumenterror',['ArgumentError',['../classpixel_1_1_argument_error.html',1,'pixel']]],
