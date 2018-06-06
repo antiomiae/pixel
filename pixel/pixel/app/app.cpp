@@ -162,7 +162,7 @@ void App::set_app_dir(const string& path)
 
 void App::change_to_app_dir()
 {
-    std::cout << "Changing to app directory " << app_dir_ << std::endl;
+    cout << "Changing to app directory " << app_dir_ << endl;
     chdir(app_dir_.c_str());
 }
 
