@@ -90,6 +90,7 @@ private:
     vector<vector<Board::Piece>> pieces_;
 };
 
+
 class Level
 {
 public:
