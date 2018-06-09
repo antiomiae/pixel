@@ -79,25 +79,18 @@ void LineRenderer::render(vector<LineSegment> const& line_segments, glm::vec4 co
 void LineRenderer::render(vector<pair<LineSegment, glm::vec4>> const& lines_with_colors, Camera const& camera)
 {
     vector<LineSegment> line_segments{lines_with_colors.size()};
-
-    transform(
-        begin(lines_with_colors),
-        end(lines_with_colors),
-        begin(line_segments),
-        [](auto& p) { return p.first; }
-    );
-
-    position_buffer_.load_data(line_segments);
-
     vector<glm::vec4> colors{line_segments.size() * 2};
 
-    auto it = begin(colors);
+    auto color_it = begin(colors);
+    auto segment_it = begin(line_segments);
 
     for (auto const& pair : lines_with_colors) {
-        *it++ = pair.second;
-        *it++ = pair.second;
+        *segment_it++ = pair.first;
+        *color_it++ = pair.second;
+        *color_it++ = pair.second;
     }
 
+    position_buffer_.load_data(line_segments);
     color_buffer_.load_data(colors);
 
     auto projection = camera.projection_matrix();
