@@ -1,7 +1,6 @@
 
 
 #include <pixel/pixel.h>
-#include <array>
 
 using namespace std;
 using namespace pixel;
@@ -9,7 +8,8 @@ using namespace pixel::graphics;
 using namespace pixel::input;
 
 
-template<class Vec> auto vec_min(const Vec& vec)
+template<class Vec>
+auto vec_min(const Vec& vec)
 {
     return min(vec.x, vec.y);
 }
@@ -31,6 +31,7 @@ int main(int argc, char* argv[])
 
     renderers::LineRenderer line_renderer{};
     vector<LineSegment> lines;
+    vector<pair<LineSegment, glm::vec4>> colored_lines;
 
     auto center = glm::vec2(virtual_window_size / 2);
     auto radius = vec_min(virtual_window_size) / 4.0;
@@ -45,6 +46,12 @@ int main(int argc, char* argv[])
 
     for (const auto& point : circle_points) {
         lines.emplace_back(last_point.x, last_point.y, point.x, point.y);
+
+        colored_lines.emplace_back(
+            LineSegment{last_point.x + 1, last_point.y, point.x + 1, point.y},
+            glm::vec4{1.0, 0.0, 0.0, 1.0}
+        );
+
         last_point = point;
     }
 
@@ -52,15 +59,17 @@ int main(int argc, char* argv[])
 
     pixel::app().set_tick_callback(
         [&] {
+            glClear(GL_COLOR_BUFFER_BIT);
+
             render_target.activate();
 
             glClear(GL_COLOR_BUFFER_BIT);
 
             line_renderer.render(lines, camera);
 
-            render_target.deactivate();
+            line_renderer.render(colored_lines, camera);
 
-            glClear(GL_COLOR_BUFFER_BIT);
+            render_target.deactivate();
 
             auto rc = app().render_context();
             /* blit virtual window to actual window */

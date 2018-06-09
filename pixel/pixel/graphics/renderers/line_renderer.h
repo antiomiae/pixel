@@ -18,7 +18,9 @@ public:
 
     LineRenderer();
 
-    void render(const vector<LineSegment>&, const Camera&);
+    void render(vector<LineSegment> const&, Camera const&);
+    void render(vector<LineSegment> const&, glm::vec4 const& color, Camera const&);
+    void render(vector<pair<LineSegment, glm::vec4>> const&, Camera const&);
 
 private:
 
