@@ -4,6 +4,7 @@
 #include "./types.h"
 #include "./app/app.h"
 #include "./graphics/graphics.h"
+#include "./graphics/renderers/renderers.h"
 #include "./util/util.h"
 #include "./error.h"
 #include "./math.h"

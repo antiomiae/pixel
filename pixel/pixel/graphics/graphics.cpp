@@ -341,12 +341,12 @@ void Camera::center_at(const glm::vec2& c)
     position_ = c;
 }
 
-glm::mat4 Camera::view_matrix()
+glm::mat4 Camera::view_matrix() const
 {
     return parallax_view_matrix({1.0, 1.0});
 }
 
-glm::mat4 Camera::parallax_view_matrix(const glm::vec2& parallax_scale)
+glm::mat4 Camera::parallax_view_matrix(const glm::vec2& parallax_scale) const
 {
     auto center = glm::vec2(window_size_) / 2.0f;
     auto scaled_center = center / scale_;
@@ -443,7 +443,7 @@ glm::vec4 Camera::view_rect()
     return glm::vec4(o.x, o.y, m.x, m.y);
 }
 
-glm::mat4 Camera::projection_matrix()
+glm::mat4 Camera::projection_matrix() const
 {
     return glm::ortho(0.0f, (float) window_size_.x, 0.0f, (float) window_size_.y);
 }

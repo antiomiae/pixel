@@ -17,6 +17,7 @@ ADD_LIBRARY(pixel
     pixel/error.h
     pixel/graphics/buffer.cpp
     pixel/graphics/common.h
+    pixel/graphics/graphics.cpp
     pixel/graphics/graphics.h
     pixel/graphics/image.cpp
     pixel/graphics/offscreen_render_target.cpp
@@ -25,13 +26,18 @@ ADD_LIBRARY(pixel
     pixel/graphics/pack.h
     pixel/graphics/render_context.cpp
     pixel/graphics/render_context.h
+    pixel/graphics/renderers/line_renderer.cpp
+    pixel/graphics/renderers/line_renderer.h
+    pixel/graphics/renderers/renderers.h
+    pixel/graphics/renderers/sprite_renderer.cpp
+    pixel/graphics/renderers/sprite_renderer.h
+    pixel/graphics/renderers/tile_map_renderer.cpp
+    pixel/graphics/renderers/tile_map_renderer.h
     pixel/graphics/shader.cpp
     pixel/graphics/shader_utils.cpp
     pixel/graphics/shader_utils.h
     pixel/graphics/sprite.cpp
     pixel/graphics/sprite.h
-    pixel/graphics/renderers/sprite_renderer.cpp
-    pixel/graphics/renderers/sprite_renderer.h
     pixel/graphics/texture_atlas.cpp
     pixel/input/input.cpp
     pixel/input/input.h
@@ -45,20 +51,17 @@ ADD_LIBRARY(pixel
     pixel/lua/wrap_tileset.cpp
     pixel/math.h
     pixel/pixel.h
-    pixel/graphics/renderers/line_renderer.cpp
-    pixel/graphics/renderers/line_renderer.h
+    pixel/system/system.cpp
     pixel/system/system.h
     pixel/system/version.h
+    pixel/tilemap/tile_atlas.cpp
+    pixel/tilemap/tile_atlas.h
     pixel/tilemap/tile_layer.cpp
     pixel/tilemap/tile_layer.h
     pixel/tilemap/tile_layer_texture.cpp
     pixel/tilemap/tile_layer_texture.h
     pixel/tilemap/tile_map.cpp
     pixel/tilemap/tile_map.h
-    pixel/tilemap/tile_atlas.cpp
-    pixel/tilemap/tile_atlas.h
-    pixel/graphics/renderers/tile_map_renderer.cpp
-    pixel/graphics/renderers/tile_map_renderer.h
     pixel/tilemap/tileset.cpp
     pixel/tilemap/tileset.h
     pixel/time/frame_counter.cpp
@@ -71,7 +74,7 @@ ADD_LIBRARY(pixel
     pixel/util/symbol_map.h
     pixel/util/util.cpp
     pixel/util/util.h
-    pixel/system/system.cpp pixel/graphics/graphics.cpp)
+    )
 
 
 ADD_DEPENDENCIES(pixel pixel_source_version)

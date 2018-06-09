@@ -1,5 +1,6 @@
 
 
+#include <pixel/pixel.h>
 #include "line_renderer.h"
 
 namespace pixel::graphics::renderers
@@ -44,7 +45,32 @@ void LineRenderer::init()
 
 void LineRenderer::render(const vector<LineSegment>& line_segments, const Camera& camera)
 {
+    position_buffer_.load_data(line_segments);
 
+    vector<glm::vec4> colors{line_segments.size() * 2, glm::vec4{1.0, 1.0, 1.0, 1.0}};
+    color_buffer_.load_data(colors);
+
+    auto projection = camera.projection_matrix();
+    auto view = camera.view_matrix();
+    auto mat = projection * view;
+
+    program_.activate();
+    log_gl_errors();
+
+    vao_.activate();
+    log_gl_errors();
+
+    program_.setUniform("projection", projection * view);
+    log_gl_errors();
+
+    glDrawArrays(GL_LINES, 0, line_segments.size() * 2);
+    log_gl_errors();
+
+    vao_.deactivate();
+    log_gl_errors();
+
+    program_.deactivate();
+    log_gl_errors();
 }
 
 }

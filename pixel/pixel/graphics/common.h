@@ -120,6 +120,11 @@ public:
 
     void loadData(const void* data, const size_t size);
 
+    template <class Elem> auto load_data(const vector<Elem>& v)
+    {
+        loadData(v.data(), v.size() * sizeof(v));
+    }
+
     void bind() override;
     void unbind() override;
 };
@@ -426,9 +431,9 @@ public:
 
     void set_angle(float);
 
-    glm::mat4 view_matrix();
-    glm::mat4 parallax_view_matrix(const glm::vec2&);
-    glm::mat4 projection_matrix();
+    glm::mat4 view_matrix() const;
+    glm::mat4 parallax_view_matrix(const glm::vec2&) const;
+    glm::mat4 projection_matrix() const;
 
     glm::vec2 position();
     glm::vec2 scale();

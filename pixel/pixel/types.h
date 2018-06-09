@@ -5,6 +5,7 @@
 
 #include <cstdint>
 #include <utility>
+#include <ostream>
 #include "math.h"
 
 namespace pixel
@@ -66,18 +67,29 @@ public:
     float x0, y0, x1, y1;
 
     LineSegment() = default;
+
     LineSegment(float x0, float y0, float x1, float y1)
         : x0(x0),
           y0(y0),
           x1(x1),
           y1(y1)
-    {}
+    { }
 
     float length()
     {
         return sqrt(pow(x1 - x0, 2) + pow(y1 - y0, 2));
     }
 
+    friend ostream& operator<<(ostream& stream, const LineSegment& line_segment)
+    {
+        stream << "[("
+               << line_segment.x0 << ", " << line_segment.y0
+               << "), ("
+               << line_segment.x1 << ", " << line_segment.y1
+               << ")]";
+
+        return stream;
+    }
 };
 
 };
