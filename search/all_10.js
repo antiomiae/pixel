@@ -18,6 +18,7 @@ var searchData=
   ['render_5fcontext_2eh',['render_context.h',['../render__context_8h.html',1,'']]],
   ['render_5fcontext_5f',['render_context_',['../classpixel_1_1_app.html#ab118f43ae1840ff7fbdd771694dbe194',1,'pixel::App']]],
   ['rendercontext',['RenderContext',['../structpixel_1_1_render_context.html',1,'pixel::RenderContext'],['../structpixel_1_1_render_context.html#ae08ab393a489732b6a0c38fa50adae56',1,'pixel::RenderContext::RenderContext()=default'],['../structpixel_1_1_render_context.html#afce278c9af21fb8f991cd506b0e6248b',1,'pixel::RenderContext::RenderContext(const glm::ivec2 &amp;real_size, const glm::ivec2 &amp;virtual_size, const glm::vec4 &amp;color)']]],
+  ['renderers_2eh',['renderers.h',['../renderers_8h.html',1,'']]],
   ['reset',['reset',['../classpixel_1_1graphics_1_1_sprite_animation.html#aeef56bcc96c4af271d994c72d5baa1cf',1,'pixel::graphics::SpriteAnimation']]],
   ['resize_5fbuffers',['resize_buffers',['../classpixel_1_1graphics_1_1_offscreen_render_target.html#a60bdb5799fc903d63922e63a873274af',1,'pixel::graphics::OffscreenRenderTarget']]],
   ['resource_5fpool_2ecpp',['resource_pool.cpp',['../resource__pool_8cpp.html',1,'']]],

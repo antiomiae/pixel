@@ -119,12 +119,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae38581a8a649e30b0eaf7ba544573d9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2932bdf2ad5ca37548a255795d4b0e53"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1graphics_1_1_camera.html#a2932bdf2ad5ca37548a255795d4b0e53">set_angle</a> (float)</td></tr>
 <tr class="separator:a2932bdf2ad5ca37548a255795d4b0e53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad89dd217ea5d1ca681006893fabbbd7d"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1graphics_1_1_camera.html#ad89dd217ea5d1ca681006893fabbbd7d">view_matrix</a> ()</td></tr>
-<tr class="separator:ad89dd217ea5d1ca681006893fabbbd7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5da1595f1f65330026cdbde455fa8044"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1graphics_1_1_camera.html#a5da1595f1f65330026cdbde455fa8044">parallax_view_matrix</a> (const glm::vec2 &amp;)</td></tr>
-<tr class="separator:a5da1595f1f65330026cdbde455fa8044"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f0cc66d5a3312d073ebdc55d0dea94c"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1graphics_1_1_camera.html#a8f0cc66d5a3312d073ebdc55d0dea94c">projection_matrix</a> ()</td></tr>
-<tr class="separator:a8f0cc66d5a3312d073ebdc55d0dea94c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74393c9a842e9129aec56d94029be94b"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1graphics_1_1_camera.html#a74393c9a842e9129aec56d94029be94b">view_matrix</a> () const</td></tr>
+<tr class="separator:a74393c9a842e9129aec56d94029be94b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb41a5a133eda1df0038fa529abf589e"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1graphics_1_1_camera.html#afb41a5a133eda1df0038fa529abf589e">parallax_view_matrix</a> (const glm::vec2 &amp;) const</td></tr>
+<tr class="separator:afb41a5a133eda1df0038fa529abf589e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa393a5f2412a2853233e71d09b9cc3d"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1graphics_1_1_camera.html#aaa393a5f2412a2853233e71d09b9cc3d">projection_matrix</a> () const</td></tr>
+<tr class="separator:aaa393a5f2412a2853233e71d09b9cc3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4f00fc40a96aba91565fb06999c60d1"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1graphics_1_1_camera.html#ac4f00fc40a96aba91565fb06999c60d1">position</a> ()</td></tr>
 <tr class="separator:ac4f00fc40a96aba91565fb06999c60d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac50d19eb1c15ce69929f7daed2d31aca"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1graphics_1_1_camera.html#ac50d19eb1c15ce69929f7daed2d31aca">scale</a> ()</td></tr>
@@ -353,8 +353,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a5da1595f1f65330026cdbde455fa8044"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5da1595f1f65330026cdbde455fa8044">&#9670;&nbsp;</a></span>parallax_view_matrix()</h2>
+<a id="afb41a5a133eda1df0038fa529abf589e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb41a5a133eda1df0038fa529abf589e">&#9670;&nbsp;</a></span>parallax_view_matrix()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -364,7 +364,7 @@ Private Attributes</h2></td></tr>
           <td>(</td>
           <td class="paramtype">const glm::vec2 &amp;&#160;</td>
           <td class="paramname"><em>parallax_scale</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -434,8 +434,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a8f0cc66d5a3312d073ebdc55d0dea94c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f0cc66d5a3312d073ebdc55d0dea94c">&#9670;&nbsp;</a></span>projection_matrix()</h2>
+<a id="aaa393a5f2412a2853233e71d09b9cc3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa393a5f2412a2853233e71d09b9cc3d">&#9670;&nbsp;</a></span>projection_matrix()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -444,7 +444,7 @@ Private Attributes</h2></td></tr>
           <td class="memname">glm::mat4 pixel::graphics::Camera::projection_matrix </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -688,8 +688,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="ad89dd217ea5d1ca681006893fabbbd7d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad89dd217ea5d1ca681006893fabbbd7d">&#9670;&nbsp;</a></span>view_matrix()</h2>
+<a id="a74393c9a842e9129aec56d94029be94b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74393c9a842e9129aec56d94029be94b">&#9670;&nbsp;</a></span>view_matrix()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -698,7 +698,7 @@ Private Attributes</h2></td></tr>
           <td class="memname">glm::mat4 pixel::graphics::Camera::view_matrix </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
