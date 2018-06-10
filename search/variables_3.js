@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['callbacks_5f',['callbacks_',['../classpixel_1_1input_1_1_callback_stack.html#a0d5ca869652d9e5f4ce314c3ab22c4f2',1,'pixel::input::CallbackStack']]],
   ['center',['center',['../classpixel_1_1graphics_1_1_sprite.html#a0d777b08310cbd0e08d0d8162f3a1503',1,'pixel::graphics::Sprite']]],
   ['color',['color',['../structtetrominos_1_1_board_1_1_piece.html#a5cbf861d1724db1206a104af7b7fa56c',1,'tetrominos::Board::Piece::color()'],['../classpixel_1_1graphics_1_1_sprite.html#af99cdb2fb7cbef3155597017672f548f',1,'pixel::graphics::Sprite::color()']]],
   ['color_5f',['color_',['../classtetrominos_1_1_tetromino.html#a219a368fc6439a751ebe4fac6b1de41c',1,'tetrominos::Tetromino']]],

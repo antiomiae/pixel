@@ -21,7 +21,7 @@ var searchData=
   ['tilemap',['TileMap',['../classpixel_1_1_tile_map.html#adf716168df4051a1f80294951bd7f547',1,'pixel::TileMap']]],
   ['tilemaprenderer',['TileMapRenderer',['../classpixel_1_1graphics_1_1renderers_1_1_tile_map_renderer.html#ac2fec367b0bf5d03b8843f78378982bb',1,'pixel::graphics::renderers::TileMapRenderer']]],
   ['tiles',['tiles',['../classpixel_1_1_tile_layer.html#a7e26612b03d22048540c4a117761dcc3',1,'pixel::TileLayer::tiles()'],['../classpixel_1_1_tileset.html#a3c1a733757e487ddabf79488c748e3eb',1,'pixel::Tileset::tiles()']]],
-  ['tileset',['Tileset',['../classpixel_1_1_tileset.html#a4ba3df1394c0dbf5f2d1ab38545d5bcc',1,'pixel::Tileset::Tileset()'],['../classpixel_1_1_tile_map.html#a8c23bb5298f9287a200e29d0eb49ec2d',1,'pixel::TileMap::tileset()']]],
+  ['tileset',['tileset',['../classpixel_1_1_tile_map.html#a8c23bb5298f9287a200e29d0eb49ec2d',1,'pixel::TileMap::tileset()'],['../classpixel_1_1_tileset.html#a4ba3df1394c0dbf5f2d1ab38545d5bcc',1,'pixel::Tileset::Tileset()']]],
   ['time_5fscale',['time_scale',['../classpixel_1_1graphics_1_1_sprite_animation.html#ac86602435202ae22b2961c7bb0c47694',1,'pixel::graphics::SpriteAnimation']]],
   ['timesinceframestart',['timeSinceFrameStart',['../classpixel_1_1time_1_1_frame_counter.html#a0facf7db680e8e8b3ee5d0166eef5081',1,'pixel::time::FrameCounter']]],
   ['translate',['translate',['../classpixel_1_1graphics_1_1_camera.html#aff3960e6c58a8474096eb86b6e1a2b14',1,'pixel::graphics::Camera::translate(float x, float y)'],['../classpixel_1_1graphics_1_1_camera.html#aa3c02a27599eebb5d3b380f852bb86ec',1,'pixel::graphics::Camera::translate(const glm::vec2 &amp;)']]],

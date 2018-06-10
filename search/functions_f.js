@@ -6,6 +6,7 @@ var searchData=
   ['parallax',['parallax',['../classpixel_1_1_tile_layer.html#a5c1a71e3c62f7b9b0696165475b2e3f2',1,'pixel::TileLayer']]],
   ['parallax_5fview_5fmatrix',['parallax_view_matrix',['../classpixel_1_1graphics_1_1_camera.html#afb41a5a133eda1df0038fa529abf589e',1,'pixel::graphics::Camera']]],
   ['pieces',['pieces',['../classtetrominos_1_1_tetromino.html#aafd07831a524e09694a966c6d63f3eaa',1,'tetrominos::Tetromino']]],
+  ['pop_5fcallback',['pop_callback',['../classpixel_1_1input_1_1_callback_stack.html#a27ad0f4e9e3c5ab397dfd3bf053b7bc4',1,'pixel::input::CallbackStack']]],
   ['populatesymbolmap',['populateSymbolMap',['../gl__debug__map_8cpp.html#a8023158a6314838df34cfdea7dd1385d',1,'gl_debug_map.cpp']]],
   ['position',['position',['../classpixel_1_1graphics_1_1_camera.html#ac4f00fc40a96aba91565fb06999c60d1',1,'pixel::graphics::Camera::position()'],['../classpixel_1_1_rect.html#a0c7a21247e59915c90c3dfec87bdfd06',1,'pixel::Rect::position()'],['../namespacepixel.html#ad650304c53730cbc06bddfa4486c54db',1,'pixel::position()']]],
   ['position_5fat',['position_at',['../classpixel_1_1graphics_1_1_camera.html#aabd436b8a923e4145dea424f6595dac6',1,'pixel::graphics::Camera::position_at(float x, float y)'],['../classpixel_1_1graphics_1_1_camera.html#a9fccbd2025aa6e52f2b437a0d6c3cc11',1,'pixel::graphics::Camera::position_at(const glm::vec2 &amp;)']]],
@@ -16,5 +17,6 @@ var searchData=
   ['program_5fparameter',['program_parameter',['../namespacepixel_1_1graphics.html#aa90ad6978f688dc64ca65943cfd3b3a7',1,'pixel::graphics']]],
   ['projection',['projection',['../structpixel_1_1_render_context.html#a337152d3d3362d25ef7b0ddab3cddd41',1,'pixel::RenderContext']]],
   ['projection_5fmatrix',['projection_matrix',['../classpixel_1_1graphics_1_1_camera.html#aaa393a5f2412a2853233e71d09b9cc3d',1,'pixel::graphics::Camera']]],
-  ['propertycollection',['PropertyCollection',['../classpixel_1_1_property_collection.html#a9f122a6f3ad8409b781a2e18b5ad45a9',1,'pixel::PropertyCollection']]]
+  ['propertycollection',['PropertyCollection',['../classpixel_1_1_property_collection.html#a9f122a6f3ad8409b781a2e18b5ad45a9',1,'pixel::PropertyCollection']]],
+  ['push_5fcallback',['push_callback',['../classpixel_1_1input_1_1_callback_stack.html#a2a28b1356d283c2cd27d73da4073dabc',1,'pixel::input::CallbackStack']]]
 ];
