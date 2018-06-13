@@ -3,6 +3,6 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-cmake --build build-make -- "$@"
+cmake --build build-make -- -j4 "$@"
 
 

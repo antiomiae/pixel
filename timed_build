@@ -1,0 +1,14 @@
+#!/bin/bash
+
+./build clean
+echo "Single threaded build"
+time ./build
+
+./build clean
+echo "with j4"
+time ./build -j4
+
+./build clean
+echo "with j8"
+time ./build -j8
+
