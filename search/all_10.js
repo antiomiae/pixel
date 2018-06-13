@@ -17,6 +17,7 @@ var searchData=
   ['render_5fcontext_2ecpp',['render_context.cpp',['../render__context_8cpp.html',1,'']]],
   ['render_5fcontext_2eh',['render_context.h',['../render__context_8h.html',1,'']]],
   ['render_5fcontext_5f',['render_context_',['../classpixel_1_1_app.html#ab118f43ae1840ff7fbdd771694dbe194',1,'pixel::App']]],
+  ['render_5fparticles',['render_particles',['../particles_8cpp.html#ab74926885f3c39e3653daa91ecea14ab',1,'particles.cpp']]],
   ['rendercontext',['RenderContext',['../structpixel_1_1_render_context.html',1,'pixel::RenderContext'],['../structpixel_1_1_render_context.html#ae08ab393a489732b6a0c38fa50adae56',1,'pixel::RenderContext::RenderContext()=default'],['../structpixel_1_1_render_context.html#afce278c9af21fb8f991cd506b0e6248b',1,'pixel::RenderContext::RenderContext(const glm::ivec2 &amp;real_size, const glm::ivec2 &amp;virtual_size, const glm::vec4 &amp;color)']]],
   ['renderer',['Renderer',['../classpixel_1_1graphics_1_1renderers_1_1_renderer.html',1,'pixel::graphics::renderers']]],
   ['renderer_5fgroup_2eh',['renderer_group.h',['../renderer__group_8h.html',1,'']]],

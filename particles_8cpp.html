@@ -73,6 +73,7 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="pixel_8h_source.html">pixel/pixel.h</a>&gt;</code><br />
 <code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;glm/gtx/component_wise.hpp&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -81,8 +82,16 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af5eea0b4bb7e67ee6a4378c2e605810f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="particles_8cpp.html#af5eea0b4bb7e67ee6a4378c2e605810f">verlet_step</a> (<a class="el" href="struct_verlet_particle.html">VerletParticle</a> &amp;particle, float acc, float dt)</td></tr>
-<tr class="separator:af5eea0b4bb7e67ee6a4378c2e605810f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5932ba84b78c7f6834859e8056889c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="particles_8cpp.html#aa5932ba84b78c7f6834859e8056889c3">verlet_step</a> (<a class="el" href="struct_verlet_particle.html">VerletParticle</a> &amp;particle, glm::vec2 acc, float dt)</td></tr>
+<tr class="separator:aa5932ba84b78c7f6834859e8056889c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a262bc95a1997b9099e97431be364a2e4"><td class="memTemplParams" colspan="2">template&lt;class Vec &gt; </td></tr>
+<tr class="memitem:a262bc95a1997b9099e97431be364a2e4"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="particles_8cpp.html#a262bc95a1997b9099e97431be364a2e4">vec_min</a> (const Vec &amp;vec)</td></tr>
+<tr class="separator:a262bc95a1997b9099e97431be364a2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa74eab8dbc17e82f3ada93bc7da170e9"><td class="memTemplParams" colspan="2">template&lt;class Vec &gt; </td></tr>
+<tr class="memitem:aa74eab8dbc17e82f3ada93bc7da170e9"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="particles_8cpp.html#aa74eab8dbc17e82f3ada93bc7da170e9">vec_max</a> (const Vec &amp;vec)</td></tr>
+<tr class="separator:aa74eab8dbc17e82f3ada93bc7da170e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab74926885f3c39e3653daa91ecea14ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="particles_8cpp.html#ab74926885f3c39e3653daa91ecea14ab">render_particles</a> (const vector&lt; <a class="el" href="struct_verlet_particle.html">VerletParticle</a> &gt; &amp;particles, <a class="el" href="classpixel_1_1graphics_1_1renderers_1_1_line_renderer.html">renderers::LineRenderer</a> &amp;renderer, const <a class="el" href="classpixel_1_1graphics_1_1_camera.html">Camera</a> &amp;camera)</td></tr>
+<tr class="separator:ab74926885f3c39e3653daa91ecea14ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="particles_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
 <tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -115,8 +124,82 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af5eea0b4bb7e67ee6a4378c2e605810f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5eea0b4bb7e67ee6a4378c2e605810f">&#9670;&nbsp;</a></span>verlet_step()</h2>
+<a id="ab74926885f3c39e3653daa91ecea14ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab74926885f3c39e3653daa91ecea14ab">&#9670;&nbsp;</a></span>render_particles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void render_particles </td>
+          <td>(</td>
+          <td class="paramtype">const vector&lt; <a class="el" href="struct_verlet_particle.html">VerletParticle</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>particles</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classpixel_1_1graphics_1_1renderers_1_1_line_renderer.html">renderers::LineRenderer</a> &amp;&#160;</td>
+          <td class="paramname"><em>renderer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classpixel_1_1graphics_1_1_camera.html">Camera</a> &amp;&#160;</td>
+          <td class="paramname"><em>camera</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa74eab8dbc17e82f3ada93bc7da170e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa74eab8dbc17e82f3ada93bc7da170e9">&#9670;&nbsp;</a></span>vec_max()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Vec &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto vec_max </td>
+          <td>(</td>
+          <td class="paramtype">const Vec &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a262bc95a1997b9099e97431be364a2e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a262bc95a1997b9099e97431be364a2e4">&#9670;&nbsp;</a></span>vec_min()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Vec &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto vec_min </td>
+          <td>(</td>
+          <td class="paramtype">const Vec &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa5932ba84b78c7f6834859e8056889c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5932ba84b78c7f6834859e8056889c3">&#9670;&nbsp;</a></span>verlet_step()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -130,7 +213,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
+          <td class="paramtype">glm::vec2&#160;</td>
           <td class="paramname"><em>acc</em>, </td>
         </tr>
         <tr>
