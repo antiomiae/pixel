@@ -1,8 +1,12 @@
-#include <functional>
-#include <pixel/pixel.h>
-#include <pixel/graphics/graphics.h>
-//#include <pixel/graphics/common.h>
 #include "binding.h"
+#include <functional>
+#include <pixel/graphics/graphics.h>
+#include <pixel/graphics/renderers/renderers.h>
+#include <pixel/tilemap/tile_map.h>
+#include <pixel/input/input.h>
+#include <pixel/app/app.h>
+//#include <pixel/graphics/common.h>
+
 
 
 namespace pixel::binding

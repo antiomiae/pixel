@@ -3,7 +3,7 @@
 
 #include <string>
 #include "renderer_group.h"
-#include <pixel/graphics/graphics.h>
+#include <pixel/graphics/common.h>
 #include <pixel/tilemap/tile_map.h>
 #include <pixel/tilemap/tile_layer_texture.h>
 

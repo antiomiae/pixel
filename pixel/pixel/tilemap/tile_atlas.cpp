@@ -1,6 +1,4 @@
-//
-//
-
+#include <iostream>
 #include "tile_atlas.h"
 #include <boost/filesystem.hpp>
 

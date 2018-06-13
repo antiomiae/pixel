@@ -7,7 +7,6 @@
 #include <iostream>
 #include <tmxlite/Map.hpp>
 #include <tmxlite/TileLayer.hpp>
-#include <pixel/graphics/graphics.h>
 #include <pixel/tilemap/tile_map.h>
 #include "tileset.h"
 
@@ -18,7 +17,6 @@ namespace pixel
 class TileMap;
 
 using namespace std;
-using pixel::graphics::Texture;
 
 /**
  * Container of tile map data. Logically, a rectangular array of tile map tiles, regularly arranged and identically

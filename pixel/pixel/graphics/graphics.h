@@ -3,8 +3,6 @@
 
 #include "common.h"
 #include "sprite.h"
-#include "renderers/sprite_renderer.h"
-#include "renderers/tile_map_renderer.h"
 #include "render_context.h"
 
 #endif //GRAPHICS_GRAPHICS_H

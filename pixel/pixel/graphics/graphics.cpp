@@ -1,6 +1,8 @@
 #include "graphics.h"
 #include <sstream>
-#include <pixel/pixel.h>
+#include <pixel/error.h>
+#include <iostream>
+//#include <pixel/pixel.h>
 
 using namespace std;
 

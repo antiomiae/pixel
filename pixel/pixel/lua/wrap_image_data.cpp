@@ -1,5 +1,4 @@
 #include <pixel/graphics/image.h>
-#include <pixel/pixel.h>
 #include "binding.h"
 
 namespace pixel::binding

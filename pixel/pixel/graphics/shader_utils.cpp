@@ -1,11 +1,13 @@
+#include <sstream>
+#include <fstream>
+#include <iostream>
+
 #include "shader_utils.h"
 #include "graphics.h"
 #include "../util/symbol_map.h"
 #include "../util/util.h"
 #include "../util/collections.h"
 #include <pixel/error.h>
-#include <sstream>
-#include <fstream>
 
 
 namespace pixel::graphics

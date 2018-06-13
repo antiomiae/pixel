@@ -1,8 +1,9 @@
 //
 //
 
-#include <pixel/pixel.h>
 #include "sprite_renderer.h"
+#include <pixel/util/util.h>
+
 
 namespace pixel::graphics::renderers
 {
