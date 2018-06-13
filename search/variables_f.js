@@ -6,6 +6,7 @@ var searchData=
   ['region_5fid',['region_id',['../structpixel_1_1graphics_1_1_texture_atlas_1_1_image_size.html#a7bd932d725ae99aedf499efe665c9be8',1,'pixel::graphics::TextureAtlas::ImageSize']]],
   ['registry_5f',['registry_',['../classpixel_1_1_tileset.html#ae1ead42caea0c607c07975e354fc4c1c',1,'pixel::Tileset']]],
   ['render_5fcontext_5f',['render_context_',['../classpixel_1_1_app.html#ab118f43ae1840ff7fbdd771694dbe194',1,'pixel::App']]],
+  ['renderers_5f',['renderers_',['../classpixel_1_1graphics_1_1renderers_1_1_renderer_group.html#aa0544fd063eea08adc4caeca7adc737f',1,'pixel::graphics::renderers::RendererGroup']]],
   ['right',['right',['../structpixel_1_1pack_1_1_pack_node.html#a3622911c5c2374af970989dff1cb8485',1,'pixel::pack::PackNode']]],
   ['row_5fmask',['ROW_MASK',['../classpixel_1_1_tile_atlas.html#a39ef2af6f3b90103a49af36c27fc578e',1,'pixel::TileAtlas']]],
   ['row_5fshift',['ROW_SHIFT',['../classpixel_1_1_tile_atlas.html#a973e96f321308c6510efb6643a7a8f58',1,'pixel::TileAtlas']]]
