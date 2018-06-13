@@ -1,5 +1,6 @@
 #include "common.h"
 #include <sstream>
+#include <algorithm>
 #include "pack.h"
 
 

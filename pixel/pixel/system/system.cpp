@@ -1,4 +1,5 @@
 #include "system.h"
+#include <memory>
 #include <pixel/input/input.h>
 
 using namespace std;

@@ -1,6 +1,7 @@
 #ifndef PIXEL_KEYBOARD_H
 #define PIXEL_KEYBOARD_H
 
+#include <functional>
 #include <unordered_map>
 #include <list>
 #include <pixel/graphics/common.h>

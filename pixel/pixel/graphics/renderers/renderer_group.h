@@ -1,6 +1,7 @@
 #ifndef PIXEL_RENDERER_GROUP_H
 #define PIXEL_RENDERER_GROUP_H
 
+#include <memory>
 #include <typeinfo>
 #include <typeindex>
 #include <unordered_map>
