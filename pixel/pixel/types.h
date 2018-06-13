@@ -75,6 +75,13 @@ public:
           y1(y1)
     { }
 
+    LineSegment(glm::vec2 p0, glm::vec2 p1)
+        : x0(p0.x),
+          y0(p0.y),
+          x1(p1.x),
+          y1(p1.y)
+    { }
+
     float length()
     {
         return sqrt(pow(x1 - x0, 2) + pow(y1 - y0, 2));
