@@ -102,7 +102,7 @@ int main(int argc, char* argv[])
 
     vector<VerletParticle> particles{100};
 
-    for (auto i = 0u; i < 100; ++i) {
+    for (auto i = 0u; i < 10000; ++i) {
         particles.push_back(random_particle({0.0, 0.0}, virtual_window_size));
     }
 
