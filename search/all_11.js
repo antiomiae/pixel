@@ -55,7 +55,7 @@ var searchData=
   ['subregion',['subregion',['../structpixel_1_1graphics_1_1_image_data.html#a43a91c397ec6a3db1fdad9d6c42eba03',1,'pixel::graphics::ImageData']]],
   ['symbol_5fmap_2ecpp',['symbol_map.cpp',['../symbol__map_8cpp.html',1,'']]],
   ['symbol_5fmap_2eh',['symbol_map.h',['../symbol__map_8h.html',1,'']]],
-  ['symbolmap',['SymbolMap',['../namespacepixel_1_1util.html#a7e4aecf0b9c892f3b2726c5a5cf00b02',1,'pixel::util::SymbolMap()'],['../namespacepixel_1_1util.html#a976cdfe804320f21bc1dd56c6cf95f60',1,'pixel::util::symbolMap()']]],
+  ['symbolmap',['symbolMap',['../namespacepixel_1_1util.html#a976cdfe804320f21bc1dd56c6cf95f60',1,'pixel::util::symbolMap()'],['../namespacepixel_1_1util.html#a7e4aecf0b9c892f3b2726c5a5cf00b02',1,'pixel::util::SymbolMap()']]],
   ['system_2ecpp',['system.cpp',['../system_8cpp.html',1,'']]],
   ['system_2eh',['system.h',['../system_8h.html',1,'']]]
 ];
