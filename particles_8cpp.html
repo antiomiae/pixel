@@ -66,13 +66,15 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">particles.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="pixel_8h_source.html">pixel/pixel.h</a>&gt;</code><br />
 <code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;random&gt;</code><br />
 <code>#include &lt;glm/gtx/component_wise.hpp&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
@@ -90,10 +92,17 @@ Functions</h2></td></tr>
 <tr class="memitem:aa74eab8dbc17e82f3ada93bc7da170e9"><td class="memTemplParams" colspan="2">template&lt;class Vec &gt; </td></tr>
 <tr class="memitem:aa74eab8dbc17e82f3ada93bc7da170e9"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="particles_8cpp.html#aa74eab8dbc17e82f3ada93bc7da170e9">vec_max</a> (const Vec &amp;vec)</td></tr>
 <tr class="separator:aa74eab8dbc17e82f3ada93bc7da170e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7f67e370622671afb2cb2b4b7d23ac5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_verlet_particle.html">VerletParticle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="particles_8cpp.html#aa7f67e370622671afb2cb2b4b7d23ac5">random_particle</a> (glm::vec2 lower_left, glm::vec2 upper_right)</td></tr>
+<tr class="separator:aa7f67e370622671afb2cb2b4b7d23ac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab74926885f3c39e3653daa91ecea14ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="particles_8cpp.html#ab74926885f3c39e3653daa91ecea14ab">render_particles</a> (const vector&lt; <a class="el" href="struct_verlet_particle.html">VerletParticle</a> &gt; &amp;particles, <a class="el" href="classpixel_1_1graphics_1_1renderers_1_1_line_renderer.html">renderers::LineRenderer</a> &amp;renderer, const <a class="el" href="classpixel_1_1graphics_1_1_camera.html">Camera</a> &amp;camera)</td></tr>
 <tr class="separator:ab74926885f3c39e3653daa91ecea14ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="particles_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
 <tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:af59783448e75cddb0d724fe38601c083"><td class="memItemLeft" align="right" valign="top">default_random_engine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="particles_8cpp.html#af59783448e75cddb0d724fe38601c083">generator</a></td></tr>
+<tr class="separator:af59783448e75cddb0d724fe38601c083"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a0ddf1224851353fc92bfbff6f499fa97"></a>
@@ -113,6 +122,34 @@ Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa7f67e370622671afb2cb2b4b7d23ac5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7f67e370622671afb2cb2b4b7d23ac5">&#9670;&nbsp;</a></span>random_particle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_verlet_particle.html">VerletParticle</a> random_particle </td>
+          <td>(</td>
+          <td class="paramtype">glm::vec2&#160;</td>
+          <td class="paramname"><em>lower_left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">glm::vec2&#160;</td>
+          <td class="paramname"><em>upper_right</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -226,6 +263,21 @@ template&lt;class Vec &gt; </div>
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="af59783448e75cddb0d724fe38601c083"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af59783448e75cddb0d724fe38601c083">&#9670;&nbsp;</a></span>generator</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">default_random_engine generator</td>
         </tr>
       </table>
 </div><div class="memdoc">
