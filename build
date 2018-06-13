@@ -3,6 +3,6 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-cd build-ninja && ninja -j8
+cmake --build build-make -- "$@"
 
 

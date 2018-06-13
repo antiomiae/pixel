@@ -6,4 +6,4 @@ CMD=$1
 shift
 
 ./build
-build-ninja/bin/$CMD pixel "$@"
+build-make/bin/$CMD pixel "$@"

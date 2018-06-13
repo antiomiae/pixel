@@ -2,7 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-mkdir -p build-ninja 
-cd build-ninja
-cmake -DCMAKE_VERBOSE_MAKEFILE=on -G Ninja ..
+mkdir -p build-make
+cd build-make
+cmake -DCMAKE_VERBOSE_MAKEFILE=off -G "CodeBlocks - Unix Makefiles" ..
 

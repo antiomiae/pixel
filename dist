@@ -6,7 +6,7 @@ IFS=$'\n\t'
 
 tmpdir=`mktemp -d 2>/dev/null || mktemp -d -t 'pixel'`
 
-cp build-ninja/bin/* $tmpdir
+cp build-make/bin/* $tmpdir
 cp -r pixel/assets $tmpdir
 
 (cd $tmpdir && zip -r pixel.zip * )
