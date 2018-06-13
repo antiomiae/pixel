@@ -1,3 +1,5 @@
+project(pixel_demos)
+
 # generate executable target for every cpp file in this directory
 file(GLOB demo_sources ${CMAKE_CURRENT_LIST_DIR}/*.cpp)
 

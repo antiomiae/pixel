@@ -5,7 +5,6 @@
 #include <pixel/math.h>
 #include <pixel/time/frame_counter.h>
 #include <pixel/graphics/graphics.h>
-#include <pixel/graphics/offscreen_render_target.h>
 
 namespace pixel
 {

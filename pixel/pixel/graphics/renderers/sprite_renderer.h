@@ -2,6 +2,7 @@
 #define PIXEL_SPRITE_RENDERER_H
 
 #include <vector>
+#include "renderer_group.h"
 #include <pixel/graphics/graphics.h>
 #include <pixel/graphics/sprite.h>
 
@@ -10,7 +11,7 @@ namespace pixel::graphics::renderers
 
 using namespace std;
 
-class SpriteRenderer
+class SpriteRenderer : public Renderer
 {
 
 public:
@@ -20,6 +21,8 @@ public:
     void bindAttributes();
     Shader& program();
     void render(const vector<pixel::graphics::Sprite>& sprites, Texture& atlas_texture, Camera& camera);
+
+    virtual ~SpriteRenderer() = default;
 
 private:
     Vao vao_;

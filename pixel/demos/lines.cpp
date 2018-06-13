@@ -29,7 +29,10 @@ int main(int argc, char* argv[])
     render_target.set_window_size(virtual_window_size);
     camera.set_window_size(render_target.window_size());
 
-    renderers::LineRenderer line_renderer{};
+    renderers::RendererGroup rg{};
+
+    auto& line_renderer = rg.get<renderers::LineRenderer>();
+
     vector<LineSegment> lines;
     vector<pair<LineSegment, glm::vec4>> colored_lines;
 

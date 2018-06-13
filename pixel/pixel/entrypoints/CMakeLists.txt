@@ -1,3 +1,5 @@
+project(pixel_entrypoints)
+
 file(GLOB entrypoint_sources ${CMAKE_CURRENT_LIST_DIR}/*.cpp)
 
 foreach(fname ${entrypoint_sources})

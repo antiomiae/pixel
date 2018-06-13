@@ -35,7 +35,8 @@ int main(int argc, char* argv[])
 
     pixel::init(actual_window_size, virtual_window_size);
 
-    pixel::graphics::renderers::TileMapRenderer renderer{};
+    renderers::RendererGroup rg;
+    auto& renderer = rg.get<renderers::TileMapRenderer>();
 
     tmx::Map tmx_map;
     error_if(!tmx_map.load(map_file), "Unable to load map file");

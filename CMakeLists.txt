@@ -10,7 +10,7 @@ HunterGate(
         LOCAL
 )
 
-project(pixel)
+project(pixel_main)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -51,3 +51,8 @@ find_package(Lua CONFIG REQUIRED)
 find_package(Boost CONFIG REQUIRED system filesystem)
 
 add_subdirectory(pixel)
+
+ADD_SUBDIRECTORY(pixel/demos)
+ADD_SUBDIRECTORY(pixel/tools)
+ADD_SUBDIRECTORY(pixel/test)
+ADD_SUBDIRECTORY(pixel/pixel/entrypoints)

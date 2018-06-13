@@ -1,7 +1,9 @@
+project(pixel)
+
 SET(CMAKE_CXX_STANDARD 17)
 SET(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-CONFIGURE_FILE(${PROJECT_SOURCE_DIR}/cmake/PixelVersion.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/generated/PixelVersion.cmake @ONLY)
+CONFIGURE_FILE(${pixel_main_SOURCE_DIR}/cmake/PixelVersion.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/generated/PixelVersion.cmake @ONLY)
 
 ADD_CUSTOM_TARGET(pixel_source_version ALL
     BYPRODUCTS ${CMAKE_CURRENT_BINARY_DIR}/generated/version.cpp
@@ -21,7 +23,6 @@ ADD_LIBRARY(pixel
     pixel/graphics/graphics.h
     pixel/graphics/image.cpp
     pixel/graphics/offscreen_render_target.cpp
-    pixel/graphics/offscreen_render_target.h
     pixel/graphics/pack.cpp
     pixel/graphics/pack.h
     pixel/graphics/render_context.cpp
@@ -74,7 +75,7 @@ ADD_LIBRARY(pixel
     pixel/util/symbol_map.h
     pixel/util/util.cpp
     pixel/util/util.h
-    )
+    pixel/graphics/renderers/renderer_group.h)
 
 
 ADD_DEPENDENCIES(pixel pixel_source_version)
@@ -83,10 +84,6 @@ TARGET_INCLUDE_DIRECTORIES(pixel PUBLIC .)
 
 SET(TMXLITE_STATIC_LIB ON)
 
-ADD_SUBDIRECTORY(demos)
-ADD_SUBDIRECTORY(tools)
-ADD_SUBDIRECTORY(test)
-ADD_SUBDIRECTORY(pixel/entrypoints)
 ADD_SUBDIRECTORY(lib/tinypng)
 ADD_SUBDIRECTORY(lib/glm)
 ADD_SUBDIRECTORY(lib/sol2)

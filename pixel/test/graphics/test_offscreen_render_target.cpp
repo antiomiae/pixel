@@ -2,7 +2,6 @@
 
 //OffscreenRenderTarget
 
-#include <pixel/graphics/offscreen_render_target.h>
 #include <test/setup.h>
 
 namespace

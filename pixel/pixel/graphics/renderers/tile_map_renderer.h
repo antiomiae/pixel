@@ -2,9 +2,10 @@
 #define PIXEL_TILE_MAP_RENDERER_H
 
 #include <string>
+#include "renderer_group.h"
 #include <pixel/graphics/graphics.h>
-#include "pixel/tilemap/tile_map.h"
-#include "pixel/tilemap/tile_layer_texture.h"
+#include <pixel/tilemap/tile_map.h>
+#include <pixel/tilemap/tile_layer_texture.h>
 
 namespace pixel
 {
@@ -21,12 +22,13 @@ using graphics::Buffer;
 using graphics::Vao;
 using graphics::Camera;
 
-class TileMapRenderer
+class TileMapRenderer : public Renderer
 {
 
 public:
 
     TileMapRenderer();
+    virtual ~TileMapRenderer() = default;
 
     void render(pixel::TileMap& t, Camera& camera);
 
