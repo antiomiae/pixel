@@ -1,6 +1,7 @@
 #include <pixel/pixel.h>
 #include <unistd.h>
 #include <random>
+#include <algorithm>
 #include <glm/gtx/component_wise.hpp>
 
 using namespace std;
@@ -8,9 +9,10 @@ using namespace pixel;
 using namespace pixel::graphics;
 using namespace pixel::input;
 
+const float DT = 1.0 / 480.0f;
 
 default_random_engine generator;
-
+using random_float = uniform_real_distribution<float>;
 
 struct VerletParticle
 {
@@ -49,12 +51,17 @@ auto vec_max(const Vec& vec)
     return max(vec.x, vec.y);
 }
 
-VerletParticle random_particle(glm::vec2 lower_left, glm::vec2 upper_right)
+VerletParticle random_particle(glm::vec2 lower_left, glm::vec2 upper_right, float max_velocity, glm::vec2 mass_range, float dt)
 {
-    uniform_real_distribution<float> x_func(lower_left.x, upper_right.x);
-    uniform_real_distribution<float> y_func(lower_left.y, upper_right.y);
+    random_float x_func(lower_left.x, upper_right.x);
+    random_float y_func(lower_left.y, upper_right.y);
+    random_float v_func(-max_velocity, max_velocity);
+    random_float mass_func(mass_range.x, mass_range.y);
 
-    return VerletParticle{glm::vec2(x_func(generator), y_func(generator)), 1.0};
+    VerletParticle p{glm::vec2(x_func(generator), y_func(generator)), mass_func(generator)};
+    p.last_position += -glm::vec2(v_func(generator), v_func(generator)) * dt;
+
+    return p;
 }
 
 
@@ -103,7 +110,7 @@ int main(int argc, char* argv[])
     vector<VerletParticle> particles{100};
 
     for (auto i = 0u; i < 10000; ++i) {
-        particles.push_back(random_particle({0.0, 0.0}, virtual_window_size));
+        particles.push_back(random_particle({0.0, 0.0}, virtual_window_size, 100.0f, {1.0, 100.0}, DT));
     }
 
     renderers::RendererGroup renderer_group;
@@ -115,18 +122,29 @@ int main(int argc, char* argv[])
             theta += 0.1;
 
             //auto force = glm::vec2{cos(theta), sin(theta)} * 2.0f;
-            auto force = cos(theta) * 50.0f + 50.0f;
+            auto max_force = 1000.0f;
+            //auto force = cos(theta) * max_force/2.0f + max_force/2.0f;
+            auto force = max_force;
+
 
             for (auto& p : particles) {
+                if (p.position.x < 0 ||
+                    p.position.x > virtual_window_size.x ||
+                    p.position.y < 0 ||
+                    p.position.y > virtual_window_size.y) {
 
-                auto r = glm::vec2{virtual_window_size} / 2.0f - p.position;
-                auto distance_squared = sqrtf(glm::dot(r, r));
+                    p = random_particle({0.0, 0.0}, virtual_window_size, 100.0f, {1.0, 100.0}, DT);
+                } else {
+                    auto r = glm::vec2{virtual_window_size} / 2.0f - p.position;
+                    auto distance_squared = max(sqrtf(glm::dot(r, r)), 0.001f);
 
-                r = glm::normalize(r);
+                    r = glm::normalize(r);
 
-                auto local_force = (force * r / distance_squared);
+                    auto local_force = (force * p.mass * r / distance_squared);
 
-                verlet_step(p, local_force, 1.0f / 60.0f);
+                    verlet_step(p, local_force, DT);
+                }
+
             }
 
 
