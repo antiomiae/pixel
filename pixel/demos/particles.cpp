@@ -118,15 +118,13 @@ int main(int argc, char* argv[])
             auto force = cos(theta) * 50.0f + 50.0f;
 
             for (auto& p : particles) {
-                auto towards_center = glm::vec2{virtual_window_size} / 2.0f - p.position;
-                if (towards_center.x == 0.0) {
-                    towards_center.x = 1.0;
-                }
-                if (towards_center.y == 0.0) {
-                    towards_center.y = 1.0;
-                }
 
-                auto local_force = (force / towards_center);
+                auto r = glm::vec2{virtual_window_size} / 2.0f - p.position;
+                auto distance_squared = sqrtf(glm::dot(r, r));
+
+                r = glm::normalize(r);
+
+                auto local_force = (force * r / distance_squared);
 
                 verlet_step(p, local_force, 1.0f / 60.0f);
             }
