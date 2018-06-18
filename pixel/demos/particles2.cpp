@@ -10,47 +10,45 @@ using namespace pixel;
 using namespace pixel::graphics;
 using namespace pixel::input;
 
-const float DT = 1.0 / 120.0f;
+const float DT = 1.0 / 60.0f;
 
 default_random_engine generator;
 using random_float = uniform_real_distribution<float>;
 
-struct VerletParticle
+
+struct VelocityVerletParticle
 {
-public:
+
     glm::vec2 position;
     glm::vec2 last_position;
-    glm::vec4 color{1.0, 1.0, 1.0, 1.0};
-    float mass;
-
-    VerletParticle() = default;
-
-    VerletParticle(glm::vec2 position, float mass)
-        : position(position),
-          last_position(position),
-          mass(mass)
-    { };
-};
-
-struct VelocityVerletParticle : VerletParticle
-{
     glm::vec2 velocity;
     glm::vec2 acc;
+    float mass{1.0f};
+
+    glm::vec4 color{1.0, 1.0, 1.0, 1.0};
 
     VelocityVerletParticle() = default;
 
-    VelocityVerletParticle(glm::vec2 position, glm::vec2 velocity = {0.0, 0.0}, float mass = 1.0)
-        : VerletParticle(position, mass),
-          velocity(velocity)
+    VelocityVerletParticle(glm::vec2 position, glm::vec2 velocity = {0.0, 0.0}, float mass = 1.0,
+                           glm::vec4 color = {1.0, 1.0, 1.0, 1.0})
+        : position(position),
+          velocity(velocity),
+          mass(mass),
+          color(color)
     {
     }
 
-    static VelocityVerletParticle
-    random_particle(glm::vec2 lower_left, glm::vec2 upper_right, glm::vec2 max_velocity, glm::vec2 mass_range)
+    void init_last_position(float dt)
     {
-        random_float x_func(lower_left.x, upper_right.x);
-        random_float y_func(lower_left.y, upper_right.y);
-        random_float v_func(max_velocity.x, max_velocity.y);
+        last_position = position - dt * velocity;
+    }
+
+    static VelocityVerletParticle
+    random_particle(glm::vec4 pos_range, glm::vec2 vel_range, glm::vec2 mass_range)
+    {
+        random_float x_func(pos_range.x, pos_range.z);
+        random_float y_func(pos_range.y, pos_range.y);
+        random_float v_func(vel_range.x, vel_range.y);
         random_float mass_func(mass_range.x, mass_range.y);
 
         VelocityVerletParticle p{
@@ -61,10 +59,13 @@ struct VelocityVerletParticle : VerletParticle
 
         return p;
     }
+
+
 };
 
 
-void verlet_step(VelocityVerletParticle& particle, function<glm::vec2(VelocityVerletParticle&)> acc, float dt)
+template<class Particle, class AccFunc>
+void verlet_step(VelocityVerletParticle& particle, AccFunc& acc, float dt)
 {
     auto next_position = (particle.position * 2.0f) - particle.last_position + (dt * dt) * acc(particle);
     particle.last_position = particle.position;
@@ -72,7 +73,8 @@ void verlet_step(VelocityVerletParticle& particle, function<glm::vec2(VelocityVe
 }
 
 
-void velocity_verlet_step(VelocityVerletParticle& particle, function<glm::vec2(VelocityVerletParticle&)> acc, float dt)
+template<class Particle, class AccFunc>
+void velocity_verlet_step(Particle& particle, AccFunc& acc, float dt)
 {
     auto next_position = particle.position + particle.velocity * dt + 0.5f * (dt * dt) * particle.acc;
     particle.last_position = particle.position;
@@ -84,15 +86,16 @@ void velocity_verlet_step(VelocityVerletParticle& particle, function<glm::vec2(V
 }
 
 
-void euler_cromer_step(VelocityVerletParticle& particle, function<glm::vec2(VelocityVerletParticle&)> acc, float dt)
+template<class Particle, class AccFunc>
+void euler_cromer_step(Particle& particle, AccFunc& acc, float dt)
 {
     particle.velocity = particle.velocity + acc(particle) * dt;
     particle.last_position = particle.position;
     particle.position = particle.position + particle.velocity * dt;
 }
 
-
-void euler_step(VelocityVerletParticle& particle, function<glm::vec2(VelocityVerletParticle&)> acc, float dt)
+template<class Particle, class AccFunc>
+void euler_step(Particle& particle, AccFunc& acc, float dt)
 {
     particle.last_position = particle.position;
     particle.position = particle.position + particle.velocity * dt;
@@ -114,43 +117,9 @@ auto vec_max(const Vec& vec)
 }
 
 
-VerletParticle
-random_particle(glm::vec2 lower_left, glm::vec2 upper_right, float max_velocity, glm::vec2 mass_range, float dt)
-{
-    random_float x_func(lower_left.x, upper_right.x);
-    random_float y_func(lower_left.y, upper_right.y);
-    random_float v_func(-max_velocity, max_velocity);
-    random_float mass_func(mass_range.x, mass_range.y);
-
-    VerletParticle p{glm::vec2(x_func(generator), y_func(generator)), mass_func(generator)};
-    p.last_position += -glm::vec2(v_func(generator), v_func(generator)) * dt;
-
-    return p;
-}
-
-
-void render_particles(const vector<VerletParticle>& particles, renderers::LineRenderer& renderer, const Camera& camera)
-{
-    static vector<LineSegment> lines;
-    lines.clear();
-
-    for (auto& p : particles) {
-        auto start = p.position;
-        auto stop = p.last_position;
-
-        if (glm::compMax(glm::abs(start - stop)) <= 1.0) {
-            stop = start + 1.0f;
-        }
-
-        lines.emplace_back(start, stop);
-    }
-
-    renderer.render(lines, camera);
-}
-
-
+template<class Particle>
 void render_particles(
-    const vector<VelocityVerletParticle>& particles,
+    const vector<Particle>& particles,
     renderers::LineRenderer& renderer,
     const Camera& camera
 )
@@ -196,60 +165,47 @@ int main(int argc, char* argv[])
 
     vector<VelocityVerletParticle> particles;
 
+    auto random_particle = [&]() -> auto {
+        return VelocityVerletParticle::random_particle(
+            glm::vec4{0.f, 0.f, virtual_window_size.x, virtual_window_size.y},
+            glm::vec2{100.f, 1000.f},
+            glm::vec2{1.f, 1.f}
+        );
+    };
+
     {
-        VelocityVerletParticle p{
-            glm::vec2(virtual_window_size / 2) + glm::vec2(0.0, virtual_window_size.y / 4),
-            {240.0, 0.0},
-            1.0
-        };
-
-        p.last_position -= p.velocity * DT;
-
         glm::vec4 colors[] = {
-            {0.0, 1.0, 0.0, 0.9},
-            {1.0, 0.0, 1.0, 0.9},
-            {0.0, 0.0, 1.0, 0.9},
-            {1.0, 1.0, 0.0, 0.9}
-
+            {0.0, 1.0, 0.0, 0.1},
+            {1.0, 0.0, 1.0, 0.1},
+            {0.0, 0.0, 1.0, 0.1},
+            {1.0, 1.0, 0.0, 0.1}
         };
 
-        for (auto i = 0u; i < 10; ++i) {
-            particles.push_back(
-                VelocityVerletParticle::random_particle({0.f, 0.f}, virtual_window_size, {100.f, 1000.f}, {1.f, 1.f})
-            );
-
+        for (auto i = 0u; i < 50; ++i) {
+            particles.push_back(random_particle());
             particles.back().color = colors[i % 4];
+            particles.back().init_last_position(DT);
         }
     }
 
     renderers::RendererGroup renderer_group;
 
-    glDisable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
+
+    auto max_force = 10000000.0f;
+    auto force = max_force;
+
+    auto acc_func = [&](auto& p) -> glm::vec2 {
+        auto r = glm::vec2{virtual_window_size} / 2.0f - p.position;
+        auto distance = glm::dot(r, r);
+        r = glm::normalize(r);
+
+        return (force * p.mass * r / distance);
+    };
+
 
     pixel::app().set_tick_callback(
         [&] {
-            static float theta = 0.0;
-
-            theta += 0.1;
-
-            //auto force = glm::vec2{cos(theta), sin(theta)} * 2.0f;
-            auto max_force = 10000000.0f;
-            //auto force = cos(theta) * max_force/2.0f + max_force/2.0f;
-            auto force = max_force;
-
-            auto acc_func = [=](auto& p) -> auto {
-                auto r = glm::vec2{virtual_window_size} / 2.0f - p.position;
-                auto distance = glm::dot(r, r);
-                r = glm::normalize(r);
-
-                return (force * p.mass * r / distance);
-            };
-
-//            euler_step(particles[0], acc_func, DT);
-//            euler_cromer_step(particles[1], acc_func, DT);
-//            verlet_step(particles[2], acc_func, DT);
-//            velocity_verlet_step(particles[3], acc_func, DT);
 
             for (auto& p : particles) {
                 if (p.position.x < 0 ||
@@ -258,7 +214,7 @@ int main(int argc, char* argv[])
                     p.position.y > virtual_window_size.y) {
 
                     auto color = p.color;
-                    p = VelocityVerletParticle::random_particle({0.f, 0.f}, virtual_window_size, {100.f, 1000.f}, {1.f, 1.f});
+                    p = random_particle();
                     p.color = color;
                 } else {
                     velocity_verlet_step(p, acc_func, DT);
@@ -266,21 +222,17 @@ int main(int argc, char* argv[])
 
             }
 
-
             glClear(GL_COLOR_BUFFER_BIT);
-
 
             render_target.activate();
 
-//            glClear(GL_COLOR_BUFFER_BIT);
+            //glClear(GL_COLOR_BUFFER_BIT);
 
             /* do rendering */
             render_particles(particles, renderer_group.get<renderers::LineRenderer>(), camera);
             /* end */
 
             render_target.deactivate();
-
-
 
             /* blit virtual window to actual window */
             render_target.draw(
