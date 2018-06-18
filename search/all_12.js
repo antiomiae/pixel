@@ -69,7 +69,7 @@ var searchData=
   ['tileregistry',['TileRegistry',['../classpixel_1_1_tileset.html#a07353350c368c82275a5f821b0b2ee94',1,'pixel::Tileset']]],
   ['tiles',['tiles',['../classpixel_1_1_tile_layer_1_1_tile_animation.html#aa149a12e4eae31c60714565b2d64861e',1,'pixel::TileLayer::TileAnimation::tiles()'],['../classpixel_1_1_tile_layer.html#a7e26612b03d22048540c4a117761dcc3',1,'pixel::TileLayer::tiles()'],['../classpixel_1_1_tileset.html#a3c1a733757e487ddabf79488c748e3eb',1,'pixel::Tileset::tiles()']]],
   ['tiles_5f',['tiles_',['../classpixel_1_1_tile_layer.html#ab94b13dc20c47ddf7e26546bdcfff497',1,'pixel::TileLayer::tiles_()'],['../classpixel_1_1_tileset.html#a3037828f512098ac7c6637ceb4819181',1,'pixel::Tileset::tiles_()']]],
-  ['tileset',['Tileset',['../classpixel_1_1_tileset.html',1,'pixel::Tileset'],['../classpixel_1_1_tileset.html#a4ba3df1394c0dbf5f2d1ab38545d5bcc',1,'pixel::Tileset::Tileset()'],['../classpixel_1_1_tile_map.html#a8c23bb5298f9287a200e29d0eb49ec2d',1,'pixel::TileMap::tileset()']]],
+  ['tileset',['Tileset',['../classpixel_1_1_tileset.html',1,'pixel::Tileset'],['../classpixel_1_1_tile_map.html#a8c23bb5298f9287a200e29d0eb49ec2d',1,'pixel::TileMap::tileset()'],['../classpixel_1_1_tileset.html#a4ba3df1394c0dbf5f2d1ab38545d5bcc',1,'pixel::Tileset::Tileset()']]],
   ['tileset_2ecpp',['tileset.cpp',['../tileset_8cpp.html',1,'']]],
   ['tileset_2eh',['tileset.h',['../tileset_8h.html',1,'']]],
   ['tileset_5f',['tileset_',['../classpixel_1_1_tile_map.html#a03c3fb17814bbbf8dc344870499e7b76',1,'pixel::TileMap']]],
