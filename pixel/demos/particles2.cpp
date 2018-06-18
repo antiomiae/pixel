@@ -12,9 +12,6 @@ using namespace pixel::input;
 
 const float DT = 1.0 / 60.0f;
 
-default_random_engine generator;
-using random_float = uniform_real_distribution<float>;
-
 
 struct VelocityVerletParticle
 {
@@ -46,6 +43,10 @@ struct VelocityVerletParticle
     static VelocityVerletParticle
     random_particle(glm::vec4 pos_range, glm::vec2 vel_range, glm::vec2 mass_range)
     {
+        static default_random_engine generator;
+
+        using random_float = uniform_real_distribution<float>;
+
         random_float x_func(pos_range.x, pos_range.z);
         random_float y_func(pos_range.y, pos_range.y);
         random_float v_func(vel_range.x, vel_range.y);
@@ -64,57 +65,47 @@ struct VelocityVerletParticle
 };
 
 
-template<class Particle, class AccFunc>
-void verlet_step(VelocityVerletParticle& particle, AccFunc& acc, float dt)
+struct IntegrationMethods
 {
-    auto next_position = (particle.position * 2.0f) - particle.last_position + (dt * dt) * acc(particle);
-    particle.last_position = particle.position;
-    particle.position = next_position;
-}
+    template<class Particle, class AccFunc>
+    static void verlet_step(Particle& particle, AccFunc& acc, float dt)
+    {
+        auto next_position = (particle.position * 2.0f) - particle.last_position + (dt * dt) * acc(particle);
+        particle.last_position = particle.position;
+        particle.position = next_position;
+    }
 
 
-template<class Particle, class AccFunc>
-void velocity_verlet_step(Particle& particle, AccFunc& acc, float dt)
-{
-    auto next_position = particle.position + particle.velocity * dt + 0.5f * (dt * dt) * particle.acc;
-    particle.last_position = particle.position;
-    particle.position = next_position;
+    template<class Particle, class AccFunc>
+    static void velocity_verlet_step(Particle& particle, AccFunc& acc, float dt)
+    {
+        auto next_position = particle.position + particle.velocity * dt + 0.5f * (dt * dt) * particle.acc;
+        particle.last_position = particle.position;
+        particle.position = next_position;
 
-    auto next_acc = acc(particle);
-    particle.velocity = particle.velocity + 0.5f * (particle.acc + next_acc) * dt;
-    particle.acc = next_acc;
-}
-
-
-template<class Particle, class AccFunc>
-void euler_cromer_step(Particle& particle, AccFunc& acc, float dt)
-{
-    particle.velocity = particle.velocity + acc(particle) * dt;
-    particle.last_position = particle.position;
-    particle.position = particle.position + particle.velocity * dt;
-}
-
-template<class Particle, class AccFunc>
-void euler_step(Particle& particle, AccFunc& acc, float dt)
-{
-    particle.last_position = particle.position;
-    particle.position = particle.position + particle.velocity * dt;
-    particle.velocity = particle.velocity + acc(particle) * dt;
-}
+        auto next_acc = acc(particle);
+        particle.velocity = particle.velocity + 0.5f * (particle.acc + next_acc) * dt;
+        particle.acc = next_acc;
+    }
 
 
-template<class Vec>
-auto vec_min(const Vec& vec)
-{
-    return min(vec.x, vec.y);
-}
+    template<class Particle, class AccFunc>
+    static void euler_cromer_step(Particle& particle, AccFunc& acc, float dt)
+    {
+        particle.velocity = particle.velocity + acc(particle) * dt;
+        particle.last_position = particle.position;
+        particle.position = particle.position + particle.velocity * dt;
+    }
 
+    template<class Particle, class AccFunc>
+    static void euler_step(Particle& particle, AccFunc& acc, float dt)
+    {
+        particle.last_position = particle.position;
+        particle.position = particle.position + particle.velocity * dt;
+        particle.velocity = particle.velocity + acc(particle) * dt;
+    }
 
-template<class Vec>
-auto vec_max(const Vec& vec)
-{
-    return max(vec.x, vec.y);
-}
+};
 
 
 template<class Particle>
@@ -217,7 +208,7 @@ int main(int argc, char* argv[])
                     p = random_particle();
                     p.color = color;
                 } else {
-                    velocity_verlet_step(p, acc_func, DT);
+                    IntegrationMethods::velocity_verlet_step(p, acc_func, DT);
                 }
 
             }
