@@ -279,25 +279,52 @@ pixel::graphics::Texture::Texture(Texture&& rhs) noexcept
 }
 
 
+Texture& Texture::operator=(Texture&& rhs)
+{
+    if (texture_id_ > 0) {
+        glDeleteTextures(1, &texture_id_);
+        log_gl_errors();
+        texture_id_ = 0;
+    }
+
+    texture_id_ = rhs.texture_id_;
+    texture_type_ = rhs.texture_type_;
+    format_ = rhs.format_;
+    internal_format_ = rhs.internal_format_;
+    data_type_ = rhs.data_type_;
+    width_ = rhs.width_;
+    height_ = rhs.height_;
+    depth_ = rhs.depth_;
+    allocated_ = rhs.allocated_;
+
+    return *this;
+}
+
+
 void pixel::graphics::Texture::activate(unsigned unit) const
 {
     glActiveTexture(GL_TEXTURE0 + unit);
     bind();
 }
 
+
 unsigned pixel::graphics::Texture::width() const
 { return width_; }
+
 
 unsigned pixel::graphics::Texture::height() const
 { return height_; }
 
+
 unsigned pixel::graphics::Texture::depth() const
 { return depth_; }
+
 
 GLenum pixel::graphics::Texture::texture_type() const
 {
     return texture_type_;
 }
+
 
 GLuint pixel::graphics::Texture::texture_id() const
 {

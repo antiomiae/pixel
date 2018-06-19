@@ -250,10 +250,10 @@ public:
     ~Texture();
 
     Texture(const Texture&) = delete;
+    Texture(Texture&& rhs) noexcept;
 
     Texture& operator=(Texture&) = delete;
-
-    Texture(Texture&& rhs) noexcept;
+    Texture& operator=(Texture&&);
 
     unsigned width() const;
     unsigned height() const;
@@ -344,7 +344,6 @@ public:
     uint32_t add_image(const string& path);
     uint32_t add_image(const string& path, const string& name);
     uint32_t add_image(const ImageData& img, const string& name);
-
 
     vector<ImageData>& layers();
 
