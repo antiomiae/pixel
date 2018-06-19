@@ -2,7 +2,7 @@ var searchData=
 [
   ['map_5fheight_5f',['map_height_',['../classpixel_1_1collision_1_1_collision_map.html#a5675e0fd02f93fe970816d8ed1006dcb',1,'pixel::collision::CollisionMap']]],
   ['map_5fwidth_5f',['map_width_',['../classpixel_1_1collision_1_1_collision_map.html#a64495af476c19c01be52af4312d147d5',1,'pixel::collision::CollisionMap']]],
-  ['mass',['mass',['../struct_verlet_particle.html#a4b63c1f9e9ba0865b3692a8704bfa2d9',1,'VerletParticle::mass()'],['../struct_velocity_verlet_particle.html#a3b43c72e0ccc278c4cb70a34e87bbf47',1,'VelocityVerletParticle::mass()']]],
+  ['mass',['mass',['../struct_verlet_particle.html#a4b63c1f9e9ba0865b3692a8704bfa2d9',1,'VerletParticle::mass()'],['../structpixel_1_1physics_1_1_velocity_verlet_particle.html#aac8282ad22f62a1fe7a895d3deede62c',1,'pixel::physics::VelocityVerletParticle::mass()']]],
   ['max_5fatlas_5fcolumns',['MAX_ATLAS_COLUMNS',['../classpixel_1_1_tile_atlas.html#a4ef66e8764c03f186ba2b53bece22347',1,'pixel::TileAtlas']]],
   ['max_5fatlas_5fheight',['MAX_ATLAS_HEIGHT',['../classpixel_1_1_tile_atlas.html#ab5888e5bdaa1d56a68b4a4c271442637',1,'pixel::TileAtlas']]],
   ['max_5fatlas_5flayers',['MAX_ATLAS_LAYERS',['../classpixel_1_1_tile_atlas.html#a978af8532fa3b2cbe3348be1761681ef',1,'pixel::TileAtlas']]],

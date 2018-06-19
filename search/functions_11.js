@@ -10,6 +10,8 @@ var searchData=
   ['set_5fapp_5fdir',['set_app_dir',['../classpixel_1_1_app.html#ab67c71db0e518a8bdedb0a5ce005abbd',1,'pixel::App']]],
   ['set_5fbuffer_5fdata',['set_buffer_data',['../classpixel_1_1graphics_1_1renderers_1_1_tile_map_renderer.html#aaffa8474487fb29c4f37fa2b6071973c',1,'pixel::graphics::renderers::TileMapRenderer']]],
   ['set_5fcolor',['set_color',['../classtetrominos_1_1_tetromino.html#a1f678837b40a0a69eecda69d8de19535',1,'tetrominos::Tetromino']]],
+  ['set_5fposition',['set_position',['../class_rocket.html#aa97c89a83335cf204f3f2a91617ea98a',1,'Rocket']]],
+  ['set_5frotation',['set_rotation',['../class_rocket.html#a955c856c9a4ec67d19861b82ae108bd1',1,'Rocket']]],
   ['set_5fshape',['set_shape',['../classtetrominos_1_1_tetromino.html#a5032aecfad13d279ed35668f67f96310',1,'tetrominos::Tetromino::set_shape(const vector&lt; vector&lt; Board::Piece &gt;&gt; &amp;shape)'],['../classtetrominos_1_1_tetromino.html#af8297c250888606e8dc78156858cd301',1,'tetrominos::Tetromino::set_shape(const vector&lt; vector&lt; int &gt;&gt; &amp;shape)']]],
   ['set_5ftick_5fcallback',['set_tick_callback',['../classpixel_1_1_app.html#ad4ddc0186dbd603f7c701232c5f42100',1,'pixel::App']]],
   ['set_5ftime_5fscale',['set_time_scale',['../classpixel_1_1graphics_1_1_sprite_animation.html#a4615c583f1633927dba306659ddb6972',1,'pixel::graphics::SpriteAnimation']]],

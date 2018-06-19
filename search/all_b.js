@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['last_5fposition',['last_position',['../struct_verlet_particle.html#a03c564e1962866fb63323b23704a0211',1,'VerletParticle::last_position()'],['../struct_velocity_verlet_particle.html#a2eeedf9803bb54efedcd77ae420806b1',1,'VelocityVerletParticle::last_position()']]],
+  ['last_5fposition',['last_position',['../struct_verlet_particle.html#a03c564e1962866fb63323b23704a0211',1,'VerletParticle::last_position()'],['../structpixel_1_1physics_1_1_velocity_verlet_particle.html#a62e427e50d9292d6a490a7a99d8bfcae',1,'pixel::physics::VelocityVerletParticle::last_position()']]],
   ['late_5ftick',['late_tick',['../classpixel_1_1_app.html#a7467d727844ff9e9024e199369a846ee',1,'pixel::App']]],
   ['layer',['layer',['../structpixel_1_1graphics_1_1_texture_region.html#ac17cc15ef453654e9a60bda0501ce2fb',1,'pixel::graphics::TextureRegion']]],
   ['layer_5fmask',['LAYER_MASK',['../classpixel_1_1_tile_atlas.html#a77ff53adae5ce922adbca37b5e315020',1,'pixel::TileAtlas']]],
@@ -9,7 +9,8 @@ var searchData=
   ['layers_5f',['layers_',['../classpixel_1_1graphics_1_1_texture_atlas.html#a3bd29372dd04c522a4cde4227d577946',1,'pixel::graphics::TextureAtlas::layers_()'],['../classpixel_1_1_tile_map.html#af24b467f025449cae2612dad8e9c2e2a',1,'pixel::TileMap::layers_()']]],
   ['layout',['Layout',['../struct_layout.html',1,'Layout'],['../struct_layout.html#a1239c2d12968bcfd073571e91e01f30a',1,'Layout::Layout()']]],
   ['length',['length',['../structpixel_1_1graphics_1_1_image_data.html#a41d28d028c9f1d42f8174557e3ead7b3',1,'pixel::graphics::ImageData::length()'],['../classpixel_1_1_line_segment.html#ad3bac4aae966e09f98586c47f70dee44',1,'pixel::LineSegment::length()']]],
-  ['level',['Level',['../classtetrominos_1_1_level.html',1,'tetrominos']]],
+  ['level',['Level',['../class_level.html',1,'Level'],['../classtetrominos_1_1_level.html',1,'tetrominos::Level'],['../class_level.html#ae6b178a57d2a4f9a6c86becf81711c16',1,'Level::Level()']]],
+  ['level_5f',['level_',['../class_rocket.html#a1cc40f9e2e30d112c7678d99d1451ede',1,'Rocket']]],
   ['line_5frenderer_2ecpp',['line_renderer.cpp',['../line__renderer_8cpp.html',1,'']]],
   ['line_5frenderer_2eh',['line_renderer.h',['../line__renderer_8h.html',1,'']]],
   ['linerenderer',['LineRenderer',['../classpixel_1_1graphics_1_1renderers_1_1_line_renderer.html',1,'pixel::graphics::renderers::LineRenderer'],['../classpixel_1_1graphics_1_1renderers_1_1_line_renderer.html#a375663ae69dbe4b5dc3363a3a63b8d8c',1,'pixel::graphics::renderers::LineRenderer::LineRenderer()']]],
@@ -20,6 +21,7 @@ var searchData=
   ['load_5fdata',['load_data',['../classpixel_1_1graphics_1_1_buffer.html#aaca0b53ca31fd34a8548fd5fcea9e58c',1,'pixel::graphics::Buffer']]],
   ['load_5fpng',['load_png',['../namespacepixel_1_1graphics.html#a10dcd0aca5e9567469b717e72e090572',1,'pixel::graphics::load_png(const string &amp;path)'],['../namespacepixel_1_1graphics.html#a719505e54207dc3fb06242ed6587081e',1,'pixel::graphics::load_png(const std::string &amp;path)']]],
   ['load_5fshader',['load_shader',['../namespacepixel_1_1graphics.html#af428e812eb483510b5935cf0fdaa930e',1,'pixel::graphics']]],
+  ['load_5fsprites',['load_sprites',['../class_level.html#ad1b54a5bc07ec1d3dd6ce71df5d46a12',1,'Level']]],
   ['load_5fsubregion',['load_subregion',['../classpixel_1_1graphics_1_1_texture.html#a89edbf74a84fb71f69515b768200c842',1,'pixel::graphics::Texture::load_subregion(int x, int y, int width, int height, const void *data)'],['../classpixel_1_1graphics_1_1_texture.html#a877bc298e42cad5e18636a00f7fc152f',1,'pixel::graphics::Texture::load_subregion(int x, int y, int width, int height, int layer, const void *data)'],['../structpixel_1_1graphics_1_1_image_data.html#a610d2fb60bac527bfdea75eb7048c188',1,'pixel::graphics::ImageData::load_subregion()']]],
   ['loaddata',['loadData',['../classpixel_1_1graphics_1_1_buffer.html#a4454068cd191da9ff2133d22f53611fd',1,'pixel::graphics::Buffer::loadData()'],['../classpixel_1_1graphics_1_1_index_buffer.html#aef55496774e132eb2deac595165e3576',1,'pixel::graphics::IndexBuffer::loadData()']]],
   ['location',['location',['../structpixel_1_1graphics_1_1_attribute.html#a4547040e98863207d138e265941781ef',1,'pixel::graphics::Attribute']]],
