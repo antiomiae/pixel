@@ -98,7 +98,7 @@ public:
 
         body_.center = {0.5, 0.5};
         flames_.center = {0.5, 1.0};
-        flames_.position = body_.position - glm::vec3(0.f, body_.texture_region.h / 2.f, 0.f);
+        flames_.position = body_.position - glm::vec3(0.f, body_.texture_region.h / 2.f + 1.f, 0.f);
     }
 
     float rotation()
@@ -281,10 +281,9 @@ int main(int argc, char* argv[])
 
     ParticleController particles{glm::vec4{0, 0, virtual_window_size}};
 
-
-
     pixel::app().set_tick_callback(
         [&] {
+            glClearColor(0.1, 0.1, 0.1, 1.0);
             glClear(GL_COLOR_BUFFER_BIT);
             render_target.activate();
             glClear(GL_COLOR_BUFFER_BIT);
