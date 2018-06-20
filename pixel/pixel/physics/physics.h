@@ -43,7 +43,7 @@ struct VelocityVerletParticle
         using random_float = std::uniform_real_distribution<float>;
 
         random_float x_func(pos_range.x, pos_range.z);
-        random_float y_func(pos_range.y, pos_range.y);
+        random_float y_func(pos_range.y, pos_range.w);
         random_float v_func(vel_range.x, vel_range.y);
         random_float mass_func(mass_range.x, mass_range.y);
 
