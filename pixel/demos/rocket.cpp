@@ -281,9 +281,10 @@ int main(int argc, char* argv[])
 
     ParticleController particles{glm::vec4{0, 0, virtual_window_size}};
 
+    app().render_context().default_clear_color = {0.8, 0.8, 0.8, 1.0};
+
     pixel::app().set_tick_callback(
         [&] {
-            glClearColor(0.1, 0.1, 0.1, 1.0);
             glClear(GL_COLOR_BUFFER_BIT);
             render_target.activate();
             glClear(GL_COLOR_BUFFER_BIT);
