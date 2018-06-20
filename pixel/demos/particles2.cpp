@@ -3,6 +3,8 @@
 #include <unistd.h>
 #include <algorithm>
 #include <glm/gtx/component_wise.hpp>
+#include <glm/gtx/color_space.hpp>
+#include <random>
 
 using namespace std;
 using namespace pixel;
@@ -11,8 +13,6 @@ using namespace pixel::physics;
 using namespace pixel::input;
 
 const float DT = 1.0 / 60.0f;
-
-
 
 template<class Particle>
 void render_particles(
@@ -36,6 +36,22 @@ void render_particles(
     }
 
     renderer.render(lines, camera);
+}
+
+
+glm::vec4 hsv_color(glm::vec4 hsva)
+{
+    return glm::vec4(glm::rgbColor(glm::vec3{hsva}), hsva.a);
+}
+
+glm::vec4 hsv_color(float h, float s, float v)
+{
+    return hsv_color(glm::vec4{h, s, v, 1.0f});
+}
+
+glm::vec4 hsv_color(glm::vec3 hsv)
+{
+    return hsv_color(glm::vec4{hsv, 1.0f});
 }
 
 
@@ -65,29 +81,29 @@ int main(int argc, char* argv[])
     auto random_particle = [&]() -> auto {
         return VelocityVerletParticle::random_particle(
             glm::vec4{0.f, 0.f, virtual_window_size.x, virtual_window_size.y},
-            glm::vec2{100.f, 1000.f},
+            glm::vec2{10.f, 1000.f},
             glm::vec2{1.f, 1.f}
         );
     };
 
-    {
-        glm::vec4 colors[] = {
-            {0.0, 1.0, 0.0, 0.1},
-            {1.0, 0.0, 1.0, 0.1},
-            {0.0, 0.0, 1.0, 0.1},
-            {1.0, 1.0, 0.0, 0.1}
-        };
+    auto random_color = []() -> auto {
+        static default_random_engine generator;
+        static std::uniform_real_distribution<float> h_rand(0.f, 360.f);
 
-        for (auto i = 0u; i < 50; ++i) {
-            particles.push_back(random_particle());
-            particles.back().color = colors[i % 4];
-            particles.back().init_last_position(DT);
-        }
+        return hsv_color(h_rand(generator), 0.8f, 0.8f);
+    };
+
+
+    for (auto i = 0u; i < 50; ++i) {
+        particles.push_back(random_particle());
+        particles.back().color = random_color();
+        particles.back().init_last_position(DT);
     }
 
     renderers::RendererGroup renderer_group;
 
     glEnable(GL_BLEND);
+    glDisable(GL_DEPTH_TEST);
 
     auto max_force = 10000000.0f;
     auto force = max_force;
@@ -110,9 +126,9 @@ int main(int argc, char* argv[])
                     p.position.y < 0 ||
                     p.position.y > virtual_window_size.y) {
 
-                    auto color = p.color;
                     p = random_particle();
-                    p.color = color;
+                    p.color = random_color();
+                    p.init_last_position(DT);
                 } else {
                     IntegrationMethods::velocity_verlet_step(p, acc_func, DT);
                 }
