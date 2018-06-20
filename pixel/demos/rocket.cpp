@@ -103,12 +103,12 @@ public:
 
     float rotation()
     {
-        return rotation_;
+        return angle_;
     }
 
     void set_rotation(float r)
     {
-        rotation_ = r;
+        angle_ = r;
     }
 
     glm::vec2 position()
@@ -124,13 +124,13 @@ public:
     void render(SpriteBatch& batch)
     {
         auto temp = body_;
-        temp.angle += rotation_;
+        temp.angle += angle_;
         temp.position = glm::vec3(position_, 0.f) +
                         glm::rotate(glm::mat3(), temp.angle) * glm::vec3(temp.position.x, temp.position.y, 1.0f);
         batch.add(temp);
 
         temp = flames_;
-        temp.angle += rotation_;
+        temp.angle += angle_;
         temp.position = glm::vec3(position_, 0.f) +
                         glm::rotate(glm::mat3(), temp.angle) * glm::vec3(temp.position.x, temp.position.y, 1.0f);
         batch.add(temp);
@@ -139,7 +139,7 @@ public:
 private:
     Level* level_;
 
-    float rotation_;
+    float angle_{0.f};
 
     glm::vec2 position_;
 
