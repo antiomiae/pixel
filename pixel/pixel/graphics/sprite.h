@@ -9,6 +9,8 @@ namespace pixel::graphics
 class Sprite
 {
 public:
+    Sprite() = default;
+
     /**
         * Sprite orientation flags
         * */
@@ -28,15 +30,15 @@ public:
         };
     };
 
-    glm::vec2 center;
+    glm::vec2 center{0.f, 0.f};
 
     glm::vec4 color{1.0, 1.0, 1.0, 1.0};
 
     glm::vec4 tint{0.0, 0.0, 0.0, 0.0};
 
-    float angle;
+    float angle{0.f};
 
-    uint32_t flip_flags;
+    uint32_t flip_flags{0};
 
     TextureRegion texture_region;
 
