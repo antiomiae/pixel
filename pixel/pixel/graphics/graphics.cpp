@@ -9,6 +9,57 @@ using namespace std;
 namespace pixel::graphics
 {
 
+
+unsigned format_components(GLenum format)
+{
+    switch (format) {
+        case GL_RED:
+        case GL_RED_INTEGER:
+        case GL_STENCIL_INDEX:
+        case GL_DEPTH_COMPONENT:
+            return 1;
+        case GL_RG:
+        case GL_RG_INTEGER:
+        case GL_DEPTH_STENCIL:
+            return 2;
+        case GL_RGB:
+        case GL_BGR:
+        case GL_RGB_INTEGER:
+        case GL_BGR_INTEGER:
+            return 3;
+        case GL_RGBA:
+        case GL_BGRA:
+        case GL_RGBA_INTEGER:
+        case GL_BGRA_INTEGER:
+            return 4;
+        default:
+            pixel_error("Unknown format");
+            return 0;
+    }
+}
+
+
+unsigned size_of_gl_type(GLenum type)
+{
+    switch (type) {
+        case GL_BYTE:
+        case GL_UNSIGNED_BYTE:
+            return sizeof(GLubyte);
+        case GL_SHORT:
+        case GL_UNSIGNED_SHORT:
+            return sizeof(GLshort);
+        case GL_INT:
+        case GL_UNSIGNED_INT:
+            return sizeof(GLint);
+        case GL_FLOAT:
+            return sizeof(GLfloat);
+        default:
+            pixel_error("Invalid GL type");
+            return 0;
+    }
+}
+
+
 Vao::Vao()
 {
     glGenVertexArrays(1, &vao_id_);
@@ -47,6 +98,7 @@ Texture::Texture(GLenum texture_type, GLenum format, GLenum internal_format, GLe
     allocated_(false)
 {
     glGenTextures(1, &texture_id_);
+
     bind();
     glTexParameteri(texture_type, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     glTexParameteri(texture_type, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
@@ -113,6 +165,7 @@ void Texture::unbind() const
 
 void Texture::bind() const
 {
+    error_if(texture_id_ == 0, "Binding Texture with texture_id = 0; is this what you want to do?");
     glBindTexture(texture_type_, texture_id_);
     log_gl_errors();
 }
@@ -177,56 +230,6 @@ void Texture::load_subregion(int x, int y, int width, int height, const void* da
         unbind();
     } else {
         pixel_error("Invalid overload of load_subregion() called for texture typed");
-    }
-}
-
-
-unsigned format_components(GLenum format)
-{
-    switch (format) {
-        case GL_RED:
-        case GL_RED_INTEGER:
-        case GL_STENCIL_INDEX:
-        case GL_DEPTH_COMPONENT:
-            return 1;
-        case GL_RG:
-        case GL_RG_INTEGER:
-        case GL_DEPTH_STENCIL:
-            return 2;
-        case GL_RGB:
-        case GL_BGR:
-        case GL_RGB_INTEGER:
-        case GL_BGR_INTEGER:
-            return 3;
-        case GL_RGBA:
-        case GL_BGRA:
-        case GL_RGBA_INTEGER:
-        case GL_BGRA_INTEGER:
-            return 4;
-        default:
-            pixel_error("Unknown format");
-            return 0;
-    }
-}
-
-
-unsigned size_of_gl_type(GLenum type)
-{
-    switch (type) {
-        case GL_BYTE:
-        case GL_UNSIGNED_BYTE:
-            return sizeof(GLubyte);
-        case GL_SHORT:
-        case GL_UNSIGNED_SHORT:
-            return sizeof(GLshort);
-        case GL_INT:
-        case GL_UNSIGNED_INT:
-            return sizeof(GLint);
-        case GL_FLOAT:
-            return sizeof(GLfloat);
-        default:
-            pixel_error("Invalid GL type");
-            return 0;
     }
 }
 
@@ -303,10 +306,12 @@ Texture& Texture::operator=(Texture&& rhs)
 }
 
 
-void pixel::graphics::Texture::activate(unsigned unit) const
+void Texture::activate(unsigned unit) const
 {
     glActiveTexture(GL_TEXTURE0 + unit);
+    log_gl_errors();
     bind();
+    log_gl_errors();
 }
 
 

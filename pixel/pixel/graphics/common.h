@@ -303,6 +303,8 @@ struct TextureRegion
         };
 
         int32_t rect[4];
+
+        glm::ivec4 vec{};
     };
     int32_t layer;
     /**
