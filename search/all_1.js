@@ -12,7 +12,7 @@ var searchData=
   ['advance',['advance',['../classpixel_1_1graphics_1_1_sprite_animation.html#aeb00982221f4c5ebd081d7c764d0c2a6',1,'pixel::graphics::SpriteAnimation']]],
   ['allocated_5f',['allocated_',['../classpixel_1_1graphics_1_1_texture.html#a45f2bbf95259f7e05208fb44fe298829',1,'pixel::graphics::Texture']]],
   ['angle',['angle',['../classpixel_1_1graphics_1_1_sprite.html#ac637be9b9aa5227a47393d182658577b',1,'pixel::graphics::Sprite']]],
-  ['angle_5f',['angle_',['../classpixel_1_1graphics_1_1_camera.html#afbb53e570f87ead316ff290f71570ae0',1,'pixel::graphics::Camera']]],
+  ['angle_5f',['angle_',['../class_rocket.html#a7aa3b02dcc766525cc4c8e4679853a59',1,'Rocket::angle_()'],['../classpixel_1_1graphics_1_1_camera.html#afbb53e570f87ead316ff290f71570ae0',1,'pixel::graphics::Camera::angle_()']]],
   ['animation',['Animation',['../structpixel_1_1_tileset_1_1_tile_1_1_animation.html',1,'pixel::Tileset::Tile::Animation'],['../structpixel_1_1_tileset_1_1_tile.html#a4bb48a8df11fd7c4b8dc5959c0da54ce',1,'pixel::Tileset::Tile::animation()']]],
   ['animation_5fdefinition',['animation_definition',['../classpixel_1_1_tile_layer_1_1_tile_animation.html#a768c92f745be44a78a96635f5088c662',1,'pixel::TileLayer::TileAnimation']]],
   ['animations',['animations',['../classpixel_1_1_tile_layer.html#a40c1016a17820376f26bca1d716db9ba',1,'pixel::TileLayer']]],

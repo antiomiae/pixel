@@ -38,7 +38,7 @@ var searchData=
   ['sol_5fcheck_5farguments',['SOL_CHECK_ARGUMENTS',['../binding_8h.html#a41272530759e713f102cc200d1f5a484',1,'binding.h']]],
   ['sort_5fregions',['sort_regions',['../namespacepixel_1_1graphics.html#ae4b234b0f578905813c98f9dff28d8ee',1,'pixel::graphics']]],
   ['split_5frect',['split_rect',['../namespacepixel_1_1pack.html#a9f6003cbffbaf9c4694d88a2c10f2811',1,'pixel::pack']]],
-  ['sprite',['Sprite',['../classpixel_1_1graphics_1_1_sprite.html',1,'pixel::graphics']]],
+  ['sprite',['Sprite',['../classpixel_1_1graphics_1_1_sprite.html',1,'pixel::graphics::Sprite'],['../classpixel_1_1graphics_1_1_sprite.html#a65ccc8d30d0c395a408e93565f4eddac',1,'pixel::graphics::Sprite::Sprite()']]],
   ['sprite_2ecpp',['sprite.cpp',['../sprite_8cpp.html',1,'']]],
   ['sprite_2eh',['sprite.h',['../sprite_8h.html',1,'']]],
   ['sprite_5fbatch_5f',['sprite_batch_',['../classtetrominos_1_1_level.html#a66f56986e49d2f1ef3a31114f1c16c2c',1,'tetrominos::Level']]],

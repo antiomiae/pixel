@@ -39,7 +39,6 @@ var searchData=
   ['rocket',['Rocket',['../class_rocket.html',1,'Rocket'],['../class_rocket.html#a1fad1ceb92830df30f5dd1069060909b',1,'Rocket::Rocket()']]],
   ['rocket_2ecpp',['rocket.cpp',['../rocket_8cpp.html',1,'']]],
   ['rotation',['rotation',['../class_rocket.html#a4a4148fcd786a4cddad91fa7961fb48a',1,'Rocket']]],
-  ['rotation_5f',['rotation_',['../class_rocket.html#a55d20fd452d7cd800c7998627f92ab4f',1,'Rocket']]],
   ['row_5fmask',['ROW_MASK',['../classpixel_1_1_tile_atlas.html#a39ef2af6f3b90103a49af36c27fc578e',1,'pixel::TileAtlas']]],
   ['row_5fshift',['ROW_SHIFT',['../classpixel_1_1_tile_atlas.html#a973e96f321308c6510efb6643a7a8f58',1,'pixel::TileAtlas']]],
   ['run',['run',['../classpixel_1_1_app.html#a21808c2f78df239ac3f58c34a2a4b667',1,'pixel::App']]]

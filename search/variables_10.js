@@ -9,7 +9,6 @@ var searchData=
   ['renderer_5fgroup_5f',['renderer_group_',['../class_level.html#a058bdd73c4757257469a035f0433e666',1,'Level']]],
   ['renderers_5f',['renderers_',['../classpixel_1_1graphics_1_1renderers_1_1_renderer_group.html#aa0544fd063eea08adc4caeca7adc737f',1,'pixel::graphics::renderers::RendererGroup']]],
   ['right',['right',['../structpixel_1_1pack_1_1_pack_node.html#a3622911c5c2374af970989dff1cb8485',1,'pixel::pack::PackNode']]],
-  ['rotation_5f',['rotation_',['../class_rocket.html#a55d20fd452d7cd800c7998627f92ab4f',1,'Rocket']]],
   ['row_5fmask',['ROW_MASK',['../classpixel_1_1_tile_atlas.html#a39ef2af6f3b90103a49af36c27fc578e',1,'pixel::TileAtlas']]],
   ['row_5fshift',['ROW_SHIFT',['../classpixel_1_1_tile_atlas.html#a973e96f321308c6510efb6643a7a8f58',1,'pixel::TileAtlas']]]
 ];

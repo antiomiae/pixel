@@ -26,6 +26,7 @@ var searchData=
   ['sizeforbasictype',['sizeForBasicType',['../buffer_8cpp.html#a7b10a2f1d6fc58ad0bab845e0791106a',1,'buffer.cpp']]],
   ['sort_5fregions',['sort_regions',['../namespacepixel_1_1graphics.html#ae4b234b0f578905813c98f9dff28d8ee',1,'pixel::graphics']]],
   ['split_5frect',['split_rect',['../namespacepixel_1_1pack.html#a9f6003cbffbaf9c4694d88a2c10f2811',1,'pixel::pack']]],
+  ['sprite',['Sprite',['../classpixel_1_1graphics_1_1_sprite.html#a65ccc8d30d0c395a408e93565f4eddac',1,'pixel::graphics::Sprite']]],
   ['sprite_5ftexture',['sprite_texture',['../class_level.html#af9ff5baa838cb04f6bfa50cb53b74d3f',1,'Level']]],
   ['spriteanimation',['SpriteAnimation',['../classpixel_1_1graphics_1_1_sprite_animation.html#ab1c074091cc2bd6bea22a8a953b56147',1,'pixel::graphics::SpriteAnimation']]],
   ['spritebatch',['SpriteBatch',['../classpixel_1_1graphics_1_1_sprite_batch.html#addb06c7e22704e142d2796814a70d2d1',1,'pixel::graphics::SpriteBatch']]],
