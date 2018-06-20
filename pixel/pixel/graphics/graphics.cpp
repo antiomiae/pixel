@@ -297,6 +297,8 @@ Texture& Texture::operator=(Texture&& rhs)
     depth_ = rhs.depth_;
     allocated_ = rhs.allocated_;
 
+    rhs.texture_id_ = 0;
+
     return *this;
 }
 
