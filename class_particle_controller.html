@@ -77,6 +77,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1e42c2ab0fff452a6eac327d6b75c453"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18d438d11bf325a7fa65bd1f662ced6d"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a18d438d11bf325a7fa65bd1f662ced6d">random_color</a> ()</td></tr>
 <tr class="separator:a18d438d11bf325a7fa65bd1f662ced6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaaeb9aa7bacdee9f9823b34608d362a2"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#aaaeb9aa7bacdee9f9823b34608d362a2">force_on_particle</a> (const <a class="el" href="structpixel_1_1physics_1_1_velocity_verlet_particle.html">VelocityVerletParticle</a> &amp;particle)</td></tr>
+<tr class="separator:aaaeb9aa7bacdee9f9823b34608d362a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66b9b14224be96b9d3c8f23db9c9966e"><td class="memTemplParams" colspan="2">template&lt;typename AccFunc &gt; </td></tr>
 <tr class="memitem:a66b9b14224be96b9d3c8f23db9c9966e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a66b9b14224be96b9d3c8f23db9c9966e">step</a> (AccFunc &amp;acc_func)</td></tr>
 <tr class="separator:a66b9b14224be96b9d3c8f23db9c9966e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -87,6 +89,8 @@ Private Attributes</h2></td></tr>
 <tr class="separator:a197d171ab0849d8ec1cfe2b884a58e50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f49edce1d53999285d00086fcc5a8f6"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="structpixel_1_1physics_1_1_velocity_verlet_particle.html">VelocityVerletParticle</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a8f49edce1d53999285d00086fcc5a8f6">particles_</a></td></tr>
 <tr class="separator:a8f49edce1d53999285d00086fcc5a8f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff4d59f2cf647870d85458ce5912fa32"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="struct_attractor.html">Attractor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#aff4d59f2cf647870d85458ce5912fa32">attractors_</a></td></tr>
+<tr class="separator:aff4d59f2cf647870d85458ce5912fa32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa4d91923e7eb2a5670ba1b00246b0d53"></a>
@@ -116,6 +120,32 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aaaeb9aa7bacdee9f9823b34608d362a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaeb9aa7bacdee9f9823b34608d362a2">&#9670;&nbsp;</a></span>force_on_particle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec2 ParticleController::force_on_particle </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structpixel_1_1physics_1_1_velocity_verlet_particle.html">VelocityVerletParticle</a> &amp;&#160;</td>
+          <td class="paramname"><em>particle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a18d438d11bf325a7fa65bd1f662ced6d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a18d438d11bf325a7fa65bd1f662ced6d">&#9670;&nbsp;</a></span>random_color()</h2>
 
@@ -195,6 +225,28 @@ template&lt;typename AccFunc &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="aff4d59f2cf647870d85458ce5912fa32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff4d59f2cf647870d85458ce5912fa32">&#9670;&nbsp;</a></span>attractors_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="struct_attractor.html">Attractor</a>&gt; ParticleController::attractors_</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a197d171ab0849d8ec1cfe2b884a58e50"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a197d171ab0849d8ec1cfe2b884a58e50">&#9670;&nbsp;</a></span>field_size_</h2>
 
