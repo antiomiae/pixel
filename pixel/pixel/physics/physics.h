@@ -89,6 +89,7 @@ struct IntegrationMethods
         particle.position = particle.position + particle.velocity * dt;
     }
 
+
     template<class Particle, class AccFunc>
     static void euler_step(Particle& particle, AccFunc& acc, float dt)
     {
@@ -96,7 +97,6 @@ struct IntegrationMethods
         particle.position = particle.position + particle.velocity * dt;
         particle.velocity = particle.velocity + acc(particle) * dt;
     }
-
 };
 
 }

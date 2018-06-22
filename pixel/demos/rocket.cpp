@@ -3,6 +3,8 @@
 #include <unistd.h>
 #include <glm/gtx/component_wise.hpp>
 #include <glm/gtx/color_space.hpp>
+#include <glm/gtx/fast_square_root.hpp>
+
 
 using namespace std;
 using namespace pixel;
@@ -194,6 +196,13 @@ glm::vec4 hsv_color(glm::vec3 hsv)
 }
 
 
+struct Attractor
+{
+    glm::vec2 position{};
+    float force{0.f};
+};
+
+
 class ParticleController
 {
 public:
@@ -224,6 +233,21 @@ public:
         return hsv_color(h_rand(generator), 0.8f, 0.8f);
     };
 
+    glm::vec2 force_on_particle(const VelocityVerletParticle& particle)
+    {
+        glm::vec2 acc{};
+
+        for (auto& attractor : attractors_) {
+            auto r = attractor.position - particle.position;
+            auto d = glm::fastInverseSqrt(glm::dot(r, r));
+            auto force = attractor.force * powf(d, 3) * r;
+
+            acc += force;
+        }
+
+        return acc;
+    }
+
     template <typename AccFunc>
     void step(AccFunc& acc_func)
     {
@@ -233,7 +257,6 @@ public:
                 p.position.y < field_size_.y ||
                 p.position.y > field_size_.w)
             {
-
                 p = random_particle();
                 p.color = random_color();
                 p.init_last_position(DT);
@@ -244,10 +267,14 @@ public:
         }
     }
 
+
+
 private:
     glm::vec4 field_size_;
 
     vector<VelocityVerletParticle> particles_;
+
+    vector<Attractor> attractors_;
 };
 
 
@@ -260,13 +287,13 @@ int main(int argc, char* argv[])
         argc -= 2;
     }
 
-    glm::ivec2 virtual_window_size = glm::ivec2{320, 224};
-    glm::ivec2 actual_window_size = virtual_window_size * 3;
+    glm::ivec2 virtual_window_size{320, 224};
+    auto actual_window_size = virtual_window_size * 4;
 
     pixel::init(actual_window_size, virtual_window_size);
-    glEnable(GL_BLEND);
 
     OffscreenRenderTarget render_target{};
+
     render_target.set_window_size(virtual_window_size);
 
     Level main_level{virtual_window_size};
@@ -277,11 +304,11 @@ int main(int argc, char* argv[])
 
     rocket.set_position(virtual_window_size / 2);
 
-    SpriteBatch sprite_batch;
+    SpriteBatch sprite_batch{};
 
     ParticleController particles{glm::vec4{0, 0, virtual_window_size}};
 
-    app().render_context().default_clear_color = {0.8, 0.8, 0.8, 1.0};
+    app().render_context().default_clear_color = {0.1, 0.1, 0.1, 1.0};
 
     pixel::app().set_tick_callback(
         [&] {
