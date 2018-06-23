@@ -14,6 +14,7 @@ struct VelocityVerletParticle
     glm::vec2 velocity;
     glm::vec2 acc;
     float mass{1.0f};
+    float inv_mass{1.0f};
 
     glm::vec4 color{1.0, 1.0, 1.0, 1.0};
 
@@ -26,6 +27,7 @@ struct VelocityVerletParticle
         : position(position),
           velocity(velocity),
           mass(mass),
+          inv_mass(1.0f/mass),
           color(color)
     {
     }
