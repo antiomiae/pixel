@@ -6,6 +6,7 @@
 #include <glm/gtx/color_space.hpp>
 #include <random>
 #include <glm/gtx/fast_square_root.hpp>
+#include <chrono>
 
 using namespace std;
 using namespace pixel;
@@ -66,11 +67,24 @@ public:
     using StepFunction = std::function<void(vector<ParticleType>&,float,float)>;
 
     ParticleController(uint num_particles, glm::vec4 field_size)
-        : field_size_(field_size)
+        : num_particles_(num_particles),
+          field_size_(field_size),
+          particles_(num_particles)
+
     {
-        for (auto i = 0u; i < num_particles; ++i) {
+        reset();
+    }
+
+    void reset()
+    {
+        particles_.clear();
+
+        for (auto i = 0u; i < num_particles_; ++i) {
             particles_.push_back(random_particle());
-            particles_.back().color = random_color();
+            particles_.back().color = hsv_color(
+                (particles_.back().mass - 0.01f) / (100.f - 0.01f) * 360.f, 0.8f, 0.8f
+            );
+            particles_.back().color.a = 0.3f;
             particles_.back().init_last_position(DT);
         }
     }
@@ -80,17 +94,18 @@ public:
         return VelocityVerletParticle::random_particle(
             field_size_,
             glm::vec2{0, 0},
-            glm::vec2{1.f, 1000.f}
+            glm::vec2{0.01f, 100.f}
         );
     };
 
     glm::vec4 random_color()
     {
-        static default_random_engine generator;
+        auto& generator = pixel::random::default_engine();
+
         static std::uniform_real_distribution<float> h_rand(0.f, 360.f);
 
         auto c = hsv_color(h_rand(generator), 0.8f, 0.8f);
-        c.a = 0.2f;
+        c.a = 0.3f;
         return c;
     };
 
@@ -111,6 +126,8 @@ public:
     }
 
 private:
+    uint num_particles_{0};
+
     glm::vec4 field_size_;
 
     vector<ParticleType> particles_;
@@ -158,17 +175,10 @@ struct MutualGravitySimulation
 
 int main(int argc, char* argv[])
 {
-    if (argc >= 2) {
-        std::cout << "Changing to directory " << argv[1] << std::endl;
-        chdir(argv[1]);
-        argv = &argv[2];
-        argc -= 2;
-    }
-
     glm::ivec2 virtual_window_size = glm::vec2{1440, 900};
     glm::ivec2 actual_window_size = virtual_window_size;
 
-    pixel::init(actual_window_size, virtual_window_size);
+    pixel::init(actual_window_size, virtual_window_size, argc, argv);
 
     Camera camera({0, 0}, {0, 0, 2000, 2000});
 
@@ -177,17 +187,47 @@ int main(int argc, char* argv[])
     render_target.set_window_size(virtual_window_size);
     camera.set_window_size(render_target.window_size());
 
-    ParticleController particle_controller{500, glm::vec4(0.f, 0.f, virtual_window_size)};
+    ParticleController particle_controller{50, glm::vec4(0.f, 0.f, virtual_window_size)};
 
     renderers::RendererGroup renderer_group;
 
-    glEnable(GL_BLEND);
-    glDisable(GL_DEPTH_TEST);
+    glEnable(GL_LINE_SMOOTH);
 
     particle_controller.set_step_callback(&MutualGravitySimulation::step);
 
+    std::random_device rd;
+
+    auto reset_simulation = [&] {
+        using seconds = std::chrono::duration<double>;
+        static seconds total_time;
+
+        static auto now = std::chrono::high_resolution_clock::now();
+
+        auto next_now = std::chrono::high_resolution_clock::now();
+
+        total_time += seconds(next_now - now);
+
+        now = next_now;
+
+        if (total_time >= 120s) {
+            total_time -= 120s;
+
+            pixel::random::default_engine().seed(rd());
+
+            particle_controller.reset();
+
+            render_target.activate();
+            glClear(GL_COLOR_BUFFER_BIT);
+            render_target.deactivate();
+        }
+    };
+
+
+
     pixel::app().set_tick_callback(
         [&] {
+            reset_simulation();
+
             particle_controller.step(DT);
 
             glClear(GL_COLOR_BUFFER_BIT);

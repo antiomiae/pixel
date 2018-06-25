@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
 
     glfwHideWindow(app.window());
 
-    Shader shader(argv[1], argv[2], "shadercheck shader under test");
+    Shader shader(argv[1], argv[2]);
 
     cout << shader.debugPrint() << endl;
 

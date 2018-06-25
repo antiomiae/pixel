@@ -2,6 +2,7 @@
 #define PIXEL_MAIN_PHYSICS_H
 
 #include <random>
+#include <pixel/random.h>
 #include <glm/gtc/random.hpp>
 
 namespace pixel::physics
@@ -40,7 +41,7 @@ struct VelocityVerletParticle
     static VelocityVerletParticle
     random_particle(glm::vec4 pos_range, glm::vec2 vel_range, glm::vec2 mass_range)
     {
-        static std::default_random_engine generator;
+        auto& generator = pixel::random::default_engine();
 
         using random_float = std::uniform_real_distribution<float>;
 

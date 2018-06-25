@@ -75,7 +75,7 @@ ADD_LIBRARY(pixel
     pixel/util/symbol_map.h
     pixel/util/util.cpp
     pixel/util/util.h
-    pixel/graphics/renderers/renderer_group.h)
+    pixel/graphics/renderers/renderer_group.h pixel/random.h)
 
 
 ADD_DEPENDENCIES(pixel pixel_source_version)

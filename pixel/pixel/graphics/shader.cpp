@@ -6,6 +6,7 @@
 #include <pixel/error.h>
 #include <sstream>
 #include <fstream>
+#include <iostream>
 
 namespace pixel::graphics
 {
@@ -15,8 +16,7 @@ using namespace std;
 using pixel::collections::entries;
 
 
-Shader::Shader(const char* vsPath, const char* fsPath, const char* debugName)
-    : debug_name_(debugName)
+Shader::Shader(const char* vsPath, const char* fsPath, const vector<string>& transform_feedback_varyings)
 {
     auto vs = glCreateShader(GL_VERTEX_SHADER);
     auto fs = glCreateShader(GL_FRAGMENT_SHADER);
@@ -38,6 +38,21 @@ Shader::Shader(const char* vsPath, const char* fsPath, const char* debugName)
 
     glAttachShader(program, vs);
     glAttachShader(program, fs);
+
+    if (!transform_feedback_varyings.empty()) {
+        std::vector<const char*> chars(transform_feedback_varyings.size());
+
+        std::transform(
+            begin(transform_feedback_varyings),
+            end(transform_feedback_varyings),
+            begin(chars),
+            [](auto& s) {
+                return &s.front();
+            }
+        );
+
+        glTransformFeedbackVaryings(program, chars.size(), chars.data(), GL_INTERLEAVED_ATTRIBS);
+    }
 
     if (!link_program(program)) {
         log_program_error(program);

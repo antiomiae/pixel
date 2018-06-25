@@ -53,7 +53,7 @@ public:
     std::string debug_name_;
 
     Shader() = default;
-    Shader(const char *vs, const char *fs, const char *debugName = "unnamed shader");
+    Shader(const char *vs, const char *fs, const vector<string>& transform_feedback_varyings = {});
 
     void activate();
     void deactivate();
