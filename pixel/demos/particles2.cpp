@@ -127,13 +127,9 @@ public:
 
 private:
     uint num_particles_{0};
-
     glm::vec4 field_size_;
-
     vector<ParticleType> particles_;
-
     StepFunction step_callback_;
-
 };
 
 
@@ -147,7 +143,6 @@ struct MutualGravitySimulation
             particle.position = next_position;
         }
 
-
         for (auto i = 0u; i < bodies.size(); ++i) {
             auto& p_0 = bodies[i];
 
@@ -157,17 +152,15 @@ struct MutualGravitySimulation
                 if (i == j) {
                     continue;
                 }
-
                 auto p_n = bodies[j];
-
                 auto r = p_n.position - p_0.position;
-
                 auto d = glm::fastLength(r);
-
                 total_force += gravity * p_n.mass * p_0.mass * r / powf(d + 1.0f, 3.0);
             }
 
-            p_0.velocity = p_0.velocity + 0.5f * (p_0.acc + total_force * p_0.inv_mass) * dt;
+            p_0.velocity += 0.5f * p_0.acc * dt;
+            p_0.acc = total_force * p_0.inv_mass;
+            p_0.velocity += 0.5f * (p_0.acc) * dt;
         }
     }
 };
