@@ -14,7 +14,7 @@ int main(int argc, char* argv[])
     pixel::graphics::Shader n_body_shader{
         "assets/shaders/n_body.vert",
         "assets/shaders/n_body.frag",
-        {"_position__last_position", "_vec__acc", "_mass__inv_mass"}
+        {"_pos__last_pos", "_vel__acc", "_mass__inv_mass"}
     };
 
     cout << n_body_shader.debugPrint() << endl;
