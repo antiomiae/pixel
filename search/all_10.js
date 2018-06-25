@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['random_5fcolor',['random_color',['../class_particle_controller.html#a18d438d11bf325a7fa65bd1f662ced6d',1,'ParticleController']]],
+  ['random_2eh',['random.h',['../random_8h.html',1,'']]],
+  ['random_5fcolor',['random_color',['../class_particle_controller.html#a18d438d11bf325a7fa65bd1f662ced6d',1,'ParticleController::random_color()'],['../class_particle_controller.html#a18d438d11bf325a7fa65bd1f662ced6d',1,'ParticleController::random_color()']]],
+  ['random_5fengine_5ftype',['random_engine_type',['../namespacepixel_1_1random.html#a61cad87b8a8239339e9a22a20bd3d134',1,'pixel::random']]],
   ['random_5ffloat',['random_float',['../particles_8cpp.html#a46950c85db459336a84b2c5016354d77',1,'particles.cpp']]],
-  ['random_5fparticle',['random_particle',['../struct_velocity_verlet_particle.html#a48f4bcb9fa3ddf3dd9bff4da753c65d8',1,'VelocityVerletParticle::random_particle()'],['../class_particle_controller.html#a1e42c2ab0fff452a6eac327d6b75c453',1,'ParticleController::random_particle()'],['../structpixel_1_1physics_1_1_velocity_verlet_particle.html#a0ca850d4b3da08029feb2cec46ed4012',1,'pixel::physics::VelocityVerletParticle::random_particle()'],['../particles_8cpp.html#ae09e5575f2dce888e2b0b9dfc52dabf9',1,'random_particle():&#160;particles.cpp']]],
+  ['random_5fparticle',['random_particle',['../struct_velocity_verlet_particle.html#a48f4bcb9fa3ddf3dd9bff4da753c65d8',1,'VelocityVerletParticle::random_particle()'],['../class_particle_controller.html#a1e42c2ab0fff452a6eac327d6b75c453',1,'ParticleController::random_particle()'],['../class_particle_controller.html#a1e42c2ab0fff452a6eac327d6b75c453',1,'ParticleController::random_particle()'],['../structpixel_1_1physics_1_1_velocity_verlet_particle.html#a0ca850d4b3da08029feb2cec46ed4012',1,'pixel::physics::VelocityVerletParticle::random_particle()'],['../particles_8cpp.html#ae09e5575f2dce888e2b0b9dfc52dabf9',1,'random_particle():&#160;particles.cpp']]],
   ['rbo_5fcolor_5f',['rbo_color_',['../classpixel_1_1graphics_1_1_offscreen_render_target.html#a4ad6892135a7e4f68953944c287c2645',1,'pixel::graphics::OffscreenRenderTarget']]],
   ['rbo_5fdepth_5fstencil_5f',['rbo_depth_stencil_',['../classpixel_1_1graphics_1_1_offscreen_render_target.html#a862be1d24be8b6a08132e36796d46085',1,'pixel::graphics::OffscreenRenderTarget']]],
   ['read',['read',['../classpixel_1_1graphics_1_1_texture.html#ae2bbbdfd11ba832052f736e3bbfa21c1',1,'pixel::graphics::Texture']]],
@@ -29,7 +31,7 @@ var searchData=
   ['renderergroup',['RendererGroup',['../classpixel_1_1graphics_1_1renderers_1_1_renderer_group.html',1,'pixel::graphics::renderers']]],
   ['renderers_2eh',['renderers.h',['../renderers_8h.html',1,'']]],
   ['renderers_5f',['renderers_',['../classpixel_1_1graphics_1_1renderers_1_1_renderer_group.html#aa0544fd063eea08adc4caeca7adc737f',1,'pixel::graphics::renderers::RendererGroup']]],
-  ['reset',['reset',['../classpixel_1_1graphics_1_1_sprite_animation.html#aeef56bcc96c4af271d994c72d5baa1cf',1,'pixel::graphics::SpriteAnimation']]],
+  ['reset',['reset',['../class_particle_controller.html#a55eaf180f1275dafa281994b123ebcc6',1,'ParticleController::reset()'],['../classpixel_1_1graphics_1_1_sprite_animation.html#aeef56bcc96c4af271d994c72d5baa1cf',1,'pixel::graphics::SpriteAnimation::reset()']]],
   ['resize_5fbuffers',['resize_buffers',['../classpixel_1_1graphics_1_1_offscreen_render_target.html#a60bdb5799fc903d63922e63a873274af',1,'pixel::graphics::OffscreenRenderTarget']]],
   ['resource_5fpool_2ecpp',['resource_pool.cpp',['../resource__pool_8cpp.html',1,'']]],
   ['resource_5fpool_2eh',['resource_pool.h',['../resource__pool_8h.html',1,'']]],

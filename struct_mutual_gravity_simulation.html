@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>pixel: pixel/pixel/physics/physics.h File Reference</title>
+<title>pixel: MutualGravitySimulation Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -58,37 +58,67 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_8d2ea1e6046b479a199c8579c6b971df.html">pixel</a></li><li class="navelem"><a class="el" href="dir_fc929f9821857cded68d941ceec9a1e5.html">pixel</a></li><li class="navelem"><a class="el" href="dir_0e630bf220a2a72fbcf1f6b36cab34aa.html">physics</a></li>  </ul>
-</div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="struct_mutual_gravity_simulation-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">physics.h File Reference</div>  </div>
+<div class="title">MutualGravitySimulation Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;random&gt;</code><br />
-<code>#include &lt;<a class="el" href="random_8h_source.html">pixel/random.h</a>&gt;</code><br />
-<code>#include &lt;glm/gtc/random.hpp&gt;</code><br />
-</div>
-<p><a href="physics_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1physics_1_1_velocity_verlet_particle.html">pixel::physics::VelocityVerletParticle</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1physics_1_1_integration_methods.html">pixel::physics::IntegrationMethods</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespacepixel_1_1physics"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepixel_1_1physics.html">pixel::physics</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a716b59656570dd2199a7ffa8c191ca79"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_mutual_gravity_simulation.html#a716b59656570dd2199a7ffa8c191ca79">step</a> (vector&lt; <a class="el" href="particles2_8cpp.html#a09aea1fd0596fd2ff2d4787a24436203">ParticleType</a> &gt; &amp;bodies, float dt, float gravity)</td></tr>
+<tr class="separator:a716b59656570dd2199a7ffa8c191ca79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a716b59656570dd2199a7ffa8c191ca79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a716b59656570dd2199a7ffa8c191ca79">&#9670;&nbsp;</a></span>step()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void MutualGravitySimulation::step </td>
+          <td>(</td>
+          <td class="paramtype">vector&lt; <a class="el" href="particles2_8cpp.html#a09aea1fd0596fd2ff2d4787a24436203">ParticleType</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>bodies</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>dt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>gravity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>pixel/demos/<a class="el" href="particles2_8cpp.html">particles2.cpp</a></li>
+</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
