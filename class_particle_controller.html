@@ -74,10 +74,12 @@ $(function() {
 Public Types</h2></td></tr>
 <tr class="memitem:a79a1c754c53cdc33115034af9617fa72"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a79a1c754c53cdc33115034af9617fa72">StepFunction</a> = std::function&lt; void(vector&lt; <a class="el" href="particles2_8cpp.html#a09aea1fd0596fd2ff2d4787a24436203">ParticleType</a> &gt; &amp;, float, float)&gt;</td></tr>
 <tr class="separator:a79a1c754c53cdc33115034af9617fa72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79a1c754c53cdc33115034af9617fa72"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a79a1c754c53cdc33115034af9617fa72">StepFunction</a> = std::function&lt; void(vector&lt; <a class="el" href="particles2_8cpp.html#a09aea1fd0596fd2ff2d4787a24436203">ParticleType</a> &gt; &amp;, float, float)&gt;</td></tr>
+<tr class="separator:a79a1c754c53cdc33115034af9617fa72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa114fbf0e7cc34f04a4cbac8b14e7dd6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#aa114fbf0e7cc34f04a4cbac8b14e7dd6">ParticleController</a> (<a class="el" href="namespacepixel.html#a6706355faabffaabebd430b2fa55843a">uint</a> num_particles, glm::vec4 field_size)</td></tr>
+<tr class="memitem:aa114fbf0e7cc34f04a4cbac8b14e7dd6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#aa114fbf0e7cc34f04a4cbac8b14e7dd6">ParticleController</a> (<a class="el" href="namespacepixel.html#a6706355faabffaabebd430b2fa55843a">uint</a> <a class="el" href="class_particle_controller.html#a51cef90bc7a591b4870d3da8d83eb725">num_particles</a>, glm::vec4 field_size)</td></tr>
 <tr class="separator:aa114fbf0e7cc34f04a4cbac8b14e7dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55eaf180f1275dafa281994b123ebcc6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a55eaf180f1275dafa281994b123ebcc6">reset</a> ()</td></tr>
 <tr class="separator:a55eaf180f1275dafa281994b123ebcc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -91,12 +93,34 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a5aa1ca51a163447e53ce9eb7c8ba067c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28c8a7c73a66d57517e8e1751eb413e8"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="particles2_8cpp.html#a09aea1fd0596fd2ff2d4787a24436203">ParticleType</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a28c8a7c73a66d57517e8e1751eb413e8">particles</a> ()</td></tr>
 <tr class="separator:a28c8a7c73a66d57517e8e1751eb413e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4d91923e7eb2a5670ba1b00246b0d53"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#aa4d91923e7eb2a5670ba1b00246b0d53">ParticleController</a> (glm::vec4 field_size)</td></tr>
-<tr class="separator:aa4d91923e7eb2a5670ba1b00246b0d53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa114fbf0e7cc34f04a4cbac8b14e7dd6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#aa114fbf0e7cc34f04a4cbac8b14e7dd6">ParticleController</a> (<a class="el" href="namespacepixel.html#a6706355faabffaabebd430b2fa55843a">uint</a> <a class="el" href="class_particle_controller.html#a51cef90bc7a591b4870d3da8d83eb725">num_particles</a>, glm::vec4 field_size)</td></tr>
+<tr class="separator:aa114fbf0e7cc34f04a4cbac8b14e7dd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55eaf180f1275dafa281994b123ebcc6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a55eaf180f1275dafa281994b123ebcc6">reset</a> ()</td></tr>
+<tr class="separator:a55eaf180f1275dafa281994b123ebcc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e42c2ab0fff452a6eac327d6b75c453"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structpixel_1_1physics_1_1_velocity_verlet_particle.html">VelocityVerletParticle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a1e42c2ab0fff452a6eac327d6b75c453">random_particle</a> ()</td></tr>
 <tr class="separator:a1e42c2ab0fff452a6eac327d6b75c453"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18d438d11bf325a7fa65bd1f662ced6d"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a18d438d11bf325a7fa65bd1f662ced6d">random_color</a> ()</td></tr>
 <tr class="separator:a18d438d11bf325a7fa65bd1f662ced6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a9f3ff0f2e21f950545726ac6facd39"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a0a9f3ff0f2e21f950545726ac6facd39">step</a> (float dt)</td></tr>
+<tr class="separator:a0a9f3ff0f2e21f950545726ac6facd39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5aa1ca51a163447e53ce9eb7c8ba067c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a5aa1ca51a163447e53ce9eb7c8ba067c">set_step_callback</a> (<a class="el" href="class_particle_controller.html#a79a1c754c53cdc33115034af9617fa72">StepFunction</a> cb)</td></tr>
+<tr class="separator:a5aa1ca51a163447e53ce9eb7c8ba067c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28c8a7c73a66d57517e8e1751eb413e8"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="particles2_8cpp.html#a09aea1fd0596fd2ff2d4787a24436203">ParticleType</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a28c8a7c73a66d57517e8e1751eb413e8">particles</a> ()</td></tr>
+<tr class="separator:a28c8a7c73a66d57517e8e1751eb413e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51cef90bc7a591b4870d3da8d83eb725"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacepixel.html#a6706355faabffaabebd430b2fa55843a">uint</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a51cef90bc7a591b4870d3da8d83eb725">num_particles</a> ()</td></tr>
+<tr class="separator:a51cef90bc7a591b4870d3da8d83eb725"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa46f5ca0642c342428791b4862b54c40"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#aa46f5ca0642c342428791b4862b54c40">set_num_particles</a> (<a class="el" href="namespacepixel.html#a6706355faabffaabebd430b2fa55843a">uint</a> n)</td></tr>
+<tr class="separator:aa46f5ca0642c342428791b4862b54c40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0aa2c2698bc0bc98f6cb702c71f0443c"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a0aa2c2698bc0bc98f6cb702c71f0443c">speed_range</a> ()</td></tr>
+<tr class="separator:a0aa2c2698bc0bc98f6cb702c71f0443c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc7090ea4308383f99c19896600d514b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#abc7090ea4308383f99c19896600d514b">set_speed_range</a> (glm::vec2 s)</td></tr>
+<tr class="separator:abc7090ea4308383f99c19896600d514b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b967df5f4460450d092a3fcaff0759d"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a6b967df5f4460450d092a3fcaff0759d">mass_range</a> ()</td></tr>
+<tr class="separator:a6b967df5f4460450d092a3fcaff0759d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bb9787f8dec52522827e5ca823e5344"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a4bb9787f8dec52522827e5ca823e5344">set_mass_range</a> (glm::vec2 m)</td></tr>
+<tr class="separator:a4bb9787f8dec52522827e5ca823e5344"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac42eff748d963c2010613c7c074f84e5"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="struct_attractor.html">Attractor</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#ac42eff748d963c2010613c7c074f84e5">attractors</a> ()</td></tr>
+<tr class="separator:ac42eff748d963c2010613c7c074f84e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaaeb9aa7bacdee9f9823b34608d362a2"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#aaaeb9aa7bacdee9f9823b34608d362a2">force_on_particle</a> (const <a class="el" href="structpixel_1_1physics_1_1_velocity_verlet_particle.html">VelocityVerletParticle</a> &amp;particle)</td></tr>
 <tr class="separator:aaaeb9aa7bacdee9f9823b34608d362a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66b9b14224be96b9d3c8f23db9c9966e"><td class="memTemplParams" colspan="2">template&lt;typename AccFunc &gt; </td></tr>
@@ -109,18 +133,34 @@ Private Attributes</h2></td></tr>
 <tr class="separator:ad6cbd0a41c7008c10f63be5585087dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a197d171ab0849d8ec1cfe2b884a58e50"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a197d171ab0849d8ec1cfe2b884a58e50">field_size_</a></td></tr>
 <tr class="separator:a197d171ab0849d8ec1cfe2b884a58e50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2de309db2fc43f8bed57f071905d8a6e"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="particles2_8cpp.html#a09aea1fd0596fd2ff2d4787a24436203">ParticleType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a2de309db2fc43f8bed57f071905d8a6e">particles_</a></td></tr>
-<tr class="separator:a2de309db2fc43f8bed57f071905d8a6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8df4f3b9574f2e0dcba0f9bc8bd29a34"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="particles2_8cpp.html#a09aea1fd0596fd2ff2d4787a24436203">ParticleType</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a8df4f3b9574f2e0dcba0f9bc8bd29a34">particles_</a></td></tr>
+<tr class="separator:a8df4f3b9574f2e0dcba0f9bc8bd29a34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a784d8599cb00c676f0b2fbbc80e48dee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_particle_controller.html#a79a1c754c53cdc33115034af9617fa72">StepFunction</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a784d8599cb00c676f0b2fbbc80e48dee">step_callback_</a></td></tr>
 <tr class="separator:a784d8599cb00c676f0b2fbbc80e48dee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f49edce1d53999285d00086fcc5a8f6"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="structpixel_1_1physics_1_1_velocity_verlet_particle.html">VelocityVerletParticle</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a8f49edce1d53999285d00086fcc5a8f6">particles_</a></td></tr>
-<tr class="separator:a8f49edce1d53999285d00086fcc5a8f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5101a264c890f74715d68e14ed5001e3"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#a5101a264c890f74715d68e14ed5001e3">speed_range_</a> {0.1f, 10.0f}</td></tr>
+<tr class="separator:a5101a264c890f74715d68e14ed5001e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9cf3b82738e650ce5357dfab6e694a6"><td class="memItemLeft" align="right" valign="top">glm::vec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#ad9cf3b82738e650ce5357dfab6e694a6">mass_range_</a> {0.1f, 100.0f}</td></tr>
+<tr class="separator:ad9cf3b82738e650ce5357dfab6e694a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff4d59f2cf647870d85458ce5912fa32"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="struct_attractor.html">Attractor</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_particle_controller.html#aff4d59f2cf647870d85458ce5912fa32">attractors_</a></td></tr>
 <tr class="separator:aff4d59f2cf647870d85458ce5912fa32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a79a1c754c53cdc33115034af9617fa72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79a1c754c53cdc33115034af9617fa72">&#9670;&nbsp;</a></span>StepFunction</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a79a1c754c53cdc33115034af9617fa72">&#9670;&nbsp;</a></span>StepFunction <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="class_particle_controller.html#a79a1c754c53cdc33115034af9617fa72">ParticleController::StepFunction</a> =  std::function&lt;void(vector&lt;<a class="el" href="particles2_8cpp.html#a09aea1fd0596fd2ff2d4787a24436203">ParticleType</a>&gt;&amp;,float,float)&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a79a1c754c53cdc33115034af9617fa72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79a1c754c53cdc33115034af9617fa72">&#9670;&nbsp;</a></span>StepFunction <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -170,8 +210,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aa4d91923e7eb2a5670ba1b00246b0d53"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4d91923e7eb2a5670ba1b00246b0d53">&#9670;&nbsp;</a></span>ParticleController() <span class="overload">[2/2]</span></h2>
+<a id="aa114fbf0e7cc34f04a4cbac8b14e7dd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa114fbf0e7cc34f04a4cbac8b14e7dd6">&#9670;&nbsp;</a></span>ParticleController() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -182,9 +222,19 @@ Private Attributes</h2></td></tr>
         <tr>
           <td class="memname">ParticleController::ParticleController </td>
           <td>(</td>
-          <td class="paramtype">glm::vec4&#160;</td>
-          <td class="paramname"><em>field_size</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="namespacepixel.html#a6706355faabffaabebd430b2fa55843a">uint</a>&#160;</td>
+          <td class="paramname"><em>num_particles</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">glm::vec4&#160;</td>
+          <td class="paramname"><em>field_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -197,6 +247,31 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac42eff748d963c2010613c7c074f84e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac42eff748d963c2010613c7c074f84e5">&#9670;&nbsp;</a></span>attractors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="struct_attractor.html">Attractor</a>&gt;&amp; ParticleController::attractors </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aaaeb9aa7bacdee9f9823b34608d362a2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaaeb9aa7bacdee9f9823b34608d362a2">&#9670;&nbsp;</a></span>force_on_particle()</h2>
 
@@ -223,8 +298,83 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a6b967df5f4460450d092a3fcaff0759d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b967df5f4460450d092a3fcaff0759d">&#9670;&nbsp;</a></span>mass_range()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec2 ParticleController::mass_range </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a51cef90bc7a591b4870d3da8d83eb725"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51cef90bc7a591b4870d3da8d83eb725">&#9670;&nbsp;</a></span>num_particles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacepixel.html#a6706355faabffaabebd430b2fa55843a">uint</a> ParticleController::num_particles </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a28c8a7c73a66d57517e8e1751eb413e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28c8a7c73a66d57517e8e1751eb413e8">&#9670;&nbsp;</a></span>particles()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a28c8a7c73a66d57517e8e1751eb413e8">&#9670;&nbsp;</a></span>particles() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;<a class="el" href="particles2_8cpp.html#a09aea1fd0596fd2ff2d4787a24436203">ParticleType</a>&gt;&amp; ParticleController::particles </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a28c8a7c73a66d57517e8e1751eb413e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28c8a7c73a66d57517e8e1751eb413e8">&#9670;&nbsp;</a></span>particles() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -349,7 +499,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a55eaf180f1275dafa281994b123ebcc6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55eaf180f1275dafa281994b123ebcc6">&#9670;&nbsp;</a></span>reset()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a55eaf180f1275dafa281994b123ebcc6">&#9670;&nbsp;</a></span>reset() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -373,8 +523,111 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a55eaf180f1275dafa281994b123ebcc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55eaf180f1275dafa281994b123ebcc6">&#9670;&nbsp;</a></span>reset() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParticleController::reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4bb9787f8dec52522827e5ca823e5344"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bb9787f8dec52522827e5ca823e5344">&#9670;&nbsp;</a></span>set_mass_range()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParticleController::set_mass_range </td>
+          <td>(</td>
+          <td class="paramtype">glm::vec2&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa46f5ca0642c342428791b4862b54c40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa46f5ca0642c342428791b4862b54c40">&#9670;&nbsp;</a></span>set_num_particles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParticleController::set_num_particles </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacepixel.html#a6706355faabffaabebd430b2fa55843a">uint</a>&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc7090ea4308383f99c19896600d514b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc7090ea4308383f99c19896600d514b">&#9670;&nbsp;</a></span>set_speed_range()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParticleController::set_speed_range </td>
+          <td>(</td>
+          <td class="paramtype">glm::vec2&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5aa1ca51a163447e53ce9eb7c8ba067c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5aa1ca51a163447e53ce9eb7c8ba067c">&#9670;&nbsp;</a></span>set_step_callback()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5aa1ca51a163447e53ce9eb7c8ba067c">&#9670;&nbsp;</a></span>set_step_callback() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -399,8 +652,85 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a5aa1ca51a163447e53ce9eb7c8ba067c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5aa1ca51a163447e53ce9eb7c8ba067c">&#9670;&nbsp;</a></span>set_step_callback() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParticleController::set_step_callback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_particle_controller.html#a79a1c754c53cdc33115034af9617fa72">StepFunction</a>&#160;</td>
+          <td class="paramname"><em>cb</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0aa2c2698bc0bc98f6cb702c71f0443c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0aa2c2698bc0bc98f6cb702c71f0443c">&#9670;&nbsp;</a></span>speed_range()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec2 ParticleController::speed_range </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a0a9f3ff0f2e21f950545726ac6facd39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a9f3ff0f2e21f950545726ac6facd39">&#9670;&nbsp;</a></span>step() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a9f3ff0f2e21f950545726ac6facd39">&#9670;&nbsp;</a></span>step() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ParticleController::step </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>dt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0a9f3ff0f2e21f950545726ac6facd39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a9f3ff0f2e21f950545726ac6facd39">&#9670;&nbsp;</a></span>step() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -426,7 +756,7 @@ Private Attributes</h2></td></tr>
 </div>
 </div>
 <a id="a66b9b14224be96b9d3c8f23db9c9966e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66b9b14224be96b9d3c8f23db9c9966e">&#9670;&nbsp;</a></span>step() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a66b9b14224be96b9d3c8f23db9c9966e">&#9670;&nbsp;</a></span>step() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -498,6 +828,28 @@ template&lt;typename AccFunc &gt; </div>
 
 </div>
 </div>
+<a id="ad9cf3b82738e650ce5357dfab6e694a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9cf3b82738e650ce5357dfab6e694a6">&#9670;&nbsp;</a></span>mass_range_</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">glm::vec2 ParticleController::mass_range_ {0.1f, 100.0f}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ad6cbd0a41c7008c10f63be5585087dc4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad6cbd0a41c7008c10f63be5585087dc4">&#9670;&nbsp;</a></span>num_particles_</h2>
 
@@ -520,8 +872,8 @@ template&lt;typename AccFunc &gt; </div>
 
 </div>
 </div>
-<a id="a2de309db2fc43f8bed57f071905d8a6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2de309db2fc43f8bed57f071905d8a6e">&#9670;&nbsp;</a></span>particles_ <span class="overload">[1/2]</span></h2>
+<a id="a8df4f3b9574f2e0dcba0f9bc8bd29a34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8df4f3b9574f2e0dcba0f9bc8bd29a34">&#9670;&nbsp;</a></span>particles_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -530,7 +882,7 @@ template&lt;typename AccFunc &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt;<a class="el" href="particles2_8cpp.html#a09aea1fd0596fd2ff2d4787a24436203">ParticleType</a>&gt; ParticleController::particles_</td>
+          <td class="memname">vector&lt; <a class="el" href="particles2_8cpp.html#a09aea1fd0596fd2ff2d4787a24436203">ParticleType</a> &gt; ParticleController::particles_</td>
         </tr>
       </table>
   </td>
@@ -542,8 +894,8 @@ template&lt;typename AccFunc &gt; </div>
 
 </div>
 </div>
-<a id="a8f49edce1d53999285d00086fcc5a8f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f49edce1d53999285d00086fcc5a8f6">&#9670;&nbsp;</a></span>particles_ <span class="overload">[2/2]</span></h2>
+<a id="a5101a264c890f74715d68e14ed5001e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5101a264c890f74715d68e14ed5001e3">&#9670;&nbsp;</a></span>speed_range_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -552,7 +904,7 @@ template&lt;typename AccFunc &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">vector&lt;<a class="el" href="structpixel_1_1physics_1_1_velocity_verlet_particle.html">VelocityVerletParticle</a>&gt; ParticleController::particles_</td>
+          <td class="memname">glm::vec2 ParticleController::speed_range_ {0.1f, 10.0f}</td>
         </tr>
       </table>
   </td>

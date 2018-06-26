@@ -79,9 +79,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a1471c592fbbaba9d063575bb47b0f3cc"><td class="memTemplParams" colspan="2">template&lt;class Particle , class AccFunc &gt; </td></tr>
 <tr class="memitem:a1471c592fbbaba9d063575bb47b0f3cc"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structpixel_1_1physics_1_1_integration_methods.html#a1471c592fbbaba9d063575bb47b0f3cc">verlet_step</a> (Particle &amp;particle, AccFunc &amp;acc, float dt)</td></tr>
 <tr class="separator:a1471c592fbbaba9d063575bb47b0f3cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabb6ca818f4bd77c599a3a1ee177347c"><td class="memTemplParams" colspan="2">template&lt;class Particle , class AccFunc &gt; </td></tr>
-<tr class="memitem:aabb6ca818f4bd77c599a3a1ee177347c"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structpixel_1_1physics_1_1_integration_methods.html#aabb6ca818f4bd77c599a3a1ee177347c">velocity_verlet_step</a> (Particle &amp;particle, AccFunc &amp;acc, float dt)</td></tr>
-<tr class="separator:aabb6ca818f4bd77c599a3a1ee177347c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85e41715b83977cf49a75a7e996d290f"><td class="memTemplParams" colspan="2">template&lt;class Particle , class AccFunc &gt; </td></tr>
+<tr class="memitem:a85e41715b83977cf49a75a7e996d290f"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structpixel_1_1physics_1_1_integration_methods.html#a85e41715b83977cf49a75a7e996d290f">velocity_verlet_step</a> (Particle &amp;particle, const AccFunc &amp;acc, float dt)</td></tr>
+<tr class="separator:a85e41715b83977cf49a75a7e996d290f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff5c44b0f5f16131388da29efd97e7d6"><td class="memTemplParams" colspan="2">template&lt;class Particle , class AccFunc &gt; </td></tr>
 <tr class="memitem:aff5c44b0f5f16131388da29efd97e7d6"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structpixel_1_1physics_1_1_integration_methods.html#aff5c44b0f5f16131388da29efd97e7d6">euler_cromer_step</a> (Particle &amp;particle, AccFunc &amp;acc, float dt)</td></tr>
 <tr class="separator:aff5c44b0f5f16131388da29efd97e7d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -178,8 +178,8 @@ template&lt;class Particle , class AccFunc &gt; </div>
 
 </div>
 </div>
-<a id="aabb6ca818f4bd77c599a3a1ee177347c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabb6ca818f4bd77c599a3a1ee177347c">&#9670;&nbsp;</a></span>velocity_verlet_step()</h2>
+<a id="a85e41715b83977cf49a75a7e996d290f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85e41715b83977cf49a75a7e996d290f">&#9670;&nbsp;</a></span>velocity_verlet_step()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -198,7 +198,7 @@ template&lt;class Particle , class AccFunc &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">AccFunc &amp;&#160;</td>
+          <td class="paramtype">const AccFunc &amp;&#160;</td>
           <td class="paramname"><em>acc</em>, </td>
         </tr>
         <tr>

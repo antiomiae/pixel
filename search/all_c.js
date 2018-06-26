@@ -6,6 +6,8 @@ var searchData=
   ['map_5fheight_5f',['map_height_',['../classpixel_1_1collision_1_1_collision_map.html#a5675e0fd02f93fe970816d8ed1006dcb',1,'pixel::collision::CollisionMap']]],
   ['map_5fwidth_5f',['map_width_',['../classpixel_1_1collision_1_1_collision_map.html#a64495af476c19c01be52af4312d147d5',1,'pixel::collision::CollisionMap']]],
   ['mass',['mass',['../struct_verlet_particle.html#a4b63c1f9e9ba0865b3692a8704bfa2d9',1,'VerletParticle::mass()'],['../structpixel_1_1physics_1_1_velocity_verlet_particle.html#aac8282ad22f62a1fe7a895d3deede62c',1,'pixel::physics::VelocityVerletParticle::mass()']]],
+  ['mass_5frange',['mass_range',['../class_particle_controller.html#a6b967df5f4460450d092a3fcaff0759d',1,'ParticleController']]],
+  ['mass_5frange_5f',['mass_range_',['../class_particle_controller.html#ad9cf3b82738e650ce5357dfab6e694a6',1,'ParticleController']]],
   ['math_2eh',['math.h',['../math_8h.html',1,'']]],
   ['max_5fatlas_5fcolumns',['MAX_ATLAS_COLUMNS',['../classpixel_1_1_tile_atlas.html#a4ef66e8764c03f186ba2b53bece22347',1,'pixel::TileAtlas']]],
   ['max_5fatlas_5fheight',['MAX_ATLAS_HEIGHT',['../classpixel_1_1_tile_atlas.html#ab5888e5bdaa1d56a68b4a4c271442637',1,'pixel::TileAtlas']]],
