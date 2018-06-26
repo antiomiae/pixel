@@ -180,7 +180,7 @@ int main(int argc, char* argv[])
     render_target.set_window_size(virtual_window_size);
     camera.set_window_size(render_target.window_size());
 
-    ParticleController particle_controller{50, glm::vec4(0.f, 0.f, virtual_window_size)};
+    ParticleController particle_controller{100, glm::vec4(0.f, 0.f, virtual_window_size)};
 
     renderers::RendererGroup renderer_group;
 
@@ -202,8 +202,8 @@ int main(int argc, char* argv[])
 
         now = next_now;
 
-        if (total_time >= 120s) {
-            total_time -= 120s;
+        if (total_time >= 5*60s || input::Keyboard::keymap[GLFW_KEY_SPACE]) {
+            total_time = 0s;
 
             pixel::random::default_engine().seed(rd());
 
