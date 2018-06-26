@@ -72,7 +72,7 @@ struct IntegrationMethods
 
 
     template<class Particle, class AccFunc>
-    static void velocity_verlet_step(Particle& particle, AccFunc& acc, float dt)
+    static void velocity_verlet_step(Particle& particle, const AccFunc& acc, float dt)
     {
         auto next_position = particle.position + particle.velocity * dt + 0.5f * (dt * dt) * particle.acc;
         particle.last_position = particle.position;
