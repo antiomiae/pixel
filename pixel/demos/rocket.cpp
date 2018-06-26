@@ -1,6 +1,7 @@
 #include <pixel/pixel.h>
 #include <pixel/physics/physics.h>
 #include <unistd.h>
+#include <functional>
 #include <glm/gtx/component_wise.hpp>
 #include <glm/gtx/color_space.hpp>
 #include <glm/gtx/fast_square_root.hpp>
@@ -11,6 +12,8 @@ using namespace pixel;
 using namespace pixel::graphics;
 using namespace pixel::physics;
 using namespace pixel::input;
+
+using ParticleType = VelocityVerletParticle;
 
 const float DT = 1.0 / 60.0f;
 
@@ -206,12 +209,28 @@ struct Attractor
 class ParticleController
 {
 public:
-    ParticleController(glm::vec4 field_size)
-        : field_size_(field_size)
+
+    using StepFunction = std::function<void(vector<ParticleType>&,float,float)>;
+
+    ParticleController(uint num_particles, glm::vec4 field_size)
+        : num_particles_(num_particles),
+          field_size_(field_size),
+          particles_(num_particles)
+
     {
-        for (auto i = 0u; i < 50; ++i) {
+        reset();
+    }
+
+    void reset()
+    {
+        particles_.clear();
+
+        for (auto i = 0u; i < num_particles_; ++i) {
             particles_.push_back(random_particle());
-            particles_.back().color = random_color();
+            particles_.back().color = hsv_color(
+                (particles_.back().mass - 0.01f) / (100.f - 0.01f) * 360.f, 0.8f, 0.8f
+            );
+            particles_.back().color.a = 0.3f;
             particles_.back().init_last_position(DT);
         }
     }
@@ -220,18 +239,71 @@ public:
     {
         return VelocityVerletParticle::random_particle(
             field_size_,
-            glm::vec2{10.f, 1000.f},
-            glm::vec2{1.f, 1.f}
+            speed_range_,
+            mass_range_
         );
     };
 
     glm::vec4 random_color()
     {
-        static default_random_engine generator;
+        auto& generator = pixel::random::default_engine();
+
         static std::uniform_real_distribution<float> h_rand(0.f, 360.f);
 
-        return hsv_color(h_rand(generator), 0.8f, 0.8f);
+        auto c = hsv_color(h_rand(generator), 0.8f, 0.8f);
+        c.a = 0.3f;
+        return c;
     };
+
+    void step(float dt) {
+        if (step_callback_) {
+            step_callback_(particles_, 1.f, dt);
+        }
+    }
+
+    void set_step_callback(StepFunction cb)
+    {
+        step_callback_ = std::move(cb);
+    }
+
+    vector<ParticleType>& particles()
+    {
+        return particles_;
+    }
+
+    uint num_particles()
+    {
+        return num_particles_;
+    }
+
+    void set_num_particles(uint n) {
+        num_particles_ = n;
+    }
+
+    glm::vec2 speed_range()
+    {
+        return speed_range_;
+    }
+
+    void set_speed_range(glm::vec2 s)
+    {
+        speed_range_ = s;
+    }
+
+    glm::vec2 mass_range()
+    {
+        return mass_range_;
+    }
+
+    void set_mass_range(glm::vec2 m)
+    {
+        mass_range_ = m;
+    }
+
+    vector<Attractor>& attractors()
+    {
+        return attractors_;
+    }
 
     glm::vec2 force_on_particle(const VelocityVerletParticle& particle)
     {
@@ -261,21 +333,25 @@ public:
                 p.color = random_color();
                 p.init_last_position(DT);
             } else {
-                IntegrationMethods::velocity_verlet_step(p, acc_func, DT);
+                IntegrationMethods::velocity_verlet_step(p, std::mem_fn(&ParticleController::force_on_particle), DT);
             }
 
         }
     }
 
 
-
 private:
+    uint num_particles_{0};
     glm::vec4 field_size_;
-
-    vector<VelocityVerletParticle> particles_;
-
+    glm::vec2 speed_range_{0.1f, 10.0f};
+    glm::vec2 mass_range_{0.1f, 100.0f};
+    vector<ParticleType> particles_;
     vector<Attractor> attractors_;
+    StepFunction step_callback_;
 };
+
+
+
 
 
 int main(int argc, char* argv[])
@@ -306,9 +382,14 @@ int main(int argc, char* argv[])
 
     SpriteBatch sprite_batch{};
 
-    ParticleController particles{glm::vec4{0, 0, virtual_window_size}};
+    ParticleController particle_controller{100, glm::vec4{0, 0, virtual_window_size}};
 
     app().render_context().default_clear_color = {0.1, 0.1, 0.1, 1.0};
+
+
+    particle_controller.set_speed_range({0.1f, 10.0f});
+    particle_controller.reset();
+
 
     pixel::app().set_tick_callback(
         [&] {
@@ -316,12 +397,21 @@ int main(int argc, char* argv[])
             render_target.activate();
             glClear(GL_COLOR_BUFFER_BIT);
 
-            sprite_batch.restart();
+//            sprite_batch.restart();
+//
+//            rocket.render(sprite_batch);
+//
+//
+//            main_level.renderer_group().get<renderers::SpriteRenderer>().render(
+//                sprite_batch.sprites(), main_level.sprite_texture(), main_level.camera());
 
-            rocket.render(sprite_batch);
+            render_particles(
+                particle_controller.particles(),
+                main_level.renderer_group().get<renderers::LineRenderer>(),
+                    main_level.camera()
+            );
 
-            main_level.renderer_group().get<renderers::SpriteRenderer>().render(
-                sprite_batch.sprites(), main_level.sprite_texture(), main_level.camera());
+
 
             render_target.deactivate();
 
