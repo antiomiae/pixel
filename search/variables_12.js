@@ -17,6 +17,7 @@ var searchData=
   ['tiles',['tiles',['../classpixel_1_1_tile_layer_1_1_tile_animation.html#aa149a12e4eae31c60714565b2d64861e',1,'pixel::TileLayer::TileAnimation']]],
   ['tiles_5f',['tiles_',['../classpixel_1_1_tile_layer.html#ab94b13dc20c47ddf7e26546bdcfff497',1,'pixel::TileLayer::tiles_()'],['../classpixel_1_1_tileset.html#a3037828f512098ac7c6637ceb4819181',1,'pixel::Tileset::tiles_()']]],
   ['tileset_5f',['tileset_',['../classpixel_1_1_tile_map.html#a03c3fb17814bbbf8dc344870499e7b76',1,'pixel::TileMap']]],
+  ['time_5f',['time_',['../classpixel_1_1time_1_1_simple_timer.html#aa5ee12ddd32b85f7e594d3c88574d573',1,'pixel::time::SimpleTimer']]],
   ['time_5fscale_5f',['time_scale_',['../classpixel_1_1graphics_1_1_sprite_animation.html#a2e92d405501b311c448f4580b44ef2a1',1,'pixel::graphics::SpriteAnimation']]],
   ['timer',['timer',['../classpixel_1_1_tile_layer_1_1_tile_animation.html#ab90e96c9b709cc00481bf292df529635',1,'pixel::TileLayer::TileAnimation']]],
   ['timer_5f',['timer_',['../classpixel_1_1graphics_1_1_sprite_animation.html#abd9331bdc0e420dd1f15ff9c276413b3',1,'pixel::graphics::SpriteAnimation']]],

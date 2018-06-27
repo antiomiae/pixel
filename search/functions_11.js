@@ -25,6 +25,7 @@ var searchData=
   ['setup',['setup',['../namespacepixeltest.html#ae242b7d9a1c2a9a2036d9ae244452eb2',1,'pixeltest']]],
   ['shader',['Shader',['../classpixel_1_1graphics_1_1_shader.html#ae278868b21e8a3c4a790501bbb3ea247',1,'pixel::graphics::Shader::Shader()=default'],['../classpixel_1_1graphics_1_1_shader.html#a5a0cde5bec6fbe55e5f6b140261ae397',1,'pixel::graphics::Shader::Shader(const char *vs, const char *fs, const vector&lt; string &gt; &amp;transform_feedback_varyings={})']]],
   ['should_5fflip',['should_flip',['../structpixel_1_1pack_1_1_pack_node.html#a6c8bdca8866f0a2e19c9a9f2a65cff38',1,'pixel::pack::PackNode']]],
+  ['simpletimer',['SimpleTimer',['../classpixel_1_1time_1_1_simple_timer.html#a2c2e56db8d5e983fb05884f9b82a44ab',1,'pixel::time::SimpleTimer']]],
   ['size',['size',['../namespacepixel.html#a465745e3b1a334686475c629948876f0',1,'pixel']]],
   ['size_5fof_5fgl_5ftype',['size_of_gl_type',['../namespacepixel_1_1graphics.html#a6e2d7ca765d5c8f0653cf0690a994b4d',1,'pixel::graphics']]],
   ['sizeforbasictype',['sizeForBasicType',['../buffer_8cpp.html#a7b10a2f1d6fc58ad0bab845e0791106a',1,'buffer.cpp']]],

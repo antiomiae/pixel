@@ -8,6 +8,8 @@ var searchData=
   ['shader_5futils_2eh',['shader_utils.h',['../shader__utils_8h.html',1,'']]],
   ['shadercheck_2ecpp',['shadercheck.cpp',['../shadercheck_8cpp.html',1,'']]],
   ['shadercheck_2eh',['shadercheck.h',['../shadercheck_8h.html',1,'']]],
+  ['simple_5ftimer_2ecpp',['simple_timer.cpp',['../simple__timer_8cpp.html',1,'']]],
+  ['simple_5ftimer_2eh',['simple_timer.h',['../simple__timer_8h.html',1,'']]],
   ['sprite_2ecpp',['sprite.cpp',['../sprite_8cpp.html',1,'']]],
   ['sprite_2eh',['sprite.h',['../sprite_8h.html',1,'']]],
   ['sprite_5frenderer_2ecpp',['sprite_renderer.cpp',['../sprite__renderer_8cpp.html',1,'']]],
