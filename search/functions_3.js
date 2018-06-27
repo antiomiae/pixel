@@ -14,6 +14,7 @@ var searchData=
   ['compile_5fshader',['compile_shader',['../namespacepixel_1_1graphics.html#a46b2582a20b7efd452ad00943782116f',1,'pixel::graphics']]],
   ['componentsforattributetype',['componentsForAttributeType',['../buffer_8cpp.html#afa8fa4fb7371d1051d84b6c41beb39ab',1,'buffer.cpp']]],
   ['copy',['copy',['../classpixel_1_1graphics_1_1_sprite_animation.html#a9645ce48ccaf3a207038a9bb61373f68',1,'pixel::graphics::SpriteAnimation']]],
+  ['current_5ffps',['current_fps',['../classpixel_1_1_app.html#ad0e93eac0baa03b3921e048ee773fef0',1,'pixel::App']]],
   ['current_5fframe',['current_frame',['../classpixel_1_1graphics_1_1_sprite_animation.html#a2dea97818dcf960df3375c0070f8e0e4',1,'pixel::graphics::SpriteAnimation']]],
   ['current_5ftile_5fid',['current_tile_id',['../classpixel_1_1_tile_layer_1_1_tile_animation.html#a30537e1452f40ebd8a67370e425714c2',1,'pixel::TileLayer::TileAnimation']]]
 ];

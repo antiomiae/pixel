@@ -10,7 +10,7 @@ var indexSectionsWithContent =
   7: "f",
   8: "k",
   9: "o",
-  10: "eglps"
+  10: "ceglps"
 };
 
 var indexSectionNames =

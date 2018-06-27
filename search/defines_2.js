@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['log_5fgl_5ferrors',['log_gl_errors',['../util_8h.html#aa54cbaaf265eaeadf8bfcd170ea0ab63',1,'util.h']]]
+  ['glfw_5finclude_5fnone',['GLFW_INCLUDE_NONE',['../common_8h.html#a088324ad8995e3eb76024e3e79083d48',1,'common.h']]]
 ];

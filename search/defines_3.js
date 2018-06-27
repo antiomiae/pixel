@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pixel_5ferror',['pixel_error',['../error_8h.html#ae74166abdfbb2f775027ee6e15bef55f',1,'error.h']]]
+  ['log_5fgl_5ferrors',['log_gl_errors',['../util_8h.html#aa54cbaaf265eaeadf8bfcd170ea0ab63',1,'util.h']]]
 ];
