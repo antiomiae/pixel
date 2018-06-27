@@ -11,7 +11,7 @@ add_executable(pixel_test
         )
 
 target_link_libraries(pixel_test
-        PUBLIC pixel GTest::gtest Catch2)
+        PUBLIC pixel Catch2::Catch2)
 
 #target_compile_options(pixel_test
 #        PUBLIC -static-libstdc++)

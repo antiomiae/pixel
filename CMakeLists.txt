@@ -42,7 +42,6 @@ hunter_add_package(Lua)
 #hunter_add_package(Box2D)
 hunter_add_package(Boost COMPONENTS system filesystem)
 
-find_package(GTest CONFIG REQUIRED)
 find_package(glew CONFIG REQUIRED)
 find_package(glfw3 CONFIG REQUIRED)
 find_package(PNG CONFIG REQUIRED)
