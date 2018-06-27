@@ -169,6 +169,11 @@ void App::change_to_app_dir()
     chdir(app_dir_.c_str());
 }
 
+float App::current_fps()
+{
+    return fps_counter_.fps();
+}
+
 App& app()
 {
     return *shared_app;

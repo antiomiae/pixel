@@ -5,5 +5,5 @@ IFS=$'\n\t'
 CMD=$1
 shift
 
-./build
+./build "$@"
 build-make/bin/$CMD pixel "$@"

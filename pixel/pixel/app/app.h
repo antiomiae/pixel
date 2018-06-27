@@ -39,6 +39,8 @@ public:
     GLFWwindow* window();
     RenderContext& render_context();
 
+    float current_fps();
+
 private:
     string app_dir_;
 

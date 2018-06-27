@@ -146,7 +146,7 @@ struct MutualGravitySimulation
         for (auto i = 0u; i < bodies.size(); ++i) {
             auto& p_0 = bodies[i];
 
-            glm::vec2 total_force{0};
+            glm::vec2 sum_acc{0};
 
             for (auto j = 0u; j < bodies.size(); ++j) {
                 if (i == j) {
@@ -154,12 +154,14 @@ struct MutualGravitySimulation
                 }
                 auto p_n = bodies[j];
                 auto r = p_n.position - p_0.position;
-                auto d = glm::fastLength(r);
-                total_force += gravity * p_n.mass * p_0.mass * r / powf(d + 1.0f, 3.0);
+                auto d = glm::fastInverseSqrt(glm::dot(r, r) + 1.f);
+                //auto d = glm::fastLength(r);
+
+                sum_acc += gravity * p_n.mass * powf(d, 3) * r;
             }
 
             p_0.velocity += 0.5f * p_0.acc * dt;
-            p_0.acc = total_force * p_0.inv_mass;
+            p_0.acc = sum_acc;
             p_0.velocity += 0.5f * (p_0.acc) * dt;
         }
     }
