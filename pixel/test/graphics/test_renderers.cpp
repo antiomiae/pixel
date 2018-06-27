@@ -4,9 +4,11 @@
 namespace
 {
 
-TEST(LineRenderer, constructor)
+TEST_CASE("LineRenderer")
 {
-    ASSERT_NO_THROW(pixel::graphics::renderers::LineRenderer line_renderer{});
+    REQUIRE_NOTHROW([] {
+        pixel::graphics::renderers::LineRenderer line_renderer{};
+    });
 }
 
 }

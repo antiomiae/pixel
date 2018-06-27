@@ -6,7 +6,7 @@ namespace
 using namespace std;
 using pixel::TileLayer;
 
-TEST(TileAnimation, Animation)
+TEST_CASE("TileAnimation")
 {
     TileLayer::TileAnimation ta{};
 
@@ -17,26 +17,26 @@ TEST(TileAnimation, Animation)
     };
 
     /* Should start at beginning of sequence */
-    ASSERT_EQ(0, ta.frame);
-    ASSERT_EQ(0.0, ta.timer);
-    ASSERT_EQ(1, ta.current_tile_id()) << to_string(ta.timer);
+    REQUIRE(0 == ta.frame);
+    REQUIRE(0.0 == ta.timer);
+    REQUIRE(1 == ta.current_tile_id());
 
     ta.update(1/60.0);
     /* Should still be on first frame */
-    ASSERT_EQ(1, ta.current_tile_id()) << to_string(ta.timer);
+    REQUIRE(1 == ta.current_tile_id());
 
     ta.update(1/60.0);
     /* Frame should have advanced */
-    ASSERT_EQ(2, ta.current_tile_id()) << "Timer = " << to_string(ta.timer);
+    REQUIRE(2 == ta.current_tile_id());
 
     ta.update(1/60.0);
     ta.update(1/60.0);
-    ASSERT_EQ(3, ta.current_tile_id());
+    REQUIRE(3 == ta.current_tile_id());
 
     /* Should reset to 0 at end of animation */
     ta.update(1/60.0);
     ta.update(1/60.0);
-    ASSERT_EQ(1, ta.current_tile_id());
+    REQUIRE(1 == ta.current_tile_id());
 
 
 };

@@ -6,7 +6,7 @@ namespace
 
 using pixel::TileMap;
 
-TEST(TileMap, Constructor)
+TEST_CASE("TileMap")
 {
     pixel::TileMap tile_map({30, 20}, {16, 16});
 

@@ -64,6 +64,8 @@ void App::init(int flags)
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
 
+    glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+
     window_ = glfwCreateWindow(render_context_.window_size.x, render_context_.window_size.y, "pixel", nullptr, nullptr);
 
     error_unless(window_, "glfwCreateWindow failed!");
@@ -129,9 +131,9 @@ void App::tick()
     ++frames_;
 
     #if PIXEL_DEBUG
-//        if (frames_ % 60 == 0) {
-//            cout << fps_counter_.fps() << " FPS" << endl;
-//        }
+        if (frames_ % 60 == 0) {
+            cout << fps_counter_.fps() << " FPS" << endl;
+        }
     #endif
 }
 

@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.8)
 project(pixel_test CXX)
 
+ADD_SUBDIRECTORY(../lib/Catch2 catch2)
+
 file(GLOB test_sources ${CMAKE_CURRENT_LIST_DIR}/**/test_*.cpp)
 
 add_executable(pixel_test
@@ -9,7 +11,7 @@ add_executable(pixel_test
         )
 
 target_link_libraries(pixel_test
-        PUBLIC pixel GTest::gtest)
+        PUBLIC pixel GTest::gtest Catch2)
 
 #target_compile_options(pixel_test
 #        PUBLIC -static-libstdc++)

@@ -5,7 +5,7 @@
 #define PIXEL_SETUP_H
 
 #include <pixel/pixel.h>
-#include <gtest/gtest.h>
+#include <catch2/catch.hpp>
 
 namespace pixeltest
 {

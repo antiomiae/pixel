@@ -7,7 +7,7 @@ namespace
 using namespace pixel;
 using namespace pixel::graphics;
 
-TEST(SpriteAnimation, batch)
+TEST_CASE("SpriteAnimation")
 {
     SpriteAnimation anim{};
 
@@ -21,19 +21,19 @@ TEST(SpriteAnimation, batch)
 
     anim.reset();
 
-    EXPECT_EQ(anim.current_frame().texture_region.x, 0);
+    REQUIRE(anim.current_frame().texture_region.x == 0);
 
     anim.update(0.010);
-    EXPECT_EQ(anim.current_frame().texture_region.x, 10);
+    REQUIRE(anim.current_frame().texture_region.x == 10);
 
     anim.update(0.010);
-    EXPECT_EQ(anim.current_frame().texture_region.x, 20);
+    REQUIRE(anim.current_frame().texture_region.x == 20);
 
     anim.update(0.010);
-    EXPECT_EQ(anim.current_frame().texture_region.x, 30);
+    REQUIRE(anim.current_frame().texture_region.x == 30);
 
     anim.update(0.010);
-    EXPECT_EQ(anim.current_frame().texture_region.x, 0);
+    REQUIRE(anim.current_frame().texture_region.x == 0);
 }
 
 };

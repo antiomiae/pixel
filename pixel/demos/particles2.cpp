@@ -93,7 +93,7 @@ public:
     {
         return VelocityVerletParticle::random_particle(
             field_size_,
-            glm::vec2{0, 0},
+            glm::vec2{-0.1f, 0.1f},
             glm::vec2{0.01f, 100.f}
         );
     };
@@ -111,7 +111,7 @@ public:
 
     void step(float dt) {
         if (step_callback_) {
-            step_callback_(particles_, 1.f, dt);
+            step_callback_(particles_, 0.1f, dt);
         }
     }
 
@@ -170,7 +170,7 @@ struct MutualGravitySimulation
 
 int main(int argc, char* argv[])
 {
-    glm::ivec2 virtual_window_size = glm::vec2{1440, 900};
+    glm::ivec2 virtual_window_size = glm::vec2{1920, 1000}*2.0f;
     glm::ivec2 actual_window_size = virtual_window_size;
 
     pixel::init(actual_window_size, virtual_window_size, argc, argv);
@@ -191,6 +191,7 @@ int main(int argc, char* argv[])
     particle_controller.set_step_callback(&MutualGravitySimulation::step);
 
     std::random_device rd;
+    pixel::random::default_engine().seed(rd());
 
     auto reset_simulation = [&] {
         using seconds = std::chrono::duration<double>;
@@ -221,6 +222,8 @@ int main(int argc, char* argv[])
 
     pixel::app().set_tick_callback(
         [&] {
+
+
             reset_simulation();
 
             particle_controller.step(DT);

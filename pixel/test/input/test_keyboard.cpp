@@ -6,9 +6,9 @@ namespace
 
 using namespace pixel::input;
 
-TEST(Keyboard, register_callback)
+TEST_CASE("Keyboard")
 {
-    Keyboard::register_callback(pixel::app().window());
+    REQUIRE_NOTHROW(Keyboard::register_callback(pixel::app().window()));
 }
 
 }

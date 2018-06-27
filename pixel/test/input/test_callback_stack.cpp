@@ -6,7 +6,7 @@ namespace
 
 using namespace pixel::input;
 
-TEST(CallbackStack, interface)
+TEST_CASE("CallbackStack")
 {
     using TestStack = CallbackStack<int>;
 
@@ -21,8 +21,8 @@ TEST(CallbackStack, interface)
         return true;
     });
 
-    EXPECT_EQ(true, stack.invoke(10));
-    EXPECT_EQ(10, canary);
+    REQUIRE(stack.invoke(10));
+    REQUIRE(10 == canary);
 
 
     stack.push_callback([&](auto i) {
@@ -30,8 +30,8 @@ TEST(CallbackStack, interface)
         return true;
     });
 
-    EXPECT_EQ(true, stack.invoke(10));
-    EXPECT_EQ(20, canary);
+    REQUIRE(stack.invoke(10));
+    REQUIRE(20 == canary);
 
     stack.push_callback([&](auto i) {
         canary = 3 * i;
@@ -39,9 +39,9 @@ TEST(CallbackStack, interface)
         return false;
     });
 
-    EXPECT_EQ(true, stack.invoke(10));
-    EXPECT_EQ(20, canary);
-    EXPECT_EQ(30, parrot);
+    REQUIRE(stack.invoke(10));
+    REQUIRE(20 == canary);
+    REQUIRE(30 == parrot);
 }
 
 }

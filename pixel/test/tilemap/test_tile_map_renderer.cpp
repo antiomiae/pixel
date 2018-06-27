@@ -5,7 +5,7 @@ namespace
 
 using pixel::graphics::renderers::TileMapRenderer;
 
-TEST(TileMapRenderer, DefaultConstructor)
+TEST_CASE("TileMapRenderer")
 {
     TileMapRenderer r2;
 };

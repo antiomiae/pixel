@@ -10,8 +10,7 @@ namespace
 using namespace pixel;
 using namespace pixel::graphics;
 
-TEST(OffscreenRenderTarget, Constructor)
-{
+TEST_CASE("OffscreenRenderTarget") {
     OffscreenRenderTarget render_target{};
 }
 
