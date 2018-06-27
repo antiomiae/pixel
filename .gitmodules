@@ -7,3 +7,6 @@
 [submodule "pixel/lib/glm"]
 	path = pixel/lib/glm
 	url = https://github.com/g-truc/glm.git
+[submodule "pixel/lib/Catch2"]
+	path = pixel/lib/Catch2
+	url = https://github.com/catchorg/Catch2.git
