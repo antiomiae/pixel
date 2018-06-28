@@ -16,12 +16,11 @@ TEST_CASE("SimpleTimer")
         REQUIRE(timer.time().count() == Approx(1.0f));
     }
 
-
     SECTION("update_duration") {
         timer.update(1s);
-        timer.update(1000ms);
+        timer.update(500ms);
 
-        REQUIRE(timer.time() == float_seconds(2.0f));
+        REQUIRE(timer.time() == float_seconds(1.5f));
     }
 
     SECTION("reset") {
