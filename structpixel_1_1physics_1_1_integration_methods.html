@@ -77,16 +77,16 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a1471c592fbbaba9d063575bb47b0f3cc"><td class="memTemplParams" colspan="2">template&lt;class Particle , class AccFunc &gt; </td></tr>
-<tr class="memitem:a1471c592fbbaba9d063575bb47b0f3cc"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structpixel_1_1physics_1_1_integration_methods.html#a1471c592fbbaba9d063575bb47b0f3cc">verlet_step</a> (Particle &amp;particle, AccFunc &amp;acc, float dt)</td></tr>
+<tr class="memitem:a1471c592fbbaba9d063575bb47b0f3cc"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structpixel_1_1physics_1_1_integration_methods.html#a1471c592fbbaba9d063575bb47b0f3cc">verlet_step</a> (<a class="el" href="structpixel_1_1physics_1_1_particle.html">Particle</a> &amp;particle, AccFunc &amp;acc, float dt)</td></tr>
 <tr class="separator:a1471c592fbbaba9d063575bb47b0f3cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85e41715b83977cf49a75a7e996d290f"><td class="memTemplParams" colspan="2">template&lt;class Particle , class AccFunc &gt; </td></tr>
-<tr class="memitem:a85e41715b83977cf49a75a7e996d290f"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structpixel_1_1physics_1_1_integration_methods.html#a85e41715b83977cf49a75a7e996d290f">velocity_verlet_step</a> (Particle &amp;particle, const AccFunc &amp;acc, float dt)</td></tr>
+<tr class="memitem:a85e41715b83977cf49a75a7e996d290f"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structpixel_1_1physics_1_1_integration_methods.html#a85e41715b83977cf49a75a7e996d290f">velocity_verlet_step</a> (<a class="el" href="structpixel_1_1physics_1_1_particle.html">Particle</a> &amp;particle, const AccFunc &amp;acc, float dt)</td></tr>
 <tr class="separator:a85e41715b83977cf49a75a7e996d290f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff5c44b0f5f16131388da29efd97e7d6"><td class="memTemplParams" colspan="2">template&lt;class Particle , class AccFunc &gt; </td></tr>
-<tr class="memitem:aff5c44b0f5f16131388da29efd97e7d6"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structpixel_1_1physics_1_1_integration_methods.html#aff5c44b0f5f16131388da29efd97e7d6">euler_cromer_step</a> (Particle &amp;particle, AccFunc &amp;acc, float dt)</td></tr>
+<tr class="memitem:aff5c44b0f5f16131388da29efd97e7d6"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structpixel_1_1physics_1_1_integration_methods.html#aff5c44b0f5f16131388da29efd97e7d6">euler_cromer_step</a> (<a class="el" href="structpixel_1_1physics_1_1_particle.html">Particle</a> &amp;particle, AccFunc &amp;acc, float dt)</td></tr>
 <tr class="separator:aff5c44b0f5f16131388da29efd97e7d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8dc968b2ca49aeb4a1f65695bb3d5b30"><td class="memTemplParams" colspan="2">template&lt;class Particle , class AccFunc &gt; </td></tr>
-<tr class="memitem:a8dc968b2ca49aeb4a1f65695bb3d5b30"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structpixel_1_1physics_1_1_integration_methods.html#a8dc968b2ca49aeb4a1f65695bb3d5b30">euler_step</a> (Particle &amp;particle, AccFunc &amp;acc, float dt)</td></tr>
+<tr class="memitem:a8dc968b2ca49aeb4a1f65695bb3d5b30"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structpixel_1_1physics_1_1_integration_methods.html#a8dc968b2ca49aeb4a1f65695bb3d5b30">euler_step</a> (<a class="el" href="structpixel_1_1physics_1_1_particle.html">Particle</a> &amp;particle, AccFunc &amp;acc, float dt)</td></tr>
 <tr class="separator:a8dc968b2ca49aeb4a1f65695bb3d5b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -104,7 +104,7 @@ template&lt;class Particle , class AccFunc &gt; </div>
         <tr>
           <td class="memname">static void pixel::physics::IntegrationMethods::euler_cromer_step </td>
           <td>(</td>
-          <td class="paramtype">Particle &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structpixel_1_1physics_1_1_particle.html">Particle</a> &amp;&#160;</td>
           <td class="paramname"><em>particle</em>, </td>
         </tr>
         <tr>
@@ -148,7 +148,7 @@ template&lt;class Particle , class AccFunc &gt; </div>
         <tr>
           <td class="memname">static void pixel::physics::IntegrationMethods::euler_step </td>
           <td>(</td>
-          <td class="paramtype">Particle &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structpixel_1_1physics_1_1_particle.html">Particle</a> &amp;&#160;</td>
           <td class="paramname"><em>particle</em>, </td>
         </tr>
         <tr>
@@ -192,7 +192,7 @@ template&lt;class Particle , class AccFunc &gt; </div>
         <tr>
           <td class="memname">static void pixel::physics::IntegrationMethods::velocity_verlet_step </td>
           <td>(</td>
-          <td class="paramtype">Particle &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structpixel_1_1physics_1_1_particle.html">Particle</a> &amp;&#160;</td>
           <td class="paramname"><em>particle</em>, </td>
         </tr>
         <tr>
@@ -236,7 +236,7 @@ template&lt;class Particle , class AccFunc &gt; </div>
         <tr>
           <td class="memname">static void pixel::physics::IntegrationMethods::verlet_step </td>
           <td>(</td>
-          <td class="paramtype">Particle &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="structpixel_1_1physics_1_1_particle.html">Particle</a> &amp;&#160;</td>
           <td class="paramname"><em>particle</em>, </td>
         </tr>
         <tr>

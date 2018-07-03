@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['b',['b',['../structpixel_1_1physics_1_1_spring.html#a28bf7a66fd4482d0c129fe28c85b03af',1,'pixel::physics::Spring']]],
   ['base_5ftile_5fid',['base_tile_id',['../classpixel_1_1_tile_layer_1_1_tile_animation.html#a4d3f0a377f653a3103bb690972ae2a90',1,'pixel::TileLayer::TileAnimation']]],
   ['baseerror',['BaseError',['../classpixel_1_1_base_error.html',1,'pixel::BaseError'],['../classpixel_1_1_base_error.html#aee0432935f72987286c9d4518642269e',1,'pixel::BaseError::BaseError()']]],
   ['baselocation',['baseLocation',['../struct_layout.html#a7f928bc38185dc8527b16f2dd35191cf',1,'Layout']]],

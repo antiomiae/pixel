@@ -7,5 +7,6 @@ var searchData=
   ['renderers_2eh',['renderers.h',['../renderers_8h.html',1,'']]],
   ['resource_5fpool_2ecpp',['resource_pool.cpp',['../resource__pool_8cpp.html',1,'']]],
   ['resource_5fpool_2eh',['resource_pool.h',['../resource__pool_8h.html',1,'']]],
+  ['rider_2ecpp',['rider.cpp',['../rider_8cpp.html',1,'']]],
   ['rocket_2ecpp',['rocket.cpp',['../rocket_8cpp.html',1,'']]]
 ];
