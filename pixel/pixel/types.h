@@ -64,35 +64,32 @@ class LineSegment
 {
 
 public:
-    float x0, y0, x1, y1;
+    glm::vec2 p0{};
+    glm::vec2 p1{};
 
     LineSegment() = default;
 
     LineSegment(float x0, float y0, float x1, float y1)
-        : x0(x0),
-          y0(y0),
-          x1(x1),
-          y1(y1)
+        : p0{x0, y0},
+          p1{x1, y1}
     { }
 
     LineSegment(glm::vec2 p0, glm::vec2 p1)
-        : x0(p0.x),
-          y0(p0.y),
-          x1(p1.x),
-          y1(p1.y)
+        : p0{p0},
+          p1{p1}
     { }
 
     float length()
     {
-        return sqrt(pow(x1 - x0, 2) + pow(y1 - y0, 2));
+        return glm::distance(p0, p1);
     }
 
     friend ostream& operator<<(ostream& stream, const LineSegment& line_segment)
     {
         stream << "[("
-               << line_segment.x0 << ", " << line_segment.y0
+               << line_segment.p0.x << ", " << line_segment.p0.y
                << "), ("
-               << line_segment.x1 << ", " << line_segment.y1
+               << line_segment.p1.y << ", " << line_segment.p1.y
                << ")]";
 
         return stream;

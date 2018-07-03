@@ -77,7 +77,7 @@ ADD_LIBRARY(pixel
     pixel/util/util.h
     pixel/graphics/renderers/renderer_group.h
     pixel/random.h
-    pixel/time/simple_timer.cpp pixel/time/simple_timer.h)
+    pixel/time/simple_timer.cpp pixel/time/simple_timer.h pixel/physics/constraints.h pixel/physics/particle.h)
 
 
 ADD_DEPENDENCIES(pixel pixel_source_version)
