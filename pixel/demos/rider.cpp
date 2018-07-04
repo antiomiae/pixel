@@ -188,8 +188,6 @@ struct Physics
 
     void update(float dt)
     {
-
-
         for (auto& s : springs) {
             s.update(dt);
         }
@@ -213,9 +211,9 @@ struct Physics
 
             if (last_collision_time < 1.0f) {
                 cout << "t = " << last_collision_time << ", n = <" << normal.x << ", " << normal.y << ">" << endl;
-                p.position = last_collision_time * (p.position - p.last_position) + p.last_position;
-                p.velocity = (p.velocity - 2.f * (glm::dot(p.velocity, normal) * normal))*0.99f;
-                p.position += p.velocity * dt * (1.0f - last_collision_time);
+                p.last_position = last_collision_time * (p.position - p.last_position) + p.last_position;
+                p.velocity = (p.velocity - 2.f * (glm::dot(p.velocity, normal) * normal));
+                p.position = p.last_position + p.velocity * dt * (1.0f - last_collision_time);
             }
 
 
@@ -240,8 +238,8 @@ struct Physics
 
 void start(int argc, char** argv)
 {
-    glm::ivec2 virtual_window_size = glm::vec2{640, 400};
-    glm::ivec2 actual_window_size = virtual_window_size * 2;
+    glm::ivec2 virtual_window_size = glm::vec2{640, 400} * 2.0f;
+    glm::ivec2 actual_window_size = virtual_window_size ;
 
     pixel::init(actual_window_size, virtual_window_size, argc, argv);
 
@@ -256,26 +254,31 @@ void start(int argc, char** argv)
     auto& p2 = physics.add_particle();
     auto& p3 = physics.add_particle();
 
-    p1.position = glm::vec2(virtual_window_size / 2) - glm::vec2(50, 0);
-    p2.position = glm::vec2(virtual_window_size / 2) + glm::vec2(50, 0);
-    p3.position = glm::vec2(virtual_window_size / 2) + glm::vec2(75, 50);
+    p1.position = glm::vec2(virtual_window_size / 2) + glm::vec2(-50, -50);
+    p2.position = glm::vec2(virtual_window_size / 2) + glm::vec2(50, 50);
+    p3.position = glm::vec2(virtual_window_size / 2) + glm::vec2(75, 100);
 
     p1.velocity.y -= 10;
     //p2.velocity.y -= 50;
 
-    p1.set_mass(20);
-    p2.set_mass(10);
-    p3.set_mass(0.1);
+    p1.set_mass(.1);
+    p2.set_mass(.1);
+    p3.set_mass(.1);
 
     auto& spring1 = physics.join_particles(p1, p2);
 
     spring1.spring.k = 100;
-    spring1.spring.b = 2;
+    //spring1.spring.b = 0.01;
 
     auto& spring2 = physics.join_particles(p2, p3);
 
     spring2.spring.k = 100;
-    spring2.spring.b = 2;
+    //spring2.spring.b = 0.01;
+
+    auto& spring3 = physics.join_particles(p3, p1);
+
+    spring2.spring.k = 100;
+    //spring2.spring.b = 0.01;
 
     {
         auto& floor = physics.add_line();
@@ -287,9 +290,6 @@ void start(int argc, char** argv)
         auto& floor = physics.add_line();
         floor.p0 = {0, 50.5};
         floor.p1 = {virtual_window_size.x, 0};
-        auto temp = floor.p0;
-        floor.p0 = floor.p1;
-        floor.p1 = temp;
     }
 
     auto update = [&]
