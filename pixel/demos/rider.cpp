@@ -19,8 +19,56 @@ using namespace pixel::input;
 
 using LineSegmentBatch = vector<LineSegment>;
 
+const float GRAVITY = 100.0f;
+
 class Level;
 
+
+
+float cross_2d(glm::vec2 a, glm::vec2 b)
+{
+    return a.x * b.y - a.y * b.x;
+}
+
+
+struct Intersection
+{
+    static float time_of_intersection(LineSegment& line_segment, Particle& particle)
+    {
+        /* Basic formula:
+         * q s -> x v
+         * t = (x − p) × v / (r × v)
+         * where v × w = vx wy - vy wx
+         */
+
+        auto r = line_segment.p1 - line_segment.p0;
+        auto p = line_segment.p0;
+
+        auto x = particle.last_position;
+        auto v = particle.position - x;
+
+        /* solving for t, particle time */
+        auto t_num = cross_2d((x - p), r);
+
+        /* solve for u, linesegment parameter */
+        auto u_num = cross_2d((x - p), v);
+
+        auto denom = cross_2d(r, v);
+
+        if (denom == 0.0f) {
+            return -1.0f;
+        } else {
+            float t = t_num / denom;
+            float u = u_num / denom;
+
+            if (t >= 0.f && t <= 1.f && u >= 0.f && u <= 1.f) {
+                return t;
+            } else {
+                return -1.0f;
+            }
+        }
+    }
+};
 
 struct ParticleSpringSystem
 {
@@ -140,12 +188,37 @@ struct Physics
 
     void update(float dt)
     {
+
+
         for (auto& s : springs) {
             s.update(dt);
         }
 
         for (auto& p : particles) {
+            p.velocity.y -= dt * GRAVITY;
             p.step(dt);
+
+            float last_collision_time = 1.0f;
+            glm::vec2 normal;
+
+            for (auto& l : lines) {
+                auto t = Intersection::time_of_intersection(l, p);
+
+                if (t >= 0.0f && t < last_collision_time) {
+                    last_collision_time = t;
+                    auto n = glm::normalize(l.p1 - l.p0);
+                    normal = glm::vec2(-n.y, n.x);
+                }
+            }
+
+            if (last_collision_time < 1.0f) {
+                cout << "t = " << last_collision_time << ", n = <" << normal.x << ", " << normal.y << ">" << endl;
+                p.position = last_collision_time * (p.position - p.last_position) + p.last_position;
+                p.velocity = (p.velocity - 2.f * (glm::dot(p.velocity, normal) * normal))*0.99f;
+                p.position += p.velocity * dt * (1.0f - last_collision_time);
+            }
+
+
         }
     }
 
@@ -162,6 +235,7 @@ struct Physics
     vector<ParticleSpringSystem> springs;
     vector<LineSegment> lines;
 };
+
 
 
 void start(int argc, char** argv)
@@ -186,27 +260,36 @@ void start(int argc, char** argv)
     p2.position = glm::vec2(virtual_window_size / 2) + glm::vec2(50, 0);
     p3.position = glm::vec2(virtual_window_size / 2) + glm::vec2(75, 50);
 
-    p1.velocity.y += 50;
-    p2.velocity.y -= 50;
+    p1.velocity.y -= 10;
+    //p2.velocity.y -= 50;
 
-    p1.set_mass(10);
+    p1.set_mass(20);
     p2.set_mass(10);
     p3.set_mass(0.1);
 
     auto& spring1 = physics.join_particles(p1, p2);
 
-    spring1.spring.k = 10;
-    spring1.spring.b = 0.1;
+    spring1.spring.k = 100;
+    spring1.spring.b = 2;
 
     auto& spring2 = physics.join_particles(p2, p3);
 
     spring2.spring.k = 100;
-    spring2.spring.b = 0.2;
+    spring2.spring.b = 2;
+
+    {
+        auto& floor = physics.add_line();
+        floor.p0 = {0, 0};
+        floor.p1 = {virtual_window_size.x, 50.5};
+    }
 
     {
         auto& floor = physics.add_line();
         floor.p0 = {0, 50.5};
-        floor.p1 = {virtual_window_size.x, 50.5};
+        floor.p1 = {virtual_window_size.x, 0};
+        auto temp = floor.p0;
+        floor.p0 = floor.p1;
+        floor.p1 = temp;
     }
 
     auto update = [&]
