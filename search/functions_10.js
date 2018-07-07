@@ -17,7 +17,7 @@ var searchData=
   ['print',['print',['../namespacepixel_1_1graphics.html#a44589d6f0ddb29511d27537157f85d45',1,'pixel::graphics']]],
   ['print_5fversion_5finformation',['print_version_information',['../namespacepixel.html#aec54bf5377667d69e7716ae8894787af',1,'pixel']]],
   ['process_5fbatch',['process_batch',['../classpixel_1_1graphics_1_1_texture_atlas.html#ae727e06190ac2ea1825d1730ffcdefde',1,'pixel::graphics::TextureAtlas']]],
-  ['program',['program',['../classpixel_1_1graphics_1_1renderers_1_1_sprite_renderer.html#a8686fef8f230f3cccacb3e81951b789e',1,'pixel::graphics::renderers::SpriteRenderer']]],
+  ['program',['program',['../classpixel_1_1renderers_1_1_sprite_renderer.html#af507aa5085fd868090efc1d1b4f77bf9',1,'pixel::renderers::SpriteRenderer']]],
   ['program_5fparameter',['program_parameter',['../namespacepixel_1_1graphics.html#aa90ad6978f688dc64ca65943cfd3b3a7',1,'pixel::graphics']]],
   ['projection',['projection',['../structpixel_1_1_render_context.html#a337152d3d3362d25ef7b0ddab3cddd41',1,'pixel::RenderContext']]],
   ['projection_5fmatrix',['projection_matrix',['../classpixel_1_1graphics_1_1_camera.html#aaa393a5f2412a2853233e71d09b9cc3d',1,'pixel::graphics::Camera']]],

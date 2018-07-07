@@ -8,9 +8,9 @@ var searchData=
   ['spring',['spring',['../struct_particle_spring_system.html#ab6aac733cf106429a59c4b8785ff8021',1,'ParticleSpringSystem']]],
   ['springs',['springs',['../struct_physics.html#ad786b346cf0d17280eff9dd6e6b81f37',1,'Physics']]],
   ['sprite_5fbatch_5f',['sprite_batch_',['../classtetrominos_1_1_level.html#a66f56986e49d2f1ef3a31114f1c16c2c',1,'tetrominos::Level']]],
-  ['sprite_5fbuffer_5f',['sprite_buffer_',['../classpixel_1_1graphics_1_1renderers_1_1_sprite_renderer.html#a9cb548b2c12ad0b664d2c265dae7def5',1,'pixel::graphics::renderers::SpriteRenderer']]],
-  ['sprite_5frenderer_5f',['sprite_renderer_',['../classtetrominos_1_1_level.html#a95b5c38304e29fa6d7453b2223b8069b',1,'tetrominos::Level']]],
-  ['sprite_5ftexture_5f',['sprite_texture_',['../class_level.html#a50c01ea838a72b72ceddf6dbdfd9070e',1,'Level']]],
+  ['sprite_5fbuffer_5f',['sprite_buffer_',['../classpixel_1_1renderers_1_1_sprite_renderer.html#a5725463d154d19f268b938ae6ae0d628',1,'pixel::renderers::SpriteRenderer']]],
+  ['sprite_5frenderer_5f',['sprite_renderer_',['../classtetrominos_1_1_level.html#a0639cfade0528ca06b62782082bd3f93',1,'tetrominos::Level']]],
+  ['sprite_5ftexture_5f',['sprite_texture_',['../class_level.html#a50c01ea838a72b72ceddf6dbdfd9070e',1,'Level::sprite_texture_()'],['../classpixel_1_1_level.html#a50c01ea838a72b72ceddf6dbdfd9070e',1,'pixel::Level::sprite_texture_()']]],
   ['sprites_5f',['sprites_',['../classpixel_1_1graphics_1_1_sprite_batch.html#a46d82e006276b2bd2061dd12d5d14f91',1,'pixel::graphics::SpriteBatch']]],
   ['step_5fcallback_5f',['step_callback_',['../class_particle_controller.html#a784d8599cb00c676f0b2fbbc80e48dee',1,'ParticleController']]]
 ];

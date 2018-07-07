@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>pixel: pixel::graphics::renderers::Vertex Struct Reference</title>
+<title>pixel: pixel::renderers::Renderer Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -60,56 +60,64 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacepixel.html">pixel</a></li><li class="navelem"><a class="el" href="namespacepixel_1_1graphics.html">graphics</a></li><li class="navelem"><a class="el" href="namespacepixel_1_1graphics_1_1renderers.html">renderers</a></li><li class="navelem"><a class="el" href="structpixel_1_1graphics_1_1renderers_1_1_vertex.html">Vertex</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacepixel.html">pixel</a></li><li class="navelem"><a class="el" href="namespacepixel_1_1renderers.html">renderers</a></li><li class="navelem"><a class="el" href="classpixel_1_1renderers_1_1_renderer.html">Renderer</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="structpixel_1_1graphics_1_1renderers_1_1_vertex-members.html">List of all members</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="classpixel_1_1renderers_1_1_renderer-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">pixel::graphics::renderers::Vertex Struct Reference</div>  </div>
+<div class="title">pixel::renderers::Renderer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="renderer__group_8h_source.html">pixel/renderers/renderer_group.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for pixel::renderers::Renderer:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classpixel_1_1renderers_1_1_renderer.png" usemap="#pixel::renderers::Renderer_map" alt=""/>
+  <map id="pixel::renderers::Renderer_map" name="pixel::renderers::Renderer_map">
+<area href="classpixel_1_1renderers_1_1_line_renderer.html" alt="pixel::renderers::LineRenderer" shape="rect" coords="0,56,204,80"/>
+<area href="classpixel_1_1renderers_1_1_sprite_renderer.html" alt="pixel::renderers::SpriteRenderer" shape="rect" coords="214,56,418,80"/>
+<area href="classpixel_1_1renderers_1_1_tile_map_renderer.html" alt="pixel::renderers::TileMapRenderer" shape="rect" coords="428,56,632,80"/>
+</map>
+ </div></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a883ac6418c1e2142268b6072eb8fb4b9"><td class="memItemLeft" align="right" valign="top">GLfloat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1graphics_1_1renderers_1_1_vertex.html#a883ac6418c1e2142268b6072eb8fb4b9">position</a> [2]</td></tr>
-<tr class="separator:a883ac6418c1e2142268b6072eb8fb4b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add6a9ffa194c9982e6cef50ef58bb195"><td class="memItemLeft" align="right" valign="top">GLfloat&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1graphics_1_1renderers_1_1_vertex.html#add6a9ffa194c9982e6cef50ef58bb195">texture_coord</a> [2]</td></tr>
-<tr class="separator:add6a9ffa194c9982e6cef50ef58bb195"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a5828f2e137a86e99c1ce88f93421a9c7"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1renderers_1_1_renderer.html#a5828f2e137a86e99c1ce88f93421a9c7">~Renderer</a> ()=default</td></tr>
+<tr class="separator:a5828f2e137a86e99c1ce88f93421a9c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a883ac6418c1e2142268b6072eb8fb4b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a883ac6418c1e2142268b6072eb8fb4b9">&#9670;&nbsp;</a></span>position</h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a5828f2e137a86e99c1ce88f93421a9c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5828f2e137a86e99c1ce88f93421a9c7">&#9670;&nbsp;</a></span>~Renderer()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">GLfloat pixel::graphics::renderers::Vertex::position[2]</td>
+          <td class="memname">virtual pixel::renderers::Renderer::~Renderer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="add6a9ffa194c9982e6cef50ef58bb195"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add6a9ffa194c9982e6cef50ef58bb195">&#9670;&nbsp;</a></span>texture_coord</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GLfloat pixel::graphics::renderers::Vertex::texture_coord[2]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>pixel/pixel/graphics/renderers/<a class="el" href="sprite__renderer_8cpp.html">sprite_renderer.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>pixel/pixel/renderers/<a class="el" href="renderer__group_8h_source.html">renderer_group.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

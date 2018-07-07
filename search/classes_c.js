@@ -10,6 +10,6 @@ var searchData=
   ['tilelayer',['TileLayer',['../classpixel_1_1_tile_layer.html',1,'pixel']]],
   ['tilelayertexture',['TileLayerTexture',['../classpixel_1_1_tile_layer_texture.html',1,'pixel']]],
   ['tilemap',['TileMap',['../classpixel_1_1_tile_map.html',1,'pixel']]],
-  ['tilemaprenderer',['TileMapRenderer',['../classpixel_1_1graphics_1_1renderers_1_1_tile_map_renderer.html',1,'pixel::graphics::renderers']]],
+  ['tilemaprenderer',['TileMapRenderer',['../classpixel_1_1renderers_1_1_tile_map_renderer.html',1,'pixel::renderers']]],
   ['tileset',['Tileset',['../classpixel_1_1_tileset.html',1,'pixel']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>pixel: pixel::graphics::renderers::Renderer Class Reference</title>
+<title>pixel: pixel::renderers::RendererGroup Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -60,39 +60,63 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacepixel.html">pixel</a></li><li class="navelem"><a class="el" href="namespacepixel_1_1graphics.html">graphics</a></li><li class="navelem"><a class="el" href="namespacepixel_1_1graphics_1_1renderers.html">renderers</a></li><li class="navelem"><a class="el" href="classpixel_1_1graphics_1_1renderers_1_1_renderer.html">Renderer</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacepixel.html">pixel</a></li><li class="navelem"><a class="el" href="namespacepixel_1_1renderers.html">renderers</a></li><li class="navelem"><a class="el" href="classpixel_1_1renderers_1_1_renderer_group.html">RendererGroup</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="classpixel_1_1graphics_1_1renderers_1_1_renderer-members.html">List of all members</a>  </div>
+<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="classpixel_1_1renderers_1_1_renderer_group-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">pixel::graphics::renderers::Renderer Class Reference</div>  </div>
+<div class="title">pixel::renderers::RendererGroup Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="renderer__group_8h_source.html">pixel/graphics/renderers/renderer_group.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for pixel::graphics::renderers::Renderer:</div>
-<div class="dyncontent">
- <div class="center">
-  <img src="classpixel_1_1graphics_1_1renderers_1_1_renderer.png" usemap="#pixel::graphics::renderers::Renderer_map" alt=""/>
-  <map id="pixel::graphics::renderers::Renderer_map" name="pixel::graphics::renderers::Renderer_map">
-<area href="classpixel_1_1graphics_1_1renderers_1_1_line_renderer.html" alt="pixel::graphics::renderers::LineRenderer" shape="rect" coords="0,56,259,80"/>
-<area href="classpixel_1_1graphics_1_1renderers_1_1_sprite_renderer.html" alt="pixel::graphics::renderers::SpriteRenderer" shape="rect" coords="269,56,528,80"/>
-<area href="classpixel_1_1graphics_1_1renderers_1_1_tile_map_renderer.html" alt="pixel::graphics::renderers::TileMapRenderer" shape="rect" coords="538,56,797,80"/>
-</map>
- </div></div>
+<p><code>#include &lt;<a class="el" href="renderer__group_8h_source.html">pixel/renderers/renderer_group.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa6beef69264f684314968b2702b8f4a6"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1graphics_1_1renderers_1_1_renderer.html#aa6beef69264f684314968b2702b8f4a6">~Renderer</a> ()=default</td></tr>
-<tr class="separator:aa6beef69264f684314968b2702b8f4a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd4d1805b44819a156b052fd7ce885cb"><td class="memTemplParams" colspan="2">template&lt;class RendererClass &gt; </td></tr>
+<tr class="memitem:abd4d1805b44819a156b052fd7ce885cb"><td class="memTemplItemLeft" align="right" valign="top">RendererClass &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classpixel_1_1renderers_1_1_renderer_group.html#abd4d1805b44819a156b052fd7ce885cb">get</a> ()</td></tr>
+<tr class="separator:abd4d1805b44819a156b052fd7ce885cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a9f8720befccaf3d35fa4b127b8d5f18d"><td class="memItemLeft" align="right" valign="top">unordered_map&lt; type_index, unique_ptr&lt; <a class="el" href="classpixel_1_1renderers_1_1_renderer.html">Renderer</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1renderers_1_1_renderer_group.html#a9f8720befccaf3d35fa4b127b8d5f18d">renderers_</a></td></tr>
+<tr class="separator:a9f8720befccaf3d35fa4b127b8d5f18d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aa6beef69264f684314968b2702b8f4a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6beef69264f684314968b2702b8f4a6">&#9670;&nbsp;</a></span>~Renderer()</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="abd4d1805b44819a156b052fd7ce885cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd4d1805b44819a156b052fd7ce885cb">&#9670;&nbsp;</a></span>get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class RendererClass &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RendererClass&amp; pixel::renderers::RendererGroup::get </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a9f8720befccaf3d35fa4b127b8d5f18d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f8720befccaf3d35fa4b127b8d5f18d">&#9670;&nbsp;</a></span>renderers_</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -101,15 +125,12 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual pixel::graphics::renderers::Renderer::~Renderer </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">unordered_map&lt;type_index, unique_ptr&lt;<a class="el" href="classpixel_1_1renderers_1_1_renderer.html">Renderer</a>&gt; &gt; pixel::renderers::RendererGroup::renderers_</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -117,7 +138,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>pixel/pixel/graphics/renderers/<a class="el" href="renderer__group_8h_source.html">renderer_group.h</a></li>
+<li>pixel/pixel/renderers/<a class="el" href="renderer__group_8h_source.html">renderer_group.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

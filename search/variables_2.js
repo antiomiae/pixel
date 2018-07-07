@@ -14,7 +14,7 @@ var searchData=
   ['body_5f',['body_',['../class_rocket.html#a0a60539d4460f0b0893304cc81382852',1,'Rocket']]],
   ['bounds_5f',['bounds_',['../classpixel_1_1graphics_1_1_camera.html#a096d3316f5e63f939bce6dce6a115e4d',1,'pixel::graphics::Camera']]],
   ['bpp',['bpp',['../structpixel_1_1graphics_1_1_image_data.html#a20702befa5bfceaf6754ce1d611fe438',1,'pixel::graphics::ImageData']]],
-  ['buffer_5f',['buffer_',['../classpixel_1_1graphics_1_1renderers_1_1_tile_map_renderer.html#a4defc549857506474b0f5b8fdd5f882a',1,'pixel::graphics::renderers::TileMapRenderer']]],
+  ['buffer_5f',['buffer_',['../classpixel_1_1renderers_1_1_tile_map_renderer.html#a10abda208a6c816a68aa2fb6ae9c65bd',1,'pixel::renderers::TileMapRenderer']]],
   ['buffer_5fid_5f',['buffer_id_',['../classpixel_1_1graphics_1_1_buffer.html#a3c9df71bba83b43e11784699cdc0d44a',1,'pixel::graphics::Buffer::buffer_id_()'],['../classpixel_1_1graphics_1_1_index_buffer.html#a85ecce71a34c017da3d2f45d89a07d11',1,'pixel::graphics::IndexBuffer::buffer_id_()']]],
   ['build_5fversion',['build_version',['../namespacepixel.html#a6e11b54e14afd660e5a36b3abe987836',1,'pixel']]]
 ];
