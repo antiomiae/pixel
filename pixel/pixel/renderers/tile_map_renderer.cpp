@@ -2,7 +2,7 @@
 #include <pixel/error.h>
 
 
-namespace pixel::graphics::renderers
+namespace pixel::renderers
 {
 
 

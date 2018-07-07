@@ -6,10 +6,11 @@
 #include <pixel/graphics/graphics.h>
 #include <pixel/graphics/sprite.h>
 
-namespace pixel::graphics::renderers
+namespace pixel::renderers
 {
 
 using namespace std;
+using namespace graphics;
 
 class SpriteRenderer : public Renderer
 {

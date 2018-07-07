@@ -5,7 +5,7 @@
 #include <pixel/util/util.h>
 
 
-namespace pixel::graphics::renderers
+namespace pixel::renderers
 {
 
 struct Vertex

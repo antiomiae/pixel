@@ -6,7 +6,7 @@
 #include <typeindex>
 #include <unordered_map>
 
-namespace pixel::graphics::renderers
+namespace pixel::renderers
 {
 
 using namespace std;

@@ -6,7 +6,7 @@
 #include <pixel/graphics/graphics.h>
 #include <pixel/types.h>
 
-namespace pixel::graphics::renderers
+namespace pixel::renderers
 {
 
 using namespace std;

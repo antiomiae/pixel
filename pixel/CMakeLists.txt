@@ -10,7 +10,9 @@ ADD_CUSTOM_TARGET(pixel_source_version ALL
     COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/generated/PixelVersion.cmake
     )
 
-ADD_LIBRARY(pixel
+OPTION(PIXEL_LUA_BINDING "build lua binding" OFF)
+
+list(APPEND pixel_sources
     ${CMAKE_CURRENT_BINARY_DIR}/generated/version.cpp
     pixel/app/app.cpp
     pixel/app/app.h
@@ -27,13 +29,13 @@ ADD_LIBRARY(pixel
     pixel/graphics/pack.h
     pixel/graphics/render_context.cpp
     pixel/graphics/render_context.h
-    pixel/graphics/renderers/line_renderer.cpp
-    pixel/graphics/renderers/line_renderer.h
-    pixel/graphics/renderers/renderers.h
-    pixel/graphics/renderers/sprite_renderer.cpp
-    pixel/graphics/renderers/sprite_renderer.h
-    pixel/graphics/renderers/tile_map_renderer.cpp
-    pixel/graphics/renderers/tile_map_renderer.h
+    pixel/renderers/line_renderer.cpp
+    pixel/renderers/line_renderer.h
+    pixel/renderers/renderers.h
+    pixel/renderers/sprite_renderer.cpp
+    pixel/renderers/sprite_renderer.h
+    pixel/renderers/tile_map_renderer.cpp
+    pixel/renderers/tile_map_renderer.h
     pixel/graphics/shader.cpp
     pixel/graphics/shader_utils.cpp
     pixel/graphics/shader_utils.h
@@ -42,8 +44,6 @@ ADD_LIBRARY(pixel
     pixel/graphics/texture_atlas.cpp
     pixel/input/input.cpp
     pixel/input/input.h
-    pixel/lua/binding.cpp
-    pixel/lua/binding.h
     pixel/lua/wrap_camera.cpp
     pixel/lua/wrap_collision.cpp
     pixel/lua/wrap_glm.cpp
@@ -75,9 +75,20 @@ ADD_LIBRARY(pixel
     pixel/util/symbol_map.h
     pixel/util/util.cpp
     pixel/util/util.h
-    pixel/graphics/renderers/renderer_group.h
+    pixel/renderers/renderer_group.h
     pixel/random.h
-    pixel/time/simple_timer.cpp pixel/time/simple_timer.h pixel/physics/constraints.h pixel/physics/particle.h)
+    pixel/time/simple_timer.cpp pixel/time/simple_timer.h pixel/physics/constraints.h pixel/physics/particle.h pixel/level.h
+    )
+
+
+IF (PIXEL_LUA_BINDING)
+  list(APPEND pixel_sources
+      pixel/lua/binding.cpp
+      pixel/lua/binding.h
+      )
+ENDIF (PIXEL_LUA_BINDING)
+
+ADD_LIBRARY(pixel ${pixel_sources})
 
 
 ADD_DEPENDENCIES(pixel pixel_source_version)

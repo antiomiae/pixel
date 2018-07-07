@@ -1,7 +1,7 @@
 #include "binding.h"
 #include <functional>
 #include <pixel/graphics/graphics.h>
-#include <pixel/graphics/renderers/renderers.h>
+#include <pixel/renderers/renderers.h>
 #include <pixel/tilemap/tile_map.h>
 #include <pixel/input/input.h>
 #include <pixel/app/app.h>
@@ -123,7 +123,7 @@ void bind_tile_layer(sol::state& lua, sol::table& binding, const string& type_na
 
 void bind_tile_map_renderer(sol::state& lua, sol::table& binding, const string& type_name)
 {
-    using namespace pixel::graphics::renderers;
+    using namespace pixel::renderers;
     binding.new_usertype<TileMapRenderer>(
         type_name,
         "new", sol::constructors<TileMapRenderer()>(),
@@ -133,7 +133,7 @@ void bind_tile_map_renderer(sol::state& lua, sol::table& binding, const string& 
 
 void bind_sprite_renderer(sol::state& lua, sol::table& binding, const string& type_name)
 {
-    using namespace pixel::graphics::renderers;
+    using namespace pixel::renderers;
     binding.new_usertype<SpriteRenderer>(
         type_name,
         "new", sol::constructors<SpriteRenderer()>(),

@@ -3,7 +3,7 @@
 namespace
 {
 
-using pixel::graphics::renderers::TileMapRenderer;
+using pixel::renderers::TileMapRenderer;
 
 TEST_CASE("TileMapRenderer")
 {

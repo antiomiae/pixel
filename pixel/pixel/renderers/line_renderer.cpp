@@ -1,7 +1,7 @@
 #include "line_renderer.h"
 #include <pixel/util/util.h>
 
-namespace pixel::graphics::renderers
+namespace pixel::renderers
 {
 
 LineRenderer::LineRenderer()

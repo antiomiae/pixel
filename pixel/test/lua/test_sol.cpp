@@ -1,3 +1,5 @@
+#if PIXEL_LUA_BINDING
+
 #include "test/setup.h"
 #include <pixel/lua/binding.h>
 
@@ -22,3 +24,4 @@ TEST_CASE("SolTest")
 
 };
 
+#endif

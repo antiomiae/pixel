@@ -106,7 +106,7 @@ public:
 
 private:
     pixel::graphics::SpriteBatch sprite_batch_;
-    pixel::graphics::renderers::SpriteRenderer sprite_renderer_;
+    pixel::renderers::SpriteRenderer sprite_renderer_;
     pixel::graphics::TextureAtlas texture_atlas_;
 
     Board board_;

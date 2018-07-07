@@ -14,7 +14,7 @@ class TileMap;
 class TileAtlas;
 }
 
-namespace pixel::graphics::renderers
+namespace pixel::renderers
 {
 
 using graphics::Shader;
