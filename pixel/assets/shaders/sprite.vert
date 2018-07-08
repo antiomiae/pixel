@@ -1,6 +1,6 @@
 #version 410
 
-in vec3 position;
+in vec2 position;
 in vec2 center;
 in float angle;
 in vec4 color;
@@ -51,7 +51,7 @@ void main() {
         translate(-texture_region.zw * 0.5) *
         vec3(basic_vertex, 1);
 
-    gl_Position = projection * vec4(floor(position.xy + rotated_vertex.xy - center * texture_region.zw) + 0.375, position.z, 1.0);
+    gl_Position = projection * vec4(floor(position.xy + rotated_vertex.xy - center * texture_region.zw) + 0.375, 0, 1.0);
 
     vec2 tex_coord = texture_coord;
 

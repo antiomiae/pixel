@@ -23,10 +23,10 @@ public:
 
     union
     {
-        glm::vec3 position{};
+        glm::vec2 position{};
         struct
         {
-            float x, y, z;
+            float x, y;
         };
     };
 

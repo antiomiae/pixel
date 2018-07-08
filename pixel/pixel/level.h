@@ -1,6 +1,7 @@
 #ifndef PIXEL_MAIN_LEVEL_H
 #define PIXEL_MAIN_LEVEL_H
 
+#include <pixel/app/app.h>
 #include <pixel/graphics/graphics.h>
 #include <pixel/renderers/renderers.h>
 #include <pixel/math.h>
@@ -17,11 +18,34 @@ public:
         : window_size_(window_size)
     {
         camera_.set_window_size(window_size);
+        render_target_.set_window_size(window_size);
     }
 
     Camera& camera()
     {
         return camera_;
+    }
+
+    void begin_render()
+    {
+        glClear(GL_COLOR_BUFFER_BIT);
+        render_target_.activate();
+        glClear(GL_COLOR_BUFFER_BIT);
+    }
+
+    void finish_render()
+    {
+        render_target_.deactivate();
+
+        /* blit virtual window to actual window */
+        render_target_.draw(
+            glm::ivec4(
+                0,
+                0,
+                pixel::app().render_context().window_size.x,
+                pixel::app().render_context().window_size.y
+            )
+        );
     }
 
     renderers::RendererGroup& renderer_group()
@@ -47,23 +71,29 @@ public:
         return s;
     }
 
-
     Texture& sprite_texture()
     {
         return sprite_texture_;
     }
 
+    void load_map(const string& path)
+    {
+        tile_map_ = TileMap::from_path(path);
+    }
+
+    TileMap& tile_map()
+    {
+        return *tile_map_;
+    }
 
 private:
     glm::ivec2 window_size_;
-
     Camera camera_;
-
     renderers::RendererGroup renderer_group_;
-
     TextureAtlas texture_atlas_;
-
     Texture sprite_texture_;
+    OffscreenRenderTarget render_target_{};
+    unique_ptr<TileMap> tile_map_;
 };
 
 }

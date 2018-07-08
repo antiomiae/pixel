@@ -8,6 +8,7 @@
 #include <tmxlite/Map.hpp>
 #include <tmxlite/TileLayer.hpp>
 #include <pixel/tilemap/tile_map.h>
+#include <pixel/error.h>
 #include "tileset.h"
 
 namespace pixel
@@ -129,9 +130,15 @@ public:
 
     Tile& at(uint x, uint y);
 
+    TileMap& parent()
+    {
+        error_if(parent_ == nullptr, "parent not set!");
+        return *parent_;
+    }
+
 
 private:
-    TileMap* parent_;
+    TileMap* parent_{nullptr};
     std::unordered_map<uint32_t, TileAnimation> animations_;
     PropertyMap props_;
     std::vector<Tile> tiles_;

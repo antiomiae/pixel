@@ -103,7 +103,7 @@ public:
 
         body_.center = {0.5, 0.5};
         flames_.center = {0.5, 1.0};
-        flames_.position = body_.position - glm::vec3(0.f, body_.texture_region.h / 2.f + 1.f, 0.f);
+        flames_.position = body_.position - glm::vec2(0.f, body_.texture_region.h / 2.f + 1.f);
     }
 
     float rotation()

@@ -1,6 +1,9 @@
 //
 //
 
+#include <valarray>
+#include <algorithm>
+#include <iostream>
 #include "frame_counter.h"
 #include <GLFW/glfw3.h>
 
@@ -15,17 +18,29 @@ double pixel::time::FrameCounter::timeSinceFrameStart() const {
 
 void pixel::time::FrameCounter::tick()
 {
+    static std::valarray<double> times(60);
+    static int index = 0;
+
     if (_last_tick == 0) {
         _last_tick = glfwGetTime();
     }
 
     double current_time = glfwGetTime();
 
-    _time += current_time - _last_tick;
+    times[index] = (current_time - _last_tick);
+
+    ++index;
+
+    if (index >= times.size()) {
+        index = 0;
+    }
+
+    //_time += current_time - _last_tick;
+
     ++_frames;
 
-    if (_time >= 0.25) {
-        _fps = static_cast<float>(_frames / _time);
+    if (_frames % 60 == 0) {
+        _fps = _frames / times.sum();
         _time = 0;
         _frames = 0;
     }
