@@ -39,7 +39,7 @@ var searchData=
   ['simple_5ftimer_2ecpp',['simple_timer.cpp',['../simple__timer_8cpp.html',1,'']]],
   ['simple_5ftimer_2eh',['simple_timer.h',['../simple__timer_8h.html',1,'']]],
   ['simpletimer',['SimpleTimer',['../classpixel_1_1time_1_1_simple_timer.html',1,'pixel::time::SimpleTimer'],['../classpixel_1_1time_1_1_simple_timer.html#a2c2e56db8d5e983fb05884f9b82a44ab',1,'pixel::time::SimpleTimer::SimpleTimer()']]],
-  ['size',['size',['../struct_bounding_box.html#a500785e4e3d1170704cf9379cadb1219',1,'BoundingBox::size()'],['../struct_layout.html#a143bf56c3c9785cc75e2360dbe818e84',1,'Layout::size()'],['../structpixel_1_1graphics_1_1_attribute.html#a7657461b957ab3c74d3a6dc237f1581d',1,'pixel::graphics::Attribute::size()'],['../namespacepixel.html#a465745e3b1a334686475c629948876f0',1,'pixel::size()']]],
+  ['size',['size',['../struct_bounding_box.html#a500785e4e3d1170704cf9379cadb1219',1,'BoundingBox::size()'],['../struct_tile_map_collider_1_1_collision_rect.html#a71a349ae1b0be9eef9bac20146e20a97',1,'TileMapCollider::CollisionRect::size()'],['../struct_layout.html#a143bf56c3c9785cc75e2360dbe818e84',1,'Layout::size()'],['../structpixel_1_1graphics_1_1_attribute.html#a7657461b957ab3c74d3a6dc237f1581d',1,'pixel::graphics::Attribute::size()'],['../namespacepixel.html#a465745e3b1a334686475c629948876f0',1,'pixel::size()']]],
   ['size_5f',['size_',['../classpixel_1_1graphics_1_1_offscreen_render_target.html#a583e64f23f20f404fd3f845e2d0e207d',1,'pixel::graphics::OffscreenRenderTarget']]],
   ['size_5fof_5fgl_5ftype',['size_of_gl_type',['../namespacepixel_1_1graphics.html#a6e2d7ca765d5c8f0653cf0690a994b4d',1,'pixel::graphics']]],
   ['sizeforbasictype',['sizeForBasicType',['../buffer_8cpp.html#a7b10a2f1d6fc58ad0bab845e0791106a',1,'buffer.cpp']]],
