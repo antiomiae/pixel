@@ -87,7 +87,7 @@ struct TileMapCollider
             }
 
             if (x_t < y_t && x_t != 0) {
-                leading_edge.x = 
+                //leading_edge.x =
             }
 
             break;
@@ -100,7 +100,8 @@ struct TileMapCollider
         auto& parent = tile_layer.parent();
         auto& tile_desc = parent.tileset().tile(tile.tile_id);
 
-        return make_pair(tile, tile_desc);
+        // TODO: check this
+        return {tile, tile_desc};
     };
 };
 
