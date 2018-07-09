@@ -18,7 +18,7 @@ double pixel::time::FrameCounter::timeSinceFrameStart() const {
 
 void pixel::time::FrameCounter::tick()
 {
-    static std::valarray<double> times(60);
+    static std::valarray<double> times(20);
     static int index = 0;
 
     if (_last_tick == 0) {
@@ -35,14 +35,10 @@ void pixel::time::FrameCounter::tick()
         index = 0;
     }
 
-    //_time += current_time - _last_tick;
-
     ++_frames;
 
-    if (_frames % 60 == 0) {
-        _fps = _frames / times.sum();
-        _time = 0;
-        _frames = 0;
+    if (_frames % times.size() == 0) {
+        _fps = times.size() / times.sum();
     }
 
     _last_tick = current_time;

@@ -1,3 +1,5 @@
+#include <experimental/optional>
+
 #include <pixel/pixel.h>
 #include <pixel/level.h>
 #include <pixel/input/input.h>
@@ -20,6 +22,10 @@ struct BoundingBox
 
 struct TileMapCollider
 {
+    struct Overlap
+    {
+
+    };
     //enum class
     static void
     collide(BoundingBox& object, TileLayer& tile_layer, const function<bool(TileLayer::Tile&)>& tile_callback)
@@ -32,7 +38,70 @@ struct TileMapCollider
 
         bool x_dir = delta.x > 0 ? 1 : (delta.x < 0 ? -1 : 0);
         bool y_dir = delta.y > 0 ? 1 : (delta.y < 0 ? -1 : 0);
+
+        /* return early if object isn't moving */
+        if (x_dir == 0 && y_dir == 0) {
+            return;
+        }
+
+        /*
+         * Sweep rectangle through the map:
+         *  1. solve for collision time between an axis of the object and the tile grid
+         *  2. advance object along path for shortest time
+         *  3. check tiles at grid line for solidity
+         *  4.
+         */
+
+        object.end_position = object.start_position;
+
+        glm::vec2 leading_edge = object.start_position;
+
+        if (x_dir > 0) {
+            leading_edge.x += object.size.x;
+        }
+
+        if (y_dir > 0) {
+            leading_edge.y += object.size.y;
+        }
+
+        while(delta.x != 0 && delta.y != 0)
+        {
+            float x_t = 0;
+            float y_t = 0;
+
+            // the x coordinate of the nearest vertical grid line in the direction the object is moving
+            auto next_x = -1;
+            // the y coordinate of the nearest horizontal grid line in the direction the object is moving
+            auto next_y = -1;
+
+            if (x_dir != 0) {
+                next_x = (((int)floor(leading_edge.x)) / tile_size.x + (x_dir > 0 ? 1 : 0)) * tile_size.x;
+
+                x_t = abs(next_x - leading_edge.x) / delta.x;
+            }
+
+            if (y_dir != 0) {
+                next_y = (((int)floor(leading_edge.y)) / tile_size.y + (y_dir > 0 ? 1 : 0)) * tile_size.y;
+
+                y_t = abs(next_y - leading_edge.y) / delta.y;
+            }
+
+            if (x_t < y_t && x_t != 0) {
+                leading_edge.x = 
+            }
+
+            break;
+        }
     }
+
+    static pair<TileLayer::Tile&, Tileset::Tile&> tile_pair(TileLayer& tile_layer, int x, int y)
+    {
+        auto& tile = tile_layer.at(x, y);
+        auto& parent = tile_layer.parent();
+        auto& tile_desc = parent.tileset().tile(tile.tile_id);
+
+        return make_pair(tile, tile_desc);
+    };
 };
 
 float clamp(float x, float min_, float max_)
@@ -97,6 +166,7 @@ struct Guy
         BoundingBox b;
         b.start_position = position;
         b.end_position = position + dt * velocity;
+        b.size = {sprite.texture_region.w, sprite.texture_region.h};
 
         TileMapCollider::collide(
             b,

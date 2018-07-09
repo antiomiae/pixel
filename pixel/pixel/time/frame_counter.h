@@ -9,7 +9,6 @@ namespace pixel::time
 
 class FrameCounter
 {
-    double _time;
     int _frames;
     float _fps;
     double _last_tick;
