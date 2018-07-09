@@ -26,6 +26,20 @@ struct TileMapCollider
     {
 
     };
+
+    struct CollisionRect
+    {
+        glm::vec2 position;
+        glm::vec2 size;
+
+        CollisionRect() = default;
+        CollisionRect(glm::vec2 p, glm::vec2 s)
+            : position(p),
+              size(s)
+        {
+        }
+    };
+
     //enum class
     static void
     collide(BoundingBox& object, TileLayer& tile_layer, const function<bool(TileLayer::Tile&)>& tile_callback)
@@ -35,6 +49,8 @@ struct TileMapCollider
         auto tile_count = glm::vec2(parent.tile_count());
 
         auto delta = object.end_position - object.start_position;
+
+        auto test_rect = CollisionRect(object.start_position, object.size);
 
         bool x_dir = delta.x > 0 ? 1 : (delta.x < 0 ? -1 : 0);
         bool y_dir = delta.y > 0 ? 1 : (delta.y < 0 ? -1 : 0);
@@ -51,8 +67,6 @@ struct TileMapCollider
          *  3. check tiles at grid line for solidity
          *  4.
          */
-
-        object.end_position = object.start_position;
 
         glm::vec2 leading_edge = object.start_position;
 
