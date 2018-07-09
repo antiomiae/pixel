@@ -4,6 +4,7 @@ var searchData=
   ['field_5fsize_5f',['field_size_',['../class_particle_controller.html#a197d171ab0849d8ec1cfe2b884a58e50',1,'ParticleController']]],
   ['file_5fexists',['file_exists',['../namespacepixel_1_1util.html#a6e0623837ee2f07f9d9a45ad01cfb054',1,'pixel::util']]],
   ['find_5frect',['find_rect',['../namespacepixel_1_1pack.html#a4d3ce2ea8732e6fcda7f8e1f8d4f9d21',1,'pixel::pack']]],
+  ['finish_5frender',['finish_render',['../classpixel_1_1_level.html#af048064810802d212c71a5c4c5809ca6',1,'pixel::Level']]],
   ['flags',['flags',['../structpixel_1_1_tile_layer_1_1_properties.html#a67fcb4eb4b6b041324a08ec2aa8ef3f7',1,'pixel::TileLayer::Properties']]],
   ['flags_5fmask',['FLAGS_MASK',['../classpixel_1_1_tile_atlas.html#ab6a81c8e0b8961d4ecaa2142655092da',1,'pixel::TileAtlas']]],
   ['flags_5fshift',['FLAGS_SHIFT',['../classpixel_1_1_tile_atlas.html#a455bbfd50aaea180f0c0e447ffbb0d56',1,'pixel::TileAtlas']]],

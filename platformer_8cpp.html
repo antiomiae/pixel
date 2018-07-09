@@ -65,28 +65,77 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">platformer.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="pixel_8h_source.html">pixel/pixel.h</a>&gt;</code><br />
-<code>#include &lt;unistd.h&gt;</code><br />
-<code>#include &lt;algorithm&gt;</code><br />
+<div class="textblock"><code>#include &lt;experimental/optional&gt;</code><br />
+<code>#include &lt;<a class="el" href="pixel_8h_source.html">pixel/pixel.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="level_8h_source.html">pixel/level.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="input_8h_source.html">pixel/input/input.h</a>&gt;</code><br />
 <code>#include &lt;glm/gtx/component_wise.hpp&gt;</code><br />
 <code>#include &lt;glm/gtx/color_space.hpp&gt;</code><br />
-<code>#include &lt;random&gt;</code><br />
 <code>#include &lt;glm/gtx/fast_square_root.hpp&gt;</code><br />
-<code>#include &lt;chrono&gt;</code><br />
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bounding_box.html">BoundingBox</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_tile_map_collider.html">TileMapCollider</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_tile_map_collider_1_1_overlap.html">TileMapCollider::Overlap</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_guy.html">Guy</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ac21258f97fa940076e773c77ac487079"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="platformer_8cpp.html#ac21258f97fa940076e773c77ac487079">clamp</a> (float x, float min_, float max_)</td></tr>
+<tr class="separator:ac21258f97fa940076e773c77ac487079"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac64c5cff369fdede3a0afbbbc38aeac3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="platformer_8cpp.html#ac64c5cff369fdede3a0afbbbc38aeac3">run</a> (<a class="el" href="classpixel_1_1_level.html">Level</a> &amp;level)</td></tr>
+<tr class="separator:ac64c5cff369fdede3a0afbbbc38aeac3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a9872424914224b579b6d38807d16b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="platformer_8cpp.html#a9a9872424914224b579b6d38807d16b6">start</a> (int argc, char **argv)</td></tr>
 <tr class="separator:a9a9872424914224b579b6d38807d16b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="platformer_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
 <tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ac21258f97fa940076e773c77ac487079"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac21258f97fa940076e773c77ac487079">&#9670;&nbsp;</a></span>clamp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float clamp </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>min_</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>max_</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a0ddf1224851353fc92bfbff6f499fa97"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&nbsp;</a></span>main()</h2>
 
@@ -109,6 +158,24 @@ Functions</h2></td></tr>
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac64c5cff369fdede3a0afbbbc38aeac3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac64c5cff369fdede3a0afbbbc38aeac3">&#9670;&nbsp;</a></span>run()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void run </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classpixel_1_1_level.html">Level</a> &amp;&#160;</td>
+          <td class="paramname"><em>level</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">

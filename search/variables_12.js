@@ -12,6 +12,7 @@ var searchData=
   ['tile_5fheight_5f',['tile_height_',['../classpixel_1_1_tile_atlas.html#a6df6a1d935e21370975029291196e2da',1,'pixel::TileAtlas']]],
   ['tile_5fid',['tile_id',['../structpixel_1_1_tile_layer_1_1_tile.html#a5f4c70323cd0793bd2cbe0c23247de56',1,'pixel::TileLayer::Tile::tile_id()'],['../structpixel_1_1_tileset_1_1_tile_1_1_animation_1_1_frame.html#ac6399710628ccbf534b19b439a33aa81',1,'pixel::Tileset::Tile::Animation::Frame::tile_id()'],['../structpixel_1_1_tileset_1_1_tile.html#aea8eb01c2f67c1cac8cbf12bbbf3d741',1,'pixel::Tileset::Tile::tile_id()']]],
   ['tile_5flayer_5ftexture_5f',['tile_layer_texture_',['../classpixel_1_1renderers_1_1_tile_map_renderer.html#a8792e9c1c80ced580e2963604483008a',1,'pixel::renderers::TileMapRenderer']]],
+  ['tile_5fmap_5f',['tile_map_',['../classpixel_1_1_level.html#a163aa356113a4539adf44a8c04b539bd',1,'pixel::Level']]],
   ['tile_5fsize_5f',['tile_size_',['../classpixel_1_1_tile_map.html#a3a21dfe07a89fdba673af740e8da46dd',1,'pixel::TileMap']]],
   ['tile_5fwidth_5f',['tile_width_',['../classpixel_1_1_tile_atlas.html#a03f53cf1b9bd75e4f02cff6907f074a8',1,'pixel::TileAtlas']]],
   ['tiles',['tiles',['../classpixel_1_1_tile_layer_1_1_tile_animation.html#aa149a12e4eae31c60714565b2d64861e',1,'pixel::TileLayer::TileAnimation']]],

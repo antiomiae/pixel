@@ -10,5 +10,6 @@ var searchData=
   ['gpu_5fparticles_2ecpp',['gpu_particles.cpp',['../gpu__particles_8cpp.html',1,'']]],
   ['graphics_2ecpp',['graphics.cpp',['../graphics_8cpp.html',1,'']]],
   ['graphics_2eh',['graphics.h',['../graphics_8h.html',1,'']]],
-  ['gravity',['GRAVITY',['../rider_8cpp.html#a48e56f4d6787b67d97b4655a84e7c3f1',1,'rider.cpp']]]
+  ['gravity',['GRAVITY',['../rider_8cpp.html#a48e56f4d6787b67d97b4655a84e7c3f1',1,'rider.cpp']]],
+  ['guy',['Guy',['../struct_guy.html',1,'Guy'],['../struct_guy.html#a79945cc8031dade895e89d6460cb5ca4',1,'Guy::Guy()']]]
 ];

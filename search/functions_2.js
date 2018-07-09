@@ -2,6 +2,7 @@ var searchData=
 [
   ['baseerror',['BaseError',['../classpixel_1_1_base_error.html#aee0432935f72987286c9d4518642269e',1,'pixel::BaseError']]],
   ['basictypeforattributetype',['basicTypeForAttributeType',['../buffer_8cpp.html#aa32b430914d95540ddccbc2e7d4bcf68',1,'buffer.cpp']]],
+  ['begin_5frender',['begin_render',['../classpixel_1_1_level.html#ad236ef9c0077e69b8aae3de3cf19ca47',1,'pixel::Level']]],
   ['bind',['bind',['../classpixel_1_1graphics_1_1_abstract_buffer.html#a9d3bb463f35f08f5604012b7d22e113a',1,'pixel::graphics::AbstractBuffer::bind()'],['../classpixel_1_1graphics_1_1_buffer.html#ab157f01d131d8416126607f71ab320ce',1,'pixel::graphics::Buffer::bind()'],['../classpixel_1_1graphics_1_1_index_buffer.html#a70b8fdbdd19c8800e005425712426bde',1,'pixel::graphics::IndexBuffer::bind()'],['../classpixel_1_1graphics_1_1_texture.html#a9163f7df2e8d5ef4635f9621e2ca9546',1,'pixel::graphics::Texture::bind()']]],
   ['bind_5fapp',['bind_app',['../namespacepixel_1_1binding.html#a3d31a63c2925c5124d5d56a564d21d74',1,'pixel::binding']]],
   ['bind_5fattributes',['bind_attributes',['../classpixel_1_1renderers_1_1_line_renderer.html#a8f8f11a0a540f8dcaba69f2820d6841b',1,'pixel::renderers::LineRenderer']]],

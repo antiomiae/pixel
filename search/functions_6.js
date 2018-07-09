@@ -2,6 +2,7 @@ var searchData=
 [
   ['file_5fexists',['file_exists',['../namespacepixel_1_1util.html#a6e0623837ee2f07f9d9a45ad01cfb054',1,'pixel::util']]],
   ['find_5frect',['find_rect',['../namespacepixel_1_1pack.html#a4d3ce2ea8732e6fcda7f8e1f8d4f9d21',1,'pixel::pack']]],
+  ['finish_5frender',['finish_render',['../classpixel_1_1_level.html#af048064810802d212c71a5c4c5809ca6',1,'pixel::Level']]],
   ['flip_5fd',['flip_d',['../classpixel_1_1graphics_1_1_sprite.html#a91c571276d509e111e41cb6b0346408c',1,'pixel::graphics::Sprite::flip_d(bool)'],['../classpixel_1_1graphics_1_1_sprite.html#a0c07bc6cb4e07c0c14ec0b2ebe5d49d5',1,'pixel::graphics::Sprite::flip_d()']]],
   ['flip_5fh',['flip_h',['../classpixel_1_1graphics_1_1_sprite.html#a50443f08383325b250bc375e1f5ee563',1,'pixel::graphics::Sprite::flip_h(bool)'],['../classpixel_1_1graphics_1_1_sprite.html#a09ad44e665a5420cfaa41ace195f46f1',1,'pixel::graphics::Sprite::flip_h()']]],
   ['flip_5fv',['flip_v',['../classpixel_1_1graphics_1_1_sprite.html#a8541b2280778b2c8169e39e47afa06c7',1,'pixel::graphics::Sprite::flip_v(bool)'],['../classpixel_1_1graphics_1_1_sprite.html#a4d9b8733ced8d9461e31bad35873973f',1,'pixel::graphics::Sprite::flip_v()']]],
