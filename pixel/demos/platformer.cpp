@@ -2,7 +2,6 @@
 
 #include <pixel/pixel.h>
 #include <pixel/level.h>
-#include <pixel/input/input.h>
 #include <glm/gtx/component_wise.hpp>
 #include <glm/gtx/color_space.hpp>
 #include <glm/gtx/fast_square_root.hpp>
@@ -40,7 +39,6 @@ struct TileMapCollider
         }
     };
 
-    //enum class
     static void
     collide(BoundingBox& object, TileLayer& tile_layer, const function<bool(TileLayer::Tile&)>& tile_callback)
     {
@@ -52,11 +50,13 @@ struct TileMapCollider
 
         auto test_rect = CollisionRect(object.start_position, object.size);
 
-        bool x_dir = delta.x > 0 ? 1 : (delta.x < 0 ? -1 : 0);
-        bool y_dir = delta.y > 0 ? 1 : (delta.y < 0 ? -1 : 0);
+        glm::vec2 dir = {
+            delta.x > 0 ? 1 : (delta.x < 0 ? -1 : 0),
+            delta.y > 0 ? 1 : (delta.y < 0 ? -1 : 0)
+        };
 
         /* return early if object isn't moving */
-        if (x_dir == 0 && y_dir == 0) {
+        if (dir == {0, 0}) {
             return;
         }
 
@@ -67,41 +67,34 @@ struct TileMapCollider
          *  3. check tiles at grid line for solidity
          *  4.
          */
-
-        glm::vec2 leading_edge = object.start_position;
-
-        if (x_dir > 0) {
-            leading_edge.x += object.size.x;
-        }
-
-        if (y_dir > 0) {
-            leading_edge.y += object.size.y;
-        }
-
-        while(delta.x != 0 && delta.y != 0)
+        while(dir != {0, 0})
         {
-            float x_t = 0;
-            float y_t = 0;
+            float xt = 0.0f;
+            float yt = 0.0f;
 
-            // the x coordinate of the nearest vertical grid line in the direction the object is moving
-            auto next_x = -1;
-            // the y coordinate of the nearest horizontal grid line in the direction the object is moving
-            auto next_y = -1;
+            if (dir.x != 0) {
+                int edge = test_rect.position.x + (dir.x > 0 ? test_rect.size.x : 0);
+                // nearest grid line to right edge in direction of travel
+                float grid_x = (edge / (int)tile_size.x + (dir.x > 0 ? 1 : 0))*tile_size.x;
 
-            if (x_dir != 0) {
-                next_x = (((int)floor(leading_edge.x)) / tile_size.x + (x_dir > 0 ? 1 : 0)) * tile_size.x;
-
-                x_t = abs(next_x - leading_edge.x) / delta.x;
+                xt = (grid_x - edge)/delta.x;
             }
 
-            if (y_dir != 0) {
-                next_y = (((int)floor(leading_edge.y)) / tile_size.y + (y_dir > 0 ? 1 : 0)) * tile_size.y;
+            if (dir.y != 0) {
+                int edge = test_rect.position.y + (dir.y > 0 ? test_rect.size.y : 0);
 
-                y_t = abs(next_y - leading_edge.y) / delta.y;
+                if (edge >= 0) {
+
+                    float grid_y = (edge / (int) tile_size.y + (dir.y > 0 ? 1 : 0)) * tile_size.y;
+                }
+
+                yt = (grid_y - edge)/delta.y;
             }
 
-            if (x_t < y_t && x_t != 0) {
-                //leading_edge.x =
+            if (xt != 0 && xt == min(xt, yt)) {
+
+            } else if (yt != 0) {
+
             }
 
             break;
@@ -215,7 +208,7 @@ void run(Level& level)
 
     pixel::app().set_tick_callback(
         [&] {
-            guy.update(1/60.0f);
+            guy.update(1 / 60.0f);
 
             level.begin_render();
 
@@ -225,7 +218,12 @@ void run(Level& level)
 
             guy.render(batch);
 
-            level.renderer_group().get<renderers::SpriteRenderer>().render(batch.sprites(), level.sprite_texture(), level.camera());
+            level.renderer_group()
+                .get<renderers::SpriteRenderer>()
+                .render(
+                    batch.sprites(), level.sprite_texture(),
+                    level.camera()
+                );
 
             level.finish_render();
         }
