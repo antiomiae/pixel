@@ -1,4 +1,5 @@
 #include <experimental/optional>
+#include <limits>
 
 #include <pixel/pixel.h>
 #include <pixel/level.h>
@@ -32,6 +33,7 @@ struct TileMapCollider
         glm::vec2 size;
 
         CollisionRect() = default;
+
         CollisionRect(glm::vec2 p, glm::vec2 s)
             : position(p),
               size(s)
@@ -48,6 +50,8 @@ struct TileMapCollider
 
         auto delta = object.end_position - object.start_position;
 
+        auto delta_inv = 1.0f / delta;
+
         auto test_rect = CollisionRect(object.start_position, object.size);
 
         glm::vec2 dir = {
@@ -56,7 +60,7 @@ struct TileMapCollider
         };
 
         /* return early if object isn't moving */
-        if (dir == {0, 0}) {
+        if (dir == glm::vec2{0, 0}) {
             return;
         }
 
@@ -67,37 +71,55 @@ struct TileMapCollider
          *  3. check tiles at grid line for solidity
          *  4.
          */
-        while(dir != {0, 0})
-        {
-            float xt = 0.0f;
-            float yt = 0.0f;
+        while (delta != glm::vec2{0, 0}) {
+            float ct = std::numeric_limits<float>::infinity();
+            bool check_column = false;
 
-            if (dir.x != 0) {
-                int edge = test_rect.position.x + (dir.x > 0 ? test_rect.size.x : 0);
-                // nearest grid line to right edge in direction of travel
-                float grid_x = (edge / (int)tile_size.x + (dir.x > 0 ? 1 : 0))*tile_size.x;
+            glm::ivec2 collision_index = {0, 0};
 
-                xt = (grid_x - edge)/delta.x;
-            }
+            if (delta.x != 0) {
+                float edge = test_rect.position.x + (dir.x == 1 ? test_rect.size.x : 0);
+                collision_index.x = (int) edge / (int) tile_size.x + (dir.x == 1 ? 1 : 0);
 
-            if (dir.y != 0) {
-                int edge = test_rect.position.y + (dir.y > 0 ? test_rect.size.y : 0);
-
-                if (edge >= 0) {
-
-                    float grid_y = (edge / (int) tile_size.y + (dir.y > 0 ? 1 : 0)) * tile_size.y;
+                // ensure we're going to collide with the map
+                if (collision_index.x >= (dir.x == 1 ? 0 : 1) && collision_index.x <= (dir.x == 1 ? tile_count.x - 1 : tile_count.x)) {
+                    ct = abs(collision_index.x * tile_size.x - edge) * delta_inv.x;
+                    check_column = true;
                 }
-
-                yt = (grid_y - edge)/delta.y;
             }
 
-            if (xt != 0 && xt == min(xt, yt)) {
+            if (delta.y != 0) {
+                float edge = test_rect.position.y + (dir.y == 1 ? test_rect.size.y : 0);
+                collision_index.y = (int) edge / (int) tile_size.y + (dir.y == 1 ? 1 : 0);
 
-            } else if (yt != 0) {
+                // ensure we're going to collide with the map
+                if (collision_index.y >= (dir.y == 1 ? 0 : 1) && collision_index.y <= (dir.y == 1 ? tile_count.y - 1 : tile_count.y)) {
+                    float yt = abs(collision_index.y * tile_size.x - edge) * delta_inv.x;
 
+                    if (yt < ct) {
+                        ct = yt;
+                        check_column = false;
+                    }
+                }
             }
 
-            break;
+            // if ct >= 1, consume remaining delta and return
+            if (ct > 1) {
+                test_rect.position += delta;
+                delta = {0, 0};
+                break;
+            }
+
+            test_rect.position += ct * delta_inv;
+
+            if (check_column) {
+                auto row_range = {
+                    max((int) test_rect.position.y / tile_size.y, 0),
+                    min((int) (test_rect.position.y + test_rect.size.y) / tile_size.y, tile_count.y - 1)
+                };
+
+                auto column = collision_index.x - (dir.x == -1 ? 1 : 0);
+            }
         }
     }
 
