@@ -113,12 +113,16 @@ struct TileMapCollider
             test_rect.position += ct * delta_inv;
 
             if (check_column) {
-                auto row_range = {
+                glm::ivec2 row_range = {
                     max((int) test_rect.position.y / tile_size.y, 0),
                     min((int) (test_rect.position.y + test_rect.size.y) / tile_size.y, tile_count.y - 1)
                 };
 
                 auto column = collision_index.x - (dir.x == -1 ? 1 : 0);
+
+                for (auto y = row_range.s; y <= row_range.t; ++y) {
+                    auto [tile, tile_desc] = tile_pair(tile_layer, column, y);
+                }
             }
         }
     }
