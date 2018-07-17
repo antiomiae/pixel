@@ -59,22 +59,27 @@ TEST_CASE("TileLayer")
         REQUIRE(our_layer.tiles().size() == reference_tiles.size());
 
 
-        auto our_tiles = our_layer.tiles();
+        auto& our_tiles = our_layer.tiles();
 
         /* Counter to help ensure we exercise animation loading */
         int anim_count = 0;
 
-        for (auto i = 0u; i < our_tiles.size(); ++i) {
-            auto reference_tile = reference_tiles[i];
+        for (auto y = 0u; y < our_layer.height(); ++y) {
+            for (auto x = 0u; x < our_layer.width(); ++x) {
 
-            REQUIRE(reference_tile.ID == our_tiles[i].tile_id);
+                auto reference_tile = reference_tiles[x + (our_layer.height() - 1 - y) * our_layer.width()];
+                auto layer_tile = our_layer.at(x, y);
 
-            if (tile_map.tileset().tile_has_animation(reference_tile.ID)) {
-                /* Expect to have loaded an animation */
-                REQUIRE_NOTHROW(
-                    our_layer.animations().at(reference_tile.ID)
-                );
-                anim_count++;
+                REQUIRE(reference_tile.ID == layer_tile.tile_id);
+
+                if (tile_map.tileset().tile_has_animation(layer_tile.tile_id)) {
+                    /* Expect to have loaded an animation */
+                    REQUIRE_NOTHROW(
+                        our_layer.animations().at(layer_tile.tile_id)
+                    );
+
+                    anim_count++;
+                }
             }
         }
 
