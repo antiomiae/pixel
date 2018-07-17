@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="left-up" width="5" height="5" tilewidth="16" tileheight="16" infinite="0" nextobjectid="1">
+ <properties>
+  <property name="bird" value="word"/>
+  <property name="wermp" type="float" value="0.5"/>
+ </properties>
+ <tileset firstgid="1" source="mario.tsx"/>
+ <tileset firstgid="925" source="ship.tsx"/>
+ <layer name="Tile Layer 1" width="5" height="5">
+  <properties>
+   <property name="parallax_x" type="float" value="1"/>
+   <property name="parallax_y" type="float" value="1"/>
+  </properties>
+  <data encoding="csv">
+67,67,0,69,69,
+36,36,36,36,69,
+36,36,36,36,69,
+0,0,36,36,69,
+0,0,36,36,0
+</data>
+ </layer>
+</map>

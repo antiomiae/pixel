@@ -76,7 +76,7 @@ bool TileLayer::load(const tmx::TileLayer& t)
 
     auto& tileset = parent_->tileset();
 
-    auto tmx_tiles = t.getTiles();
+    auto& tmx_tiles = t.getTiles();
     error_if(tmx_tiles.size() != tiles_.size(), "tmx::TileLayer t contains different number of tiles than expected");
 
     PropertyCollection props(t.getProperties());
@@ -86,17 +86,12 @@ bool TileLayer::load(const tmx::TileLayer& t)
         props.getFloat("parallax_y", 1.0)
     };
 
-    transform(
-        begin(tmx_tiles),
-        end(tmx_tiles),
-        begin(tiles_),
-        [&](auto tmx_tile) {
-            return Tile{
-                tmx_tile.ID,
-                tmx_tile.flipFlags
-            };
+    for (auto y = 0u; y < height_; ++y) {
+        for (auto x = 0u; x < width_; ++x) {
+            auto ref_tile = tmx_tiles[x + (height_ - 1 - y)*width_];
+            tiles_[x + y * width_] = Tile{ref_tile.ID, ref_tile.flipFlags};
         }
-    );
+    }
 
     for (auto i = 0u; i < tiles_.size(); ++i) {
         auto& tile = tiles_[i];
@@ -156,7 +151,7 @@ void TileLayer::update(float dt)
 
 TileLayer::Tile& TileLayer::at(uint x, uint y)
 {
-    return tiles_.at(x + y * height_);
+    return tiles_.at(x + y * width_);
 }
 
 void TileLayer::TileAnimation::update(float dt)

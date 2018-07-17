@@ -141,6 +141,10 @@ void Shader::setUniform(const std::string& name, float v0, float v1)
     glUniform2f(uniform(name).location, v0, v1);
 }
 
+void Shader::setUniform(const std::string& name, const glm::ivec2& value)
+{
+    glUniform2iv(uniform(name).location, 1, glm::value_ptr(value));
+}
 
 void Shader::setUniform(const std::string& name, const glm::vec2& value)
 {

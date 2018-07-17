@@ -16,16 +16,23 @@ void TileLayerTexture::init_texture()
 
 void TileLayerTexture::load(pixel::TileLayer& ref_layer, pixel::TileAtlas& atlas)
 {
-    vector<uint16_t> tex_data(ref_layer.tiles().size());
+    glm::uvec2 min_size = {
+        max(ref_layer.width(), 8u),
+        max(ref_layer.height(), 8u)
+    };
 
-    std::transform(
-        begin(ref_layer.tiles()),
-        end(ref_layer.tiles()),
-        begin(tex_data),
-        [&](auto& tile) { return atlas.atlas_id_from_tmx_id(tile.tile_id, tile.flip_flags); }
-    );
+    if (tex_data_.size() != min_size.x * min_size.y) {
+        tex_data_.resize(min_size.x * min_size.y);
+    }
 
-    (*texture_).load(ref_layer.width(), ref_layer.height(), (uint8_t*)tex_data.data());
+    for (auto y = 0u; y < ref_layer.height(); ++y) {
+        for (auto x = 0u; x < ref_layer.width(); ++x) {
+            auto& tile = ref_layer.tiles()[x + y*ref_layer.width()];
+            tex_data_[x + (min_size.x * y)] = atlas.atlas_id_from_tmx_id(tile.tile_id, tile.flip_flags);
+        }
+    }
+
+    (*texture_).load(min_size.x, min_size.y, (uint8_t*)tex_data_.data());
     log_gl_errors();
 }
 

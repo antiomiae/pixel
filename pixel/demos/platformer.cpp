@@ -1,5 +1,6 @@
 #include <experimental/optional>
 #include <limits>
+#include <algorithm>
 
 #include <pixel/pixel.h>
 #include <pixel/level.h>
@@ -42,13 +43,19 @@ struct TileMapCollider
     };
 
     static void
-    collide(BoundingBox& object, TileLayer& tile_layer, const function<bool(TileLayer::Tile&)>& tile_callback)
+    collide(BoundingBox& object, TileLayer& tile_layer, const function<bool(TileLayer::Tile&, Tileset::Tile&)>& tile_callback)
     {
         auto& parent = tile_layer.parent();
-        auto tile_size = glm::vec2(parent.tile_size());
-        auto tile_count = glm::vec2(parent.tile_count());
+        glm::ivec2 tile_size = parent.tile_size();
+        glm::ivec2 tile_count = parent.tile_count();
 
         auto delta = object.end_position - object.start_position;
+
+        if (delta == glm::vec2(0, 0)) {
+            return;
+        } else {
+            int j = 10;
+        }
 
         auto delta_inv = 1.0f / delta;
 
@@ -71,9 +78,13 @@ struct TileMapCollider
          *  3. check tiles at grid line for solidity
          *  4.
          */
+
+        float acc_t = 0;
+
         while (delta != glm::vec2{0, 0}) {
             float ct = std::numeric_limits<float>::infinity();
             bool check_column = false;
+            bool check_row = false;
 
             glm::ivec2 collision_index = {0, 0};
 
@@ -83,7 +94,7 @@ struct TileMapCollider
 
                 // ensure we're going to collide with the map
                 if (collision_index.x >= (dir.x == 1 ? 0 : 1) && collision_index.x <= (dir.x == 1 ? tile_count.x - 1 : tile_count.x)) {
-                    ct = abs(collision_index.x * tile_size.x - edge) * delta_inv.x;
+                    ct = abs((collision_index.x * tile_size.x - edge) * delta_inv.x);
                     check_column = true;
                 }
             }
@@ -94,11 +105,15 @@ struct TileMapCollider
 
                 // ensure we're going to collide with the map
                 if (collision_index.y >= (dir.y == 1 ? 0 : 1) && collision_index.y <= (dir.y == 1 ? tile_count.y - 1 : tile_count.y)) {
-                    float yt = abs(collision_index.y * tile_size.x - edge) * delta_inv.x;
+                    float yt = abs((collision_index.y * tile_size.y - edge) * delta_inv.y);
 
-                    if (yt < ct) {
+                    if (yt <= ct) {
+                        if (yt < ct) {
+                            check_column = false;
+                        }
+
                         ct = yt;
-                        check_column = false;
+                        check_row = true;
                     }
                 }
             }
@@ -110,7 +125,33 @@ struct TileMapCollider
                 break;
             }
 
-            test_rect.position += ct * delta_inv;
+            auto column = collision_index.x - (dir.x == -1 ? 1 : 0);
+            auto row = collision_index.y - (dir.y == -1 ? 1 : 0);
+
+            auto d = ct * delta;
+
+            if (check_column) {
+                if (dir.x > 0) {
+                    test_rect.position.x = collision_index.x * tile_size.x - test_rect.size.x;
+                } else {
+                    test_rect.position.x = (collision_index.x + 1) * tile_size.x;
+                }
+            } else {
+                test_rect.position.x += d.x;
+            }
+
+            if (check_row) {
+                if (dir.y > 0) {
+                    test_rect.position.y = collision_index.y * tile_size.y - test_rect.size.y;
+                } else {
+                    test_rect.position.y = collision_index.y * tile_size.y - test_rect.size.y;
+                }
+            } else {
+                test_rect.position.y += d.y;
+            }
+
+            delta -= d;
+            delta_inv = 1.0f / delta;
 
             if (check_column) {
                 glm::ivec2 row_range = {
@@ -118,13 +159,55 @@ struct TileMapCollider
                     min((int) (test_rect.position.y + test_rect.size.y) / tile_size.y, tile_count.y - 1)
                 };
 
-                auto column = collision_index.x - (dir.x == -1 ? 1 : 0);
+                error_if(column < 0, "column index less than 0");
 
                 for (auto y = row_range.s; y <= row_range.t; ++y) {
-                    auto [tile, tile_desc] = tile_pair(tile_layer, column, y);
+                    auto& tile = tile_layer.at(column, y);
+
+                    if (tile.tile_id != 0) {
+                        auto& tile_desc = parent.tileset().tile(tile.tile_id);
+
+                        if(tile_callback(tile, tile_desc)) {
+                            delta.x = 0;
+                            break;
+                        }
+                    }
                 }
             }
+
+            if (check_row) {
+                glm::uvec2 col_range = {
+                    max((int) test_rect.position.x / tile_size.x, 0),
+                    min((int) (test_rect.position.x + test_rect.size.x) / tile_size.x, tile_count.x - 1)
+                };
+
+                error_if(row < 0, "row index less than 0");
+
+                for (auto x = col_range.s; x <= col_range.t; ++x) {
+                    auto& tile = tile_layer.at(x, row);
+
+                    if (tile.tile_id != 0) {
+                        auto& tile_desc = parent.tileset().tile(tile.tile_id);
+
+                        if (tile_callback(tile, tile_desc)) {
+                            delta.y = 0;
+                            break;
+                        }
+                    }
+
+                }
+            }
+
+            if (abs(delta.x) <= 0.0001f) {
+                delta.x = 0;
+            }
+
+            if (abs(delta.y) <= 0.0001f) {
+                delta.y = 0;
+            }
         }
+
+        object.end_position = test_rect.position;
     }
 
     static pair<TileLayer::Tile&, Tileset::Tile&> tile_pair(TileLayer& tile_layer, int x, int y)
@@ -164,6 +247,9 @@ struct Guy
 
     void update(float dt)
     {
+        input::Keyboard::keymap[GLFW_KEY_RIGHT] = true;
+        input::Keyboard::keymap[GLFW_KEY_UP] = true;
+
         if (input::Keyboard::keymap[GLFW_KEY_RIGHT]) {
             velocity.x += acc.x * dt;
         } else if (input::Keyboard::keymap[GLFW_KEY_LEFT]) {
@@ -205,7 +291,8 @@ struct Guy
         TileMapCollider::collide(
             b,
             level->tile_map().layers()[layer],
-            [&](auto& tile) {
+            [&](auto& tile, auto& tile_desc) {
+                auto type = tile_desc.type;
                 return tile.tile_id > 0;
             }
         );
@@ -224,9 +311,10 @@ struct Guy
 void run(Level& level)
 {
     level.load_sprites({"assets/guy.png"});
-    level.load_map("assets/map.tmx");
+    level.load_map("assets/map2.tmx");
 
     Guy guy{&level, "assets/guy.png"};
+    guy.layer = 0;
 
     guy.acc = {200.f, 0.f};
 

@@ -42,10 +42,10 @@ void TileMapRenderer::init()
 void TileMapRenderer::set_buffer_data(float map_width, float map_height, float table_width, float table_height)
 {
     float data[] = {
-        0, 0, 0, table_height,
-        0, map_height, 0, 0,
-        map_width, 0, table_width, table_height,
-        map_width, map_height, table_width, 0
+        0, 0, 0, 0,
+        0, map_height, 0, table_height,
+        map_width, 0, table_width, 0,
+        map_width, map_height, table_width, table_height
     };
 
     buffer_.loadData(data, sizeof(data));
@@ -57,7 +57,6 @@ void TileMapRenderer::render(TileMap& t, Camera& camera)
     auto map_size = t.tile_size() * t.tile_count();
     auto table_size = t.tile_count();
 
-
     set_buffer_data(map_size.x, map_size.y, table_size.x, table_size.y);
     log_gl_errors();
     program_.activate();
@@ -65,15 +64,16 @@ void TileMapRenderer::render(TileMap& t, Camera& camera)
     vao_.activate();
     log_gl_errors();
 
+    program_.setUniform("tile_size", glm::ivec2(t.tile_size()));
+    log_gl_errors();
 
-    program_.setUniform("tile_size", t.tile_size());
+    //program_.setUniform("tile_count", glm::ivec2(t.tile_count()));
     log_gl_errors();
 
     /* Bind atlas texture to unit 0 */
     t.atlas().activate_texture(0);
     log_gl_errors();
     /* Bind map texture to unit 1 */
-
 
     program_.setUniform("atlas_tex", 0);
     log_gl_errors();

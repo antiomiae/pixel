@@ -24,6 +24,7 @@ public:
 private:
     unique_ptr<Texture> texture_;
     void init_texture();
+    vector<uint16_t> tex_data_;
 
 };
 

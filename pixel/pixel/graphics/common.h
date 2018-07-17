@@ -44,7 +44,8 @@ struct Attribute
 
 using AttributeMap = std::unordered_map<std::string, Attribute>;
 
-class Shader {
+class Shader
+{
 public:
     GLuint program_id_;
     AttributeMap attribute_map_;
@@ -53,41 +54,43 @@ public:
     std::string debug_name_;
 
     Shader() = default;
-    Shader(const char *vs, const char *fs, const vector<string>& transform_feedback_varyings = {});
+    Shader(const char* vs, const char* fs, const vector<string>& transform_feedback_varyings = {});
 
     void activate();
     void deactivate();
 
-    Attribute attribute(const std::string &name) const;
-    Attribute uniform(const std::string &name) const;
+    Attribute attribute(const std::string& name) const;
+    Attribute uniform(const std::string& name) const;
 
-    void setUniform(const std::string &name, int);
-    void setUniform(const std::string &name, int, int);
-    void setUniform(const std::string &name, int, int, int);
+    void setUniform(const std::string& name, int);
+    void setUniform(const std::string& name, int, int);
+    void setUniform(const std::string& name, int, int, int);
 
-    void setUniform(const std::string &name, float);
-    void setUniform(const std::string &name, float, float);
-    void setUniform(const std::string &name, float, float, float);
-    void setUniform(const std::string &name, float, float, float, float);
+    void setUniform(const std::string& name, float);
+    void setUniform(const std::string& name, float, float);
+    void setUniform(const std::string& name, float, float, float);
+    void setUniform(const std::string& name, float, float, float, float);
 
-    void setUniform(const std::string &name, const glm::vec2 &value);
-    void setUniform(const std::string &name, const glm::vec3 &value);
-    void setUniform(const std::string &name, const glm::vec4 &value);
+    void setUniform(const std::string& name, const glm::vec2& value);
+    void setUniform(const std::string& name, const glm::vec3& value);
+    void setUniform(const std::string& name, const glm::vec4& value);
 
-    void setUniform(const std::string &name, const glm::mat2 &value);
-    void setUniform(const std::string &name, const glm::mat3 &value);
-    void setUniform(const std::string &name, const glm::mat4 &value);
+    void setUniform(const std::string& name, const glm::ivec2& value);
 
-    void setUniformArray(const std::string &name, int count, const float *arr);
-    void setUniformArray(const std::string &name, int count, const int *arr);
+    void setUniform(const std::string& name, const glm::mat2& value);
+    void setUniform(const std::string& name, const glm::mat3& value);
+    void setUniform(const std::string& name, const glm::mat4& value);
 
-    void setUniformArray(const std::string &name, int count, const glm::vec2 *arr);
-    void setUniformArray(const std::string &name, int count, const glm::vec4 *arr);
-    void setUniformArray(const std::string &name, int count, const glm::vec3 *arr);
+    void setUniformArray(const std::string& name, int count, const float* arr);
+    void setUniformArray(const std::string& name, int count, const int* arr);
 
-    void setUniformArray(const std::string &name, int count, const glm::mat2 *arr);
-    void setUniformArray(const std::string &name, int count, const glm::mat3 *arr);
-    void setUniformArray(const std::string &name, int count, const glm::mat4 *arr);
+    void setUniformArray(const std::string& name, int count, const glm::vec2* arr);
+    void setUniformArray(const std::string& name, int count, const glm::vec4* arr);
+    void setUniformArray(const std::string& name, int count, const glm::vec3* arr);
+
+    void setUniformArray(const std::string& name, int count, const glm::mat2* arr);
+    void setUniformArray(const std::string& name, int count, const glm::mat3* arr);
+    void setUniformArray(const std::string& name, int count, const glm::mat4* arr);
 
     std::string debugPrint() const;
 
@@ -120,7 +123,8 @@ public:
 
     void loadData(const void* data, const size_t size);
 
-    template <class Elem> auto load_data(const vector<Elem>& v)
+    template<class Elem>
+    auto load_data(const vector<Elem>& v)
     {
         loadData(v.data(), v.size() * sizeof(v));
     }
@@ -291,11 +295,12 @@ private:
 };
 
 
-
 struct TextureRegion
 {
-    union {
-        struct {
+    union
+    {
+        struct
+        {
             int32_t x;
             int32_t y;
             int32_t w;
@@ -324,7 +329,6 @@ struct TextureRegion
     {
     }
 };
-
 
 
 class TextureAtlas
