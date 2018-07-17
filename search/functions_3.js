@@ -8,7 +8,7 @@ var searchData=
   ['clear',['clear',['../structpixel_1_1graphics_1_1_image_data.html#a28f45b533500fdca9c65c6726b8cd174',1,'pixel::graphics::ImageData::clear()'],['../classpixel_1_1input_1_1_callback_stack.html#a1b32da853c6ee77fc4b286cf62fac8f5',1,'pixel::input::CallbackStack::clear()']]],
   ['clear_5fcolor',['clear_color',['../namespacepixel.html#a24f0e498cd20ed91cc7528405f0a03fb',1,'pixel']]],
   ['clear_5fkeymap',['clear_keymap',['../classpixel_1_1input_1_1_keyboard.html#a5c220f10381043f8c784ce69f4ae6015',1,'pixel::input::Keyboard']]],
-  ['collide',['collide',['../struct_tile_map_collider.html#aac22b53025d20082c567890b4ea515d3',1,'TileMapCollider']]],
+  ['collide',['collide',['../struct_tile_map_collider.html#af472731d7b721894edd0d6e4591039e4',1,'TileMapCollider']]],
   ['collide_5fcolumn',['collide_column',['../classpixel_1_1collision_1_1_collision_map.html#a49a0a8ae03166393be6364a874f24de7',1,'pixel::collision::CollisionMap']]],
   ['collide_5frow',['collide_row',['../classpixel_1_1collision_1_1_collision_map.html#af2f5629a4500bba2d172964d740699b1',1,'pixel::collision::CollisionMap']]],
   ['collisionmap',['CollisionMap',['../classpixel_1_1collision_1_1_collision_map.html#ad4b43c70e9f33a560d2f9ed9f0a2455c',1,'pixel::collision::CollisionMap']]],
