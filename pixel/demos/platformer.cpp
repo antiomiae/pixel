@@ -94,18 +94,18 @@ struct TileMapCollider
 
                 // ensure we're going to collide with the map
                 if (collision_index.x >= (dir.x == 1 ? 0 : 1) && collision_index.x <= (dir.x == 1 ? tile_count.x - 1 : tile_count.x)) {
-                    ct = abs((collision_index.x * tile_size.x - edge) * delta_inv.x);
+                    ct = abs((collision_index.x * tile_size.x - (dir.x == 1 ? 1 : 0) - edge) * delta_inv.x);
                     check_column = true;
                 }
             }
 
             if (delta.y != 0) {
-                float edge = test_rect.position.y + (dir.y == 1 ? test_rect.size.y : 0);
+                float edge = test_rect.position.y + (dir.y == 1 ? test_rect.size.y: 0);
                 collision_index.y = (int) edge / (int) tile_size.y + (dir.y == 1 ? 1 : 0);
 
                 // ensure we're going to collide with the map
                 if (collision_index.y >= (dir.y == 1 ? 0 : 1) && collision_index.y <= (dir.y == 1 ? tile_count.y - 1 : tile_count.y)) {
-                    float yt = abs((collision_index.y * tile_size.y - edge) * delta_inv.y);
+                    float yt = abs((collision_index.y * tile_size.y - (dir.y == 1 ? 1 : 0) - edge) * delta_inv.y);
 
                     if (yt <= ct) {
                         if (yt < ct) {
@@ -132,7 +132,7 @@ struct TileMapCollider
 
             if (check_column) {
                 if (dir.x > 0) {
-                    test_rect.position.x = collision_index.x * tile_size.x - test_rect.size.x;
+                    test_rect.position.x = collision_index.x * tile_size.x - 1 - test_rect.size.x;
                 } else {
                     test_rect.position.x = (collision_index.x + 1) * tile_size.x;
                 }
@@ -142,7 +142,7 @@ struct TileMapCollider
 
             if (check_row) {
                 if (dir.y > 0) {
-                    test_rect.position.y = collision_index.y * tile_size.y - test_rect.size.y;
+                    test_rect.position.y = collision_index.y * tile_size.y - 1 - test_rect.size.y;
                 } else {
                     test_rect.position.y = collision_index.y * tile_size.y - test_rect.size.y;
                 }
@@ -168,10 +168,15 @@ struct TileMapCollider
                         auto& tile_desc = parent.tileset().tile(tile.tile_id);
 
                         if(tile_callback(tile, tile_desc)) {
-                            delta.x = 0;
+                            delta = {0, 0};
                             break;
                         }
                     }
+                }
+
+                if (ct == 0) {
+                    delta.x -= dir.x;
+                    test_rect.position.x += dir.x;
                 }
             }
 
@@ -190,12 +195,23 @@ struct TileMapCollider
                         auto& tile_desc = parent.tileset().tile(tile.tile_id);
 
                         if (tile_callback(tile, tile_desc)) {
-                            delta.y = 0;
+                            delta = {0, 0};
                             break;
                         }
                     }
 
                 }
+
+                if (ct == 0) {
+                    if (abs(delta.y) >= 1) {
+                        delta.y -= dir.y;
+                        test_rect.position.y += dir.y;
+                    }
+                }
+            }
+
+            if (ct == 0) {
+                int k = 0;
             }
 
             if (abs(delta.x) <= 0.0001f) {
@@ -248,7 +264,7 @@ struct Guy
     void update(float dt)
     {
         input::Keyboard::keymap[GLFW_KEY_RIGHT] = true;
-        input::Keyboard::keymap[GLFW_KEY_UP] = true;
+        //input::Keyboard::keymap[GLFW_KEY_UP] = true;
 
         if (input::Keyboard::keymap[GLFW_KEY_RIGHT]) {
             velocity.x += acc.x * dt;
@@ -293,7 +309,7 @@ struct Guy
             level->tile_map().layers()[layer],
             [&](auto& tile, auto& tile_desc) {
                 auto type = tile_desc.type;
-                return tile.tile_id > 0;
+                return type == "brick";
             }
         );
 
