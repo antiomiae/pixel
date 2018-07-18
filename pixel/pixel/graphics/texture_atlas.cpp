@@ -3,7 +3,6 @@
 #include <algorithm>
 #include "pack.h"
 
-
 namespace pixel::graphics
 {
 
