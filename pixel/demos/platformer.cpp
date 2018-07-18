@@ -85,20 +85,13 @@ struct TileMapCollider
             bool check_row = false;
 
             if (delta.x != 0) {
-
                 float edge = test_rect.position.x + (dir.x == 1 ? test_rect.size.x : 0);
 
-
                 int idx;
-
                 if (edge <= 0 && dir.x > 0) {
                     idx = 0;
                 } else {
                     idx = (int) (dir.x > 0 ? ceil(edge) : floor(edge)) / (int) tile_size.x + (dir.x == 1 ? 1 : 0);
-                }
-
-                if (idx == 0) {
-                    bool a = idx == idx;
                 }
 
                 // we've already checked this gridline and decided to go through it
@@ -120,8 +113,8 @@ struct TileMapCollider
 
             if (delta.y != 0) {
                 float edge = test_rect.position.y + (dir.y == 1 ? test_rect.size.y : 0);
-                int idx;
 
+                int idx;
                 if (edge <= 0 && dir.y > 0) {
                     idx = 0;
                 } else {
@@ -150,17 +143,11 @@ struct TileMapCollider
                 }
             }
 
-            acc_t += ct;
-
             // if ct >= 1, consume remaining delta and return
             if (ct > 1) {
                 test_rect.position += delta;
                 delta = {0, 0};
                 break;
-            }
-
-            if (ct <= 1) {
-                int k = 10;
             }
 
             auto d = ct * delta;
@@ -226,8 +213,12 @@ struct TileMapCollider
                             auto& tile_desc = parent.tileset().tile(tile.tile_id);
 
                             if (tile_callback(tile, tile_desc)) {
-                                delta = {0, 0};
+
                                 collision_axes.x = dir.x;
+                                dir.x = 0;
+
+                                // should take which axes to stop as parameter, or by callback return value
+                                delta = {0, 0};
 
                                 break;
                             }
@@ -264,8 +255,9 @@ struct TileMapCollider
                             auto& tile_desc = parent.tileset().tile(tile.tile_id);
 
                             if (tile_callback(tile, tile_desc)) {
-                                delta = {0, 0};
                                 collision_axes.y = dir.y;
+                                dir.y = 0;
+                                delta = {0, 0};
 
                                 break;
                             }
@@ -329,8 +321,6 @@ struct Guy
             }
         }
 
-        velocity.x = clamp(velocity.x, -10.0f, 10.0f);
-
         if (input::Keyboard::keymap[GLFW_KEY_UP]) {
             velocity.y += acc.s;
         } else if (input::Keyboard::keymap[GLFW_KEY_DOWN]) {
@@ -345,7 +335,7 @@ struct Guy
             }
         }
 
-        velocity.y = clamp(velocity.y, -10.0f, 10.0f);
+        velocity = glm::clamp(velocity, -10.0f, 10.0f);
 
         BoundingBox b;
         b.start_position = position;
@@ -363,11 +353,8 @@ struct Guy
 
         position = b.end_position;
 
-        if (collision_axes.x != 0) {
-            velocity.x = 0;
-        }
-        if (collision_axes.y != 0) {
-            velocity.y = 0;
+        if (collision_axes != glm::ivec2(0, 0)) {
+            velocity = {0, 0};
         }
     }
 
@@ -382,10 +369,10 @@ struct Guy
 void run(Level& level)
 {
     level.load_sprites({"assets/guy.png"});
-    level.load_map("assets/map2.tmx");
+    level.load_map("assets/map.tmx");
 
     Guy guy{&level, "assets/guy.png"};
-    guy.layer = 0;
+    guy.layer = 2;
     guy.acc = {0.25f, 0.f};
 
     SpriteBatch batch;
