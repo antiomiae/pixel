@@ -85,7 +85,7 @@ struct TileMapCollider
             bool check_row = false;
 
             if (delta.x != 0) {
-                float edge = test_rect.position.x + (dir.x == 1 ? test_rect.size.x : 0);
+                float edge = test_rect.position.x + (dir.x == 1 ? test_rect.size.x - 1: 0);
 
                 int idx;
                 if (edge <= 0 && dir.x > 0) {
@@ -112,7 +112,7 @@ struct TileMapCollider
             }
 
             if (delta.y != 0) {
-                float edge = test_rect.position.y + (dir.y == 1 ? test_rect.size.y : 0);
+                float edge = test_rect.position.y + (dir.y == 1 ? test_rect.size.y - 1 : 0);
 
                 int idx;
                 if (edge <= 0 && dir.y > 0) {
@@ -154,7 +154,7 @@ struct TileMapCollider
 
             if (check_column) {
                 if (dir.x > 0) {
-                    test_rect.position.x = collision_index.x * tile_size.x - 1 - test_rect.size.x;
+                    test_rect.position.x = collision_index.x * tile_size.x - test_rect.size.x;
                 } else {
                     test_rect.position.x = collision_index.x * tile_size.x;
                 }
@@ -164,7 +164,7 @@ struct TileMapCollider
 
             if (check_row) {
                 if (dir.y > 0) {
-                    test_rect.position.y = collision_index.y * tile_size.y - 1 - test_rect.size.y;
+                    test_rect.position.y = collision_index.y * tile_size.y - test_rect.size.y;
                 } else {
                     test_rect.position.y = collision_index.y * tile_size.y;
                 }
