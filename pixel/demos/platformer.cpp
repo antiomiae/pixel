@@ -60,9 +60,17 @@ struct TileMapCollider
         TileLayer& tile_layer,
         TileCoordinate p0,
         TileCoordinate p1,
-        const function<bool(TileCoordinate, TileLayer::Tile)>& cb
-    {
+        const function<bool(TileCoordinate, TileLayer::Tile&)>& cb
+    ) {
+        for (auto y = min(p0.y, p1.y); y <= max(p0.y, p1.y); ++y) {
+            for (auto x = min(p0.x, p1.x); x <= max(p0.x, p1.x); ++x) {
+                auto should_continue = cb(TileCoordinate(x, y), tile_layer.at(x, y));
 
+                if (!should_continue) {
+                    return;
+                }
+            }
+        }
     }
 
     static glm::ivec2
@@ -226,6 +234,13 @@ struct TileMapCollider
                     }
 
                     row_span = glm::clamp(row_span, 0u, tile_count.y - 1u);
+
+                    visit_tiles(
+                        tile_layer,
+                        TileCoordinate(column, row_span.s),
+                        TileCoordinate(column, row_span.t),
+                        [&]
+                    );
 
                     for (auto y = row_span.s; y <= row_span.t; ++y) {
                         auto& tile = tile_layer.at(column, y);
