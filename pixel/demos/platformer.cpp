@@ -30,6 +30,18 @@ struct TileMapCollider
 
     };
 
+    struct TileCoordinate
+    {
+        int x, y;
+
+        TileCoordinate() = default;
+
+        TileCoordinate(int x, int y)
+            : x{x},
+              y{y}
+        { };
+    };
+
     struct CollisionRect
     {
         glm::vec2 position;
@@ -43,6 +55,15 @@ struct TileMapCollider
         {
         }
     };
+
+    static void visit_tiles(
+        TileLayer& tile_layer,
+        TileCoordinate p0,
+        TileCoordinate p1,
+        const function<bool(TileCoordinate, TileLayer::Tile)>& cb
+    {
+
+    }
 
     static glm::ivec2
     collide(BoundingBox& object, TileLayer& tile_layer, const function<bool(TileLayer::Tile&, Tileset::Tile&)>& tile_callback)
