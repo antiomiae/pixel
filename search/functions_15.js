@@ -9,5 +9,6 @@ var searchData=
   ['verlet_5fstep',['verlet_step',['../structpixel_1_1physics_1_1_integration_methods.html#a1471c592fbbaba9d063575bb47b0f3cc',1,'pixel::physics::IntegrationMethods::verlet_step()'],['../particles_8cpp.html#aa5932ba84b78c7f6834859e8056889c3',1,'verlet_step():&#160;particles.cpp']]],
   ['verletparticle',['VerletParticle',['../struct_verlet_particle.html#abc795623d7be58daea10d843d01fd9e5',1,'VerletParticle::VerletParticle()=default'],['../struct_verlet_particle.html#a1a8bf351d57d9de2779d031aa8c6b9ae',1,'VerletParticle::VerletParticle(glm::vec2 position, float mass)']]],
   ['view_5fmatrix',['view_matrix',['../classpixel_1_1graphics_1_1_camera.html#a74393c9a842e9129aec56d94029be94b',1,'pixel::graphics::Camera']]],
-  ['view_5frect',['view_rect',['../classpixel_1_1graphics_1_1_camera.html#a6b14915efaefd421f2cafa2cef532d45',1,'pixel::graphics::Camera']]]
+  ['view_5frect',['view_rect',['../classpixel_1_1graphics_1_1_camera.html#a6b14915efaefd421f2cafa2cef532d45',1,'pixel::graphics::Camera']]],
+  ['visit_5ftiles',['visit_tiles',['../struct_tile_map_collider.html#a62b5382f77aaeef41ac79edf9b2c5eba',1,'TileMapCollider']]]
 ];

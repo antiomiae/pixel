@@ -61,7 +61,9 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="struct_tile_map_collider-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">TileMapCollider Struct Reference</div>  </div>
 </div><!--header-->
@@ -75,7 +77,105 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_tile_map_collider_1_1_tile_coordinate.html">TileCoordinate</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a62b5382f77aaeef41ac79edf9b2c5eba"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_tile_map_collider.html#a62b5382f77aaeef41ac79edf9b2c5eba">visit_tiles</a> (<a class="el" href="classpixel_1_1_tile_layer.html">TileLayer</a> &amp;tile_layer, <a class="el" href="struct_tile_map_collider_1_1_tile_coordinate.html">TileCoordinate</a> p0, <a class="el" href="struct_tile_map_collider_1_1_tile_coordinate.html">TileCoordinate</a> p1, const function&lt; bool(<a class="el" href="struct_tile_map_collider_1_1_tile_coordinate.html">TileCoordinate</a>, <a class="el" href="structpixel_1_1_tile_layer_1_1_tile.html">TileLayer::Tile</a> &amp;)&gt; &amp;cb)</td></tr>
+<tr class="separator:a62b5382f77aaeef41ac79edf9b2c5eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19ace3fe5a0058c9c5a82503d1fa4484"><td class="memItemLeft" align="right" valign="top">static glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_tile_map_collider.html#a19ace3fe5a0058c9c5a82503d1fa4484">collide</a> (<a class="el" href="struct_bounding_box.html">BoundingBox</a> &amp;object, <a class="el" href="classpixel_1_1_tile_layer.html">TileLayer</a> &amp;tile_layer, const function&lt; bool(<a class="el" href="structpixel_1_1_tile_layer_1_1_tile.html">TileLayer::Tile</a> &amp;, <a class="el" href="structpixel_1_1_tileset_1_1_tile.html">Tileset::Tile</a> &amp;)&gt; &amp;tile_callback)</td></tr>
+<tr class="separator:a19ace3fe5a0058c9c5a82503d1fa4484"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a19ace3fe5a0058c9c5a82503d1fa4484"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19ace3fe5a0058c9c5a82503d1fa4484">&#9670;&nbsp;</a></span>collide()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static glm::ivec2 TileMapCollider::collide </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_bounding_box.html">BoundingBox</a> &amp;&#160;</td>
+          <td class="paramname"><em>object</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classpixel_1_1_tile_layer.html">TileLayer</a> &amp;&#160;</td>
+          <td class="paramname"><em>tile_layer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const function&lt; bool(<a class="el" href="structpixel_1_1_tile_layer_1_1_tile.html">TileLayer::Tile</a> &amp;, <a class="el" href="structpixel_1_1_tileset_1_1_tile.html">Tileset::Tile</a> &amp;)&gt; &amp;&#160;</td>
+          <td class="paramname"><em>tile_callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a62b5382f77aaeef41ac79edf9b2c5eba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62b5382f77aaeef41ac79edf9b2c5eba">&#9670;&nbsp;</a></span>visit_tiles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void TileMapCollider::visit_tiles </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classpixel_1_1_tile_layer.html">TileLayer</a> &amp;&#160;</td>
+          <td class="paramname"><em>tile_layer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_tile_map_collider_1_1_tile_coordinate.html">TileCoordinate</a>&#160;</td>
+          <td class="paramname"><em>p0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_tile_map_collider_1_1_tile_coordinate.html">TileCoordinate</a>&#160;</td>
+          <td class="paramname"><em>p1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const function&lt; bool(<a class="el" href="struct_tile_map_collider_1_1_tile_coordinate.html">TileCoordinate</a>, <a class="el" href="structpixel_1_1_tile_layer_1_1_tile.html">TileLayer::Tile</a> &amp;)&gt; &amp;&#160;</td>
+          <td class="paramname"><em>cb</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
 <li>pixel/demos/<a class="el" href="platformer_8cpp.html">platformer.cpp</a></li>
 </ul>

@@ -17,5 +17,6 @@ var searchData=
   ['vertex_5fbuffer_5f',['vertex_buffer_',['../classpixel_1_1renderers_1_1_sprite_renderer.html#a4907ff1ac58e93aececba68932e157cd',1,'pixel::renderers::SpriteRenderer']]],
   ['view_5fmatrix',['view_matrix',['../classpixel_1_1graphics_1_1_camera.html#a74393c9a842e9129aec56d94029be94b',1,'pixel::graphics::Camera']]],
   ['view_5frect',['view_rect',['../classpixel_1_1graphics_1_1_camera.html#a6b14915efaefd421f2cafa2cef532d45',1,'pixel::graphics::Camera']]],
-  ['virtual_5fwindow_5fsize',['virtual_window_size',['../structpixel_1_1_render_context.html#afcece4a5b1d51b27cb4083efdb5e9e58',1,'pixel::RenderContext']]]
+  ['virtual_5fwindow_5fsize',['virtual_window_size',['../structpixel_1_1_render_context.html#afcece4a5b1d51b27cb4083efdb5e9e58',1,'pixel::RenderContext']]],
+  ['visit_5ftiles',['visit_tiles',['../struct_tile_map_collider.html#a62b5382f77aaeef41ac79edf9b2c5eba',1,'TileMapCollider']]]
 ];
