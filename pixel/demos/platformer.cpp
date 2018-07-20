@@ -73,12 +73,12 @@ struct TileMapCollider
         }
     }
 
-    static glm::ivec2
-    collide(BoundingBox& object, TileLayer& tile_layer, const function<bool(TileLayer::Tile&, Tileset::Tile&)>& tile_callback)
-    {
-        auto& parent = tile_layer.parent();
-        glm::ivec2 tile_size = parent.tile_size();
-        glm::ivec2 tile_count = parent.tile_count();
+    static glm::ivec2 collide(
+        BoundingBox& object,
+        TileLayer& tile_layer,
+        const function<bool(TileLayer::Tile&, Tileset::Tile&)>& tile_callback,
+        bool slide = false
+    ) {
 
         auto delta = object.end_position - object.start_position;
 
@@ -88,6 +88,11 @@ struct TileMapCollider
         }
 
         auto delta_inv = 1.0f / delta;
+
+        auto& parent = tile_layer.parent();
+
+        glm::ivec2 tile_size = parent.tile_size();
+        glm::ivec2 tile_count = parent.tile_count();
 
         auto test_rect = CollisionRect(object.start_position, object.size);
 
@@ -114,7 +119,7 @@ struct TileMapCollider
             bool check_row = false;
 
             if (delta.x != 0) {
-                float edge = test_rect.position.x + (dir.x == 1 ? test_rect.size.x - 1: 0);
+                float edge = test_rect.position.x + (dir.x == 1 ? test_rect.size.x - 1 : 0);
 
                 int idx;
                 if (edge <= 0 && dir.x > 0) {
@@ -206,21 +211,17 @@ struct TileMapCollider
 
             if (check_column) {
                 auto column = collision_index.x - (dir.x < 0 ? 1 : 0);
-
-                glm::ivec2 y_span = {
-                    floor(test_rect.position.y),
-                    ceil(test_rect.position.y + test_rect.size.y),
-                };
-
-                y_span = glm::clamp(y_span, 0, tile_count.y * tile_size.y - 1);
-
                 error_if(column < 0, "column index less than 0");
 
-                if (y_span.s < y_span.t) {
+                int ymin = glm::clamp((int) floor(test_rect.position.y), 0, tile_count.y * tile_size.y - 1);
+                int ymax = glm::clamp((int) ceil(test_rect.position.y + test_rect.size.y - 1), 0, tile_count.y * tile_size.y - 1);
+
+
+                if (ymin < ymax) {
 
                     glm::uvec2 row_span = {
-                        y_span.s / tile_size.y,
-                        y_span.t / tile_size.y
+                        ymin / tile_size.y,
+                        ymax / tile_size.y
                     };
 
                     if (dir.y != 0 && check_row) {
@@ -239,66 +240,81 @@ struct TileMapCollider
                         tile_layer,
                         TileCoordinate(column, row_span.s),
                         TileCoordinate(column, row_span.t),
-                        [&]
+
+                        [&] (auto tile_coord, auto& tile) -> auto {
+                            if (tile.tile_id != 0) {
+                                auto& tile_desc = parent.tileset().tile(tile.tile_id);
+
+                                if (tile_callback(tile, tile_desc)) {
+
+                                    collision_axes.x = dir.x;
+                                    dir.x = 0;
+
+                                    delta.x = 0;
+
+                                    if (!slide) {
+                                        delta.y = 0;
+                                    }
+
+                                    return false;
+                                }
+                            }
+
+                            return true;
+                        }
                     );
 
-                    for (auto y = row_span.s; y <= row_span.t; ++y) {
-                        auto& tile = tile_layer.at(column, y);
-
-                        if (tile.tile_id != 0) {
-                            auto& tile_desc = parent.tileset().tile(tile.tile_id);
-
-                            if (tile_callback(tile, tile_desc)) {
-
-                                collision_axes.x = dir.x;
-                                dir.x = 0;
-
-                                // should take which axes to stop as parameter, or by callback return value
-                                delta = {0, 0};
-
-                                break;
-                            }
-                        }
-                    }
                 }
             }
 
             if (check_row) {
                 auto row = collision_index.y - (dir.y < 0 ? 1 : 0);
-
-                glm::ivec2 x_span = {
-                    floor(test_rect.position.x),
-                    ceil(test_rect.position.x + test_rect.size.x),
-                };
-
-                x_span = glm::clamp(x_span, 0, tile_count.x * tile_size.x - 1);
-
                 error_if(row < 0, "row index less than 0");
 
-                if (x_span.s < x_span.t) {
+                int xmin = glm::clamp((int) floor(test_rect.position.x), 0, tile_count.x * tile_size.x - 1);
+                int xmax = glm::clamp((int) ceil(test_rect.position.x + test_rect.size.x - 1), 0, tile_count.x * tile_size.x - 1);
 
-                    glm::uvec2 col_span = {
-                        x_span.s / tile_size.x,
-                        x_span.t / tile_size.x
-                    };
+                if (xmin < xmax) {
 
-                    col_span = glm::clamp(col_span, 0u, tile_count.x - 1u);
+                    auto col_span = glm::uvec2(xmin/tile_size.x, xmax/tile_size.x);
 
-                    for (auto x = col_span.s; x <= col_span.t; ++x) {
-                        auto& tile = tile_layer.at(x, row);
-
-                        if (tile.tile_id != 0) {
-                            auto& tile_desc = parent.tileset().tile(tile.tile_id);
-
-                            if (tile_callback(tile, tile_desc)) {
-                                collision_axes.y = dir.y;
-                                dir.y = 0;
-                                delta = {0, 0};
-
-                                break;
-                            }
+                    if (dir.x != 0 && check_column) {
+                        if (dir.x > 0) {
+                            // also check the tile right of the range calculated if moving right
+                            col_span.t += 1;
+                        } else {
+                            // or the left tile if moving left
+                            col_span.s -= 1;
                         }
                     }
+
+                    visit_tiles(
+                        tile_layer,
+                        TileCoordinate(col_span.s, row),
+                        TileCoordinate(col_span.t, row),
+
+                        [&] (auto tile_coord, auto& tile) -> auto {
+                            if (tile.tile_id != 0) {
+                                auto& tile_desc = parent.tileset().tile(tile.tile_id);
+
+                                /* */
+                                if (tile_callback(tile, tile_desc)) {
+                                    collision_axes.y = dir.y;
+                                    dir.y = 0;
+                                    delta.y = 0;
+
+                                    if (!slide) {
+                                        delta.x = 0;
+                                    }
+
+                                    return false;
+                                }
+                            }
+
+                            return true;
+                        }
+                    );
+
                 }
             }
 
@@ -384,13 +400,18 @@ struct Guy
             [&](auto& tile, auto& tile_desc) {
                 auto type = tile_desc.type;
                 return type == "brick";
-            }
+            },
+            true
         );
 
         position = b.end_position;
 
-        if (collision_axes != glm::ivec2(0, 0)) {
-            velocity = {0, 0};
+        if (collision_axes.x != 0) {
+            velocity.x = 0;
+        }
+
+        if (collision_axes.y != 0) {
+            velocity.y = 0;
         }
     }
 
