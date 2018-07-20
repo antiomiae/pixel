@@ -82,12 +82,12 @@ Classes</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a62b5382f77aaeef41ac79edf9b2c5eba"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_tile_map_collider.html#a62b5382f77aaeef41ac79edf9b2c5eba">visit_tiles</a> (<a class="el" href="classpixel_1_1_tile_layer.html">TileLayer</a> &amp;tile_layer, <a class="el" href="struct_tile_map_collider_1_1_tile_coordinate.html">TileCoordinate</a> p0, <a class="el" href="struct_tile_map_collider_1_1_tile_coordinate.html">TileCoordinate</a> p1, const function&lt; bool(<a class="el" href="struct_tile_map_collider_1_1_tile_coordinate.html">TileCoordinate</a>, <a class="el" href="structpixel_1_1_tile_layer_1_1_tile.html">TileLayer::Tile</a> &amp;)&gt; &amp;cb)</td></tr>
 <tr class="separator:a62b5382f77aaeef41ac79edf9b2c5eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19ace3fe5a0058c9c5a82503d1fa4484"><td class="memItemLeft" align="right" valign="top">static glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_tile_map_collider.html#a19ace3fe5a0058c9c5a82503d1fa4484">collide</a> (<a class="el" href="struct_bounding_box.html">BoundingBox</a> &amp;object, <a class="el" href="classpixel_1_1_tile_layer.html">TileLayer</a> &amp;tile_layer, const function&lt; bool(<a class="el" href="structpixel_1_1_tile_layer_1_1_tile.html">TileLayer::Tile</a> &amp;, <a class="el" href="structpixel_1_1_tileset_1_1_tile.html">Tileset::Tile</a> &amp;)&gt; &amp;tile_callback)</td></tr>
-<tr class="separator:a19ace3fe5a0058c9c5a82503d1fa4484"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67c607560580b7528cc9bb90ed746075"><td class="memItemLeft" align="right" valign="top">static glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_tile_map_collider.html#a67c607560580b7528cc9bb90ed746075">collide</a> (<a class="el" href="struct_bounding_box.html">BoundingBox</a> &amp;object, <a class="el" href="classpixel_1_1_tile_layer.html">TileLayer</a> &amp;tile_layer, const function&lt; bool(<a class="el" href="structpixel_1_1_tile_layer_1_1_tile.html">TileLayer::Tile</a> &amp;, <a class="el" href="structpixel_1_1_tileset_1_1_tile.html">Tileset::Tile</a> &amp;)&gt; &amp;tile_callback, bool slide=false)</td></tr>
+<tr class="separator:a67c607560580b7528cc9bb90ed746075"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a19ace3fe5a0058c9c5a82503d1fa4484"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19ace3fe5a0058c9c5a82503d1fa4484">&#9670;&nbsp;</a></span>collide()</h2>
+<a id="a67c607560580b7528cc9bb90ed746075"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67c607560580b7528cc9bb90ed746075">&#9670;&nbsp;</a></span>collide()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -111,7 +111,13 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const function&lt; bool(<a class="el" href="structpixel_1_1_tile_layer_1_1_tile.html">TileLayer::Tile</a> &amp;, <a class="el" href="structpixel_1_1_tileset_1_1_tile.html">Tileset::Tile</a> &amp;)&gt; &amp;&#160;</td>
-          <td class="paramname"><em>tile_callback</em>&#160;</td>
+          <td class="paramname"><em>tile_callback</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>slide</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
