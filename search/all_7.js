@@ -11,5 +11,7 @@ var searchData=
   ['graphics_2ecpp',['graphics.cpp',['../graphics_8cpp.html',1,'']]],
   ['graphics_2eh',['graphics.h',['../graphics_8h.html',1,'']]],
   ['gravity',['GRAVITY',['../rider_8cpp.html#a48e56f4d6787b67d97b4655a84e7c3f1',1,'rider.cpp']]],
+  ['ground_5ffriction',['ground_friction',['../struct_guy.html#aaba4a782aa832e46b0a8e071b3f9e2cc',1,'Guy']]],
+  ['groundstate',['GroundState',['../class_ground_state.html',1,'']]],
   ['guy',['Guy',['../struct_guy.html',1,'Guy'],['../struct_guy.html#a79945cc8031dade895e89d6460cb5ca4',1,'Guy::Guy()']]]
 ];

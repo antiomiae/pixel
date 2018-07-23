@@ -2,6 +2,7 @@ var searchData=
 [
   ['acc',['acc',['../struct_velocity_verlet_particle.html#a5985d9195c8c5beeea7bf6c29e7165db',1,'VelocityVerletParticle::acc()'],['../struct_guy.html#ab960cf793b60fea38e3cd6fac64cb5ff',1,'Guy::acc()'],['../structpixel_1_1physics_1_1_velocity_verlet_particle.html#a1cbbc33dc3cd952927be050ccf0b6153',1,'pixel::physics::VelocityVerletParticle::acc()']]],
   ['active_5f',['active_',['../classpixel_1_1graphics_1_1_vao.html#ade88abb2c0c25f568a34d8256f7eb6ce',1,'pixel::graphics::Vao']]],
+  ['air_5ffriction',['air_friction',['../struct_guy.html#ad59d3bf6ff2aa65a4157fdf492e6a38c',1,'Guy']]],
   ['allocated_5f',['allocated_',['../classpixel_1_1graphics_1_1_texture.html#a45f2bbf95259f7e05208fb44fe298829',1,'pixel::graphics::Texture']]],
   ['angle',['angle',['../classpixel_1_1graphics_1_1_sprite.html#ac637be9b9aa5227a47393d182658577b',1,'pixel::graphics::Sprite']]],
   ['angle_5f',['angle_',['../class_rocket.html#a7aa3b02dcc766525cc4c8e4679853a59',1,'Rocket::angle_()'],['../classpixel_1_1graphics_1_1_camera.html#afbb53e570f87ead316ff290f71570ae0',1,'pixel::graphics::Camera::angle_()']]],

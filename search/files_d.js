@@ -31,6 +31,7 @@ var searchData=
   ['tile_5flayer_5ftexture_2eh',['tile_layer_texture.h',['../tile__layer__texture_8h.html',1,'']]],
   ['tile_5fmap_2ecpp',['tile_map.cpp',['../tile__map_8cpp.html',1,'']]],
   ['tile_5fmap_2eh',['tile_map.h',['../tile__map_8h.html',1,'']]],
+  ['tile_5fmap_5fcollider_2eh',['tile_map_collider.h',['../tile__map__collider_8h.html',1,'']]],
   ['tile_5fmap_5frenderer_2ecpp',['tile_map_renderer.cpp',['../tile__map__renderer_8cpp.html',1,'']]],
   ['tile_5fmap_5frenderer_2eh',['tile_map_renderer.h',['../tile__map__renderer_8h.html',1,'']]],
   ['tileset_2ecpp',['tileset.cpp',['../tileset_8cpp.html',1,'']]],

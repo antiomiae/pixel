@@ -12,6 +12,7 @@ var searchData=
   ['add_5fparticle',['add_particle',['../struct_physics.html#a4adc1709407367c5ea309e859c500d80',1,'Physics']]],
   ['add_5ftileset',['add_tileset',['../classpixel_1_1_tile_atlas.html#afc350aae3a476bdbb59873879173363e',1,'pixel::TileAtlas::add_tileset()'],['../classpixel_1_1_tileset.html#a9c4bbb518051280dbce888b7e6393d16',1,'pixel::Tileset::add_tileset()']]],
   ['advance',['advance',['../classpixel_1_1graphics_1_1_sprite_animation.html#aeb00982221f4c5ebd081d7c764d0c2a6',1,'pixel::graphics::SpriteAnimation']]],
+  ['air_5ffriction',['air_friction',['../struct_guy.html#ad59d3bf6ff2aa65a4157fdf492e6a38c',1,'Guy']]],
   ['allocated_5f',['allocated_',['../classpixel_1_1graphics_1_1_texture.html#a45f2bbf95259f7e05208fb44fe298829',1,'pixel::graphics::Texture']]],
   ['angle',['angle',['../classpixel_1_1graphics_1_1_sprite.html#ac637be9b9aa5227a47393d182658577b',1,'pixel::graphics::Sprite']]],
   ['angle_5f',['angle_',['../class_rocket.html#a7aa3b02dcc766525cc4c8e4679853a59',1,'Rocket::angle_()'],['../classpixel_1_1graphics_1_1_camera.html#afbb53e570f87ead316ff290f71570ae0',1,'pixel::graphics::Camera::angle_()']]],
