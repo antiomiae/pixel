@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <pixel/error.h>
 #include "tile_map.h"
+#include "tile_layer.h"
 
 namespace pixel
 {

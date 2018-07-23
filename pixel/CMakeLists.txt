@@ -88,7 +88,7 @@ IF (PIXEL_LUA_BINDING)
       )
 ENDIF (PIXEL_LUA_BINDING)
 
-ADD_LIBRARY(pixel ${pixel_sources})
+ADD_LIBRARY(pixel ${pixel_sources} pixel/tilemap/tile_map_collider.h)
 
 
 ADD_DEPENDENCIES(pixel pixel_source_version)

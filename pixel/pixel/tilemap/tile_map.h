@@ -5,7 +5,6 @@
 #include <memory>
 #include <tmxlite/Map.hpp>
 #include <pixel/math.h>
-#include "tile_layer.h"
 #include "tile_atlas.h"
 #include "tileset.h"
 
@@ -16,6 +15,19 @@ using namespace std;
 
 class TileLayer;
 class TileAtlas;
+
+struct TileCoordinate
+{
+    int x{0}, y{0};
+
+    TileCoordinate() = default;
+
+    TileCoordinate(int x, int y)
+        : x{x},
+          y{y}
+    { };
+};
+
 
 class TileMap
 {

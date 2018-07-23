@@ -16,6 +16,7 @@ namespace pixel
 
 /* Forward declare to avoid circular include issues */
 class TileMap;
+class TileCoordinate;
 
 using namespace std;
 
@@ -135,6 +136,24 @@ public:
         error_if(parent_ == nullptr, "parent not set!");
         return *parent_;
     }
+
+    void visit_tiles(
+        TileCoordinate p0,
+        TileCoordinate p1,
+        const function<bool(TileCoordinate, Tile&)>& cb
+    )
+    {
+        for (auto y = min(p0.y, p1.y); y <= max(p0.y, p1.y); ++y) {
+            for (auto x = min(p0.x, p1.x); x <= max(p0.x, p1.x); ++x) {
+                auto should_continue = cb(TileCoordinate(x, y), at(x, y));
+
+                if (!should_continue) {
+                    return;
+                }
+            }
+        }
+    }
+
 
 
 private:
