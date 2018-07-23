@@ -211,7 +211,7 @@ struct TileMapCollider
 
                 if (ymin < ymax) {
 
-                    glm::uvec2 row_span = {
+                    glm::ivec2 row_span = {
                         ymin / tile_size.y,
                         ymax / tile_size.y
                     };
@@ -226,7 +226,7 @@ struct TileMapCollider
                         }
                     }
 
-                    row_span = glm::clamp(row_span, 0u, tile_count.y - 1u);
+                    row_span = glm::clamp(row_span, 0, tile_count.y - 1);
 
                     visit_tiles(
                         tile_layer,

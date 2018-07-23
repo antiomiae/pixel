@@ -119,17 +119,19 @@ struct Guy
 
     void update(float dt)
     {
-        if (!in_air && !jumping) {
-            if (on_ground()) {
-                walk_movement(dt);
-            } else {
-                in_air = true;
-            }
-        }
+//        if (!in_air && !jumping) {
+//            if (on_ground()) {
+//                walk_movement(dt);
+//            } else {
+//                in_air = true;
+//            }
+//        }
+//
+//        if (in_air || jumping) {
+//            jump_movement(dt);
+//        }
 
-        if (in_air || jumping) {
-            jump_movement(dt);
-        }
+        move(dt);
 
         level->camera().follow(position);
     }
@@ -283,10 +285,10 @@ y = {float} 73.75
      */
 
     guy.position = {
-        371.5, 20.9999981
+        65.25, 69
     };
 
-    guy.velocity = {5, -5};
+    guy.velocity = glm::vec2{63.25f, 73.75f} - guy.position;
 
     SpriteBatch batch;
 
