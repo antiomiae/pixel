@@ -96,14 +96,20 @@ struct TileMapCollider
             bool check_column = false;
             bool check_row = false;
 
+            float edge_x = -1;
+            float edge_y = -1;
+            float grid_x = -1;
+            float grid_y = -1;
+
             if (delta.x != 0) {
-                float edge = test_rect.position.x + (dir.x == 1 ? test_rect.size.x - 1 : 0);
+                edge_x = test_rect.position.x + (dir.x == 1 ? test_rect.size.x : 0);
 
                 int idx;
-                if (edge <= 0 && dir.x > 0) {
+                if (edge_x <= 0 && dir.x > 0) {
                     idx = 0;
                 } else {
-                    idx = (int) (dir.x > 0 ? ceil(edge) : floor(edge)) / (int) tile_size.x + (dir.x == 1 ? 1 : 0);
+                    auto pre_index = (int) ((dir.x > 0 ? floor(edge_x - 1) : floor(edge_x)) / (int) tile_size.x);
+                    idx = pre_index + (dir.x == 1 ? 1 : 0);
                 }
 
                 // we've already checked this gridline and decided to go through it
@@ -115,9 +121,9 @@ struct TileMapCollider
 
                 // ensure we're going to collide with the map
                 if (collision_index.x >= (dir.x > 0 ? 0 : 1) &&
-                    collision_index.x <= (dir.x == 1 ? tile_count.x - 1 : tile_count.x)) {
-                    float grid_x = collision_index.x * tile_size.x - (dir.x == 1 ? 1 : 0);
-                    float d = grid_x - edge;
+                    collision_index.x <= (dir.x == 1 ? tile_count.x : tile_count.x)) {
+                    grid_x = collision_index.x * tile_size.x;
+                    float d = grid_x - edge_x;
 
                     ct = d * delta_inv.x;
                     check_column = true;
@@ -125,13 +131,14 @@ struct TileMapCollider
             }
 
             if (delta.y != 0) {
-                float edge = test_rect.position.y + (dir.y == 1 ? test_rect.size.y - 1 : 0);
+                edge_y = test_rect.position.y + (dir.y == 1 ? test_rect.size.y : 0);
 
                 int idx;
-                if (edge <= 0 && dir.y > 0) {
+                if (edge_y <= 0 && dir.y > 0) {
                     idx = 0;
                 } else {
-                    idx = (int) (dir.y > 0 ? ceil(edge) : floor(edge)) / (int) tile_size.y + (dir.y == 1 ? 1 : 0);
+                    auto pre_index = (int) ((dir.y > 0 ? floor(edge_y - 1) : floor(edge_y)) / (int) tile_size.y);
+                    idx = pre_index + (dir.y == 1 ? 1 : 0);
                 }
 
                 if (collision_index.y == idx) {
@@ -143,8 +150,8 @@ struct TileMapCollider
                 // ensure we're going to collide with the map
                 if (collision_index.y >= (dir.y == 1 ? 0 : 1) &&
                     collision_index.y <= (dir.y > 0 ? tile_count.y - 1 : tile_count.y)) {
-                    float grid_y = collision_index.y * tile_size.y - (dir.y == 1 ? 1 : 0);
-                    float yt = (grid_y - edge) * delta_inv.y;
+                    grid_y = collision_index.y * tile_size.y;
+                    float yt = (grid_y - edge_y) * delta_inv.y;
 
                     if (yt <= ct) {
                         if (yt < ct) {
@@ -173,6 +180,7 @@ struct TileMapCollider
                     test_rect.position.x = collision_index.x * tile_size.x;
                 }
             } else {
+                collision_index.x = -1;
                 test_rect.position.x += d.x;
             }
 
@@ -183,6 +191,7 @@ struct TileMapCollider
                     test_rect.position.y = collision_index.y * tile_size.y;
                 }
             } else {
+                collision_index.y = -1;
                 test_rect.position.y += d.y;
             }
 
@@ -194,6 +203,7 @@ struct TileMapCollider
                 error_if(column < 0, "column index less than 0");
 
                 int ymin = glm::clamp((int) floor(test_rect.position.y), 0, tile_count.y * tile_size.y - 1);
+
                 int ymax = glm::clamp((int) ceil(test_rect.position.y + test_rect.size.y - 1), 0,
                                       tile_count.y * tile_size.y - 1
                 );
@@ -230,7 +240,7 @@ struct TileMapCollider
                                 if (tile_callback(tile, tile_desc)) {
 
                                     collision_axes.x = dir.x;
-                                    dir.x = 0;
+                                    //dir.x = 0;
 
                                     delta.x = 0;
 
@@ -260,7 +270,7 @@ struct TileMapCollider
 
                 if (xmin < xmax) {
 
-                    auto col_span = glm::uvec2(xmin / tile_size.x, xmax / tile_size.x);
+                    auto col_span = glm::ivec2(xmin / tile_size.x, xmax / tile_size.x);
 
                     if (dir.x != 0 && check_column) {
                         if (dir.x > 0) {
@@ -271,6 +281,8 @@ struct TileMapCollider
                             col_span.s -= 1;
                         }
                     }
+
+                    col_span = glm::clamp(col_span, 0, tile_count.x - 1);
 
                     visit_tiles(
                         tile_layer,
@@ -284,7 +296,7 @@ struct TileMapCollider
                                 /* */
                                 if (tile_callback(tile, tile_desc)) {
                                     collision_axes.y = dir.y;
-                                    dir.y = 0;
+                                    //dir.y = 0;
                                     delta.y = 0;
 
                                     if (!slide) {
@@ -304,10 +316,12 @@ struct TileMapCollider
 
             if (abs(delta.x) <= 0.0001f) {
                 delta.x = 0;
+                dir.x = 0;
             }
 
             if (abs(delta.y) <= 0.0001f) {
                 delta.y = 0;
+                dir.y = 0;
             }
         }
 

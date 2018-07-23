@@ -155,6 +155,20 @@ TileLayer::Tile& TileLayer::at(uint x, uint y)
     return tiles_.at(x + y * width_);
 }
 
+void
+TileLayer::visit_tiles(TileCoordinate p0, TileCoordinate p1, const function<bool(TileCoordinate, TileLayer::Tile&)>& cb)
+{
+    for (auto y = min(p0.y, p1.y); y <= max(p0.y, p1.y); ++y) {
+        for (auto x = min(p0.x, p1.x); x <= max(p0.x, p1.x); ++x) {
+            auto should_continue = cb(TileCoordinate(x, y), at(x, y));
+
+            if (!should_continue) {
+                return;
+            }
+        }
+    }
+}
+
 void TileLayer::TileAnimation::update(float dt)
 {
     timer += dt * 1000;

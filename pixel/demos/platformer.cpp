@@ -110,6 +110,10 @@ struct Guy
 
         position = b.end_position;
 
+        if (overlapping_solid_tiles()) {
+            cout << "Error condition: overlapping solid tiles after collision routine" << endl;
+        }
+
         return collision_axes;
     }
 
@@ -121,15 +125,13 @@ struct Guy
             } else {
                 in_air = true;
             }
-
-            return;
         }
 
         if (in_air || jumping) {
             jump_movement(dt);
         }
 
-
+        level->camera().follow(position);
     }
 
     void jump_movement(float dt)
@@ -217,15 +219,25 @@ struct Guy
 
     bool overlapping_solid_tiles()
     {
+        auto& tile_layer = level->tile_map().layers()[layer];
+        auto tile_count = tile_layer.parent().tile_count();
+
+        bool found_solid_tile = false;
+        int minx = max(position.x, 0.0f);
+        int miny = max(position.y, 0.0f);
+        int maxx = min(position.x + size.x - 1, tile_count.x * 16.0f - 1);
+        int maxy = min(position.y + size.y - 1, tile_count.y * 16.0f - 1);
+
         tile_layer.visit_tiles(
             {
-                (int) floor(position.x) / 16,
-                (int) floor(position.y) / 16
+                max(minx / 16, 0),
+                max(miny / 16, 0)
             },
             {
-                (int) ceil(position.x + size.x - 1) / 16,
-                (int) ceil(position.y + size.y - 1) / 16
+                min(maxx / 16u, tile_count.x - 1),
+                min(maxy / 16u, tile_count.y - 1)
             },
+
             [&] (auto tile_coord, auto& tile) -> bool {
                 if (tile.tile_id != 0) {
                     auto& tile_desc = tile_layer.parent().tileset().tile(tile.tile_id);
@@ -239,7 +251,10 @@ struct Guy
                 return true;
             }
         );
+
+        return found_solid_tile;
     }
+
 };
 
 
@@ -256,18 +271,30 @@ void run(Level& level)
         16 * 20
     };
 
+
+    /*
+     * position
+x = {float} 65.25
+y = {float} 69
+
+velocity
+x = {float} 63.25
+y = {float} 73.75
+     */
+
+    guy.position = {
+        371.5, 20.9999981
+    };
+
+    guy.velocity = {5, -5};
+
     SpriteBatch batch;
+
+    level.camera().follow(guy.position);
 
     pixel::app().set_tick_callback(
         [&] {
-            static bool flip = false;
-
-            //if (input::Keyboard::keymap[GLFW_KEY_SPACE] && !flip) {
-                guy.update(1 / 60.0f);
-//                flip = true;
-//            } else if (!input::Keyboard::keymap[GLFW_KEY_SPACE] && flip) {
-//                flip = false;
-//            }
+            guy.update(1 / 60.0f);
 
             level.begin_render();
 
@@ -285,6 +312,7 @@ void run(Level& level)
                 );
 
             level.finish_render();
+
         }
     );
 
@@ -295,7 +323,7 @@ void run(Level& level)
 void start(int argc, char** argv)
 {
     glm::ivec2 virtual_window_size = glm::vec2{320, 224};
-    glm::ivec2 actual_window_size = virtual_window_size * 2;
+    glm::ivec2 actual_window_size = virtual_window_size * 1;
 
     pixel::init(actual_window_size, virtual_window_size, argc, argv);
 
@@ -313,3 +341,14 @@ int main(int argc, char* argv[])
 }
 
 
+/*
+ *
+position
+x = {float} 371.5
+y = {float} 20.9999981
+
+velocity
+x = {float} 5
+y = {float} -5
+
+ */
