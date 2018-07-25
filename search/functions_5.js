@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['edge_5fx',['edge_x',['../structpixel_1_1_collision_rect2.html#a0f2ece47b7b802f207d67e91238ae3a0',1,'pixel::CollisionRect2']]],
+  ['edge_5fy',['edge_y',['../structpixel_1_1_collision_rect2.html#a7c2fef30714350054a2e5f97cbf7eed0',1,'pixel::CollisionRect2']]],
   ['elementtype',['elementType',['../classpixel_1_1graphics_1_1_index_buffer.html#afd886afe46f7ec109902a4ff40ef2f24',1,'pixel::graphics::IndexBuffer']]],
   ['empty',['empty',['../classpixel_1_1input_1_1_callback_stack.html#a0559afde60f5dba949020120b6db05f8',1,'pixel::input::CallbackStack']]],
   ['encode_5fatlas_5fid',['encode_atlas_id',['../classpixel_1_1_tile_atlas.html#a2c82229d33fecdcc42acde2f483961d4',1,'pixel::TileAtlas']]],

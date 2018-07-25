@@ -8,5 +8,7 @@ var searchData=
   ['default_5fengine',['default_engine',['../namespacepixel_1_1random.html#a751a8ed3b80b3a279f914d2d063ecbb1',1,'pixel::random']]],
   ['delay',['delay',['../classpixel_1_1time_1_1_frame_rate_limiter.html#af21dd5d6c44237e3080a955807f399f2',1,'pixel::time::FrameRateLimiter']]],
   ['depth',['depth',['../classpixel_1_1graphics_1_1_texture.html#ae90ae0823981c742f0481eb315f071ab',1,'pixel::graphics::Texture']]],
+  ['distance_5fto_5ftile_5fx',['distance_to_tile_x',['../structpixel_1_1_collision_rect2.html#a78d0274240e4bdff8021f073266e5b42',1,'pixel::CollisionRect2']]],
+  ['distance_5fto_5ftile_5fy',['distance_to_tile_y',['../structpixel_1_1_collision_rect2.html#a6503358a2257d6a834e6537871466619',1,'pixel::CollisionRect2']]],
   ['draw',['draw',['../classpixel_1_1graphics_1_1_offscreen_render_target.html#a498298c152b939eda03742fde96507c9',1,'pixel::graphics::OffscreenRenderTarget']]]
 ];
