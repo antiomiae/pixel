@@ -16,6 +16,95 @@ struct BoundingBox
     glm::vec2 size{};
 };
 
+template <class T> int sgn(T val)
+{
+    return (T(0) < val) - (val < T(0));
+}
+
+struct CollisionRect2
+{
+    glm::vec2 center;
+    glm::vec2 half_size;
+    glm::vec2 delta;
+    glm::ivec2 tile_size;
+
+    int nearest_tile_col()
+    {
+        auto sign = sgn(delta.x);
+        return (int)(center.x + sign*(half_size.x + tile_size.x)) / tile_size.x;
+    }
+
+    int nearest_tile_row()
+    {
+        auto sign = sgn(delta.y);
+        return (int)(center.y + sign*(half_size.y + tile_size.y)) / tile_size.y;
+    }
+
+    float edge_x()
+    {
+        auto sign = sgn(delta.x);
+        return center.x + sign*half_size.x;
+    }
+
+    float edge_y()
+    {
+        auto sign = sgn(delta.y);
+        return center.y + sign*half_size.y;
+    }
+
+    float distance_to_tile_x(int tile_col)
+    {
+
+        auto half_tile = tile_size.x / 2.0f;
+        auto tile_center = tile_col * tile_size.x + half_tile;
+
+        auto d = tile_center - center.x;
+
+        if (delta.x > 0) {
+            d -= (half_size.x + tile_size.x / 2.0f);
+        } else {
+            d += (half_size.x + tile_size.x / 2.0f);
+        }
+
+        return d;
+    }
+
+    float distance_to_tile_y(int tile_row)
+    {
+
+        auto half_tile = tile_size.y / 2.0f;
+        auto tile_center = tile_row * tile_size.y + half_tile;
+
+        auto d = tile_center - center.y;
+
+        if (delta.x > 0) {
+            d -= (half_size.y + tile_size.y / 2.0f);
+        } else {
+            d += (half_size.y + tile_size.y / 2.0f);
+        }
+
+        return d;
+    }
+
+    float intersection_time_x()
+    {
+        auto col = nearest_tile_col();
+        auto d = distance_to_tile_x(col);
+        auto t = d / delta.x;
+
+        return t;
+    }
+
+    float intersection_time_y()
+    {
+        auto row = nearest_tile_row();
+        auto d = distance_to_tile_y(row);
+        auto t = d / delta.y;
+
+        return t;
+    }
+};
+
 struct TileMapCollider
 {
     struct CollisionRect
