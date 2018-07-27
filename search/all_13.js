@@ -20,6 +20,7 @@ var searchData=
   ['test_5ftile_5flayer_2ecpp',['test_tile_layer.cpp',['../test__tile__layer_8cpp.html',1,'']]],
   ['test_5ftile_5flayer_5ftile_5fanimation_2ecpp',['test_tile_layer_tile_animation.cpp',['../test__tile__layer__tile__animation_8cpp.html',1,'']]],
   ['test_5ftile_5fmap_2ecpp',['test_tile_map.cpp',['../test__tile__map_8cpp.html',1,'']]],
+  ['test_5ftile_5fmap_5fcollider_2ecpp',['test_tile_map_collider.cpp',['../test__tile__map__collider_8cpp.html',1,'']]],
   ['test_5ftile_5fmap_5frenderer_2ecpp',['test_tile_map_renderer.cpp',['../test__tile__map__renderer_8cpp.html',1,'']]],
   ['test_5ftileset_2ecpp',['test_tileset.cpp',['../test__tileset_8cpp.html',1,'']]],
   ['tetromino',['Tetromino',['../classtetrominos_1_1_tetromino.html',1,'tetrominos::Tetromino'],['../classtetrominos_1_1_tetromino.html#a186be360daf207d48166c15c7077991a',1,'tetrominos::Tetromino::Tetromino()=default'],['../classtetrominos_1_1_tetromino.html#aca446fe8dad5e261f5d12a0d4a412cdf',1,'tetrominos::Tetromino::Tetromino(const vector&lt; vector&lt; Board::Piece &gt;&gt; &amp;shape, int color)'],['../classtetrominos_1_1_tetromino.html#ae4d427f510441a292cb4e42623e24d48',1,'tetrominos::Tetromino::Tetromino(const vector&lt; vector&lt; int &gt;&gt; &amp;shape, int color)']]],

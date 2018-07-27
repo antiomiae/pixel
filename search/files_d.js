@@ -19,6 +19,7 @@ var searchData=
   ['test_5ftile_5flayer_2ecpp',['test_tile_layer.cpp',['../test__tile__layer_8cpp.html',1,'']]],
   ['test_5ftile_5flayer_5ftile_5fanimation_2ecpp',['test_tile_layer_tile_animation.cpp',['../test__tile__layer__tile__animation_8cpp.html',1,'']]],
   ['test_5ftile_5fmap_2ecpp',['test_tile_map.cpp',['../test__tile__map_8cpp.html',1,'']]],
+  ['test_5ftile_5fmap_5fcollider_2ecpp',['test_tile_map_collider.cpp',['../test__tile__map__collider_8cpp.html',1,'']]],
   ['test_5ftile_5fmap_5frenderer_2ecpp',['test_tile_map_renderer.cpp',['../test__tile__map__renderer_8cpp.html',1,'']]],
   ['test_5ftileset_2ecpp',['test_tileset.cpp',['../test__tileset_8cpp.html',1,'']]],
   ['tetrominos_2ecpp',['tetrominos.cpp',['../tetrominos_8cpp.html',1,'']]],
