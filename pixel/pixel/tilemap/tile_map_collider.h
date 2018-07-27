@@ -60,7 +60,7 @@ struct CollisionRect2
         auto half_tile = tile_size.x / 2.0f;
         auto tile_center = tile_col * tile_size.x + half_tile;
         auto r = half_size.x + tile_size.x / 2.0f;
-        auto d = tile_center - center.x + (delta.x > 0 ? -1 : 1) * r;
+        auto d = tile_center - center.x + (tile_center >= center.x ? -1 : 1) * r;
 
         return d;
     }
