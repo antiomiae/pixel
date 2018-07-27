@@ -236,8 +236,8 @@ struct Guy
                 max(miny / 16, 0)
             },
             {
-                min(maxx / 16u, tile_count.x - 1),
-                min(maxy / 16u, tile_count.y - 1)
+                min(maxx / 16, (int)tile_count.x - 1),
+                min(maxy / 16, (int)tile_count.y - 1)
             },
 
             [&] (auto tile_coord, auto& tile) -> bool {

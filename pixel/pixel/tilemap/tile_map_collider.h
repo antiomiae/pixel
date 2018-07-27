@@ -31,13 +31,15 @@ struct CollisionRect2
     int nearest_tile_col()
     {
         auto sign = sgn(delta.x);
-        return (int)(center.x + sign*(half_size.x + tile_size.x)) / tile_size.x;
+        float x = center.x + sign*(half_size.x + tile_size.x - 1);
+        return (int) (delta.x > 0 ? x : floor(x)) / tile_size.x;
     }
 
     int nearest_tile_row()
     {
         auto sign = sgn(delta.y);
-        return (int)(center.y + sign*(half_size.y + tile_size.y)) / tile_size.y;
+        float y = center.y + sign*(half_size.y + tile_size.y - 1);
+        return (int)(delta.y > 0 ? y : floor(y)) / tile_size.y;
     }
 
     float edge_x()
@@ -57,14 +59,8 @@ struct CollisionRect2
 
         auto half_tile = tile_size.x / 2.0f;
         auto tile_center = tile_col * tile_size.x + half_tile;
-
-        auto d = tile_center - center.x;
-
-        if (delta.x > 0) {
-            d -= (half_size.x + tile_size.x / 2.0f);
-        } else {
-            d += (half_size.x + tile_size.x / 2.0f);
-        }
+        auto r = half_size.x + tile_size.x / 2.0f;
+        auto d = tile_center - center.x + (delta.x > 0 ? -1 : 1) * r;
 
         return d;
     }
@@ -72,16 +68,10 @@ struct CollisionRect2
     float distance_to_tile_y(int tile_row)
     {
 
-        auto half_tile = tile_size.y / 2.0f;
+        auto half_tile = tile_size.x / 2.0f;
         auto tile_center = tile_row * tile_size.y + half_tile;
-
-        auto d = tile_center - center.y;
-
-        if (delta.x > 0) {
-            d -= (half_size.y + tile_size.y / 2.0f);
-        } else {
-            d += (half_size.y + tile_size.y / 2.0f);
-        }
+        auto r = half_size.y + tile_size.y / 2.0f;
+        auto d = tile_center - center.y + (delta.y > 0 ? -1 : 1) * r;
 
         return d;
     }
