@@ -8,8 +8,8 @@ var searchData=
   ['init_5ftexture',['init_texture',['../classpixel_1_1_tile_layer_texture.html#a8e3b490e85de91b69fd91ef11754a159',1,'pixel::TileLayerTexture']]],
   ['initindexbuffer',['initIndexBuffer',['../classpixel_1_1renderers_1_1_sprite_renderer.html#a14b5699f99d5f1e9bb73decbeeb39843',1,'pixel::renderers::SpriteRenderer']]],
   ['initvertexbuffer',['initVertexBuffer',['../classpixel_1_1renderers_1_1_sprite_renderer.html#af6c9d54e5cebe36e7ecd843a53445569',1,'pixel::renderers::SpriteRenderer']]],
-  ['intersection_5ftime_5fx',['intersection_time_x',['../structpixel_1_1_collision_rect2.html#a63960bbcb06891a6f72da264f58bf192',1,'pixel::CollisionRect2']]],
-  ['intersection_5ftime_5fy',['intersection_time_y',['../structpixel_1_1_collision_rect2.html#abc8241486d56bf8af81b0023ac839667',1,'pixel::CollisionRect2']]],
+  ['intersection_5ftime_5fx',['intersection_time_x',['../structpixel_1_1_collision_rect.html#a7a7b3a0fea590287bd1016fb88493689',1,'pixel::CollisionRect']]],
+  ['intersection_5ftime_5fy',['intersection_time_y',['../structpixel_1_1_collision_rect.html#abade81a7bfbbe334352d42b3898921d5',1,'pixel::CollisionRect']]],
   ['invoke',['invoke',['../classpixel_1_1input_1_1_callback_stack.html#ac8561ace43e395381f7e9604cbc15ba1',1,'pixel::input::CallbackStack']]],
   ['invoke_5fhead',['invoke_head',['../classpixel_1_1input_1_1_callback_stack.html#ad8c8cc8686c1f208025f7e4814fe9e33',1,'pixel::input::CallbackStack']]]
 ];

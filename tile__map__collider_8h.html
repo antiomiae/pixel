@@ -67,6 +67,7 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">tile_map_collider.h File Reference</div>  </div>
@@ -74,6 +75,7 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &lt;limits&gt;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;array&gt;</code><br />
 <code>#include &lt;<a class="el" href="math_8h_source.html">pixel/math.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="tile__layer_8h_source.html">pixel/tilemap/tile_layer.h</a>&gt;</code><br />
 </div>
@@ -83,17 +85,23 @@ $(function() {
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1_bounding_box.html">pixel::BoundingBox</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1_collision_rect2.html">pixel::CollisionRect2</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1_collision_rect.html">pixel::CollisionRect</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1_tile_map_collider.html">pixel::TileMapCollider</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1_tile_map_collider_1_1_collision_rect.html">pixel::TileMapCollider::CollisionRect</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacepixel"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepixel.html">pixel</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ae48689ae70c617dbaac708f876530246"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepixel.html#ae48689ae70c617dbaac708f876530246">pixel::CheckCollisionAxis</a> { <a class="el" href="namespacepixel.html#ae48689ae70c617dbaac708f876530246a6adf97f83acf6453d4a6a4b1070f3754">pixel::CheckCollisionAxis::None</a>, 
+<a class="el" href="namespacepixel.html#ae48689ae70c617dbaac708f876530246a06ce2a25e5d12c166a36f654dbea6012">pixel::CheckCollisionAxis::Vertical</a>, 
+<a class="el" href="namespacepixel.html#ae48689ae70c617dbaac708f876530246ac1b5fa03ecdb95d4a45dd1c40b02527f">pixel::CheckCollisionAxis::Horizontal</a>
+ }</td></tr>
+<tr class="separator:ae48689ae70c617dbaac708f876530246"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>

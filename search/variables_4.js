@@ -6,7 +6,7 @@ var searchData=
   ['default_5fclear_5fcolor',['default_clear_color',['../structpixel_1_1_render_context.html#aafda602522210ff2cd46ff0cb8ec6396',1,'pixel::RenderContext::default_clear_color()'],['../namespacepixel.html#aa4c296a437eb1e0def40cff29b699be2',1,'pixel::DEFAULT_CLEAR_COLOR()']]],
   ['default_5fpixel_5fscale',['DEFAULT_PIXEL_SCALE',['../namespacepixel.html#a4d758178da14be29ba059e0fa3b57ffb',1,'pixel']]],
   ['default_5fwindow_5fsize',['DEFAULT_WINDOW_SIZE',['../namespacepixel.html#a9c38287d50c84fb5c1f25c965db0a6a5',1,'pixel']]],
-  ['delta',['delta',['../structpixel_1_1_collision_rect2.html#af0b9ae083963af455fe2c126dac4589d',1,'pixel::CollisionRect2']]],
+  ['delta',['delta',['../structpixel_1_1_collision_rect.html#a9ab5860286f83e7f9a6e7bbd5cc237e3',1,'pixel::CollisionRect']]],
   ['depth_5f',['depth_',['../classpixel_1_1graphics_1_1_texture.html#ade4b92ccd4463916dbda3256ee1cbd14',1,'pixel::graphics::Texture']]],
   ['down',['down',['../structpixel_1_1pack_1_1_pack_node.html#a21d64fe74713de90912922f7aff1c768',1,'pixel::pack::PackNode']]],
   ['dt',['DT',['../particles_8cpp.html#a6017ffae59f47b16d8bf2070452f1405',1,'DT():&#160;particles.cpp'],['../particles2_8cpp.html#a6017ffae59f47b16d8bf2070452f1405',1,'DT():&#160;particles2.cpp'],['../rocket_8cpp.html#a6017ffae59f47b16d8bf2070452f1405',1,'DT():&#160;rocket.cpp']]],
