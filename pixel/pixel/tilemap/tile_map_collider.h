@@ -3,6 +3,7 @@
 
 #include <limits>
 #include <algorithm>
+#include <array>
 #include <pixel/math.h>
 #include <pixel/tilemap/tile_layer.h>
 
@@ -16,42 +17,54 @@ struct BoundingBox
     glm::vec2 size{};
 };
 
-template <class T> int sgn(T val)
+template<class T>
+int sgn(T val)
 {
     return (T(0) < val) - (val < T(0));
 }
 
-struct CollisionRect2
+struct CollisionRect
 {
     glm::vec2 center;
     glm::vec2 half_size;
     glm::vec2 delta;
     glm::ivec2 tile_size;
 
+    CollisionRect() = default;
+
+    CollisionRect(glm::vec2 center, glm::vec2 half_size, glm::vec2 delta, glm::ivec2 tile_size)
+        : center(center),
+          half_size(half_size),
+          delta(delta),
+          tile_size(tile_size)
+    {
+
+    }
+
     int nearest_tile_col()
     {
         auto sign = sgn(delta.x);
-        float x = center.x + sign*(half_size.x + tile_size.x - 1);
-        return (int) (delta.x > 0 ? x : floor(x)) / tile_size.x;
+        float x = center.x + sign * (half_size.x + tile_size.x - 1);
+        return (int) (delta.x > 0 ? ceil(x) : x) / tile_size.x;
     }
 
     int nearest_tile_row()
     {
         auto sign = sgn(delta.y);
-        float y = center.y + sign*(half_size.y + tile_size.y - 1);
-        return (int)(delta.y > 0 ? y : floor(y)) / tile_size.y;
+        float y = center.y + sign * (half_size.y + tile_size.y - 1);
+        return (int) (delta.y > 0 ? ceil(y) : y) / tile_size.y;
     }
 
     float edge_x()
     {
         auto sign = sgn(delta.x);
-        return center.x + sign*half_size.x;
+        return center.x + sign * half_size.x;
     }
 
     float edge_y()
     {
         auto sign = sgn(delta.y);
-        return center.y + sign*half_size.y;
+        return center.y + sign * half_size.y;
     }
 
     float distance_to_tile_x(int tile_col)
@@ -68,26 +81,24 @@ struct CollisionRect2
     float distance_to_tile_y(int tile_row)
     {
 
-        auto half_tile = tile_size.x / 2.0f;
+        auto half_tile = tile_size.y / 2.0f;
         auto tile_center = tile_row * tile_size.y + half_tile;
         auto r = half_size.y + tile_size.y / 2.0f;
-        auto d = tile_center - center.y + (delta.y > 0 ? -1 : 1) * r;
+        auto d = tile_center - center.y + (tile_center >= center.y ? -1 : 1) * r;
 
         return d;
     }
 
-    float intersection_time_x()
+    float intersection_time_x(int col)
     {
-        auto col = nearest_tile_col();
         auto d = distance_to_tile_x(col);
         auto t = d / delta.x;
 
         return t;
     }
 
-    float intersection_time_y()
+    float intersection_time_y(int row)
     {
-        auto row = nearest_tile_row();
         auto d = distance_to_tile_y(row);
         auto t = d / delta.y;
 
@@ -95,40 +106,16 @@ struct CollisionRect2
     }
 };
 
+enum class CheckCollisionAxis
+{
+    None,
+    Vertical,
+    Horizontal
+};
+
+
 struct TileMapCollider
 {
-    struct CollisionRect
-    {
-        glm::vec2 position;
-        glm::vec2 size;
-
-        CollisionRect() = default;
-
-        CollisionRect(glm::vec2 p, glm::vec2 s)
-            : position(p),
-              size(s)
-        {
-        }
-    };
-
-    static void visit_tiles(
-        TileLayer& tile_layer,
-        TileCoordinate p0,
-        TileCoordinate p1,
-        const function<bool(TileCoordinate, TileLayer::Tile&)>& cb
-    )
-    {
-        for (auto y = min(p0.y, p1.y); y <= max(p0.y, p1.y); ++y) {
-            for (auto x = min(p0.x, p1.x); x <= max(p0.x, p1.x); ++x) {
-                auto should_continue = cb(TileCoordinate(x, y), tile_layer.at(x, y));
-
-                if (!should_continue) {
-                    return;
-                }
-            }
-        }
-    }
-
     static glm::ivec2 collide(
         BoundingBox& object,
         TileLayer& tile_layer,
@@ -136,7 +123,6 @@ struct TileMapCollider
         bool slide = false
     )
     {
-
         auto delta = object.end_position - object.start_position;
 
         /* return early if object isn't moving */
@@ -144,19 +130,12 @@ struct TileMapCollider
             return {0, 0};
         }
 
-        auto delta_inv = 1.0f / delta;
-
         auto& parent = tile_layer.parent();
+        auto test_rect = CollisionRect(
+            object.start_position + object.size / 2.0f, object.size / 2.0f,
+            delta, parent.tile_size());
 
-        glm::ivec2 tile_size = parent.tile_size();
         glm::ivec2 tile_count = parent.tile_count();
-
-        auto test_rect = CollisionRect(object.start_position, object.size);
-
-        glm::ivec2 dir = {
-            delta.x > 0 ? 1 : (delta.x < 0 ? -1 : 0),
-            delta.y > 0 ? 1 : (delta.y < 0 ? -1 : 0)
-        };
 
         /*
          * Sweep rectangle through the map:
@@ -167,247 +146,264 @@ struct TileMapCollider
          */
 
         float acc_t = 0;
+
         glm::ivec2 collision_index = {-1, -1};
         glm::ivec2 collision_axes = {0, 0};
 
-        while (delta != glm::vec2{0, 0}) {
-            float ct = std::numeric_limits<float>::infinity();
-            bool check_column = false;
-            bool check_row = false;
+        array<CheckCollisionAxis, 2> axes_to_check;
 
-            float edge_x = -1;
-            float edge_y = -1;
-            float grid_x = -1;
-            float grid_y = -1;
+        glm::ivec2 delta_sign = { sgn(delta.x), sgn(delta.y) };
 
+        while (delta != glm::vec2(0.0f, 0.0f)) {
+            float xt = numeric_limits<float>::infinity();
+            float yt = numeric_limits<float>::infinity();
+
+            auto original_center = test_rect.center;
+            auto original_delta = test_rect.delta;
+
+            // Ensure delta hasn't flipped around
             if (delta.x != 0) {
-                edge_x = test_rect.position.x + (dir.x == 1 ? test_rect.size.x : 0);
-
-                int idx;
-                if (edge_x <= 0 && dir.x > 0) {
-                    idx = 0;
-                } else {
-                    auto pre_index = (int) ((dir.x > 0 ? floor(edge_x - 1) : floor(edge_x)) / (int) tile_size.x);
-                    idx = pre_index + (dir.x == 1 ? 1 : 0);
-                }
-
-                // we've already checked this gridline and decided to go through it
-                if (collision_index.x == idx) {
-                    collision_index.x += dir.x;
-                } else {
-                    collision_index.x = idx;
-                }
-
-                // ensure we're going to collide with the map
-                if (collision_index.x >= (dir.x > 0 ? 0 : 1) &&
-                    collision_index.x <= (dir.x == 1 ? tile_count.x : tile_count.x)) {
-                    grid_x = collision_index.x * tile_size.x;
-                    float d = grid_x - edge_x;
-
-                    ct = d * delta_inv.x;
-                    check_column = true;
-                }
+                assert(sgn(delta.x) == delta_sign.x);
             }
 
             if (delta.y != 0) {
-                edge_y = test_rect.position.y + (dir.y == 1 ? test_rect.size.y : 0);
-
-                int idx;
-                if (edge_y <= 0 && dir.y > 0) {
-                    idx = 0;
-                } else {
-                    auto pre_index = (int) ((dir.y > 0 ? floor(edge_y - 1) : floor(edge_y)) / (int) tile_size.y);
-                    idx = pre_index + (dir.y == 1 ? 1 : 0);
-                }
-
-                if (collision_index.y == idx) {
-                    collision_index.y += dir.y;
-                } else {
-                    collision_index.y = idx;
-                }
-
-                // ensure we're going to collide with the map
-                if (collision_index.y >= (dir.y == 1 ? 0 : 1) &&
-                    collision_index.y <= (dir.y > 0 ? tile_count.y - 1 : tile_count.y)) {
-                    grid_y = collision_index.y * tile_size.y;
-                    float yt = (grid_y - edge_y) * delta_inv.y;
-
-                    if (yt <= ct) {
-                        if (yt < ct) {
-                            check_column = false;
-                        }
-
-                        ct = yt;
-                        check_row = true;
-                    }
-                }
+                assert(sgn(delta.y) == delta_sign.y);
             }
 
-            // if ct >= 1, consume remaining delta and return
-            if (ct > 1) {
-                test_rect.position += delta;
-                delta = {0, 0};
+            if (test_rect.delta.x != 0) {
+                int col = test_rect.nearest_tile_col();
+                assert(col >= 0);
+
+                // if we checked this column last frame, check the next column instead
+                if (collision_index.x == col) {
+                    collision_index.x = col + sgn(test_rect.delta.x);
+                    assert(col >= 0);
+                } else {
+                    collision_index.x = col;
+                }
+
+                xt = test_rect.intersection_time_x(collision_index.x);
+
+                assert(xt >= 0);
+            }
+
+            if (test_rect.delta.y != 0) {
+                int row = test_rect.nearest_tile_col();
+                assert(row >= 0);
+
+                // if we checked this column last frame, check the next column instead
+                if (collision_index.y == row) {
+                    collision_index.y = row + sgn(test_rect.delta.y);
+                    assert(row >= 0);
+                } else {
+                    collision_index.y = row;
+                }
+
+                yt = test_rect.intersection_time_y(collision_index.y);
+
+                assert(yt >= 0);
+            }
+
+            if (xt >= 1 && yt >= 1) {
+                // advance test_rect
+                test_rect.center += test_rect.delta;
                 break;
             }
 
-            auto d = ct * delta;
-
-            if (check_column) {
-                if (dir.x > 0) {
-                    test_rect.position.x = collision_index.x * tile_size.x - test_rect.size.x;
+            if (xt < 1) {
+                if (yt <= xt) {
+                    axes_to_check = {CheckCollisionAxis::Vertical, CheckCollisionAxis::Horizontal};
                 } else {
-                    test_rect.position.x = collision_index.x * tile_size.x;
+                    axes_to_check[0] = CheckCollisionAxis::Horizontal;
+
+                    if (yt < 1) {
+                        axes_to_check[1] = CheckCollisionAxis::Vertical;
+                    }
                 }
-            } else {
-                collision_index.x = -1;
-                test_rect.position.x += d.x;
+            } else if (yt < 1) {
+                axes_to_check[0] = CheckCollisionAxis::Vertical;
             }
 
-            if (check_row) {
-                if (dir.y > 0) {
-                    test_rect.position.y = collision_index.y * tile_size.y - test_rect.size.y;
-                } else {
-                    test_rect.position.y = collision_index.y * tile_size.y;
-                }
-            } else {
-                collision_index.y = -1;
-                test_rect.position.y += d.y;
-            }
+            switch (axes_to_check[0]) {
+                case CheckCollisionAxis::Horizontal: {
 
-            delta -= d;
-            delta_inv = 1.0f / delta;
+                    auto d = xt * test_rect.delta;
+                    delta = original_delta - d;
+                    test_rect.center = original_center + d;
 
-            if (check_column) {
-                auto column = collision_index.x - (dir.x < 0 ? 1 : 0);
-                error_if(column < 0, "column index less than 0");
+                    auto column_to_check = collision_index.x;
+                    auto row_span = glm::ivec2(
+                        test_rect.center.y - test_rect.half_size.y, test_rect.center.y + test_rect.half_size.y
+                    ) / test_rect.tile_size.y;
 
-                int ymin = glm::clamp((int) floor(test_rect.position.y), 0, tile_count.y * tile_size.y - 1);
+                    if (check_solid_column(tile_layer, column_to_check, row_span, tile_callback)) {
+                        delta.x = 0;
+                        collision_axes.x = sgn(test_rect.delta.x);
 
-                int ymax = glm::clamp((int) ceil(test_rect.position.y + test_rect.size.y - 1), 0,
-                                      tile_count.y * tile_size.y - 1
-                );
-
-
-                if (ymin < ymax) {
-
-                    glm::ivec2 row_span = {
-                        ymin / tile_size.y,
-                        ymax / tile_size.y
-                    };
-
-                    if (dir.y != 0 && check_row) {
-                        if (dir.y > 0) {
-                            // also check the tile above the range calculated if moving up
-                            row_span.t += 1;
-                        } else {
-                            // or the tile below the range if moving down
-                            row_span.s -= 1;
+                        if (!slide) {
+                            axes_to_check[1] = CheckCollisionAxis::None;
+                            delta.y = 0;
                         }
                     }
-
-                    row_span = glm::clamp(row_span, 0, tile_count.y - 1);
-
-                    visit_tiles(
-                        tile_layer,
-                        TileCoordinate(column, row_span.s),
-                        TileCoordinate(column, row_span.t),
-
-                        [&](auto tile_coord, auto& tile) -> auto {
-                            if (tile.tile_id != 0) {
-                                auto& tile_desc = parent.tileset().tile(tile.tile_id);
-
-                                if (tile_callback(tile, tile_desc)) {
-
-                                    collision_axes.x = dir.x;
-                                    //dir.x = 0;
-
-                                    delta.x = 0;
-
-                                    if (!slide) {
-                                        delta.y = 0;
-                                    }
-
-                                    return false;
-                                }
-                            }
-
-                            return true;
-                        }
-                    );
-
                 }
-            }
 
-            if (check_row) {
-                auto row = collision_index.y - (dir.y < 0 ? 1 : 0);
-                error_if(row < 0, "row index less than 0");
+                    cout << "Axis Check 0: Horizontal" << endl;
+                    break;
+                case CheckCollisionAxis::Vertical: {
+                    auto d = yt * test_rect.delta;
+                    delta = original_delta - d;
+                    test_rect.center = original_center + d;
 
-                int xmin = glm::clamp((int) floor(test_rect.position.x), 0, tile_count.x * tile_size.x - 1);
-                int xmax = glm::clamp((int) ceil(test_rect.position.x + test_rect.size.x - 1), 0,
-                                      tile_count.x * tile_size.x - 1
-                );
+                    auto row_to_check = collision_index.y;
+                    auto column_span = glm::ivec2(
+                        test_rect.center.x - test_rect.half_size.x, test_rect.center.x + test_rect.half_size.x
+                    ) / test_rect.tile_size.x;
 
-                if (xmin < xmax) {
+                    if (check_solid_row(tile_layer, row_to_check, column_span, tile_callback)) {
+                        delta.y = 0;
+                        collision_axes.y = sgn(test_rect.delta.y);
 
-                    auto col_span = glm::ivec2(xmin / tile_size.x, xmax / tile_size.x);
-
-                    if (dir.x != 0 && check_column) {
-                        if (dir.x > 0) {
-                            // also check the tile right of the range calculated if moving right
-                            col_span.t += 1;
-                        } else {
-                            // or the left tile if moving left
-                            col_span.s -= 1;
+                        if (!slide) {
+                            axes_to_check[1] = CheckCollisionAxis::None;
+                            delta.x = 0;
                         }
                     }
-
-                    col_span = glm::clamp(col_span, 0, tile_count.x - 1);
-
-                    visit_tiles(
-                        tile_layer,
-                        TileCoordinate(col_span.s, row),
-                        TileCoordinate(col_span.t, row),
-
-                        [&](auto tile_coord, auto& tile) -> auto {
-                            if (tile.tile_id != 0) {
-                                auto& tile_desc = parent.tileset().tile(tile.tile_id);
-
-                                /* */
-                                if (tile_callback(tile, tile_desc)) {
-                                    collision_axes.y = dir.y;
-                                    //dir.y = 0;
-                                    delta.y = 0;
-
-                                    if (!slide) {
-                                        delta.x = 0;
-                                    }
-
-                                    return false;
-                                }
-                            }
-
-                            return true;
-                        }
-                    );
-
                 }
+
+                    cout << "Axis Check 0: Vertical" << endl;
+                    break;
+
+                default:
+                    cout << "Axis Check 0: None" << endl;
+                    break;
             }
 
-            if (abs(delta.x) <= 0.0001f) {
-                delta.x = 0;
-                dir.x = 0;
+            switch (axes_to_check[1]) {
+                case CheckCollisionAxis::Horizontal: {
+                    auto d = xt * test_rect.delta;
+                    delta = original_delta - d;
+                    test_rect.center = original_center + d;
+
+                    auto column_to_check = collision_index.x;
+                    auto row_span = glm::ivec2(
+                        test_rect.center.y - test_rect.half_size.y, test_rect.center.y + test_rect.half_size.y
+                    ) / test_rect.tile_size.y;
+
+                    if (check_solid_column(tile_layer, column_to_check, row_span, tile_callback)) {
+                        delta.x = 0;
+                        collision_axes.x = sgn(test_rect.delta.x);
+
+                        if (!slide) {
+                            delta.y = 0;
+                        }
+                    }
+                }
+                    cout << "Axis Check 1: Horizontal" << endl;
+
+                    break;
+                case CheckCollisionAxis::Vertical: {
+                    auto d = yt * test_rect.delta;
+                    delta = original_delta - d;
+                    test_rect.center = original_center + d;
+
+                    auto row_to_check = collision_index.y;
+                    auto column_span = glm::ivec2(
+                        test_rect.center.x - test_rect.half_size.x, test_rect.center.x + test_rect.half_size.x
+                    ) / test_rect.tile_size.x;
+
+                    if (check_solid_row(tile_layer, row_to_check, column_span, tile_callback)) {
+                        delta.y = 0;
+                        collision_axes.y = sgn(test_rect.delta.y);
+
+                        if (!slide) {
+                            delta.x = 0;
+                        }
+                    }
+                }
+
+                    cout << "Axis Check 1: Vertical" << endl;
+                    break;
+                default:
+
+                    cout << "Axis Check 1: None" << endl;
+                    break;
             }
 
-            if (abs(delta.y) <= 0.0001f) {
-                delta.y = 0;
-                dir.y = 0;
-            }
+            // reset for next round
+            test_rect.delta = delta;
+            axes_to_check = {CheckCollisionAxis::None, CheckCollisionAxis::None};
         }
 
-        object.end_position = test_rect.position;
+        object.end_position = test_rect.center - test_rect.half_size;
 
         return collision_axes;
     }
+
+    bool static check_solid_column(
+        TileLayer& tile_layer,
+        int column,
+        glm::ivec2 row_span,
+        const function<bool(TileLayer::Tile & , Tileset::Tile & )>& tile_callback
+    )
+    {
+        auto collided = false;
+
+        tile_layer.visit_tiles(
+            TileCoordinate(column, row_span.s),
+            TileCoordinate(column, row_span.t),
+
+            [&](auto tile_coord, auto& tile) -> auto {
+                if (tile.tile_id != 0) {
+                    auto& tile_desc = tile_layer.parent().tileset().tile(tile.tile_id);
+
+                    if (tile_callback(tile, tile_desc)) {
+
+                        collided = true;
+
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+        );
+
+        return collided;
+    }
+
+
+    bool static check_solid_row(
+        TileLayer& tile_layer,
+        int row,
+        glm::ivec2 col_span,
+        const function<bool(TileLayer::Tile & , Tileset::Tile & )>& tile_callback
+    )
+    {
+        auto collided = false;
+
+        tile_layer.visit_tiles(
+            TileCoordinate(col_span.s, row),
+            TileCoordinate(col_span.t, row),
+
+            [&](auto tile_coord, auto& tile) -> auto {
+                if (tile.tile_id != 0) {
+                    auto& tile_desc = tile_layer.parent().tileset().tile(tile.tile_id);
+
+                    if (tile_callback(tile, tile_desc)) {
+
+                        collided = true;
+
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+        );
+
+        return collided;
+    }
+
 };
 
 };
