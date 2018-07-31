@@ -9,21 +9,6 @@ using namespace pixel;
 using namespace pixel::graphics;
 using namespace pixel::input;
 
-class State
-{
-
-};
-
-class GroundState
-{
-
-};
-
-class JumpState
-{
-
-};
-
 struct Guy
 {
 
@@ -93,13 +78,15 @@ struct Guy
     }
 
     glm::ivec2 move(float dt) {
-        BoundingBox b;
-        b.start_position = position;
-        b.end_position = position + velocity;
-        b.size = size;
+        CollisionRect rect(
+            position + size/2.0f,
+            size/2.0f,
+            velocity,
+            {16, 16}
+            );
 
-        auto collision_axes = TileMapCollider::collide(
-            b,
+        auto [collision_axes, center] = TileMapCollider::collide(
+            rect,
             level->tile_map().layers()[layer],
             [&](auto& tile, auto& tile_desc) {
                 auto type = tile_desc.type;
@@ -108,10 +95,11 @@ struct Guy
             true
         );
 
-        position = b.end_position;
+        position = center - size/2.0f;
 
         if (overlapping_solid_tiles()) {
             cout << "Error condition: overlapping solid tiles after collision routine" << endl;
+            cout << rect.debug_print() << endl;
         }
 
         return collision_axes;
@@ -262,10 +250,10 @@ struct Guy
 
 void run(Level& level)
 {
-    level.load_sprites({"assets/guy.png"});
+    level.load_sprites({"assets/mark1.png"});
     level.load_map("assets/map2.tmx");
 
-    Guy guy{&level, "assets/guy.png"};
+    Guy guy{&level, "assets/mark1.png"};
     guy.layer = 0;
     guy.acc = {0.25f, -0.25f};
     guy.position = {
@@ -320,7 +308,7 @@ y = {float} 73.75
 void start(int argc, char** argv)
 {
     glm::ivec2 virtual_window_size = glm::vec2{320, 224};
-    glm::ivec2 actual_window_size = virtual_window_size * 1;
+    glm::ivec2 actual_window_size = virtual_window_size * 4;
 
     pixel::init(actual_window_size, virtual_window_size, argc, argv);
 

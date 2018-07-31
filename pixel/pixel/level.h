@@ -29,23 +29,23 @@ public:
     void begin_render()
     {
         glClear(GL_COLOR_BUFFER_BIT);
-        render_target_.activate();
+        //render_target_.activate();
         glClear(GL_COLOR_BUFFER_BIT);
     }
 
     void finish_render()
     {
-        render_target_.deactivate();
-
-        /* blit virtual window to actual window */
-        render_target_.draw(
-            glm::ivec4(
-                0,
-                0,
-                pixel::app().render_context().window_size.x,
-                pixel::app().render_context().window_size.y
-            )
-        );
+//        render_target_.deactivate();
+//
+//        /* blit virtual window to actual window */
+//        render_target_.draw(
+//            glm::ivec4(
+//                0,
+//                0,
+//                pixel::app().render_context().window_size.x,
+//                pixel::app().render_context().window_size.y
+//            )
+//        );
     }
 
     renderers::RendererGroup& renderer_group()
