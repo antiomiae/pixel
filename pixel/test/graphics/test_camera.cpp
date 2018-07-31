@@ -1,5 +1,6 @@
 #include <pixel/graphics/graphics.h>
 #include <test/setup.h>
+#include <glm/gtx/string_cast.hpp>
 
 namespace
 {
@@ -26,16 +27,16 @@ TEST_CASE("Camera")
     SECTION("view_matrix") {
         auto v = camera.view_matrix();
 
-        REQUIRE(v == glm::mat4());
+        REQUIRE(v == glm::mat4(1.0f));
 
         camera.translate(glm::vec2(50.0f, 50.0f));
 
-        REQUIRE(camera.view_matrix() == glm::translate(glm::mat4(), glm::vec3(-50.0, -50.0, 0.0)));
+        REQUIRE(camera.view_matrix() == glm::translate(glm::mat4(1), glm::vec3(-50.0, -50.0, 0.0)));
     }
 
     SECTION("view_rect") {
 
-        REQUIRE(camera.view_rect() == glm::vec4(0, 0, 100, 100));
+        REQUIRE(glm::to_string(camera.view_rect()) == glm::to_string(glm::vec4(0, 0, 100, 100)));
 
         camera.translate(50, 50);
 

@@ -2,6 +2,7 @@
 #include <sstream>
 #include <pixel/error.h>
 #include <iostream>
+#include <glm/gtx/string_cast.hpp>
 //#include <pixel/pixel.h>
 
 using namespace std;
@@ -386,23 +387,33 @@ glm::mat4 Camera::parallax_view_matrix(const glm::vec2& parallax_scale) const
 {
     auto center = glm::vec2(window_size_) / 2.0f;
     auto scaled_center = center / scale_;
-    auto v = glm::mat4();
+    auto v = glm::mat4(1);
+
+    auto d1 = glm::to_string(v);
 
     /* move to account for camera position */
     v = glm::translate(v, -glm::vec3(glm::floor(position_ * parallax_scale), 0.0));
+
+    auto d2 = glm::to_string(v);
+
     /* translate center of view rect to 0,0 */
-    v = glm::translate(glm::mat4(), -glm::vec3(center, 0.0)) * v;
+    v = glm::translate(glm::mat4(1), -glm::vec3(center, 0.0)) * v;
+    auto d3 = glm::to_string(v);
+
     /* scale */
     auto local_scale = scale_;
     if (parallax_scale == glm::vec2{0.0, 0.0}) {
         local_scale = {1.0, 1.0};
     }
 
-    v = glm::rotate(glm::mat4(), angle_, glm::vec3(0.0f, 0.0f, 1.0f)) * v;
+    v = glm::rotate(glm::mat4(1), angle_, glm::vec3(0.0f, 0.0f, 1.0f)) * v;
+    auto d4 = glm::to_string(v);
 
-    v = glm::scale(glm::mat4(), glm::vec3(local_scale, 1.0)) * v;
+    v = glm::scale(glm::mat4(1), glm::vec3(local_scale, 1.0)) * v;
+    auto d5 = glm::to_string(v);
 
-    v = glm::translate(glm::mat4(), glm::vec3(center, 0.0)) * v;
+    v = glm::translate(glm::mat4(1), glm::vec3(center, 0.0)) * v;
+    auto d6 = glm::to_string(v);
 
     return v;
 }
@@ -471,7 +482,8 @@ glm::vec4 Camera::view_rect()
 {
     auto o = glm::vec4(0.0, 0.0, 0.0, 1.0);
     auto m = glm::vec4(glm::vec2(window_size_), 0.0, 1.0);
-    auto ivm = glm::inverse(view_matrix());
+    auto vm = view_matrix();
+    auto ivm = glm::inverse(vm);
 
     o = ivm * o;
     m = ivm * m;

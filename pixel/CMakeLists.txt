@@ -77,7 +77,11 @@ list(APPEND pixel_sources
     pixel/util/util.h
     pixel/renderers/renderer_group.h
     pixel/random.h
-    pixel/time/simple_timer.cpp pixel/time/simple_timer.h pixel/physics/constraints.h pixel/physics/particle.h pixel/level.h
+    pixel/time/simple_timer.cpp pixel/time/simple_timer.h
+    pixel/physics/constraints.h
+    pixel/physics/particle.h
+    pixel/level.h
+    pixel/tilemap/tile_map_collider.h
     )
 
 
@@ -88,7 +92,7 @@ IF (PIXEL_LUA_BINDING)
       )
 ENDIF (PIXEL_LUA_BINDING)
 
-ADD_LIBRARY(pixel ${pixel_sources} pixel/tilemap/tile_map_collider.h)
+ADD_LIBRARY(pixel ${pixel_sources})
 
 
 ADD_DEPENDENCIES(pixel pixel_source_version)
@@ -96,6 +100,7 @@ ADD_DEPENDENCIES(pixel pixel_source_version)
 TARGET_INCLUDE_DIRECTORIES(pixel PUBLIC .)
 
 SET(TMXLITE_STATIC_LIB ON)
+SET(GLM_TEST_ENABLE OFF)
 
 ADD_SUBDIRECTORY(lib/tinypng)
 ADD_SUBDIRECTORY(lib/glm)
@@ -111,6 +116,7 @@ TARGET_LINK_LIBRARIES(
     glm)
 
 TARGET_COMPILE_DEFINITIONS(glm INTERFACE GLM_ENABLE_EXPERIMENTAL)
+
 
 IF (CMAKE_C_FLAGS_DEBUG)
   TARGET_COMPILE_DEFINITIONS(pixel PUBLIC PIXEL_DEBUG=1)
