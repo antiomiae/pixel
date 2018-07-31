@@ -46,6 +46,7 @@ struct CollisionRect
     int nearest_tile_col()
     {
         auto sign = sgn(delta.x);
+        assert(sign != 0);
         float x = center.x + sign * (half_size.x + tile_size.x);
         return (int) (delta.x > 0 ? ceil(x - 1) : x) / tile_size.x;
     }
@@ -53,6 +54,7 @@ struct CollisionRect
     int nearest_tile_row()
     {
         auto sign = sgn(delta.y);
+        assert(sign != 0);
         float y = center.y + sign * (half_size.y + tile_size.y);
         return (int) (delta.y > 0 ? ceil(y - 1) : y) / tile_size.y;
     }
@@ -247,7 +249,7 @@ struct TileMapCollider
 
                     auto column_to_check = collision_index.x;
                     auto row_span = glm::ivec2(
-                        test_rect.center.y - test_rect.half_size.y, test_rect.center.y + test_rect.half_size.y
+                        test_rect.center.y - test_rect.half_size.y, ceil(test_rect.center.y + test_rect.half_size.y - 1)
                     ) / test_rect.tile_size.y;
 
                     if (xt == yt) {
@@ -263,6 +265,8 @@ struct TileMapCollider
                         collision_axes.x = delta_sign.x;
                         test_rect.delta.x = 0;
                         original_center.x = test_rect.center.x;
+
+                        xt = 2;
 
                         if (!slide) {
                             axes_to_check[1] = CheckCollisionAxis::None;
@@ -281,7 +285,7 @@ struct TileMapCollider
 
                     auto row_to_check = collision_index.y;
                     auto column_span = glm::ivec2(
-                        test_rect.center.x - test_rect.half_size.x, test_rect.center.x + test_rect.half_size.x
+                        test_rect.center.x - test_rect.half_size.x, ceil(test_rect.center.x + test_rect.half_size.x - 1)
                     ) / test_rect.tile_size.x;
 
                     if (xt == yt) {
@@ -297,6 +301,8 @@ struct TileMapCollider
                         collision_axes.y = delta_sign.y;
                         test_rect.delta.y = 0;
                         original_center.y = test_rect.center.y;
+
+                        yt = 2;
 
                         if (!slide) {
                             axes_to_check[1] = CheckCollisionAxis::None;
@@ -326,7 +332,7 @@ struct TileMapCollider
 
                     auto column_to_check = collision_index.x;
                     auto row_span = glm::ivec2(
-                        test_rect.center.y - test_rect.half_size.y, test_rect.center.y + test_rect.half_size.y
+                        test_rect.center.y - test_rect.half_size.y, ceil(test_rect.center.y + test_rect.half_size.y - 1)
                     ) / test_rect.tile_size.y;
 
                     if (xt == yt) {
@@ -361,7 +367,7 @@ struct TileMapCollider
 
                     auto row_to_check = collision_index.y;
                     auto column_span = glm::ivec2(
-                        test_rect.center.x - test_rect.half_size.x, test_rect.center.x + test_rect.half_size.x
+                        test_rect.center.x - test_rect.half_size.x, ceil(test_rect.center.x + test_rect.half_size.x - 1)
                     ) / test_rect.tile_size.x;
 
                     if (xt == yt) {

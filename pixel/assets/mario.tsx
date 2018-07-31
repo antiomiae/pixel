@@ -11,6 +11,7 @@
  <tile id="34" type="brick"/>
  <tile id="35" type="brick"/>
  <tile id="37" type="pipe"/>
+ <tile id="38" type="brick"/>
  <tile id="66" type="brick"/>
  <tile id="67" type="brick"/>
  <tile id="68" type="brick"/>

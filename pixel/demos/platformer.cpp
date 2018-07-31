@@ -308,7 +308,7 @@ y = {float} 73.75
 void start(int argc, char** argv)
 {
     glm::ivec2 virtual_window_size = glm::vec2{320, 224};
-    glm::ivec2 actual_window_size = virtual_window_size * 4;
+    glm::ivec2 actual_window_size = virtual_window_size * 3;
 
     pixel::init(actual_window_size, virtual_window_size, argc, argv);
 
