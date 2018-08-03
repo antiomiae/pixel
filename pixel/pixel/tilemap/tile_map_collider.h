@@ -134,14 +134,25 @@ enum class CheckCollisionAxis
 
 struct TileMapCollider
 {
-    static pair<glm::ivec2,glm::vec2> collide(
+    glm::ivec2 collision_index = {-1, -1};
+    glm::ivec2 collision_axes = {0, 0};
+    glm::ivec2 delta_sign = {0, 0};
+    glm::vec2 delta = {0, 0};
+    glm::vec2 original_delta;
+    glm::vec2 original_center;
+    CollisionRect test_rect;
+    array<CheckCollisionAxis, 2> axes_to_check;
+
+    float xt, yt;
+
+    pair<glm::ivec2, glm::vec2> collide(
         const CollisionRect& object,
         TileLayer& tile_layer,
         const function<bool(TileLayer::Tile & , Tileset::Tile & )>& tile_callback,
         bool slide = false
     )
     {
-        auto delta = object.delta;
+        delta = object.delta;
 
         /* return early if object isn't moving */
         if (delta == glm::vec2(0, 0)) {
@@ -149,9 +160,12 @@ struct TileMapCollider
         }
 
         auto& parent = tile_layer.parent();
-        auto test_rect = object;
+        test_rect = object;
 
         glm::ivec2 tile_count = parent.tile_count();
+
+        collision_index = {-1, -1};
+        collision_axes = {0, 0};
 
         /*
          * Sweep rectangle through the map:
@@ -161,21 +175,16 @@ struct TileMapCollider
          *  4.
          */
 
-        float acc_t = 0;
+        axes_to_check = {CheckCollisionAxis::None, CheckCollisionAxis::None};
 
-        glm::ivec2 collision_index = {-1, -1};
-        glm::ivec2 collision_axes = {0, 0};
-
-        array<CheckCollisionAxis, 2> axes_to_check = {CheckCollisionAxis::None, CheckCollisionAxis::None};
-
-        glm::ivec2 delta_sign = { sgn(delta.x), sgn(delta.y) };
+        delta_sign = {sgn(delta.x), sgn(delta.y)};
 
         while (delta != glm::vec2(0.0f, 0.0f)) {
-            float xt = numeric_limits<float>::infinity();
-            float yt = numeric_limits<float>::infinity();
+            xt = numeric_limits<float>::infinity();
+            yt = numeric_limits<float>::infinity();
 
-            auto original_center = test_rect.center;
-            auto original_delta = test_rect.delta;
+            original_center = test_rect.center;
+            original_delta = test_rect.delta;
 
             // Ensure delta hasn't flipped around
             if (delta.x != 0) {
@@ -186,7 +195,7 @@ struct TileMapCollider
                 assert(sgn(delta.y) == delta_sign.y);
             }
 
-            if (test_rect.delta.x != 0) {
+            if (delta.x != 0) {
                 int col = test_rect.nearest_tile_col();
                 assert(col >= 0);
 
@@ -203,7 +212,7 @@ struct TileMapCollider
                 assert(xt >= 0);
             }
 
-            if (test_rect.delta.y != 0) {
+            if (delta.y != 0) {
                 int row = test_rect.nearest_tile_row();
                 assert(row >= 0);
 
@@ -222,7 +231,7 @@ struct TileMapCollider
 
             if (xt >= 1 && yt >= 1) {
                 // advance test_rect
-                test_rect.center += test_rect.delta;
+                test_rect.center += delta;
                 break;
             }
 
@@ -241,75 +250,21 @@ struct TileMapCollider
             }
 
             switch (axes_to_check[0]) {
-                case CheckCollisionAxis::Horizontal: {
-
-                    auto d = xt * test_rect.delta;
-                    delta = original_delta - d;
-                    test_rect.center = original_center + d;
-
-                    auto column_to_check = collision_index.x;
-                    auto row_span = glm::ivec2(
-                        test_rect.center.y - test_rect.half_size.y, ceil(test_rect.center.y + test_rect.half_size.y - 1)
-                    ) / test_rect.tile_size.y;
-
-                    if (xt == yt) {
-                        if (delta_sign.y > 0) {
-                            row_span.t += 1;
-                        } else {
-                            row_span.s -= 1;
-                        }
+                case CheckCollisionAxis::Horizontal:
+                    if (check_horizontal_axis(tile_layer, tile_callback) && !slide) {
+                        // cancel y movement
+                        axes_to_check[1] = CheckCollisionAxis::None;
+                        delta.y = 0;
                     }
-
-                    if (check_solid_column(tile_layer, column_to_check, row_span, tile_callback)) {
-                        delta.x = 0;
-                        collision_axes.x = delta_sign.x;
-                        test_rect.delta.x = 0;
-                        original_center.x = test_rect.center.x;
-
-                        xt = 2;
-
-                        if (!slide) {
-                            axes_to_check[1] = CheckCollisionAxis::None;
-                            delta.y = 0;
-                        }
-                    }
-
-                }
 
                     cout << "Axis Check 0: Horizontal" << endl;
                     break;
-                case CheckCollisionAxis::Vertical: {
-                    auto d = yt * test_rect.delta;
-                    delta = original_delta - d;
-                    test_rect.center = original_center + d;
-
-                    auto row_to_check = collision_index.y;
-                    auto column_span = glm::ivec2(
-                        test_rect.center.x - test_rect.half_size.x, ceil(test_rect.center.x + test_rect.half_size.x - 1)
-                    ) / test_rect.tile_size.x;
-
-                    if (xt == yt) {
-                        if (delta_sign.x > 0) {
-                            column_span.t += 1;
-                        } else {
-                            column_span.s -= 1;
-                        }
+                case CheckCollisionAxis::Vertical:
+                    if (check_vertical_axis(tile_layer, tile_callback) && !slide) {
+                        // cancel x movement
+                        axes_to_check[1] = CheckCollisionAxis::None;
+                        delta.x = 0;
                     }
-
-                    if (check_solid_row(tile_layer, row_to_check, column_span, tile_callback)) {
-                        delta.y = 0;
-                        collision_axes.y = delta_sign.y;
-                        test_rect.delta.y = 0;
-                        original_center.y = test_rect.center.y;
-
-                        yt = 2;
-
-                        if (!slide) {
-                            axes_to_check[1] = CheckCollisionAxis::None;
-                            delta.x = 0;
-                        }
-                    }
-                }
 
                     cout << "Axis Check 0: Vertical" << endl;
                     break;
@@ -320,73 +275,20 @@ struct TileMapCollider
             }
 
             switch (axes_to_check[1]) {
-                case CheckCollisionAxis::Horizontal: {
-                    auto d = xt * test_rect.delta;
-                    test_rect.center = original_center + d;
-
-                    if (delta.y != 0) {
-                        delta = original_delta - d;
-                    } else {
-                        delta.x = original_delta.x - d.x;
+                case CheckCollisionAxis::Horizontal:
+                    if (check_horizontal_axis(tile_layer, tile_callback) && !slide) {
+                        // cancel y movement
+                        delta.y = 0;
                     }
 
-                    auto column_to_check = collision_index.x;
-                    auto row_span = glm::ivec2(
-                        test_rect.center.y - test_rect.half_size.y, ceil(test_rect.center.y + test_rect.half_size.y - 1)
-                    ) / test_rect.tile_size.y;
-
-                    if (xt == yt) {
-                        if (delta_sign.y > 0) {
-                            row_span.t += 1;
-                        } else {
-                            row_span.s -= 1;
-                        }
-                    }
-
-                    if (check_solid_column(tile_layer, column_to_check, row_span, tile_callback)) {
-                        delta.x = 0;
-                        collision_axes.x = delta_sign.x;
-
-                        if (!slide) {
-                            delta.y = 0;
-                        }
-                    }
-                }
                     cout << "Axis Check 1: Horizontal" << endl;
 
                     break;
-                case CheckCollisionAxis::Vertical: {
-                    auto d = yt * test_rect.delta;
-                    test_rect.center = original_center + d;
-
-                    if (delta.x != 0) {
-                        delta = original_delta - d;
-                    } else {
-                        delta.y = original_delta.y - d.y;
+                case CheckCollisionAxis::Vertical:
+                    if (check_vertical_axis(tile_layer, tile_callback) && !slide) {
+                        // cancel x movement
+                        delta.x = 0;
                     }
-
-                    auto row_to_check = collision_index.y;
-                    auto column_span = glm::ivec2(
-                        test_rect.center.x - test_rect.half_size.x, ceil(test_rect.center.x + test_rect.half_size.x - 1)
-                    ) / test_rect.tile_size.x;
-
-                    if (xt == yt) {
-                        if (delta_sign.x > 0) {
-                            column_span.t += 1;
-                        } else {
-                            column_span.s -= 1;
-                        }
-                    }
-
-                    if (check_solid_row(tile_layer, row_to_check, column_span, tile_callback)) {
-                        delta.y = 0;
-                        collision_axes.y = delta_sign.y;
-
-                        if (!slide) {
-                            delta.x = 0;
-                        }
-                    }
-                }
 
                     cout << "Axis Check 1: Vertical" << endl;
                     break;
@@ -404,7 +306,7 @@ struct TileMapCollider
         return {collision_axes, test_rect.center};
     }
 
-    bool static check_solid_column(
+    bool check_solid_column(
         TileLayer& tile_layer,
         int column,
         glm::ivec2 row_span,
@@ -439,7 +341,7 @@ struct TileMapCollider
     }
 
 
-    bool static check_solid_row(
+    bool check_solid_row(
         TileLayer& tile_layer,
         int row,
         glm::ivec2 col_span,
@@ -472,6 +374,81 @@ struct TileMapCollider
 
         return collided;
     }
+
+private:
+    bool check_horizontal_axis(
+        TileLayer& tile_layer, const function<bool(TileLayer::Tile & , Tileset::Tile & )>& tile_callback
+    )
+    {
+        auto d = xt * original_delta;
+        delta = original_delta - d;
+        test_rect.center = original_center + d;
+
+        delta = original_delta - d;
+
+        auto column_to_check = collision_index.x;
+        auto row_span = glm::ivec2(
+            test_rect.center.y - test_rect.half_size.y, ceil(test_rect.center.y + test_rect.half_size.y - 1)
+        ) / test_rect.tile_size.y;
+
+        if (xt == yt) {
+            if (delta_sign.y > 0) {
+                row_span.t += 1;
+            } else {
+                row_span.s -= 1;
+            }
+        }
+
+        if (check_solid_column(tile_layer, column_to_check, row_span, tile_callback)) {
+            delta.x = 0;
+            collision_axes.x = delta_sign.x;
+            test_rect.delta.x = 0;
+            original_delta.x = 0;
+            original_center.x = test_rect.center.x;
+
+            return true;
+        }
+
+        return false;
+    }
+
+
+    bool
+    check_vertical_axis(
+        TileLayer& tile_layer, const function<bool(TileLayer::Tile & , Tileset::Tile & )>& tile_callback
+    )
+    {
+        auto d = yt * original_delta;
+        delta = original_delta - d;
+        test_rect.center = original_center + d;
+
+        delta = original_delta - d;
+
+        auto row_to_check = collision_index.y;
+        auto column_span = glm::ivec2(
+            test_rect.center.x - test_rect.half_size.x, ceil(test_rect.center.x + test_rect.half_size.x - 1)
+        ) / test_rect.tile_size.x;
+
+        if (xt == yt) {
+            if (delta_sign.x > 0) {
+                column_span.t += 1;
+            } else {
+                column_span.s -= 1;
+            }
+        }
+
+        if (check_solid_row(tile_layer, row_to_check, column_span, tile_callback)) {
+            delta.y = 0;
+            collision_axes.y = delta_sign.y;
+            original_delta.y = 0;
+            test_rect.delta.y = 0;
+            original_center.y = test_rect.center.y;
+
+            return true;
+        }
+
+        return false;
+    };
 
 };
 

@@ -159,7 +159,7 @@ TEST_CASE("TileMapCollider")
         auto collision_axes = glm::ivec2();
         auto center_after_collision = glm::vec2();
 
-        tie(collision_axes, center_after_collision) = TileMapCollider::collide(
+        tie(collision_axes, center_after_collision) = TileMapCollider().collide(
             rect,
             tile_layer,
             [](auto& tile, auto& tile_desc) -> auto {
@@ -177,7 +177,7 @@ TEST_CASE("TileMapCollider")
         end_position = rect.center + glm::vec2(0, -16);
         rect.delta = end_position - rect.center;
 
-        tie(collision_axes, center_after_collision) = TileMapCollider::collide(
+        tie(collision_axes, center_after_collision) = TileMapCollider().collide(
             rect,
             tile_layer,
             [](auto& tile, auto& tile_desc) -> auto {
@@ -196,7 +196,7 @@ TEST_CASE("TileMapCollider")
         end_position = rect.center + glm::vec2(0, -16);
         rect.delta = end_position - rect.center;
 
-        tie(collision_axes, center_after_collision) = TileMapCollider::collide(
+        tie(collision_axes, center_after_collision) = TileMapCollider().collide(
             rect,
             tile_layer,
             [](auto& tile, auto& tile_desc) -> auto {
@@ -213,7 +213,7 @@ TEST_CASE("TileMapCollider")
         end_position = rect.center + glm::vec2(16, -16);
         rect.delta = end_position - rect.center;
 
-        tie(collision_axes, center_after_collision) = TileMapCollider::collide(
+        tie(collision_axes, center_after_collision) = TileMapCollider().collide(
             rect,
             tile_layer,
             [](auto& tile, auto& tile_desc) -> auto {
@@ -234,7 +234,7 @@ TEST_CASE("TileMapCollider")
 
         // tile 9: 144 - 160
 
-        tie(collision_axes, center_after_collision) = TileMapCollider::collide(
+        tie(collision_axes, center_after_collision) = TileMapCollider().collide(
             rect,
             tile_layer,
             [](auto& tile, auto& tile_desc) -> auto {
@@ -255,7 +255,7 @@ TEST_CASE("TileMapCollider")
 
         // tile 9: 144 - 160
 
-        tie(collision_axes, center_after_collision) = TileMapCollider::collide(
+        tie(collision_axes, center_after_collision) = TileMapCollider().collide(
             rect,
             tile_layer,
             [](auto& tile, auto& tile_desc) -> auto {
@@ -280,7 +280,7 @@ TEST_CASE("TileMapCollider")
 
             REQUIRE_FALSE(overlapping_solid_tiles(tile_layer, rect));
 
-            tie(collision_axes, center_after_collision) = TileMapCollider::collide(
+            tie(collision_axes, center_after_collision) = TileMapCollider().collide(
                 rect,
                 tile_layer,
                 [](auto& tile, auto& tile_desc) -> auto {
@@ -299,7 +299,7 @@ TEST_CASE("TileMapCollider")
 
         SECTION("corner heading nw") {
             auto rect = CollisionRect(
-                glm::vec2(10.5*16, 2.5*16),
+                glm::vec2(10*16 + 8, 2*16 + 8),
                 glm::vec2(5.000000, 5.000000),
                 glm::vec2(-10, 10.000000),
                 glm::ivec2(16, 16)
@@ -309,12 +309,14 @@ TEST_CASE("TileMapCollider")
 
             REQUIRE_FALSE(overlapping_solid_tiles(tile_layer, rect));
 
-            tie(collision_axes, center_after_collision) = TileMapCollider::collide(
+            tie(collision_axes, center_after_collision) =
+                TileMapCollider().collide(
                 rect,
                 tile_layer,
                 [](auto& tile, auto& tile_desc) -> auto {
                     return tile_desc.type == "brick";
-                }, true
+                },
+                true
             );
 
 

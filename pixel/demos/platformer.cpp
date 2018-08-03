@@ -85,7 +85,7 @@ struct Guy
             {16, 16}
             );
 
-        auto [collision_axes, center] = TileMapCollider::collide(
+        auto [collision_axes, center] = TileMapCollider().collide(
             rect,
             level->tile_map().layers()[layer],
             [&](auto& tile, auto& tile_desc) {
