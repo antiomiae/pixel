@@ -158,9 +158,7 @@ struct Guy
 
         if (collision_axes.y != 0) {
             // try to prevent sticking
-            if (collision_axes.y == 1) {
-                velocity.y = 0;
-            }
+            velocity.y = 0;
 
             // we hit ground
             if (collision_axes.y == -1 && on_ground()) {
