@@ -12,9 +12,9 @@ using namespace pixel::input;
 struct Guy
 {
 
-    glm::vec2 position;
-    glm::vec2 size;
-    glm::vec2 velocity;
+    glm::vec2 position{0.0f};
+    glm::vec2 size{0.0f};
+    glm::vec2 velocity{0.0f};
     glm::vec2 acc{1.f, 1.f};
 
     float ground_friction = 0;
@@ -157,10 +157,14 @@ struct Guy
         }
 
         if (collision_axes.y != 0) {
-            velocity.y = 0;
+            // try to prevent sticking
+            if (collision_axes.y == 1) {
+                velocity.y = 0;
+            }
 
             // we hit ground
-            if (collision_axes.y == -1) {
+            if (collision_axes.y == -1 && on_ground()) {
+                velocity.y = 0;
                 in_air = false;
                 jumping = false;
             }
@@ -308,7 +312,7 @@ y = {float} 73.75
 void start(int argc, char** argv)
 {
     glm::ivec2 virtual_window_size = glm::vec2{320, 224};
-    glm::ivec2 actual_window_size = virtual_window_size * 3;
+    glm::ivec2 actual_window_size = virtual_window_size * 1;
 
     pixel::init(actual_window_size, virtual_window_size, argc, argv);
 
