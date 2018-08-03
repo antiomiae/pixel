@@ -10,6 +10,7 @@ var searchData=
   ['test_5fkeyboard_2ecpp',['test_keyboard.cpp',['../test__keyboard_8cpp.html',1,'']]],
   ['test_5foffscreen_5frender_5ftarget_2ecpp',['test_offscreen_render_target.cpp',['../test__offscreen__render__target_8cpp.html',1,'']]],
   ['test_5fpack_2ecpp',['test_pack.cpp',['../test__pack_8cpp.html',1,'']]],
+  ['test_5frect',['test_rect',['../structpixel_1_1_tile_map_collider.html#af888798d678a720d111d44a2a99eb410',1,'pixel::TileMapCollider']]],
   ['test_5frenderers_2ecpp',['test_renderers.cpp',['../test__renderers_8cpp.html',1,'']]],
   ['test_5fsimple_5ftimer_2ecpp',['test_simple_timer.cpp',['../test__simple__timer_8cpp.html',1,'']]],
   ['test_5fsol_2ecpp',['test_sol.cpp',['../test__sol_8cpp.html',1,'']]],
@@ -94,6 +95,6 @@ var searchData=
   ['top_5fid_5f',['top_id_',['../classpixel_1_1graphics_1_1_texture_atlas.html#a937b633955dce94fc601fafa2ae072f6',1,'pixel::graphics::TextureAtlas']]],
   ['translate',['translate',['../classpixel_1_1graphics_1_1_camera.html#aff3960e6c58a8474096eb86b6e1a2b14',1,'pixel::graphics::Camera::translate(float x, float y)'],['../classpixel_1_1graphics_1_1_camera.html#aa3c02a27599eebb5d3b380f852bb86ec',1,'pixel::graphics::Camera::translate(const glm::vec2 &amp;)']]],
   ['transpose',['transpose',['../structpixel_1_1graphics_1_1_image_data.html#acc355668b6865b064f2b25bbc9e65acd',1,'pixel::graphics::ImageData']]],
-  ['type',['Type',['../classpixel_1_1_rect.html#a7890b7a80decee4efccf587d4f5b13d7',1,'pixel::Rect::Type()'],['../struct_layout.html#a039d56a72da89806f7019c12c8ab3ea7',1,'Layout::type()'],['../structpixel_1_1graphics_1_1_attribute.html#a47a5857b9ac8a25c031e14e083afaf59',1,'pixel::graphics::Attribute::type()'],['../structpixel_1_1_tileset_1_1_tile.html#aea4a964f0eb344459f06a7e9c5552f95',1,'pixel::Tileset::Tile::type()']]],
+  ['type',['type',['../struct_layout.html#a039d56a72da89806f7019c12c8ab3ea7',1,'Layout::type()'],['../structpixel_1_1graphics_1_1_attribute.html#a47a5857b9ac8a25c031e14e083afaf59',1,'pixel::graphics::Attribute::type()'],['../structpixel_1_1_tileset_1_1_tile.html#aea4a964f0eb344459f06a7e9c5552f95',1,'pixel::Tileset::Tile::type()'],['../classpixel_1_1_rect.html#a7890b7a80decee4efccf587d4f5b13d7',1,'pixel::Rect::Type()']]],
   ['types_2eh',['types.h',['../types_8h.html',1,'']]]
 ];

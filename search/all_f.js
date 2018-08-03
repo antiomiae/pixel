@@ -6,5 +6,7 @@ var searchData=
   ['on_5fground',['on_ground',['../struct_guy.html#aea20cb3466ae3be6c05d8ad2399050ee',1,'Guy']]],
   ['operator_3c_3c',['operator&lt;&lt;',['../classpixel_1_1_line_segment.html#ace1b5e69bee29303699f25cc11b15f4f',1,'pixel::LineSegment']]],
   ['operator_3d',['operator=',['../classpixel_1_1graphics_1_1_texture.html#a772f1c02f0d4b18627c7121c0cf537c1',1,'pixel::graphics::Texture::operator=(Texture &amp;)=delete'],['../classpixel_1_1graphics_1_1_texture.html#a4f97ea0d7c269f4235d817a505996c58',1,'pixel::graphics::Texture::operator=(Texture &amp;&amp;)'],['../structpixel_1_1graphics_1_1_image_data.html#ad7fd0e580f0d76f9cd1a35f51375e796',1,'pixel::graphics::ImageData::operator=()']]],
+  ['original_5fcenter',['original_center',['../structpixel_1_1_tile_map_collider.html#aedc4cc43c1f3e296df4c2f261c503c7a',1,'pixel::TileMapCollider']]],
+  ['original_5fdelta',['original_delta',['../structpixel_1_1_tile_map_collider.html#ae13da990b89e53195afad5fcda826c83',1,'pixel::TileMapCollider']]],
   ['overlapping_5fsolid_5ftiles',['overlapping_solid_tiles',['../struct_guy.html#a0827a698ad675bb50d5c7afe160afcd5',1,'Guy']]]
 ];

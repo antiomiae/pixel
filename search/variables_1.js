@@ -16,5 +16,6 @@ var searchData=
   ['atlas_5frows_5f',['atlas_rows_',['../classpixel_1_1_tile_atlas.html#a68dee9e69a708871a34606a0b5250c5a',1,'pixel::TileAtlas']]],
   ['atlas_5fsize_5f',['atlas_size_',['../classpixel_1_1graphics_1_1_texture_atlas.html#a80526484f92293415e18f8bad05b7de4',1,'pixel::graphics::TextureAtlas']]],
   ['attractors_5f',['attractors_',['../class_particle_controller.html#aff4d59f2cf647870d85458ce5912fa32',1,'ParticleController']]],
-  ['attribute_5fmap_5f',['attribute_map_',['../classpixel_1_1graphics_1_1_shader.html#a023eb7fc4561433cb76584b2059639c5',1,'pixel::graphics::Shader']]]
+  ['attribute_5fmap_5f',['attribute_map_',['../classpixel_1_1graphics_1_1_shader.html#a023eb7fc4561433cb76584b2059639c5',1,'pixel::graphics::Shader']]],
+  ['axes_5fto_5fcheck',['axes_to_check',['../structpixel_1_1_tile_map_collider.html#a9073ed803bcb3dfe2c785bfa0de7847a',1,'pixel::TileMapCollider']]]
 ];
