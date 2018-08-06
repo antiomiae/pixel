@@ -281,8 +281,6 @@ struct TileMapCollider
                         delta.y = 0;
                     }
 
-                    cout << "Axis Check 1: Horizontal" << endl;
-
                     break;
                 case CheckCollisionAxis::Vertical:
                     if (check_vertical_axis(tile_layer, tile_callback) && !slide) {
@@ -290,11 +288,8 @@ struct TileMapCollider
                         delta.x = 0;
                     }
 
-                    cout << "Axis Check 1: Vertical" << endl;
                     break;
-
                 default:
-                    cout << "Axis Check 1: None" << endl;
                     break;
             }
 
@@ -348,8 +343,6 @@ struct TileMapCollider
         const function<bool(TileLayer::Tile & , Tileset::Tile & )>& tile_callback
     )
     {
-        cout << "checking row = " << row << ", columns = (" << col_span.s << ", " << col_span.t << ")" << endl;
-
         auto collided = false;
 
         tile_layer.visit_tiles(
