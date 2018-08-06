@@ -102,10 +102,18 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aaba4a782aa832e46b0a8e071b3f9e2cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad59d3bf6ff2aa65a4157fdf492e6a38c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_guy.html#ad59d3bf6ff2aa65a4157fdf492e6a38c">air_friction</a> = 0</td></tr>
 <tr class="separator:ad59d3bf6ff2aa65a4157fdf492e6a38c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1415e167b3f64334ebcda3c365461cd"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_guy.html#ae1415e167b3f64334ebcda3c365461cd">max_run_speed</a> = 2.5f</td></tr>
+<tr class="separator:ae1415e167b3f64334ebcda3c365461cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1dd35097405f33eb28e4e78c8f87338"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_guy.html#ab1dd35097405f33eb28e4e78c8f87338">max_jump_speed</a> = 5.0f</td></tr>
+<tr class="separator:ab1dd35097405f33eb28e4e78c8f87338"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71c30b9b9f56c67e79a07e5980f7e56b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_guy.html#a71c30b9b9f56c67e79a07e5980f7e56b">min_jump_speed</a> = 3.0f</td></tr>
+<tr class="separator:a71c30b9b9f56c67e79a07e5980f7e56b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbab6e12644ab36459bcb44b179db64d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_guy.html#abbab6e12644ab36459bcb44b179db64d">in_air</a> {false}</td></tr>
 <tr class="separator:abbab6e12644ab36459bcb44b179db64d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d93f85237bae13fb4bd758d18caf689"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_guy.html#a5d93f85237bae13fb4bd758d18caf689">jumping</a> {false}</td></tr>
 <tr class="separator:a5d93f85237bae13fb4bd758d18caf689"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb0e082507f36ba69b2ef42dbcde25e9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_guy.html#acb0e082507f36ba69b2ef42dbcde25e9">can_jump</a> {false}</td></tr>
+<tr class="separator:acb0e082507f36ba69b2ef42dbcde25e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93269bc8c5852cae8d2c2cb89d313deb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_guy.html#a93269bc8c5852cae8d2c2cb89d313deb">layer</a> {0}</td></tr>
 <tr class="separator:a93269bc8c5852cae8d2c2cb89d313deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa3b24dfe417348931703226484bf152a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpixel_1_1_level.html">Level</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_guy.html#aa3b24dfe417348931703226484bf152a">level</a></td></tr>
@@ -360,6 +368,20 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="acb0e082507f36ba69b2ef42dbcde25e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb0e082507f36ba69b2ef42dbcde25e9">&#9670;&nbsp;</a></span>can_jump</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Guy::can_jump {false}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aaba4a782aa832e46b0a8e071b3f9e2cc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaba4a782aa832e46b0a8e071b3f9e2cc">&#9670;&nbsp;</a></span>ground_friction</h2>
 
@@ -424,6 +446,48 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="classpixel_1_1_level.html">Level</a>* Guy::level</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab1dd35097405f33eb28e4e78c8f87338"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1dd35097405f33eb28e4e78c8f87338">&#9670;&nbsp;</a></span>max_jump_speed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Guy::max_jump_speed = 5.0f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae1415e167b3f64334ebcda3c365461cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1415e167b3f64334ebcda3c365461cd">&#9670;&nbsp;</a></span>max_run_speed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Guy::max_run_speed = 2.5f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a71c30b9b9f56c67e79a07e5980f7e56b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71c30b9b9f56c67e79a07e5980f7e56b">&#9670;&nbsp;</a></span>min_jump_speed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Guy::min_jump_speed = 3.0f</td>
         </tr>
       </table>
 </div><div class="memdoc">

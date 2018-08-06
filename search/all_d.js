@@ -16,9 +16,12 @@ var searchData=
   ['max_5fatlas_5frows',['MAX_ATLAS_ROWS',['../classpixel_1_1_tile_atlas.html#ad77753f3a0484c82f14a108f7d6b5ad8',1,'pixel::TileAtlas']]],
   ['max_5fatlas_5fwidth',['MAX_ATLAS_WIDTH',['../classpixel_1_1_tile_atlas.html#ae1f48fa05bd7c8a32a41fa0b197335c2',1,'pixel::TileAtlas']]],
   ['max_5fid_5f',['max_id_',['../classpixel_1_1_tile_atlas.html#a400156b86a72338e1ab28050451a50d1',1,'pixel::TileAtlas']]],
+  ['max_5fjump_5fspeed',['max_jump_speed',['../struct_guy.html#ab1dd35097405f33eb28e4e78c8f87338',1,'Guy']]],
+  ['max_5frun_5fspeed',['max_run_speed',['../struct_guy.html#ae1415e167b3f64334ebcda3c365461cd',1,'Guy']]],
   ['max_5ftiles',['max_tiles',['../classpixel_1_1_tile_atlas.html#ac21fb9315b15847cef295e978e6da343',1,'pixel::TileAtlas']]],
   ['max_5ftiles_5f',['max_tiles_',['../classpixel_1_1_tile_atlas.html#a8ef963f5bd684f5c180b7efb9c662183',1,'pixel::TileAtlas']]],
   ['min',['min',['../structpixel_1_1physics_1_1_spring.html#a435860c21f853724c3be056bd982698c',1,'pixel::physics::Spring']]],
+  ['min_5fjump_5fspeed',['min_jump_speed',['../struct_guy.html#a71c30b9b9f56c67e79a07e5980f7e56b',1,'Guy']]],
   ['move',['move',['../struct_guy.html#a8c89fe71124f875deaa3c66bb68015e6',1,'Guy']]],
   ['msg_5f',['msg_',['../classpixel_1_1_base_error.html#a237babe03722b7f9c1ae03819bf88754',1,'pixel::BaseError']]],
   ['mutualgravitysimulation',['MutualGravitySimulation',['../struct_mutual_gravity_simulation.html',1,'']]]

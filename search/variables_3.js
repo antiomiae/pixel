@@ -2,6 +2,7 @@ var searchData=
 [
   ['callbacks_5f',['callbacks_',['../classpixel_1_1input_1_1_callback_stack.html#a0d5ca869652d9e5f4ce314c3ab22c4f2',1,'pixel::input::CallbackStack']]],
   ['camera_5f',['camera_',['../class_level.html#a944f4626c2cf9ede065c16c83ef05160',1,'Level::camera_()'],['../classpixel_1_1_level.html#a944f4626c2cf9ede065c16c83ef05160',1,'pixel::Level::camera_()']]],
+  ['can_5fjump',['can_jump',['../struct_guy.html#acb0e082507f36ba69b2ef42dbcde25e9',1,'Guy']]],
   ['center',['center',['../classpixel_1_1graphics_1_1_sprite.html#a0d777b08310cbd0e08d0d8162f3a1503',1,'pixel::graphics::Sprite::center()'],['../structpixel_1_1_collision_rect.html#aa523bdc4bdd97907b985fdd23dc2496c',1,'pixel::CollisionRect::center()']]],
   ['collision_5faxes',['collision_axes',['../structpixel_1_1_tile_map_collider.html#a5ad53179b7b2ee4462b48c7d32b6227d',1,'pixel::TileMapCollider']]],
   ['collision_5findex',['collision_index',['../structpixel_1_1_tile_map_collider.html#a5f3cc7c77678dbe231ac0bc67cdcca36',1,'pixel::TileMapCollider']]],
