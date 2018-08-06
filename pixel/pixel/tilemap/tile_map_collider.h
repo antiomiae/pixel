@@ -236,7 +236,7 @@ struct TileMapCollider
             }
 
             if (xt < 1) {
-                if (yt <= xt) {
+                if (yt < xt) {
                     axes_to_check = {CheckCollisionAxis::Vertical, CheckCollisionAxis::Horizontal};
                 } else {
                     axes_to_check[0] = CheckCollisionAxis::Horizontal;
@@ -384,7 +384,7 @@ private:
             test_rect.center.y - test_rect.half_size.y, ceil(test_rect.center.y + test_rect.half_size.y - 1)
         ) / test_rect.tile_size.y;
 
-        if (xt == yt) {
+        if (xt == yt && collision_axes.y == 0) {
             if (delta_sign.y > 0) {
                 row_span.t += 1;
             } else {
@@ -422,7 +422,7 @@ private:
             test_rect.center.x - test_rect.half_size.x, ceil(test_rect.center.x + test_rect.half_size.x - 1)
         ) / test_rect.tile_size.x;
 
-        if (xt == yt) {
+        if (xt == yt && collision_axes.x == 0) {
             if (delta_sign.x > 0) {
                 column_span.t += 1;
             } else {

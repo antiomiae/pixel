@@ -305,7 +305,7 @@ TEST_CASE("TileMapCollider")
                 glm::ivec2(16, 16)
             );
 
-            end_position = {10*16 + 5, 3*16 - 5};
+            end_position = {10*16 + 5, rect.center.y + 10};
 
             REQUIRE_FALSE(overlapping_solid_tiles(tile_layer, rect));
 
@@ -321,7 +321,7 @@ TEST_CASE("TileMapCollider")
 
 
             REQUIRE(collision_axes.x == -1);
-            REQUIRE(collision_axes.y == 1);
+            REQUIRE(collision_axes.y == 0);
             REQUIRE(center_after_collision.x == end_position.x);
             REQUIRE(center_after_collision.y == end_position.y);
 
