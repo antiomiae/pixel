@@ -159,114 +159,116 @@ TEST_CASE("TileMapCollider")
         auto collision_axes = glm::ivec2();
         auto center_after_collision = glm::vec2();
 
-        tie(collision_axes, center_after_collision) = TileMapCollider().collide(
-            rect,
-            tile_layer,
-            [](auto& tile, auto& tile_desc) -> auto {
-                return tile_desc.type == "brick";
-            },
-            false
-        );
+        SECTION("simple cases") {
 
-        REQUIRE(collision_axes == glm::ivec2{0, 0});
-        REQUIRE(center_after_collision.x == end_position.x);
-        REQUIRE(center_after_collision.y == end_position.y);
-        REQUIRE_FALSE(overlapping_solid_tiles(tile_layer, rect));
+            tie(collision_axes, center_after_collision) = TileMapCollider().collide(
+                rect,
+                tile_layer,
+                [](auto& tile, auto& tile_desc) -> auto {
+                    return tile_desc.type == "brick";
+                },
+                false
+            );
 
-
-        end_position = rect.center + glm::vec2(0, -16);
-        rect.delta = end_position - rect.center;
-
-        tie(collision_axes, center_after_collision) = TileMapCollider().collide(
-            rect,
-            tile_layer,
-            [](auto& tile, auto& tile_desc) -> auto {
-                return tile_desc.type == "brick";
-            }, false
-        );
-
-        REQUIRE(collision_axes.y == -1);
-        REQUIRE(center_after_collision.x == end_position.x);
-        REQUIRE(center_after_collision.y == rect.center.y);
-        REQUIRE_FALSE(overlapping_solid_tiles(tile_layer, rect));
+            REQUIRE(collision_axes == glm::ivec2{0, 0});
+            REQUIRE(center_after_collision.x == end_position.x);
+            REQUIRE(center_after_collision.y == end_position.y);
+            REQUIRE_FALSE(overlapping_solid_tiles(tile_layer, CollisionRect(rect).set_center(center_after_collision)));
 
 
-        rect.center.x = 10 * 16 + 5;
+            end_position = rect.center + glm::vec2(0, -16);
+            rect.delta = end_position - rect.center;
 
-        end_position = rect.center + glm::vec2(0, -16);
-        rect.delta = end_position - rect.center;
+            tie(collision_axes, center_after_collision) = TileMapCollider().collide(
+                rect,
+                tile_layer,
+                [](auto& tile, auto& tile_desc) -> auto {
+                    return tile_desc.type == "brick";
+                }, false
+            );
 
-        tie(collision_axes, center_after_collision) = TileMapCollider().collide(
-            rect,
-            tile_layer,
-            [](auto& tile, auto& tile_desc) -> auto {
-                return tile_desc.type == "brick";
-            }, false
-        );
-
-        REQUIRE(collision_axes.y == 0);
-        REQUIRE(center_after_collision.x == end_position.x);
-        REQUIRE(center_after_collision.y == end_position.y);
-        REQUIRE_FALSE(overlapping_solid_tiles(tile_layer, rect));
+            REQUIRE(collision_axes.y == -1);
+            REQUIRE(center_after_collision.x == end_position.x);
+            REQUIRE(center_after_collision.y == rect.center.y);
+            REQUIRE_FALSE(overlapping_solid_tiles(tile_layer, CollisionRect(rect).set_center(center_after_collision)));
 
 
-        end_position = rect.center + glm::vec2(16, -16);
-        rect.delta = end_position - rect.center;
+            rect.center.x = 10 * 16 + 5;
 
-        tie(collision_axes, center_after_collision) = TileMapCollider().collide(
-            rect,
-            tile_layer,
-            [](auto& tile, auto& tile_desc) -> auto {
-                return tile_desc.type == "brick";
-            }, false
-        );
+            end_position = rect.center + glm::vec2(0, -16);
+            rect.delta = end_position - rect.center;
 
-        REQUIRE(collision_axes.y == 0);
-        REQUIRE(center_after_collision.x == end_position.x);
-        REQUIRE(center_after_collision.y == end_position.y);
-        REQUIRE_FALSE(overlapping_solid_tiles(tile_layer, rect));
+            tie(collision_axes, center_after_collision) = TileMapCollider().collide(
+                rect,
+                tile_layer,
+                [](auto& tile, auto& tile_desc) -> auto {
+                    return tile_desc.type == "brick";
+                }, false
+            );
 
-
-
-        rect.center = {48 + 5, 159.75 + 5};
-        end_position = {48 + 5, 159.5 + 5};
-        rect.delta = end_position - rect.center;
-
-        // tile 9: 144 - 160
-
-        tie(collision_axes, center_after_collision) = TileMapCollider().collide(
-            rect,
-            tile_layer,
-            [](auto& tile, auto& tile_desc) -> auto {
-                return tile_desc.type == "brick";
-            }, false
-        );
-
-        REQUIRE(collision_axes.y == 0);
-        REQUIRE(center_after_collision.x == end_position.x);
-        REQUIRE(center_after_collision.y == end_position.y);
-        REQUIRE_FALSE(overlapping_solid_tiles(tile_layer, rect));
+            REQUIRE(collision_axes.y == 0);
+            REQUIRE(center_after_collision.x == end_position.x);
+            REQUIRE(center_after_collision.y == end_position.y);
+            REQUIRE_FALSE(overlapping_solid_tiles(tile_layer, CollisionRect(rect).set_center(center_after_collision)));
 
 
+            end_position = rect.center + glm::vec2(16, -16);
+            rect.delta = end_position - rect.center;
 
-        rect.center = {48 + 5, 159.75 + 5};
-        end_position = {48 + 16 + 5, 159.75 + 30 + 5};
-        rect.delta = end_position - rect.center;
+            tie(collision_axes, center_after_collision) = TileMapCollider().collide(
+                rect,
+                tile_layer,
+                [](auto& tile, auto& tile_desc) -> auto {
+                    return tile_desc.type == "brick";
+                }, false
+            );
 
-        // tile 9: 144 - 160
+            REQUIRE(collision_axes.y == 0);
+            REQUIRE(center_after_collision.x == end_position.x);
+            REQUIRE(center_after_collision.y == end_position.y);
+            REQUIRE_FALSE(overlapping_solid_tiles(tile_layer, CollisionRect(rect).set_center(center_after_collision)));
 
-        tie(collision_axes, center_after_collision) = TileMapCollider().collide(
-            rect,
-            tile_layer,
-            [](auto& tile, auto& tile_desc) -> auto {
-                return tile_desc.type == "brick";
-            }, false
-        );
 
-        REQUIRE(collision_axes.y == 0);
-        REQUIRE(center_after_collision.x == end_position.x);
-        REQUIRE(center_after_collision.y == end_position.y);
-        REQUIRE_FALSE(overlapping_solid_tiles(tile_layer, rect));
+            rect.center = {48 + 5, 159.75 + 5};
+            end_position = {48 + 5, 159.5 + 5};
+            rect.delta = end_position - rect.center;
+
+            // tile 9: 144 - 160
+
+            tie(collision_axes, center_after_collision) = TileMapCollider().collide(
+                rect,
+                tile_layer,
+                [](auto& tile, auto& tile_desc) -> auto {
+                    return tile_desc.type == "brick";
+                }, false
+            );
+
+            REQUIRE(collision_axes.y == 0);
+            REQUIRE(center_after_collision.x == end_position.x);
+            REQUIRE(center_after_collision.y == end_position.y);
+            REQUIRE_FALSE(overlapping_solid_tiles(tile_layer, CollisionRect(rect).set_center(center_after_collision)));
+
+
+            rect.center = {48 + 5, 159.75 + 5};
+            end_position = {48 + 16 + 5, 159.75 + 30 + 5};
+            rect.delta = end_position - rect.center;
+
+            // tile 9: 144 - 160
+
+            tie(collision_axes, center_after_collision) = TileMapCollider().collide(
+                rect,
+                tile_layer,
+                [](auto& tile, auto& tile_desc) -> auto {
+                    return tile_desc.type == "brick";
+                }, false
+            );
+
+            REQUIRE(collision_axes.y == 0);
+            REQUIRE(center_after_collision.x == end_position.x);
+            REQUIRE(center_after_collision.y == end_position.y);
+            REQUIRE_FALSE(overlapping_solid_tiles(tile_layer, CollisionRect(rect).set_center(center_after_collision)));
+
+        }
 
         SECTION("real-world case 1") {
             auto rect = CollisionRect(
@@ -294,7 +296,7 @@ TEST_CASE("TileMapCollider")
             REQUIRE(collision_axes.x == 0);
             REQUIRE(collision_axes.y == -1);
 
-            REQUIRE_FALSE(overlapping_solid_tiles(tile_layer, rect));
+            REQUIRE_FALSE(overlapping_solid_tiles(tile_layer, CollisionRect(rect).set_center(center_after_collision)));
         }
 
         SECTION("corner heading nw") {
@@ -325,7 +327,38 @@ TEST_CASE("TileMapCollider")
             REQUIRE(center_after_collision.x == end_position.x);
             REQUIRE(center_after_collision.y == end_position.y);
 
+            REQUIRE_FALSE(overlapping_solid_tiles(tile_layer, CollisionRect(rect).set_center(center_after_collision)));
+        }
+
+        SECTION("edges of map") {
+            auto rect = CollisionRect(
+                glm::vec2(-1*16, 1*16),
+                glm::vec2(5.000000, 5.000000),
+                glm::vec2(100, 0),
+                glm::ivec2(16, 16)
+            );
+
+            end_position = {-5, rect.center.y};
+
             REQUIRE_FALSE(overlapping_solid_tiles(tile_layer, rect));
+
+            tie(collision_axes, center_after_collision) =
+                TileMapCollider().collide(
+                    rect,
+                    tile_layer,
+                    [](auto& tile, auto& tile_desc) -> auto {
+                        return tile_desc.type == "brick";
+                    },
+                    true
+                );
+
+
+            REQUIRE(collision_axes.x == 1);
+            REQUIRE(collision_axes.y == 0);
+            REQUIRE(center_after_collision.x == end_position.x);
+            REQUIRE(center_after_collision.y == end_position.y);
+
+            REQUIRE_FALSE(overlapping_solid_tiles(tile_layer, CollisionRect(rect).set_center(center_after_collision)));
         }
 
         // 10, 2

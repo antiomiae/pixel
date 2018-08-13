@@ -33,6 +33,7 @@ struct CollisionRect
     glm::ivec2 tile_size;
 
     CollisionRect() = default;
+    CollisionRect(const CollisionRect&) = default;
 
     CollisionRect(glm::vec2 center, glm::vec2 half_size, glm::vec2 delta, glm::ivec2 tile_size)
         : center(center),
@@ -121,6 +122,12 @@ struct CollisionRect
             << "}" << endl;
 
         return out.str();
+    }
+
+    CollisionRect& set_center(glm::vec2 new_center)
+    {
+        center = new_center;
+        return *this;
     }
 };
 
