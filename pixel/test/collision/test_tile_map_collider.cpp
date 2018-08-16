@@ -99,12 +99,17 @@ TEST_CASE("CollisionRect")
 bool overlapping_solid_tiles(TileLayer& tile_layer, const CollisionRect& rect)
 {
     auto tile_count = tile_layer.parent().tile_count();
+    auto extents = tile_count * tile_layer.parent().tile_size();
 
     bool found_solid_tile = false;
     int minx = rect.center.x - rect.half_size.x;
     int miny = rect.center.y - rect.half_size.y;
     int maxx = ceil(rect.center.x + rect.half_size.x - 1);
     int maxy = ceil(rect.center.y + rect.half_size.y - 1);
+
+    if (maxy < 0 || maxx < 0 || minx > (extents.x - 1) || miny > (extents.y - 1)) {
+        return false;
+    }
 
     tile_layer.visit_tiles(
         {
