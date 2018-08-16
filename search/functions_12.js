@@ -9,6 +9,7 @@ var searchData=
   ['set_5fapp',['set_app',['../namespacepixel.html#a9be5ce1f8bdc70837654022e3acfe563',1,'pixel']]],
   ['set_5fapp_5fdir',['set_app_dir',['../classpixel_1_1_app.html#ab67c71db0e518a8bdedb0a5ce005abbd',1,'pixel::App']]],
   ['set_5fbuffer_5fdata',['set_buffer_data',['../classpixel_1_1renderers_1_1_tile_map_renderer.html#a4bed0d18f681d2465d8551cb65c50c27',1,'pixel::renderers::TileMapRenderer']]],
+  ['set_5fcenter',['set_center',['../structpixel_1_1_collision_rect.html#a98189a8531c51499f4251637b319aaba',1,'pixel::CollisionRect']]],
   ['set_5fcolor',['set_color',['../classtetrominos_1_1_tetromino.html#a1f678837b40a0a69eecda69d8de19535',1,'tetrominos::Tetromino']]],
   ['set_5fmass',['set_mass',['../structpixel_1_1physics_1_1_particle.html#ac1f02885d1fa3f28d74133e3671c0603',1,'pixel::physics::Particle']]],
   ['set_5fmass_5frange',['set_mass_range',['../class_particle_controller.html#a4bb9787f8dec52522827e5ca823e5344',1,'ParticleController']]],
