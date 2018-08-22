@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['background_5fcolor',['background_color',['../classpixel_1_1_tile_map.html#a434acb97caae9067c1bf9c517f7cfa0f',1,'pixel::TileMap']]],
   ['baseerror',['BaseError',['../classpixel_1_1_base_error.html#aee0432935f72987286c9d4518642269e',1,'pixel::BaseError']]],
   ['basictypeforattributetype',['basicTypeForAttributeType',['../buffer_8cpp.html#aa32b430914d95540ddccbc2e7d4bcf68',1,'buffer.cpp']]],
   ['begin_5frender',['begin_render',['../classpixel_1_1_level.html#ad236ef9c0077e69b8aae3de3cf19ca47',1,'pixel::Level']]],

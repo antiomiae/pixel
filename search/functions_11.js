@@ -15,5 +15,5 @@ var searchData=
   ['restart',['restart',['../classpixel_1_1graphics_1_1_sprite_batch.html#a6c868cee20f62769c0d1130af15e9e16',1,'pixel::graphics::SpriteBatch']]],
   ['rocket',['Rocket',['../class_rocket.html#a1fad1ceb92830df30f5dd1069060909b',1,'Rocket']]],
   ['rotation',['rotation',['../class_rocket.html#a4a4148fcd786a4cddad91fa7961fb48a',1,'Rocket']]],
-  ['run',['run',['../classpixel_1_1_app.html#a21808c2f78df239ac3f58c34a2a4b667',1,'pixel::App::run()'],['../platformer_8cpp.html#ac64c5cff369fdede3a0afbbbc38aeac3',1,'run():&#160;platformer.cpp']]]
+  ['run',['run',['../classpixel_1_1_app.html#a21808c2f78df239ac3f58c34a2a4b667',1,'pixel::App::run()'],['../map__viewer_8cpp.html#abac48eabfe21e9b1bddfaf0bbacb4883',1,'run(Level &amp;level, const string &amp;map_path):&#160;map_viewer.cpp'],['../platformer_8cpp.html#ac64c5cff369fdede3a0afbbbc38aeac3',1,'run(Level &amp;level):&#160;platformer.cpp']]]
 ];

@@ -45,5 +45,5 @@ var searchData=
   ['rotation',['rotation',['../class_rocket.html#a4a4148fcd786a4cddad91fa7961fb48a',1,'Rocket']]],
   ['row_5fmask',['ROW_MASK',['../classpixel_1_1_tile_atlas.html#a39ef2af6f3b90103a49af36c27fc578e',1,'pixel::TileAtlas']]],
   ['row_5fshift',['ROW_SHIFT',['../classpixel_1_1_tile_atlas.html#a973e96f321308c6510efb6643a7a8f58',1,'pixel::TileAtlas']]],
-  ['run',['run',['../classpixel_1_1_app.html#a21808c2f78df239ac3f58c34a2a4b667',1,'pixel::App::run()'],['../platformer_8cpp.html#ac64c5cff369fdede3a0afbbbc38aeac3',1,'run():&#160;platformer.cpp']]]
+  ['run',['run',['../classpixel_1_1_app.html#a21808c2f78df239ac3f58c34a2a4b667',1,'pixel::App::run()'],['../map__viewer_8cpp.html#abac48eabfe21e9b1bddfaf0bbacb4883',1,'run(Level &amp;level, const string &amp;map_path):&#160;map_viewer.cpp'],['../platformer_8cpp.html#ac64c5cff369fdede3a0afbbbc38aeac3',1,'run(Level &amp;level):&#160;platformer.cpp']]]
 ];
