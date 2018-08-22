@@ -173,7 +173,7 @@ int main(int argc, char* argv[])
     glm::ivec2 virtual_window_size = glm::vec2{1920, 1000}*2.0f;
     glm::ivec2 actual_window_size = virtual_window_size;
 
-    pixel::init(actual_window_size, virtual_window_size, argc, argv);
+    pixel::init(actual_window_size, virtual_window_size, &argc, argv);
 
     Camera camera({0, 0}, {0, 0, 2000, 2000});
 

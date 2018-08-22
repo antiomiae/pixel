@@ -49,7 +49,10 @@ public:
 
     glm::uvec2 tile_size() const;
 
+    glm::vec4 background_color() const;
+
     void update(float dt);
+
 
 private:
 
@@ -58,6 +61,8 @@ private:
     vector<pixel::TileLayer> layers_;
     glm::uvec2 tile_size_;
     glm::uvec2 tile_count_;
+
+    glm::vec4 background_color_;
 
 };
 

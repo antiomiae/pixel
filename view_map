@@ -1,0 +1,8 @@
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+CMD=map_viewer
+
+./build $CMD
+build-make/bin/$CMD pixel $@

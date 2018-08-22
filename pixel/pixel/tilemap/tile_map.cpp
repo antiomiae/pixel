@@ -57,6 +57,10 @@ bool TileMap::load(const tmx::Map& map)
         }
     }
 
+    auto bg_color = map.getBackgroundColour();
+
+    background_color_ = {bg_color.r / 255.0f, bg_color.g / 255.0f, bg_color.b / 255.0f, bg_color.a / 255.0f};
+
     return true;
 }
 
@@ -82,6 +86,11 @@ glm::uvec2 TileMap::tile_count() const
 glm::uvec2 TileMap::tile_size() const
 {
     return tile_size_;
+}
+
+glm::vec4 TileMap::background_color() const
+{
+    return background_color_;
 }
 
 

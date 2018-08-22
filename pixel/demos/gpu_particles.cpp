@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
     glm::ivec2 virtual_window_size = glm::vec2{1440, 900};
     glm::ivec2 actual_window_size = virtual_window_size;
 
-    pixel::init(actual_window_size, virtual_window_size, argc, argv);
+    pixel::init(actual_window_size, virtual_window_size, &argc, argv);
 
     pixel::graphics::Shader n_body_shader{
         "assets/shaders/n_body.vert",

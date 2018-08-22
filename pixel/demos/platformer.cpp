@@ -232,12 +232,17 @@ struct Guy
         auto& tile_layer = level->tile_map().layers()[layer];
         auto tile_size = level->tile_map().tile_size();
         auto tile_count = tile_layer.parent().tile_count();
+        auto extents = tile_count * tile_size;
 
         bool found_solid_tile = false;
         int minx = max(position.x, 0.0f);
         int miny = max(position.y, 0.0f);
         int maxx = min((int)(position.x + size.x - 1), (int)(tile_count.x * tile_size.x - 1));
         int maxy = min((int)(position.y + size.y - 1), (int)(tile_count.y * tile_size.y - 1));
+
+        if (maxy < 0 || maxx < 0 || minx > (extents.x - 1) || miny > (extents.y - 1)) {
+            return false;
+        }
 
         tile_layer.visit_tiles(
             {
@@ -298,6 +303,8 @@ y = {float} 73.75
 
     level.camera().follow(guy.position);
 
+    glClearColor(0.1, 0.1, 0.1, 1);
+
     pixel::app().set_tick_callback(
         [&] {
             guy.update(1 / 60.0f);
@@ -331,7 +338,7 @@ void start(int argc, char** argv)
     glm::ivec2 virtual_window_size = glm::vec2{320, 224};
     glm::ivec2 actual_window_size = virtual_window_size * 2;
 
-    pixel::init(actual_window_size, virtual_window_size, argc, argv);
+    pixel::init(actual_window_size, virtual_window_size, &argc, argv);
 
     Level level{virtual_window_size};
 

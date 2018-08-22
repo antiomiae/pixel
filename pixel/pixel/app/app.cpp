@@ -13,7 +13,7 @@ using namespace std;
 
 App* shared_app = nullptr;
 
-void clear_color(const glm::vec4& color)
+void set_clear_color(const glm::vec4& color)
 {
     glClearColor(color.r, color.g, color.b, color.a);
 }
@@ -85,6 +85,8 @@ void App::init(int flags)
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     glfwSetInputMode(window_, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+
+    set_clear_color(render_context_.default_clear_color);
 }
 
 void App::update_render_context()
@@ -94,7 +96,7 @@ void App::update_render_context()
 
 void App::run()
 {
-    clear_color(render_context_.default_clear_color);
+    glClear(GL_COLOR_BUFFER_BIT);
 
     while (!glfwWindowShouldClose(window_)) {
         tick();
@@ -106,7 +108,7 @@ void App::run()
             glViewport(0, 0, ws.x, ws.y);
         }
 
-        glClear(GL_COLOR_BUFFER_BIT);
+        set_clear_color(render_context_.default_clear_color);
 
         glfwPollEvents();
 
@@ -174,6 +176,11 @@ void App::change_to_app_dir()
 float App::current_fps()
 {
     return fps_counter_.fps();
+}
+
+void App::set_background_color(glm::vec4 bg)
+{
+    render_context_.default_clear_color = bg;
 }
 
 App& app()

@@ -35,6 +35,7 @@ public:
     const string& app_dir();
     void set_app_dir(const string& path);
     void change_to_app_dir();
+    void set_background_color(glm::vec4);
 
     GLFWwindow* window();
     RenderContext& render_context();

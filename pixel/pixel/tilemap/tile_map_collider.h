@@ -380,6 +380,12 @@ private:
         TileLayer& tile_layer, const function<bool(TileLayer::Tile & , Tileset::Tile & )>& tile_callback
     )
     {
+        auto tile_count = tile_layer.parent().tile_count();
+
+        if (collision_index.x < 0 || collision_index.x >= tile_count.x) {
+            return false;
+        }
+
         auto d = xt * original_delta;
         delta = original_delta - d;
         test_rect.center = original_center + d;
@@ -398,6 +404,12 @@ private:
                 row_span.s -= 1;
             }
         }
+
+        if ((row_span.s < 0 && row_span.t < 0) || (row_span.s >= tile_count.y && row_span.t >= tile_count.y)) {
+            return false;
+        }
+
+        row_span = glm::clamp(row_span, 0, (int)tile_count.y - 1);
 
         if (check_solid_column(tile_layer, column_to_check, row_span, tile_callback)) {
             delta.x = 0;
@@ -418,6 +430,12 @@ private:
         TileLayer& tile_layer, const function<bool(TileLayer::Tile & , Tileset::Tile & )>& tile_callback
     )
     {
+        auto tile_count = tile_layer.parent().tile_count();
+
+        if (collision_index.y < 0 || collision_index.y >= tile_count.y) {
+            return false;
+        }
+
         auto d = yt * original_delta;
         delta = original_delta - d;
         test_rect.center = original_center + d;
@@ -436,6 +454,12 @@ private:
                 column_span.s -= 1;
             }
         }
+
+        if ((column_span.s < 0 && column_span.t < 0) || (column_span.s >= tile_count.x && column_span.t >= tile_count.x)) {
+            return false;
+        }
+
+        column_span = glm::clamp(column_span, 0, (int)tile_count.x - 1);
 
         if (check_solid_row(tile_layer, row_to_check, column_span, tile_callback)) {
             delta.y = 0;

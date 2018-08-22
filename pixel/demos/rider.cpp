@@ -241,7 +241,7 @@ void start(int argc, char** argv)
     glm::ivec2 virtual_window_size = glm::vec2{640, 400} * 2.0f;
     glm::ivec2 actual_window_size = virtual_window_size ;
 
-    pixel::init(actual_window_size, virtual_window_size, argc, argv);
+    pixel::init(actual_window_size, virtual_window_size, &argc, argv);
 
     OffscreenRenderTarget render_target{};
     render_target.set_window_size(virtual_window_size);
