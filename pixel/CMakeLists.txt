@@ -106,6 +106,7 @@ ADD_SUBDIRECTORY(lib/tinypng)
 ADD_SUBDIRECTORY(lib/glm)
 ADD_SUBDIRECTORY(lib/sol2)
 ADD_SUBDIRECTORY(lib/tmxlite/tmxlite)
+ADD_SUBDIRECTORY(lib/rtaudio)
 
 
 TARGET_LINK_LIBRARIES(
@@ -113,7 +114,9 @@ TARGET_LINK_LIBRARIES(
     PUBLIC Boost::system Boost::filesystem tinypng glfw glew::glew tmxlite
     Lua::lua_lib
     sol2
-    glm)
+    glm
+    rtaudio
+)
 
 TARGET_COMPILE_DEFINITIONS(glm INTERFACE GLM_ENABLE_EXPERIMENTAL)
 
