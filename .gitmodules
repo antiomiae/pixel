@@ -13,3 +13,6 @@
 [submodule "pixel/lib/rtaudio"]
 	path = pixel/lib/rtaudio
 	url = https://github.com/thestk/rtaudio
+[submodule "pixel/lib/imgui"]
+	path = pixel/lib/imgui
+	url = https://github.com/ocornut/imgui
