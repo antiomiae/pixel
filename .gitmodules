@@ -13,3 +13,6 @@
 [submodule "pixel/lib/imgui"]
 	path = pixel/lib/imgui
 	url = https://github.com/ocornut/imgui
+[submodule "pixel/lib/soloud"]
+	path = pixel/lib/soloud
+	url = https://github.com/jarikomppa/soloud.git
