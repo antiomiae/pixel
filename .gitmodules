@@ -10,9 +10,6 @@
 [submodule "pixel/lib/Catch2"]
 	path = pixel/lib/Catch2
 	url = https://github.com/catchorg/Catch2.git
-[submodule "pixel/lib/rtaudio"]
-	path = pixel/lib/rtaudio
-	url = https://github.com/thestk/rtaudio
 [submodule "pixel/lib/imgui"]
 	path = pixel/lib/imgui
 	url = https://github.com/ocornut/imgui

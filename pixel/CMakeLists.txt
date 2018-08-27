@@ -82,7 +82,6 @@ list(APPEND pixel_sources
     pixel/physics/particle.h
     pixel/level.h
     pixel/tilemap/tile_map_collider.h
-    lib/rtaudio/RtAudio.cpp
     )
 
 
