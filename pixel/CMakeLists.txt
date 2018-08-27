@@ -82,6 +82,7 @@ list(APPEND pixel_sources
     pixel/physics/particle.h
     pixel/level.h
     pixel/tilemap/tile_map_collider.h
+    lib/rtaudio/RtAudio.cpp
     )
 
 
@@ -92,12 +93,13 @@ IF (PIXEL_LUA_BINDING)
       )
 ENDIF (PIXEL_LUA_BINDING)
 
+list(APPEND pixel_sources
+    lib/imgui/imgui.cpp
+    lib/imgui/imgui_draw.cpp)
+
 ADD_LIBRARY(pixel ${pixel_sources})
 
-
 ADD_DEPENDENCIES(pixel pixel_source_version)
-
-TARGET_INCLUDE_DIRECTORIES(pixel PUBLIC .)
 
 SET(TMXLITE_STATIC_LIB ON)
 SET(GLM_TEST_ENABLE OFF)
@@ -106,8 +108,8 @@ ADD_SUBDIRECTORY(lib/tinypng)
 ADD_SUBDIRECTORY(lib/glm)
 ADD_SUBDIRECTORY(lib/sol2)
 ADD_SUBDIRECTORY(lib/tmxlite/tmxlite)
-ADD_SUBDIRECTORY(lib/rtaudio)
 
+TARGET_INCLUDE_DIRECTORIES(pixel PUBLIC . lib/imgui)
 
 TARGET_LINK_LIBRARIES(
     pixel
@@ -115,7 +117,6 @@ TARGET_LINK_LIBRARIES(
     Lua::lua_lib
     sol2
     glm
-    rtaudio
 )
 
 TARGET_COMPILE_DEFINITIONS(glm INTERFACE GLM_ENABLE_EXPERIMENTAL)
