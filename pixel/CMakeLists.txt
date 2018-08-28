@@ -94,7 +94,10 @@ ENDIF (PIXEL_LUA_BINDING)
 
 list(APPEND pixel_sources
     lib/imgui/imgui.cpp
-    lib/imgui/imgui_draw.cpp)
+    lib/imgui/imgui_draw.cpp
+    lib/imgui/imgui_demo.cpp
+    pixel/imgui/imgui_impl_glfw.cpp
+    pixel/imgui/imgui_impl_opengl3.cpp)
 
 ADD_LIBRARY(pixel ${pixel_sources})
 

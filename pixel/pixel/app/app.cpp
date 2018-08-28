@@ -100,6 +100,7 @@ void App::run()
 
     while (!glfwWindowShouldClose(window_)) {
         tick();
+        glfwMakeContextCurrent(window_);
 
         update_render_context();
 
@@ -116,6 +117,7 @@ void App::run()
             tick_callback_();
         }
 
+        glfwMakeContextCurrent(window_);
         glfwSwapBuffers(window_);
 
         late_tick();
