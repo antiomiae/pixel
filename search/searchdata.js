@@ -7,10 +7,10 @@ var indexSectionsWithContent =
   4: "_abcdefghijklmnoprstuvw~",
   5: "_abcdefghijklmnoprstuvwxyz",
   6: "acfklprstu",
-  7: "cf",
-  8: "hknv",
+  7: "cfg",
+  8: "ghknv",
   9: "o",
-  10: "ceglps"
+  10: "ceglmps"
 };
 
 var indexSectionNames =

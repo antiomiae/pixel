@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vertical',['Vertical',['../namespacepixel.html#ae48689ae70c617dbaac708f876530246a06ce2a25e5d12c166a36f654dbea6012',1,'pixel']]]
+  ['none',['None',['../namespacepixel.html#ae48689ae70c617dbaac708f876530246a6adf97f83acf6453d4a6a4b1070f3754',1,'pixel']]]
 ];
