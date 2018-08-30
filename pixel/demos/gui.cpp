@@ -47,9 +47,13 @@ private:
             return;
         }
 
+        ImGui::SliderFloat("x", &sprite_->position.x, 0, app().render_context().virtual_window_size.x);
+        ImGui::VSliderFloat("y", {18.0f, 160.0f}, &sprite_->position.y, 0, app().render_context().virtual_window_size.y);
+
+        ImGui::SliderFloat("angle", &sprite_->angle, 0, 2*M_PI);
+
         ImGui::End();
     }
-
 };
 
 void setup_imgui()
@@ -63,7 +67,7 @@ void setup_imgui()
     //io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;   // Enable Gamepad Controls
 
     //const char* glsl_version = "150";
-    ImGui_ImplGlfw_InitForOpenGL(pixel::app().window(), true);
+    ImGui_ImplGlfw_InitForOpenGL(pixel::app().window(), false);
     ImGui_ImplOpenGL3_Init(nullptr);
 }
 
