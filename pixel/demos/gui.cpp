@@ -1,7 +1,56 @@
 #include <pixel/pixel.h>
+#include <pixel/level.h>
+//#include <pixel/input
 #include <imgui.h>
 #include <pixel/imgui/imgui_impl_glfw.h>
 #include <pixel/imgui/imgui_impl_opengl3.h>
+
+using namespace pixel;
+using namespace pixel::graphics;
+
+
+class SpriteDebugMenu
+{
+public:
+    SpriteDebugMenu(Sprite* sprite)
+    : sprite_(sprite)
+    {
+    }
+
+    void update()
+    {
+        if (!is_active_ && should_activate()) {
+             is_active_ = true;
+        }
+
+        render();
+    }
+
+private:
+    bool is_active_ = true;
+    Sprite* sprite_ = nullptr;
+
+    bool should_activate()
+    {
+        auto v = input::Keyboard::keymap[GLFW_KEY_D];
+        return v;
+    }
+
+    void render()
+    {
+        if (!is_active_) {
+            return;
+        }
+
+        if (!ImGui::Begin("Sprite", &is_active_)) {
+            ImGui::End();
+            return;
+        }
+
+        ImGui::End();
+    }
+
+};
 
 void setup_imgui()
 {
@@ -27,6 +76,35 @@ void gui()
     ImGui::ShowDemoWindow(&show_demo_window);
 }
 
+void imgui_frame_start()
+{
+    ImGui_ImplOpenGL3_NewFrame();
+    ImGui_ImplGlfw_NewFrame();
+    ImGui::NewFrame();
+}
+
+void imgui_render()
+{
+    ImGui::Render();
+    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+}
+
+void update(Level& level)
+{
+    static Sprite sprite = level.get_sprite("assets/sonic.png");
+    static SpriteDebugMenu debug_menu(&sprite);
+
+    debug_menu.update();
+
+    level.begin_render();
+
+    SpriteBatch batch;
+
+    batch.add(sprite);
+
+    level.renderer_group().get<pixel::renderers::SpriteRenderer>().render(batch.sprites(), level.sprite_texture(), level.camera());
+}
+
 void start(int argc, char** argv)
 {
     glm::ivec2 virtual_window_size = glm::vec2{1400, 800};
@@ -34,24 +112,21 @@ void start(int argc, char** argv)
 
     pixel::init(actual_window_size, virtual_window_size, &argc, argv);
 
+    Level level(app().render_context().virtual_window_size);
+
+    level.load_sprites({"assets/sonic.png"});
+
     setup_imgui();
 
     pixel::app().set_background_color({1, 1, 1, 1});
 
     pixel::app().set_tick_callback(
         [&] {
-            ImGui_ImplOpenGL3_NewFrame();
-            ImGui_ImplGlfw_NewFrame();
-            ImGui::NewFrame();
+            imgui_frame_start();
 
-            // doesn't use opengl at all
-            gui();
-            ImGui::Render();
+            update(level);
 
-            glClear(GL_COLOR_BUFFER_BIT);
-            // now it do
-            ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
+            imgui_render();
         }
     );
 
