@@ -8,6 +8,7 @@ var searchData=
   ['spring',['spring',['../struct_particle_spring_system.html#ab6aac733cf106429a59c4b8785ff8021',1,'ParticleSpringSystem']]],
   ['springs',['springs',['../struct_physics.html#ad786b346cf0d17280eff9dd6e6b81f37',1,'Physics']]],
   ['sprite',['sprite',['../struct_guy.html#a4679d0ea7f24395d8b34540bbf6e4372',1,'Guy']]],
+  ['sprite_5f',['sprite_',['../class_sprite_debug_menu.html#ab18583df29c1154337ed02a2eb5009db',1,'SpriteDebugMenu']]],
   ['sprite_5fbatch_5f',['sprite_batch_',['../classtetrominos_1_1_level.html#a66f56986e49d2f1ef3a31114f1c16c2c',1,'tetrominos::Level']]],
   ['sprite_5fbuffer_5f',['sprite_buffer_',['../classpixel_1_1renderers_1_1_sprite_renderer.html#a5725463d154d19f268b938ae6ae0d628',1,'pixel::renderers::SpriteRenderer']]],
   ['sprite_5frenderer_5f',['sprite_renderer_',['../classtetrominos_1_1_level.html#a0639cfade0528ca06b62782082bd3f93',1,'tetrominos::Level']]],

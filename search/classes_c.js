@@ -6,5 +6,6 @@ var searchData=
   ['sprite',['Sprite',['../classpixel_1_1graphics_1_1_sprite.html',1,'pixel::graphics']]],
   ['spriteanimation',['SpriteAnimation',['../classpixel_1_1graphics_1_1_sprite_animation.html',1,'pixel::graphics']]],
   ['spritebatch',['SpriteBatch',['../classpixel_1_1graphics_1_1_sprite_batch.html',1,'pixel::graphics']]],
+  ['spritedebugmenu',['SpriteDebugMenu',['../class_sprite_debug_menu.html',1,'']]],
   ['spriterenderer',['SpriteRenderer',['../classpixel_1_1renderers_1_1_sprite_renderer.html',1,'pixel::renderers']]]
 ];
