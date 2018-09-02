@@ -5,7 +5,7 @@ var searchData=
   ['p2',['p2',['../struct_particle_spring_system.html#a36c1e8a564ab96e8170fa5b04d2c830b',1,'ParticleSpringSystem']]],
   ['pan_5fspeed',['PAN_SPEED',['../map__viewer_8cpp.html#a40a73b3adf8d0f1e4f3eecdfaefbc7e1',1,'map_viewer.cpp']]],
   ['parallax_5f',['parallax_',['../classpixel_1_1_tile_layer.html#a3bea19601f8f1647503aee823664f91f',1,'pixel::TileLayer']]],
-  ['parent_5f',['parent_',['../classpixel_1_1_tile_layer.html#af4ce211cba5a10a4bf124abefe1ead3c',1,'pixel::TileLayer']]],
+  ['parent_5f',['parent_',['../classpixel_1_1_node.html#a9b3ab294c915a95eb35ea0c369c21b54',1,'pixel::Node::parent_()'],['../classpixel_1_1_tile_layer.html#af4ce211cba5a10a4bf124abefe1ead3c',1,'pixel::TileLayer::parent_()']]],
   ['particle_5f',['particle_',['../class_rocket.html#aba309e2a45ca0f77e255be9c4b1ab9ab',1,'Rocket']]],
   ['particles',['particles',['../struct_physics.html#a2960892edbd331ef7768ed4f414403e5',1,'Physics']]],
   ['particles_5f',['particles_',['../class_particle_controller.html#a8df4f3b9574f2e0dcba0f9bc8bd29a34',1,'ParticleController']]],
