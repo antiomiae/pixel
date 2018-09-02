@@ -82,6 +82,8 @@ list(APPEND pixel_sources
     pixel/physics/particle.h
     pixel/level.h
     pixel/tilemap/tile_map_collider.h
+    pixel/objects/game_object.cpp pixel/objects/test_game_object.h
+    pixel/objects/node.cpp pixel/objects/node.h
     )
 
 
@@ -99,7 +101,7 @@ list(APPEND pixel_sources
     pixel/imgui/imgui_impl_glfw.cpp
     pixel/imgui/imgui_impl_opengl3.cpp)
 
-ADD_LIBRARY(pixel ${pixel_sources})
+ADD_LIBRARY(pixel ${pixel_sources} )
 
 ADD_DEPENDENCIES(pixel pixel_source_version)
 

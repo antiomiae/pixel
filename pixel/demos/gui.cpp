@@ -48,7 +48,7 @@ private:
         }
 
         ImGui::SliderFloat("x", &sprite_->position.x, 0, app().render_context().virtual_window_size.x);
-        ImGui::VSliderFloat("y", {18.0f, 160.0f}, &sprite_->position.y, 0, app().render_context().virtual_window_size.y);
+        ImGui::SliderFloat("y", &sprite_->position.y, 0, app().render_context().virtual_window_size.y);
 
         ImGui::SliderFloat("angle", &sprite_->angle, 0, 2*M_PI);
 
