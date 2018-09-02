@@ -82,7 +82,7 @@ list(APPEND pixel_sources
     pixel/physics/particle.h
     pixel/level.h
     pixel/tilemap/tile_map_collider.h
-    pixel/objects/game_object.cpp pixel/objects/test_game_object.h
+    pixel/objects/game_object.cpp pixel/objects/game_object.h
     pixel/objects/node.cpp pixel/objects/node.h
     )
 

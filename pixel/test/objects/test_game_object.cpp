@@ -1,4 +1,4 @@
-#include <pixel/objects/test_game_object.h>
+#include <pixel/objects/game_object.h>
 #include <test/setup.h>
 
 namespace
