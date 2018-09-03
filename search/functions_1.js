@@ -22,6 +22,7 @@ var searchData=
   ['atlas_5fid_5ffrom_5ftmx_5fid',['atlas_id_from_tmx_id',['../classpixel_1_1_tile_atlas.html#a4e71b86af4e568ceec4847b4c5cd06f5',1,'pixel::TileAtlas::atlas_id_from_tmx_id(uint32_t tmx_id) const'],['../classpixel_1_1_tile_atlas.html#ad6fa15cdb46bdd8ca0366375c1c6be7c',1,'pixel::TileAtlas::atlas_id_from_tmx_id(uint32_t tmx_id, uint8_t flags) const']]],
   ['atlas_5flayers',['atlas_layers',['../classpixel_1_1_tile_atlas.html#aa5ae1812212e58ba29f7181ef2e958a5',1,'pixel::TileAtlas']]],
   ['atlas_5frows',['atlas_rows',['../classpixel_1_1_tile_atlas.html#a7e622cf32418443225c4b4f9afd20258',1,'pixel::TileAtlas']]],
+  ['atlas_5fsize',['atlas_size',['../classpixel_1_1graphics_1_1_texture_atlas.html#a654032dd249b8545c84a3532104d2cda',1,'pixel::graphics::TextureAtlas']]],
   ['attach_5fbuffers',['attach_buffers',['../classpixel_1_1graphics_1_1_offscreen_render_target.html#acac4df8b179a089d8672ad5b84c1a27a',1,'pixel::graphics::OffscreenRenderTarget']]],
   ['attractors',['attractors',['../class_particle_controller.html#ac42eff748d963c2010613c7c074f84e5',1,'ParticleController']]],
   ['attribute',['attribute',['../classpixel_1_1graphics_1_1_shader.html#afd60c95f6c8b001d83a47480820f682a',1,'pixel::graphics::Shader']]]

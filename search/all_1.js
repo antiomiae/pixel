@@ -40,6 +40,7 @@ var searchData=
   ['atlas_5flayers_5f',['atlas_layers_',['../classpixel_1_1_tile_atlas.html#af76d22ff6a5c60a535704b97c3faf336',1,'pixel::TileAtlas']]],
   ['atlas_5frows',['atlas_rows',['../classpixel_1_1_tile_atlas.html#a7e622cf32418443225c4b4f9afd20258',1,'pixel::TileAtlas']]],
   ['atlas_5frows_5f',['atlas_rows_',['../classpixel_1_1_tile_atlas.html#a68dee9e69a708871a34606a0b5250c5a',1,'pixel::TileAtlas']]],
+  ['atlas_5fsize',['atlas_size',['../classpixel_1_1graphics_1_1_texture_atlas.html#a654032dd249b8545c84a3532104d2cda',1,'pixel::graphics::TextureAtlas']]],
   ['atlas_5fsize_5f',['atlas_size_',['../classpixel_1_1graphics_1_1_texture_atlas.html#a80526484f92293415e18f8bad05b7de4',1,'pixel::graphics::TextureAtlas']]],
   ['attach_5fbuffers',['attach_buffers',['../classpixel_1_1graphics_1_1_offscreen_render_target.html#acac4df8b179a089d8672ad5b84c1a27a',1,'pixel::graphics::OffscreenRenderTarget']]],
   ['attractor',['Attractor',['../struct_attractor.html',1,'']]],

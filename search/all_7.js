@@ -41,7 +41,8 @@ var searchData=
   ['graphics_2eh',['graphics.h',['../graphics_8h.html',1,'']]],
   ['gravity',['GRAVITY',['../rider_8cpp.html#a48e56f4d6787b67d97b4655a84e7c3f1',1,'rider.cpp']]],
   ['ground_5ffriction',['ground_friction',['../struct_guy.html#aaba4a782aa832e46b0a8e071b3f9e2cc',1,'Guy']]],
-  ['gui',['gui',['../gui_8cpp.html#ac5b43d040610aa17796cd6e5a28fac7f',1,'gui.cpp']]],
-  ['gui_2ecpp',['gui.cpp',['../gui_8cpp.html',1,'']]],
+  ['gui',['gui',['../demos_2gui_8cpp.html#a536a7913ce83c9003e6982569ae613cd',1,'gui.cpp']]],
+  ['gui_2ecpp',['gui.cpp',['../demos_2gui_8cpp.html',1,'(Global Namespace)'],['../pixel_2imgui_2gui_8cpp.html',1,'(Global Namespace)']]],
+  ['gui_2eh',['gui.h',['../gui_8h.html',1,'']]],
   ['guy',['Guy',['../struct_guy.html',1,'Guy'],['../struct_guy.html#a79945cc8031dade895e89d6460cb5ca4',1,'Guy::Guy()']]]
 ];
