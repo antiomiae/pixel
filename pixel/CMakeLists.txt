@@ -84,6 +84,7 @@ list(APPEND pixel_sources
     pixel/tilemap/tile_map_collider.h
     pixel/objects/game_object.cpp pixel/objects/game_object.h
     pixel/objects/node.cpp pixel/objects/node.h
+    pixel/imgui/gui.h pixel/imgui/gui.cpp
     )
 
 
@@ -101,7 +102,33 @@ list(APPEND pixel_sources
     pixel/imgui/imgui_impl_glfw.cpp
     pixel/imgui/imgui_impl_opengl3.cpp)
 
-ADD_LIBRARY(pixel ${pixel_sources} pixel/imgui/gui.h pixel/imgui/gui.cpp)
+file(GLOB soloud_sources
+    lib/soloud/src/core/*.cpp
+    lib/soloud/src/audiosource/wav/*.c*)
+
+
+if(APPLE)
+  LIST(APPEND soloud_sources
+      lib/soloud/src/backend/coreaudio/soloud_coreaudio.cpp)
+endif(APPLE)
+
+ADD_LIBRARY(pixel ${pixel_sources} ${soloud_sources})
+
+if(APPLE)
+  find_library(AUDIO_TOOLBOX AudioToolbox)
+  find_library(AUDIO_TOOLBOX CoreAudio)
+  if (NOT AUDIO_TOOLBOX)
+    message(FATAL_ERROR "AudioToolbox not found")
+  endif()
+    TARGET_LINK_LIBRARIES(
+      pixel
+      PUBLIC
+      ${AUDIO_TOOLBOX}
+  )
+
+  TARGET_COMPILE_DEFINITIONS(pixel PRIVATE WITH_COREAUDIO)
+endif(APPLE)
+
 
 ADD_DEPENDENCIES(pixel pixel_source_version)
 
@@ -113,7 +140,7 @@ ADD_SUBDIRECTORY(lib/glm)
 ADD_SUBDIRECTORY(lib/sol2)
 ADD_SUBDIRECTORY(lib/tmxlite/tmxlite)
 
-TARGET_INCLUDE_DIRECTORIES(pixel PUBLIC . lib/imgui)
+TARGET_INCLUDE_DIRECTORIES(pixel PUBLIC . lib/imgui lib/soloud/include)
 
 TARGET_LINK_LIBRARIES(
     pixel
