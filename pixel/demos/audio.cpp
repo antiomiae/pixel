@@ -11,7 +11,6 @@ void start(int argc, char** argv)
 
     SoLoud::Wav gWave;      // One wave file
 
-
     gWave.load("assets/vapor.wav");
     gWave.setLooping(1);
 
