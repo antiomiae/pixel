@@ -11,6 +11,7 @@ var searchData=
   ['particles',['particles',['../class_particle_controller.html#a28c8a7c73a66d57517e8e1751eb413e8',1,'ParticleController::particles()'],['../class_particle_controller.html#a28c8a7c73a66d57517e8e1751eb413e8',1,'ParticleController::particles()']]],
   ['physics',['Physics',['../struct_physics.html#a4b2ebc0a344f04f48d227c72f0d0fbda',1,'Physics']]],
   ['pieces',['pieces',['../classtetrominos_1_1_tetromino.html#aafd07831a524e09694a966c6d63f3eaa',1,'tetrominos::Tetromino']]],
+  ['play',['play',['../classpixel_1_1_audio_controller.html#a625f273681b9bff57edc66e81656fa75',1,'pixel::AudioController']]],
   ['pop_5fcallback',['pop_callback',['../classpixel_1_1input_1_1_callback_stack.html#a27ad0f4e9e3c5ab397dfd3bf053b7bc4',1,'pixel::input::CallbackStack']]],
   ['populatesymbolmap',['populateSymbolMap',['../gl__debug__map_8cpp.html#a8023158a6314838df34cfdea7dd1385d',1,'gl_debug_map.cpp']]],
   ['position',['position',['../class_rocket.html#a3b71c986fedc94a09cc2db7d3cab0024',1,'Rocket::position()'],['../classpixel_1_1graphics_1_1_camera.html#ac4f00fc40a96aba91565fb06999c60d1',1,'pixel::graphics::Camera::position()'],['../classpixel_1_1_rect.html#a0c7a21247e59915c90c3dfec87bdfd06',1,'pixel::Rect::position()'],['../namespacepixel.html#ad650304c53730cbc06bddfa4486c54db',1,'pixel::position()']]],

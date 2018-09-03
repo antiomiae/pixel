@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['_7eaudiocontroller',['~AudioController',['../classpixel_1_1_audio_controller.html#a0dd6414da8559fe549a5655742a07019',1,'pixel::AudioController']]],
   ['_7eimagedata',['~ImageData',['../structpixel_1_1graphics_1_1_image_data.html#a7fb937a182727dcd3bd0b95e249ba411',1,'pixel::graphics::ImageData']]],
   ['_7elinerenderer',['~LineRenderer',['../classpixel_1_1renderers_1_1_line_renderer.html#afe637517d8e07a8524d855c2d002c08d',1,'pixel::renderers::LineRenderer']]],
   ['_7epacknode',['~PackNode',['../structpixel_1_1pack_1_1_pack_node.html#a8ce9fffbc415ea9509106959c99421fc',1,'pixel::pack::PackNode']]],

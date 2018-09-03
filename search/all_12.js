@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['sample_5fcache_5f',['sample_cache_',['../classpixel_1_1_audio_controller.html#a123ad92a15d582d7ccf7e1c7c5ba3a37',1,'pixel::AudioController']]],
   ['save',['save',['../structpixel_1_1graphics_1_1_image_data.html#ade48a275f4360b126829691433434c13',1,'pixel::graphics::ImageData']]],
   ['save_5fpng',['save_png',['../namespacepixel_1_1graphics.html#a202dcdb746e8d6064ca1b3a0f3f54987',1,'pixel::graphics']]],
   ['scale',['scale',['../classpixel_1_1graphics_1_1_camera.html#a75779ac55f97b633c605bc99ec6c88ce',1,'pixel::graphics::Camera::scale(float s)'],['../classpixel_1_1graphics_1_1_camera.html#a2d8fcc61bcfda9282e98aa70a7e5051e',1,'pixel::graphics::Camera::scale(float x, float y)'],['../classpixel_1_1graphics_1_1_camera.html#a7fb7ac4bb32a9483ea642e25c04bb92d',1,'pixel::graphics::Camera::scale(const glm::vec2 &amp;)'],['../classpixel_1_1graphics_1_1_camera.html#ac50d19eb1c15ce69929f7daed2d31aca',1,'pixel::graphics::Camera::scale()']]],
@@ -8,7 +9,7 @@ var searchData=
   ['script_5frunner_2ecpp',['script_runner.cpp',['../script__runner_8cpp.html',1,'']]],
   ['set',['set',['../classpixel_1_1collision_1_1_collision_map.html#a78d6d7d3fed586c7b6fa1ea83f28c9b6',1,'pixel::collision::CollisionMap']]],
   ['set_5fangle',['set_angle',['../classpixel_1_1graphics_1_1_camera.html#a2932bdf2ad5ca37548a255795d4b0e53',1,'pixel::graphics::Camera']]],
-  ['set_5fapp',['set_app',['../namespacepixel.html#a9be5ce1f8bdc70837654022e3acfe563',1,'pixel']]],
+  ['set_5fapp',['set_app',['../classpixel_1_1_app.html#aa3eb17d8b8bf877f144f620e0168d7a7',1,'pixel::App']]],
   ['set_5fapp_5fdir',['set_app_dir',['../classpixel_1_1_app.html#ab67c71db0e518a8bdedb0a5ce005abbd',1,'pixel::App']]],
   ['set_5fbackground_5fcolor',['set_background_color',['../classpixel_1_1_app.html#abcbafdcbde19e2336ef8812e686152bc',1,'pixel::App']]],
   ['set_5fbuffer_5fdata',['set_buffer_data',['../classpixel_1_1renderers_1_1_tile_map_renderer.html#a4bed0d18f681d2465d8551cb65c50c27',1,'pixel::renderers::TileMapRenderer']]],
@@ -38,7 +39,7 @@ var searchData=
   ['shader_5futils_2eh',['shader_utils.h',['../shader__utils_8h.html',1,'']]],
   ['shadercheck_2ecpp',['shadercheck.cpp',['../shadercheck_8cpp.html',1,'']]],
   ['shadercheck_2eh',['shadercheck.h',['../shadercheck_8h.html',1,'']]],
-  ['shared_5fapp',['shared_app',['../namespacepixel.html#abca3076b5c1bad9562287de4c59ecac0',1,'pixel']]],
+  ['shared_5fapp',['shared_app',['../classpixel_1_1_app.html#a6c73dfe2d542f1a9b526fbe6ad690057',1,'pixel::App']]],
   ['should_5factivate',['should_activate',['../class_sprite_debug_menu.html#a067d1d3ed76355768dd0ebd118307cab',1,'SpriteDebugMenu']]],
   ['should_5fflip',['should_flip',['../structpixel_1_1pack_1_1_pack_node.html#a6c8bdca8866f0a2e19c9a9f2a65cff38',1,'pixel::pack::PackNode']]],
   ['simple_5ftimer_2ecpp',['simple_timer.cpp',['../simple__timer_8cpp.html',1,'']]],
@@ -72,7 +73,7 @@ var searchData=
   ['spriterenderer',['SpriteRenderer',['../classpixel_1_1renderers_1_1_sprite_renderer.html',1,'pixel::renderers::SpriteRenderer'],['../classpixel_1_1renderers_1_1_sprite_renderer.html#a6cfab8f07a6c8d63a79e9cdc5986c157',1,'pixel::renderers::SpriteRenderer::SpriteRenderer()']]],
   ['sprites',['sprites',['../classpixel_1_1graphics_1_1_sprite_batch.html#ae25bfb31697a2f4dd80b1d71a4587d89',1,'pixel::graphics::SpriteBatch']]],
   ['sprites_5f',['sprites_',['../classpixel_1_1graphics_1_1_sprite_batch.html#a46d82e006276b2bd2061dd12d5d14f91',1,'pixel::graphics::SpriteBatch']]],
-  ['start',['start',['../audio_8cpp.html#a9a9872424914224b579b6d38807d16b6',1,'start(int argc, char **argv):&#160;audio.cpp'],['../demos_2gui_8cpp.html#a9a9872424914224b579b6d38807d16b6',1,'start(int argc, char **argv):&#160;gui.cpp'],['../map__viewer_8cpp.html#a9a9872424914224b579b6d38807d16b6',1,'start(int argc, char **argv):&#160;map_viewer.cpp'],['../platformer_8cpp.html#a9a9872424914224b579b6d38807d16b6',1,'start(int argc, char **argv):&#160;platformer.cpp'],['../rider_8cpp.html#a9a9872424914224b579b6d38807d16b6',1,'start(int argc, char **argv):&#160;rider.cpp']]],
+  ['start',['start',['../demos_2audio_8cpp.html#a9a9872424914224b579b6d38807d16b6',1,'start(int argc, char **argv):&#160;audio.cpp'],['../demos_2gui_8cpp.html#a9a9872424914224b579b6d38807d16b6',1,'start(int argc, char **argv):&#160;gui.cpp'],['../map__viewer_8cpp.html#a9a9872424914224b579b6d38807d16b6',1,'start(int argc, char **argv):&#160;map_viewer.cpp'],['../platformer_8cpp.html#a9a9872424914224b579b6d38807d16b6',1,'start(int argc, char **argv):&#160;platformer.cpp'],['../rider_8cpp.html#a9a9872424914224b579b6d38807d16b6',1,'start(int argc, char **argv):&#160;rider.cpp']]],
   ['start_5fbatch',['start_batch',['../classpixel_1_1graphics_1_1_texture_atlas.html#aa188b1c03218f98cfc50359d99befd1c',1,'pixel::graphics::TextureAtlas']]],
   ['start_5fposition',['start_position',['../structpixel_1_1_bounding_box.html#ae4c8c29b1cc79f6a93bb85e32e87dd93',1,'pixel::BoundingBox']]],
   ['step',['step',['../class_particle_controller.html#a0a9f3ff0f2e21f950545726ac6facd39',1,'ParticleController::step()'],['../struct_mutual_gravity_simulation.html#a716b59656570dd2199a7ffa8c191ca79',1,'MutualGravitySimulation::step()'],['../class_particle_controller.html#a0a9f3ff0f2e21f950545726ac6facd39',1,'ParticleController::step(float dt)'],['../class_particle_controller.html#a66b9b14224be96b9d3c8f23db9c9966e',1,'ParticleController::step(AccFunc &amp;acc_func)'],['../structpixel_1_1physics_1_1_particle.html#a203cdf7b84f7c60402984695da802ce8',1,'pixel::physics::Particle::step()']]],
@@ -83,7 +84,7 @@ var searchData=
   ['subregion',['subregion',['../structpixel_1_1graphics_1_1_image_data.html#a43a91c397ec6a3db1fdad9d6c42eba03',1,'pixel::graphics::ImageData']]],
   ['symbol_5fmap_2ecpp',['symbol_map.cpp',['../symbol__map_8cpp.html',1,'']]],
   ['symbol_5fmap_2eh',['symbol_map.h',['../symbol__map_8h.html',1,'']]],
-  ['symbolmap',['symbolMap',['../namespacepixel_1_1util.html#a976cdfe804320f21bc1dd56c6cf95f60',1,'pixel::util::symbolMap()'],['../namespacepixel_1_1util.html#a7e4aecf0b9c892f3b2726c5a5cf00b02',1,'pixel::util::SymbolMap()']]],
+  ['symbolmap',['SymbolMap',['../namespacepixel_1_1util.html#a7e4aecf0b9c892f3b2726c5a5cf00b02',1,'pixel::util::SymbolMap()'],['../namespacepixel_1_1util.html#a976cdfe804320f21bc1dd56c6cf95f60',1,'pixel::util::symbolMap()']]],
   ['system_2ecpp',['system.cpp',['../system_8cpp.html',1,'']]],
   ['system_2eh',['system.h',['../system_8h.html',1,'']]]
 ];
