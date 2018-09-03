@@ -5,6 +5,7 @@
 #include <pixel/math.h>
 #include <pixel/time/frame_counter.h>
 #include <pixel/graphics/graphics.h>
+#include <pixel/audio/audio.h>
 
 namespace pixel
 {
@@ -17,6 +18,8 @@ class App
 {
 
 public:
+    static App* shared_app;
+    static void set_app(App*);
 
     App();
     App(const glm::ivec2& window_size, const glm::ivec2& virtual_window_size);
@@ -39,10 +42,12 @@ public:
 
     GLFWwindow* window();
     RenderContext& render_context();
+    AudioController& audio_controller();
 
     float current_fps();
 
 private:
+
     string app_dir_;
 
     int frames_{};
@@ -58,11 +63,11 @@ private:
         DEFAULT_PIXEL_SCALE * DEFAULT_WINDOW_SIZE,
         DEFAULT_CLEAR_COLOR
     };
+
+    AudioController audio_controller_;
 };
 
 App& app();
-
-void set_app(App*);
 
 };
 

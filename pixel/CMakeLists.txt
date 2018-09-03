@@ -112,7 +112,7 @@ if(APPLE)
       lib/soloud/src/backend/coreaudio/soloud_coreaudio.cpp)
 endif(APPLE)
 
-ADD_LIBRARY(pixel ${pixel_sources} ${soloud_sources})
+ADD_LIBRARY(pixel ${pixel_sources} ${soloud_sources} pixel/audio/audio.cpp pixel/audio/audio.h)
 
 if(APPLE)
   find_library(AUDIO_TOOLBOX AudioToolbox)

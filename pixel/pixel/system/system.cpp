@@ -18,7 +18,7 @@ void pixel::init(glm::ivec2 actual_window_size, glm::ivec2 virtual_window_size,
 {
     pixel::print_version_information();
 
-    pixel::set_app(
+    App::set_app(
         make_unique<App>(
             actual_window_size,
             virtual_window_size

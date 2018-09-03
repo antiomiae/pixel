@@ -13,10 +13,6 @@ namespace pixel
 
 using namespace std;
 
-App* shared_app = nullptr;
-
-
-
 void set_clear_color(const glm::vec4& color)
 {
     glClearColor(color.r, color.g, color.b, color.a);
@@ -35,6 +31,8 @@ glm::ivec2 window_size(GLFWwindow* window)
     glfwGetWindowSize(window, &w, &h);
     return {w, h};
 };
+
+App* App::shared_app = nullptr;
 
 App::App()
 {
@@ -93,6 +91,8 @@ void App::init(int flags)
     set_clear_color(render_context_.default_clear_color);
 
     imgui_setup(window_);
+
+    audio_controller_.init();
 }
 
 void App::update_render_context()
@@ -198,14 +198,19 @@ void App::set_background_color(glm::vec4 bg)
     render_context_.default_clear_color = bg;
 }
 
-App& app()
+AudioController& App::audio_controller()
 {
-    return *shared_app;
+    return audio_controller_;
 }
 
-void set_app(App* new_shared_app)
+App& app()
 {
-    shared_app = new_shared_app;
+    return *App::shared_app;
+}
+
+void App::set_app(App* new_shared_app)
+{
+    App::shared_app = new_shared_app;
 }
 
 };

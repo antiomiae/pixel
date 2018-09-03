@@ -9,14 +9,13 @@ void start(int argc, char** argv)
 
     pixel::init(actual_window_size, virtual_window_size, &argc, argv);
 
-    SoLoud::Soloud gSoloud; // SoLoud engine
     SoLoud::Wav gWave;      // One wave file
 
-    gSoloud.init();
 
-    gWave.load("assets/1.wav");
+    gWave.load("assets/vapor.wav");
+    gWave.setLooping(1);
 
-    gSoloud.play(gWave);
+    pixel::app().audio_controller().play(gWave);
 
     pixel::app().set_tick_callback(
         [&] {
@@ -25,7 +24,6 @@ void start(int argc, char** argv)
     );
 
     pixel::app().run();
-    gSoloud.init();
 }
 
 int main(int argc, char* argv[])
