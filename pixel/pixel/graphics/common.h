@@ -311,7 +311,9 @@ struct TextureRegion
 
         glm::ivec4 vec{};
     };
+
     int32_t layer;
+
     /**
      * Whether pixel data should be transposed when used
      */
@@ -334,6 +336,10 @@ struct TextureRegion
 class TextureAtlas
 {
 public:
+
+    using RegionMap = unordered_map<uint32_t, TextureRegion>;
+    using RegionMapItem = pair<uint32_t, TextureRegion>;
+
     const unsigned kDefaultWidth = 256;
     const unsigned kDefaultHeight = 256;
     const unsigned kDefaultLayers = 10;
@@ -356,12 +362,18 @@ public:
     TextureRegion lookup(const std::string& name) const;
     TextureRegion lookup(uint32_t region_id) const;
 
+    const RegionMap& region_map() const { return tex_regions_; }
+    const unordered_map<string, uint32_t>& name_registry() const { return name_registry_; };
+
+    glm::uvec3 atlas_size() const
+    {
+        return atlas_size_;
+    }
+
     string debug_print() const;
 
     Texture as_texture() const;
 
-    using RegionMap = unordered_map<uint32_t, TextureRegion>;
-    using RegionMapItem = pair<uint32_t, TextureRegion>;
 
 private:
     struct ImageSize

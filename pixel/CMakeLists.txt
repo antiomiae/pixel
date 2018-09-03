@@ -101,7 +101,7 @@ list(APPEND pixel_sources
     pixel/imgui/imgui_impl_glfw.cpp
     pixel/imgui/imgui_impl_opengl3.cpp)
 
-ADD_LIBRARY(pixel ${pixel_sources} )
+ADD_LIBRARY(pixel ${pixel_sources} pixel/imgui/gui.h pixel/imgui/gui.cpp)
 
 ADD_DEPENDENCIES(pixel pixel_source_version)
 

@@ -1,8 +1,12 @@
 #include "system.h"
 #include <memory>
 #include <pixel/input/input.h>
+#include <imgui.h>
+#include <pixel/imgui/imgui_impl_glfw.h>
+#include <pixel/imgui/imgui_impl_opengl3.h>
 
 using namespace std;
+
 
 void pixel::init()
 {

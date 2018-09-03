@@ -56,47 +56,72 @@ private:
     }
 };
 
-void setup_imgui()
-{
-    // Setup Dear ImGui binding
-    IMGUI_CHECKVERSION();
-    ImGui::CreateContext();
-    ImGuiIO& io = ImGui::GetIO();
-    (void) io;
-    //io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;  // Enable Keyboard Controls
-    //io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;   // Enable Gamepad Controls
 
-    //const char* glsl_version = "150";
-    ImGui_ImplGlfw_InitForOpenGL(pixel::app().window(), false);
-    ImGui_ImplOpenGL3_Init(nullptr);
+void texture_atlas_tree_view(TextureAtlas& atlas)
+{
+    using TreeValue = std::tuple<TextureAtlas::RegionMapItem, std::string>;
+    vector<vector<TreeValue>> data(atlas.atlas_size().z);
+
+    for (const auto& item : atlas.region_map()) {
+
+        string entry_name = "";
+        const auto& nr = atlas.name_registry();
+
+        const auto& it = find_if(begin(nr), end(nr), [&](const auto& p) { return p.second == item.first; });
+        if (it != end(nr)) {
+            entry_name = it->first;
+        }
+
+        data[item.second.layer].push_back(TreeValue(item, entry_name));
+    }
+
+    for (auto& values : data) {
+        if (values.size() > 0) {
+            sort(begin(values), end(values), [](auto& item1, auto& item2) { return get<1>(item1) < get<1>(item2); });
+        }
+    }
+
+    for (auto i = 0u; i < data.size(); ++i) {
+        if (data[i].size() > 0 && ImGui::TreeNode((string("Layer") + to_string(i)).c_str())) {
+            for (auto &[item, str] : data[i]) {
+                auto id = item.first;
+                auto region = item.second;
+                ImGui::Text("%s %i [%i, %i, %i, %i]", str.c_str(), id, region.x, region.y, region.w, region.h);
+            }
+
+            ImGui::TreePop();
+        }
+    }
 }
 
-void gui()
+void gui(Level& level)
 {
-    static bool show_demo_window = true;
-    static bool show_another_window = false;
+    static bool show_demo_window = false;
+
     static ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
-    ImGui::ShowDemoWindow(&show_demo_window);
-}
+    if (show_demo_window) ImGui::ShowDemoWindow(&show_demo_window);
 
-void imgui_frame_start()
-{
-    ImGui_ImplOpenGL3_NewFrame();
-    ImGui_ImplGlfw_NewFrame();
-    ImGui::NewFrame();
-}
+    ImGui::Begin("Debug");
 
-void imgui_render()
-{
-    ImGui::Render();
-    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+    ImGui::Checkbox("Show demo window", &show_demo_window);
+
+    if (ImGui::TreeNode("Texture Atlas")) {
+        texture_atlas_tree_view(level.texture_atlas());
+        ImGui::TreePop();
+    }
+
+    ImGui::End();
+
+
 }
 
 void update(Level& level)
 {
     static Sprite sprite = level.get_sprite("assets/sonic.png");
     static SpriteDebugMenu debug_menu(&sprite);
+
+    gui(level);
 
     debug_menu.update();
 
@@ -118,27 +143,23 @@ void start(int argc, char** argv)
 
     Level level(app().render_context().virtual_window_size);
 
-    level.load_sprites({"assets/sonic.png"});
+    vector<string> sprites = {"assets/sonic.png"};
 
-    setup_imgui();
+    for (auto i = 0u; i < 100; ++i) {
+        sprites.push_back("assets/random_images/" + to_string(i) + ".png");
+    }
+
+    level.load_sprites(sprites);
 
     pixel::app().set_background_color({1, 1, 1, 1});
 
     pixel::app().set_tick_callback(
         [&] {
-            imgui_frame_start();
-
             update(level);
-
-            imgui_render();
         }
     );
 
     pixel::app().run();
-
-    ImGui_ImplOpenGL3_Shutdown();
-    ImGui_ImplGlfw_Shutdown();
-    ImGui::DestroyContext();
 }
 
 int main(int argc, char* argv[])

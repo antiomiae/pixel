@@ -86,6 +86,11 @@ public:
         return *tile_map_;
     }
 
+    TextureAtlas& texture_atlas()
+    {
+        return texture_atlas_;
+    }
+
 private:
     glm::ivec2 window_size_;
     Camera camera_;

@@ -5,6 +5,8 @@
 #include "app.h"
 #include <pixel/error.h>
 #include <pixel/time/frame_rate_limiter.h>
+#include <pixel/imgui/gui.h>
+
 
 namespace pixel
 {
@@ -12,6 +14,8 @@ namespace pixel
 using namespace std;
 
 App* shared_app = nullptr;
+
+
 
 void set_clear_color(const glm::vec4& color)
 {
@@ -87,6 +91,8 @@ void App::init(int flags)
     //glfwSetInputMode(window_, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 
     set_clear_color(render_context_.default_clear_color);
+
+    imgui_setup(window_);
 }
 
 void App::update_render_context()
@@ -99,7 +105,10 @@ void App::run()
     glClear(GL_COLOR_BUFFER_BIT);
 
     while (!glfwWindowShouldClose(window_)) {
+        imgui_frame_start();
+
         tick();
+
         glfwMakeContextCurrent(window_);
 
         update_render_context();
@@ -117,11 +126,15 @@ void App::run()
             tick_callback_();
         }
 
+        imgui_render();
+
         glfwMakeContextCurrent(window_);
         glfwSwapBuffers(window_);
 
         late_tick();
     }
+
+    imgui_shutdown();
 }
 
 void App::set_tick_callback(std::function<void(void)> cb)
