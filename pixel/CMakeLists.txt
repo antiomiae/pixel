@@ -104,31 +104,50 @@ list(APPEND pixel_sources
 
 file(GLOB soloud_sources
     lib/soloud/src/core/*.cpp
-    lib/soloud/src/audiosource/wav/*.c*)
-
-
-if(APPLE)
-  LIST(APPEND soloud_sources
-      lib/soloud/src/backend/coreaudio/soloud_coreaudio.cpp)
-endif(APPLE)
+    lib/soloud/src/audiosource/wav/*.c*
+    lib/soloud/src/backend/alsa/soloud_alsa.cpp
+    lib/soloud/src/backend/coreaudio/soloud_coreaudio.cpp)
 
 ADD_LIBRARY(pixel ${pixel_sources} ${soloud_sources} pixel/audio/audio.cpp pixel/audio/audio.h)
 
+
 if(APPLE)
-  find_library(AUDIO_TOOLBOX AudioToolbox)
   find_library(AUDIO_TOOLBOX CoreAudio)
   if (NOT AUDIO_TOOLBOX)
     message(FATAL_ERROR "AudioToolbox not found")
   endif()
-    TARGET_LINK_LIBRARIES(
+
+  TARGET_LINK_LIBRARIES(
       pixel
       PUBLIC
       ${AUDIO_TOOLBOX}
   )
 
   TARGET_COMPILE_DEFINITIONS(pixel PRIVATE WITH_COREAUDIO)
-endif(APPLE)
 
+elseif(UNIX AND NOT APPLE)
+  find_package(ALSA REQUIRED)
+
+  if (NOT ALSA_FOUND)
+    message(FATAL_ERROR "Alsa not found")
+  endif()
+
+  message(${ALSA_LIBRARIES})
+  message(${ALSA_INCLUDE_DIRS})
+  message(${ALSA_INCLUDE_DIR})
+
+  TARGET_LINK_LIBRARIES(
+      pixel
+      INTERFACE
+      ${ALSA_LIBRARIES}
+  )
+
+    TARGET_INCLUDE_DIRECTORIES(pixel
+        INTERFACE
+        ${ALSA_INCLUDE_DIRS})
+
+  TARGET_COMPILE_DEFINITIONS(pixel PUBLIC WITH_ALSA)
+endif()
 
 ADD_DEPENDENCIES(pixel pixel_source_version)
 

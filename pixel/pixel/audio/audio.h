@@ -8,6 +8,7 @@
 #include <soloud_wavstream.h>
 #include <unordered_map>
 #include <string>
+#include <memory>
 
 namespace pixel
 {
