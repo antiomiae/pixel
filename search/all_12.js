@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['sample_5fcache_5f',['sample_cache_',['../classpixel_1_1_audio_controller.html#a123ad92a15d582d7ccf7e1c7c5ba3a37',1,'pixel::AudioController']]],
   ['save',['save',['../structpixel_1_1graphics_1_1_image_data.html#ade48a275f4360b126829691433434c13',1,'pixel::graphics::ImageData']]],
   ['save_5fpng',['save_png',['../namespacepixel_1_1graphics.html#a202dcdb746e8d6064ca1b3a0f3f54987',1,'pixel::graphics']]],
   ['scale',['scale',['../classpixel_1_1graphics_1_1_camera.html#a75779ac55f97b633c605bc99ec6c88ce',1,'pixel::graphics::Camera::scale(float s)'],['../classpixel_1_1graphics_1_1_camera.html#a2d8fcc61bcfda9282e98aa70a7e5051e',1,'pixel::graphics::Camera::scale(float x, float y)'],['../classpixel_1_1graphics_1_1_camera.html#a7fb7ac4bb32a9483ea642e25c04bb92d',1,'pixel::graphics::Camera::scale(const glm::vec2 &amp;)'],['../classpixel_1_1graphics_1_1_camera.html#ac50d19eb1c15ce69929f7daed2d31aca',1,'pixel::graphics::Camera::scale()']]],
@@ -12,6 +11,7 @@ var searchData=
   ['set_5fapp',['set_app',['../classpixel_1_1_app.html#aa3eb17d8b8bf877f144f620e0168d7a7',1,'pixel::App']]],
   ['set_5fapp_5fdir',['set_app_dir',['../classpixel_1_1_app.html#ab67c71db0e518a8bdedb0a5ce005abbd',1,'pixel::App']]],
   ['set_5fbackground_5fcolor',['set_background_color',['../classpixel_1_1_app.html#abcbafdcbde19e2336ef8812e686152bc',1,'pixel::App']]],
+  ['set_5fbackground_5fmusic',['set_background_music',['../classpixel_1_1_audio_controller.html#af2df09b20adbc0c315c2f2e8ed63ea5c',1,'pixel::AudioController']]],
   ['set_5fbuffer_5fdata',['set_buffer_data',['../classpixel_1_1renderers_1_1_tile_map_renderer.html#a4bed0d18f681d2465d8551cb65c50c27',1,'pixel::renderers::TileMapRenderer']]],
   ['set_5fcenter',['set_center',['../structpixel_1_1_collision_rect.html#a98189a8531c51499f4251637b319aaba',1,'pixel::CollisionRect']]],
   ['set_5fclear_5fcolor',['set_clear_color',['../namespacepixel.html#aa5e4fa5c76fb98b9b57ad5c000d7345e',1,'pixel']]],
@@ -19,6 +19,7 @@ var searchData=
   ['set_5fmass',['set_mass',['../structpixel_1_1physics_1_1_particle.html#ac1f02885d1fa3f28d74133e3671c0603',1,'pixel::physics::Particle']]],
   ['set_5fmass_5frange',['set_mass_range',['../class_particle_controller.html#a4bb9787f8dec52522827e5ca823e5344',1,'ParticleController']]],
   ['set_5fnum_5fparticles',['set_num_particles',['../class_particle_controller.html#aa46f5ca0642c342428791b4862b54c40',1,'ParticleController']]],
+  ['set_5fparent',['set_parent',['../classpixel_1_1_node.html#aba9d9f690fafea92f79f746ecb133977',1,'pixel::Node']]],
   ['set_5fposition',['set_position',['../class_rocket.html#aa97c89a83335cf204f3f2a91617ea98a',1,'Rocket']]],
   ['set_5frotation',['set_rotation',['../class_rocket.html#a9a91f7281e6e774366cafe90ebd68a16',1,'Rocket']]],
   ['set_5fshape',['set_shape',['../classtetrominos_1_1_tetromino.html#a5032aecfad13d279ed35668f67f96310',1,'tetrominos::Tetromino::set_shape(const vector&lt; vector&lt; Board::Piece &gt;&gt; &amp;shape)'],['../classtetrominos_1_1_tetromino.html#af8297c250888606e8dc78156858cd301',1,'tetrominos::Tetromino::set_shape(const vector&lt; vector&lt; int &gt;&gt; &amp;shape)']]],
@@ -51,6 +52,7 @@ var searchData=
   ['sizeforbasictype',['sizeForBasicType',['../buffer_8cpp.html#a7b10a2f1d6fc58ad0bab845e0791106a',1,'buffer.cpp']]],
   ['sol_5fcheck_5farguments',['SOL_CHECK_ARGUMENTS',['../binding_8h.html#a41272530759e713f102cc200d1f5a484',1,'binding.h']]],
   ['sort_5fregions',['sort_regions',['../namespacepixel_1_1graphics.html#ae4b234b0f578905813c98f9dff28d8ee',1,'pixel::graphics']]],
+  ['source_5fcache_5f',['source_cache_',['../classpixel_1_1_audio_controller.html#ad5d4213dbfdb4d911eafb9247c612a05',1,'pixel::AudioController']]],
   ['speed_5frange',['speed_range',['../class_particle_controller.html#a0aa2c2698bc0bc98f6cb702c71f0443c',1,'ParticleController']]],
   ['speed_5frange_5f',['speed_range_',['../class_particle_controller.html#a5101a264c890f74715d68e14ed5001e3',1,'ParticleController']]],
   ['split_5frect',['split_rect',['../namespacepixel_1_1pack.html#a9f6003cbffbaf9c4694d88a2c10f2811',1,'pixel::pack']]],

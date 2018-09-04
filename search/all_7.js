@@ -19,7 +19,7 @@ var searchData=
   ['g_5fwindow',['g_Window',['../imgui__impl__glfw_8cpp.html#ae8d6764a756d7aae38cef1abf0d30229',1,'imgui_impl_glfw.cpp']]],
   ['game_5fobject_2ecpp',['game_object.cpp',['../game__object_8cpp.html',1,'']]],
   ['game_5fobject_2eh',['game_object.h',['../game__object_8h.html',1,'']]],
-  ['gameobject',['GameObject',['../classpixel_1_1_game_object.html',1,'pixel']]],
+  ['gameobject',['GameObject',['../classpixel_1_1_game_object.html',1,'pixel::GameObject'],['../classpixel_1_1_game_object.html#abd3ad0b4f6383e40ad3850426e0f8442',1,'pixel::GameObject::GameObject()']]],
   ['generator',['generator',['../particles_8cpp.html#af59783448e75cddb0d724fe38601c083',1,'particles.cpp']]],
   ['get',['get',['../classpixel_1_1renderers_1_1_renderer_group.html#abd4d1805b44819a156b052fd7ce885cb',1,'pixel::renderers::RendererGroup']]],
   ['get_5fsprite',['get_sprite',['../class_level.html#a69d9ce455ba8666e438afdf30f640f30',1,'Level::get_sprite(string const &amp;path)'],['../class_level.html#a69d9ce455ba8666e438afdf30f640f30',1,'Level::get_sprite(string const &amp;path)'],['../classpixel_1_1_level.html#aa72b472631443e022f456f7ab43f07e3',1,'pixel::Level::get_sprite()']]],

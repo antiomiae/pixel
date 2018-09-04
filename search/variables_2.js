@@ -2,6 +2,7 @@ var searchData=
 [
   ['b',['b',['../structpixel_1_1physics_1_1_spring.html#a28bf7a66fd4482d0c129fe28c85b03af',1,'pixel::physics::Spring']]],
   ['background_5fcolor_5f',['background_color_',['../classpixel_1_1_tile_map.html#a644d093966e85b7417652ec35e36173e',1,'pixel::TileMap']]],
+  ['background_5fmusic_5fvoice_5fhandle_5f',['background_music_voice_handle_',['../classpixel_1_1_audio_controller.html#a51fe113d0a900db08f8c133d0faf4416',1,'pixel::AudioController']]],
   ['base_5ftile_5fid',['base_tile_id',['../classpixel_1_1_tile_layer_1_1_tile_animation.html#a4d3f0a377f653a3103bb690972ae2a90',1,'pixel::TileLayer::TileAnimation']]],
   ['baselocation',['baseLocation',['../struct_layout.html#a7f928bc38185dc8527b16f2dd35191cf',1,'Layout']]],
   ['bitmap_5fcolumns_5f',['bitmap_columns_',['../classpixel_1_1collision_1_1_collision_map.html#adfad13a45d1e3c1b88b674e08613a94c',1,'pixel::collision::CollisionMap']]],
