@@ -16,12 +16,6 @@ void start(int argc, char** argv)
     pixel::app().set_tick_callback(
         [&] {
             time += 1/60.0f;
-
-            if (time > 15) {
-                cout << "Resetting background music" << endl;
-                pixel::app().audio_controller().set_background_music("assets/38.ogg");
-                time = 0;
-            }
         }
     );
 
