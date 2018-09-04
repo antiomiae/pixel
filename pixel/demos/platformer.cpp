@@ -277,7 +277,7 @@ struct Guy
 void run(Level& level)
 {
     level.load_sprites({"assets/guy.png"});
-    level.load_map("assets/map2.tmx");
+    level.load_tile_map("assets/map2.tmx");
 
     Guy guy{&level, "assets/guy.png"};
     guy.layer = 0;
@@ -304,6 +304,8 @@ y = {float} 73.75
     level.camera().follow(guy.position);
 
     glClearColor(0.1, 0.1, 0.1, 1);
+
+    pixel::app().audio_controller().set_background_music("assets/38.ogg");
 
     pixel::app().set_tick_callback(
         [&] {

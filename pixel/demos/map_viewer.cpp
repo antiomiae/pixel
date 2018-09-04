@@ -12,7 +12,7 @@ float PAN_SPEED = 3.0f;
 
 void run(Level& level, const string& map_path)
 {
-    level.load_map(map_path);
+    level.load_tile_map(map_path);
 
     app().set_background_color(level.tile_map().background_color());
 

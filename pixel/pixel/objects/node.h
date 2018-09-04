@@ -9,8 +9,8 @@
 namespace pixel
 {
 
-template <typename T>
-    class Node
+template<typename T>
+class Node
 {
 public:
     std::vector<std::unique_ptr<T>>& children()
@@ -21,6 +21,11 @@ public:
     T* parent() const
     {
         return parent_;
+    }
+
+    void set_parent(T* new_parent)
+    {
+        parent_ = new_parent;
     }
 
     void add_child(std::unique_ptr<T> new_child)

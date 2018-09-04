@@ -10,16 +10,18 @@ void start(int argc, char** argv)
 
     pixel::init(actual_window_size, virtual_window_size, &argc, argv);
 
-    SoLoud::WavStream gWave;      // One wave file
+    pixel::app().audio_controller().set_background_music("assets/38.ogg");
 
-    gWave.load("assets/38.ogg");
-    gWave.setLooping(1);
-
-    pixel::app().audio_controller().play(gWave);
-
+    float time = 0;
     pixel::app().set_tick_callback(
         [&] {
+            time += 1/60.0f;
 
+            if (time > 15) {
+                cout << "Resetting background music" << endl;
+                pixel::app().audio_controller().set_background_music("assets/38.ogg");
+                time = 0;
+            }
         }
     );
 

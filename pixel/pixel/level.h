@@ -76,7 +76,7 @@ public:
         return sprite_texture_;
     }
 
-    void load_map(const string& path)
+    void load_tile_map(const string& path)
     {
         tile_map_ = TileMap::from_path(path);
     }
@@ -90,6 +90,8 @@ public:
     {
         return texture_atlas_;
     }
+
+
 
 private:
     glm::ivec2 window_size_;

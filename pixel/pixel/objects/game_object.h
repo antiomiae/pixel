@@ -10,6 +10,15 @@ namespace pixel
 
 class GameObject : public Node<GameObject>
 {
+public:
+    GameObject() = default;
+    virtual ~GameObject() = default;
+
+    virtual void init();
+    virtual void update(float dt);
+
+protected:
+    void update_children(float dt);
 
 };
 
