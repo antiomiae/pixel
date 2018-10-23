@@ -37,5 +37,6 @@ var searchData=
   ['intersection_5ftime_5fx',['intersection_time_x',['../structpixel_1_1_collision_rect.html#a7a7b3a0fea590287bd1016fb88493689',1,'pixel::CollisionRect']]],
   ['intersection_5ftime_5fy',['intersection_time_y',['../structpixel_1_1_collision_rect.html#abade81a7bfbbe334352d42b3898921d5',1,'pixel::CollisionRect']]],
   ['invoke',['invoke',['../classpixel_1_1input_1_1_callback_stack.html#ac8561ace43e395381f7e9604cbc15ba1',1,'pixel::input::CallbackStack']]],
-  ['invoke_5fhead',['invoke_head',['../classpixel_1_1input_1_1_callback_stack.html#ad8c8cc8686c1f208025f7e4814fe9e33',1,'pixel::input::CallbackStack']]]
+  ['invoke_5fhead',['invoke_head',['../classpixel_1_1input_1_1_callback_stack.html#ad8c8cc8686c1f208025f7e4814fe9e33',1,'pixel::input::CallbackStack']]],
+  ['is_5fcomplete',['is_complete',['../classpixel_1_1_animation.html#ae052f51efe0726673644890492d7867c',1,'pixel::Animation']]]
 ];

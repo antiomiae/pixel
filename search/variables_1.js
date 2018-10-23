@@ -8,7 +8,7 @@ var searchData=
   ['angle_5f',['angle_',['../class_rocket.html#a7aa3b02dcc766525cc4c8e4679853a59',1,'Rocket::angle_()'],['../classpixel_1_1graphics_1_1_camera.html#afbb53e570f87ead316ff290f71570ae0',1,'pixel::graphics::Camera::angle_()']]],
   ['animation',['animation',['../structpixel_1_1_tileset_1_1_tile.html#a4bb48a8df11fd7c4b8dc5959c0da54ce',1,'pixel::Tileset::Tile']]],
   ['animation_5fdefinition',['animation_definition',['../classpixel_1_1_tile_layer_1_1_tile_animation.html#a768c92f745be44a78a96635f5088c662',1,'pixel::TileLayer::TileAnimation']]],
-  ['animations_5f',['animations_',['../classpixel_1_1_tile_layer.html#acfdf684d2b5068389f7af757cd7c564e',1,'pixel::TileLayer']]],
+  ['animations_5f',['animations_',['../classpixel_1_1_animation_group.html#a0a0b245812792cc3040789e82e760e2b',1,'pixel::AnimationGroup::animations_()'],['../classpixel_1_1_tile_layer.html#acfdf684d2b5068389f7af757cd7c564e',1,'pixel::TileLayer::animations_()']]],
   ['app_5fdir_5f',['app_dir_',['../classpixel_1_1_app.html#a9c9c9659c4d0bc64c8b2fd93670b2bc2',1,'pixel::App']]],
   ['atlas_5f',['atlas_',['../classpixel_1_1_tile_map.html#a810ad0cdbfde0ed51e61c780360b193f',1,'pixel::TileMap']]],
   ['atlas_5fcols_5f',['atlas_cols_',['../classpixel_1_1_tile_atlas.html#abc7626bf6b8b80a2f2fa2005236af27b',1,'pixel::TileAtlas']]],
