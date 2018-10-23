@@ -108,7 +108,7 @@ file(GLOB soloud_sources
     lib/soloud/src/backend/alsa/soloud_alsa.cpp
     lib/soloud/src/backend/coreaudio/soloud_coreaudio.cpp)
 
-ADD_LIBRARY(pixel ${pixel_sources} ${soloud_sources} pixel/audio/audio.cpp pixel/audio/audio.h)
+ADD_LIBRARY(pixel ${pixel_sources} ${soloud_sources} pixel/audio/audio.cpp pixel/audio/audio.h pixel/animation/animation.cpp pixel/animation/animation.h pixel/animation/animation_group.cpp pixel/animation/animation_group.h)
 
 
 if(APPLE)

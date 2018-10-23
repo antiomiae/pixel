@@ -94,8 +94,7 @@ struct Guy
             rect,
             level->tile_map().layers()[layer],
             [&](auto& tile, auto& tile_desc) {
-                auto type = tile_desc.type;
-                return type == "brick";
+                return tile.tile_id != 0;
             },
             true
         );
@@ -206,12 +205,8 @@ struct Guy
             },
             [&] (auto tile_coord, auto& tile) -> bool {
                 if (tile.tile_id != 0) {
-                    auto& tile_desc = tile_layer.parent().tileset().tile(tile.tile_id);
-
-                    if (tile_desc.type == "brick") {
-                        found_solid_tile = true;
-                        return false;
-                    }
+                    found_solid_tile = true;
+                    return false;
                 }
 
                 return true;
@@ -256,12 +251,8 @@ struct Guy
 
             [&] (auto tile_coord, auto& tile) -> bool {
                 if (tile.tile_id != 0) {
-                    auto& tile_desc = tile_layer.parent().tileset().tile(tile.tile_id);
-
-                    if (tile_desc.type == "brick") {
-                        found_solid_tile = true;
-                        return false;
-                    }
+                    found_solid_tile = true;
+                    return false;
                 }
 
                 return true;
@@ -277,7 +268,7 @@ struct Guy
 void run(Level& level)
 {
     level.load_sprites({"assets/guy.png"});
-    level.load_tile_map("assets/map2.tmx");
+    level.load_tile_map("assets/1.tmx");
 
     Guy guy{&level, "assets/guy.png"};
     guy.layer = 0;
@@ -338,7 +329,7 @@ y = {float} 73.75
 void start(int argc, char** argv)
 {
     glm::ivec2 virtual_window_size = glm::vec2{320, 224};
-    glm::ivec2 actual_window_size = virtual_window_size * 2;
+    glm::ivec2 actual_window_size = virtual_window_size * 3;
 
     pixel::init(actual_window_size, virtual_window_size, &argc, argv);
 

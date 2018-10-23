@@ -91,8 +91,6 @@ public:
         return texture_atlas_;
     }
 
-
-
 private:
     glm::ivec2 window_size_;
     Camera camera_;
