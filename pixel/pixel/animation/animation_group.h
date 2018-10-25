@@ -12,9 +12,15 @@ using namespace std;
 namespace pixel
 {
 
-class AnimationGroup
+class AnimationGroup : public Animation
 {
+public:
     using animation_ptr = unique_ptr<Animation>;
+
+    void update(float dt) override;
+    bool is_complete() override;
+    void add_animation(animation_ptr&& animation);
+
 private:
     vector<animation_ptr> animations_;
 };

@@ -8,6 +8,7 @@ namespace pixel
 
 class Animation
 {
+public:
     virtual void update(float dt) = 0;
     virtual bool is_complete() = 0;
 
