@@ -59,5 +59,5 @@ var searchData=
   ['invoke',['invoke',['../classpixel_1_1input_1_1_callback_stack.html#ac8561ace43e395381f7e9604cbc15ba1',1,'pixel::input::CallbackStack']]],
   ['invoke_5fhead',['invoke_head',['../classpixel_1_1input_1_1_callback_stack.html#ad8c8cc8686c1f208025f7e4814fe9e33',1,'pixel::input::CallbackStack']]],
   ['is_5factive_5f',['is_active_',['../class_sprite_debug_menu.html#a014db4e6a0bdde3833065f7b8caf551b',1,'SpriteDebugMenu']]],
-  ['is_5fcomplete',['is_complete',['../classpixel_1_1_animation.html#ae052f51efe0726673644890492d7867c',1,'pixel::Animation']]]
+  ['is_5fcomplete',['is_complete',['../classpixel_1_1_animation.html#ae052f51efe0726673644890492d7867c',1,'pixel::Animation::is_complete()'],['../classpixel_1_1_animation_group.html#a6ee916d64cdff1a9b57e6632e6f78c7d',1,'pixel::AnimationGroup::is_complete()'],['../classpixel_1_1_lambda_animation.html#a4ab9d2802d09e7ff011460caa45656ef',1,'pixel::LambdaAnimation::is_complete()']]]
 ];
