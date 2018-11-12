@@ -23,8 +23,6 @@ public:
     Shader& program();
     void render(const vector<pixel::graphics::Sprite>& sprites, Texture& atlas_texture, Camera& camera);
 
-    virtual ~SpriteRenderer() = default;
-
 private:
     Vao vao_;
     Buffer sprite_buffer_;
