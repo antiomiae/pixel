@@ -1,5 +1,4 @@
 
-
 #ifndef PIXEL_MAIN_GAME_OBJECT_H
 #define PIXEL_MAIN_GAME_OBJECT_H
 
