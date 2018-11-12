@@ -26,6 +26,8 @@ var searchData=
   ['test_5ftileset_2ecpp',['test_tileset.cpp',['../test__tileset_8cpp.html',1,'']]],
   ['tetrominos_2ecpp',['tetrominos.cpp',['../tetrominos_8cpp.html',1,'']]],
   ['texture_5fatlas_2ecpp',['texture_atlas.cpp',['../texture__atlas_8cpp.html',1,'']]],
+  ['textured_5ftriangle_5frenderer_2ecpp',['textured_triangle_renderer.cpp',['../textured__triangle__renderer_8cpp.html',1,'']]],
+  ['textured_5ftriangle_5frenderer_2eh',['textured_triangle_renderer.h',['../textured__triangle__renderer_8h.html',1,'']]],
   ['tile_5fatlas_2ecpp',['tile_atlas.cpp',['../tile__atlas_8cpp.html',1,'']]],
   ['tile_5fatlas_2eh',['tile_atlas.h',['../tile__atlas_8h.html',1,'']]],
   ['tile_5flayer_2ecpp',['tile_layer.cpp',['../tile__layer_8cpp.html',1,'']]],
