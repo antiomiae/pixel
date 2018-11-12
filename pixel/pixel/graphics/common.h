@@ -10,7 +10,6 @@
 #include <string>
 #include <vector>
 #include "image.h"
-#include "common.h"
 #include <pixel/math.h>
 
 using namespace std;
