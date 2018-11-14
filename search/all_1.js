@@ -12,6 +12,7 @@ var searchData=
   ['add_5fimage',['add_image',['../classpixel_1_1graphics_1_1_texture_atlas.html#aa770adaedaaa807eaba9298043c46f62',1,'pixel::graphics::TextureAtlas::add_image(const string &amp;path)'],['../classpixel_1_1graphics_1_1_texture_atlas.html#aa8a47584c01d7956aa8e2178ff94f81e',1,'pixel::graphics::TextureAtlas::add_image(const string &amp;path, const string &amp;name)'],['../classpixel_1_1graphics_1_1_texture_atlas.html#a2b2e1506e71188db282c33aa2defc71d',1,'pixel::graphics::TextureAtlas::add_image(const ImageData &amp;img, const string &amp;name)']]],
   ['add_5fline',['add_line',['../struct_physics.html#a013b83ecbe2ef028164dbcf8db955e20',1,'Physics']]],
   ['add_5fparticle',['add_particle',['../struct_physics.html#a4adc1709407367c5ea309e859c500d80',1,'Physics']]],
+  ['add_5fsprite',['add_sprite',['../class_sprite_renderer2.html#ac8bb7ab4e7273b247dbaf483a328e400',1,'SpriteRenderer2']]],
   ['add_5ftileset',['add_tileset',['../classpixel_1_1_tile_atlas.html#afc350aae3a476bdbb59873879173363e',1,'pixel::TileAtlas::add_tileset()'],['../classpixel_1_1_tileset.html#a9c4bbb518051280dbce888b7e6393d16',1,'pixel::Tileset::add_tileset()']]],
   ['advance',['advance',['../classpixel_1_1graphics_1_1_sprite_animation.html#aeb00982221f4c5ebd081d7c764d0c2a6',1,'pixel::graphics::SpriteAnimation']]],
   ['air_5ffriction',['air_friction',['../struct_guy.html#ad59d3bf6ff2aa65a4157fdf492e6a38c',1,'Guy']]],
