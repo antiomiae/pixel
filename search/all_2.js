@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['b',['b',['../structpixel_1_1physics_1_1_spring.html#a28bf7a66fd4482d0c129fe28c85b03af',1,'pixel::physics::Spring']]],
+  ['b',['b',['../structpixel_1_1physics_1_1_spring.html#a28bf7a66fd4482d0c129fe28c85b03af',1,'pixel::physics::Spring::b()'],['../structpixel_1_1renderers_1_1_textured_triangle_renderer_1_1_triangle.html#a39b6dc32f2849a6fcc69a418dce561f5',1,'pixel::renderers::TexturedTriangleRenderer::Triangle::b()']]],
   ['background_5fcolor',['background_color',['../classpixel_1_1_tile_map.html#a434acb97caae9067c1bf9c517f7cfa0f',1,'pixel::TileMap']]],
   ['background_5fcolor_5f',['background_color_',['../classpixel_1_1_tile_map.html#a644d093966e85b7417652ec35e36173e',1,'pixel::TileMap']]],
   ['background_5fmusic_5fvoice_5fhandle_5f',['background_music_voice_handle_',['../classpixel_1_1_audio_controller.html#a51fe113d0a900db08f8c133d0faf4416',1,'pixel::AudioController']]],

@@ -28,6 +28,6 @@ var searchData=
   ['timer_5f',['timer_',['../classpixel_1_1graphics_1_1_sprite_animation.html#abd9331bdc0e420dd1f15ff9c276413b3',1,'pixel::graphics::SpriteAnimation']]],
   ['tint',['tint',['../classpixel_1_1graphics_1_1_sprite.html#a09ba5e72c6a7bb5a994a521170e65cff',1,'pixel::graphics::Sprite']]],
   ['top_5fid_5f',['top_id_',['../classpixel_1_1graphics_1_1_texture_atlas.html#a937b633955dce94fc601fafa2ae072f6',1,'pixel::graphics::TextureAtlas']]],
-  ['tris_5f',['tris_',['../class_sprite_renderer2.html#af0740f791b4d168f05e1e8cc31418d8d',1,'SpriteRenderer2']]],
+  ['tris_5f',['tris_',['../class_sprite_renderer2.html#a4d11bbb48feb7e499fc0e363a714296d',1,'SpriteRenderer2']]],
   ['type',['type',['../struct_layout.html#a039d56a72da89806f7019c12c8ab3ea7',1,'Layout::type()'],['../structpixel_1_1graphics_1_1_attribute.html#a47a5857b9ac8a25c031e14e083afaf59',1,'pixel::graphics::Attribute::type()'],['../structpixel_1_1_tileset_1_1_tile.html#aea4a964f0eb344459f06a7e9c5552f95',1,'pixel::Tileset::Tile::type()']]]
 ];

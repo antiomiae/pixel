@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['c',['c',['../structpixel_1_1renderers_1_1_textured_triangle_renderer_1_1_triangle.html#a7798091e404d22ae6f20044ac23ad1a9',1,'pixel::renderers::TexturedTriangleRenderer::Triangle']]],
   ['callback_5ft',['callback_t',['../classpixel_1_1input_1_1_callback_stack.html#a73af452a928a5fe943c216055e3ccfc6',1,'pixel::input::CallbackStack']]],
   ['callbacks_5f',['callbacks_',['../classpixel_1_1input_1_1_callback_stack.html#a0d5ca869652d9e5f4ce314c3ab22c4f2',1,'pixel::input::CallbackStack']]],
   ['callbackstack',['CallbackStack',['../classpixel_1_1input_1_1_callback_stack.html',1,'pixel::input']]],

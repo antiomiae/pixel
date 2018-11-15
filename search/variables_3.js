@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['c',['c',['../structpixel_1_1renderers_1_1_textured_triangle_renderer_1_1_triangle.html#a7798091e404d22ae6f20044ac23ad1a9',1,'pixel::renderers::TexturedTriangleRenderer::Triangle']]],
   ['callbacks_5f',['callbacks_',['../classpixel_1_1input_1_1_callback_stack.html#a0d5ca869652d9e5f4ce314c3ab22c4f2',1,'pixel::input::CallbackStack']]],
   ['camera_5f',['camera_',['../class_level.html#a944f4626c2cf9ede065c16c83ef05160',1,'Level::camera_()'],['../classpixel_1_1_level.html#a944f4626c2cf9ede065c16c83ef05160',1,'pixel::Level::camera_()']]],
   ['can_5fjump',['can_jump',['../struct_guy.html#acb0e082507f36ba69b2ef42dbcde25e9',1,'Guy']]],

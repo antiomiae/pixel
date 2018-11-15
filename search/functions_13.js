@@ -32,5 +32,6 @@ var searchData=
   ['time_5fscale',['time_scale',['../classpixel_1_1graphics_1_1_sprite_animation.html#ac86602435202ae22b2961c7bb0c47694',1,'pixel::graphics::SpriteAnimation']]],
   ['timesinceframestart',['timeSinceFrameStart',['../classpixel_1_1time_1_1_frame_counter.html#a0facf7db680e8e8b3ee5d0166eef5081',1,'pixel::time::FrameCounter']]],
   ['translate',['translate',['../classpixel_1_1graphics_1_1_camera.html#aff3960e6c58a8474096eb86b6e1a2b14',1,'pixel::graphics::Camera::translate(float x, float y)'],['../classpixel_1_1graphics_1_1_camera.html#aa3c02a27599eebb5d3b380f852bb86ec',1,'pixel::graphics::Camera::translate(const glm::vec2 &amp;)']]],
-  ['transpose',['transpose',['../structpixel_1_1graphics_1_1_image_data.html#acc355668b6865b064f2b25bbc9e65acd',1,'pixel::graphics::ImageData']]]
+  ['transpose',['transpose',['../structpixel_1_1graphics_1_1_image_data.html#acc355668b6865b064f2b25bbc9e65acd',1,'pixel::graphics::ImageData']]],
+  ['triangle',['Triangle',['../structpixel_1_1renderers_1_1_textured_triangle_renderer_1_1_triangle.html#adfd3eb228c6d1705736f161e340d5c18',1,'pixel::renderers::TexturedTriangleRenderer::Triangle']]]
 ];
