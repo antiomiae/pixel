@@ -23,7 +23,24 @@ public:
 
     struct Triangle
     {
-        Vertex vertices[3] = {};
+        union
+        {
+            struct
+            {
+                Vertex a;
+                Vertex b;
+                Vertex c;
+            };
+
+            Vertex vertices[3];
+        };
+
+        Triangle(glm::vec3 a, glm::vec3 b, glm::vec3 c)
+            : a{a},
+              b{b},
+              c{c}
+        {
+        }
     };
 
     TexturedTriangleRenderer();
