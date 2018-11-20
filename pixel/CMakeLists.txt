@@ -110,6 +110,7 @@ file(GLOB soloud_sources
 
 ADD_LIBRARY(pixel ${pixel_sources} ${soloud_sources} pixel/audio/audio.cpp pixel/audio/audio.h pixel/animation/animation.cpp pixel/animation/animation.h pixel/animation/animation_group.cpp pixel/animation/animation_group.h pixel/animation/lambda_animation.cpp pixel/animation/lambda_animation.h pixel/renderers/textured_triangle_renderer.cpp pixel/renderers/textured_triangle_renderer.h)
 
+target_compile_options(pixel PUBLIC -march=native)
 
 if(APPLE)
   find_library(AUDIO_TOOLBOX CoreAudio)
@@ -159,18 +160,14 @@ ADD_SUBDIRECTORY(lib/glm)
 ADD_SUBDIRECTORY(lib/sol2)
 ADD_SUBDIRECTORY(lib/tmxlite/tmxlite)
 
-TARGET_INCLUDE_DIRECTORIES(pixel PUBLIC . lib/imgui lib/soloud/include)
+TARGET_INCLUDE_DIRECTORIES(pixel PUBLIC . lib/imgui lib/soloud/include lib/glm)
 
 TARGET_LINK_LIBRARIES(
     pixel
     PUBLIC Boost::system Boost::filesystem tinypng glfw glew::glew tmxlite
     Lua::lua_lib
     sol2
-    glm
 )
-
-TARGET_COMPILE_DEFINITIONS(glm INTERFACE GLM_ENABLE_EXPERIMENTAL)
-
 
 IF (CMAKE_C_FLAGS_DEBUG)
   TARGET_COMPILE_DEFINITIONS(pixel PUBLIC PIXEL_DEBUG=1)
