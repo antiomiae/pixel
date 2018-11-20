@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['_5fapp',['_app',['../namespacepixeltest.html#a32fe0d2ad3f2c649b959003419ef989a',1,'pixeltest']]],
   ['_5ferror',['_error',['../namespacepixel_1_1util.html#a25ba63c542a62436db23183014cb16d4',1,'pixel::util']]],
   ['_5ferror_5fif',['_error_if',['../namespacepixel_1_1util.html#a32d24684a1bc7da7f5d746d7f40517b1',1,'pixel::util']]],
   ['_5ffps',['_fps',['../classpixel_1_1time_1_1_frame_counter.html#a0a76fc8dbda143f183631f916be123fb',1,'pixel::time::FrameCounter']]],

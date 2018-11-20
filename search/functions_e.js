@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['name_5fregistry',['name_registry',['../classpixel_1_1graphics_1_1_texture_atlas.html#a25365fff57155403988bf1239556e788',1,'pixel::graphics::TextureAtlas']]],
-  ['nearest_5ftile_5fcol',['nearest_tile_col',['../structpixel_1_1_collision_rect.html#a6e640db474a0c5e0c1a1d85bf64a89b9',1,'pixel::CollisionRect']]],
-  ['nearest_5ftile_5frow',['nearest_tile_row',['../structpixel_1_1_collision_rect.html#a6c26fd171ccd6b5702dbb5c14d090a7b',1,'pixel::CollisionRect']]],
-  ['next_5fatlas_5fid',['next_atlas_id',['../classpixel_1_1_tile_atlas.html#a6c1e001982374ea5296a74f6214b158b',1,'pixel::TileAtlas']]],
-  ['num_5fparticles',['num_particles',['../class_particle_controller.html#a51cef90bc7a591b4870d3da8d83eb725',1,'ParticleController']]]
+  ['offscreenrendertarget',['OffscreenRenderTarget',['../classpixel_1_1graphics_1_1_offscreen_render_target.html#a09267c820dd5d349a0a455f8d38d442a',1,'pixel::graphics::OffscreenRenderTarget']]],
+  ['operator_3d',['operator=',['../classpixel_1_1graphics_1_1_texture.html#a772f1c02f0d4b18627c7121c0cf537c1',1,'pixel::graphics::Texture::operator=(Texture &amp;)=delete'],['../classpixel_1_1graphics_1_1_texture.html#a4f97ea0d7c269f4235d817a505996c58',1,'pixel::graphics::Texture::operator=(Texture &amp;&amp;)'],['../structpixel_1_1graphics_1_1_image_data.html#ad7fd0e580f0d76f9cd1a35f51375e796',1,'pixel::graphics::ImageData::operator=()']]]
 ];

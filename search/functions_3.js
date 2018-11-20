@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['camera',['camera',['../class_level.html#a11fa03ef4abe67157e7ab0c843bb0945',1,'Level::camera()'],['../class_level.html#a11fa03ef4abe67157e7ab0c843bb0945',1,'Level::camera()'],['../classpixel_1_1_level.html#a488e9afb6127722abf2b61be33d40523',1,'pixel::Level::camera()'],['../classpixel_1_1graphics_1_1_camera.html#ab919425fc4978e0846a19a9ff446b621',1,'pixel::graphics::Camera::Camera(const glm::ivec2 &amp;window_size, const glm::vec4 &amp;bounds)'],['../classpixel_1_1graphics_1_1_camera.html#a0c6568dcfd5bf88473afdce0e37a8626',1,'pixel::graphics::Camera::Camera()=default']]],
+  ['camera',['Camera',['../classpixel_1_1graphics_1_1_camera.html#ab919425fc4978e0846a19a9ff446b621',1,'pixel::graphics::Camera::Camera(const glm::ivec2 &amp;window_size, const glm::vec4 &amp;bounds)'],['../classpixel_1_1graphics_1_1_camera.html#a0c6568dcfd5bf88473afdce0e37a8626',1,'pixel::graphics::Camera::Camera()=default'],['../classpixel_1_1_level.html#a488e9afb6127722abf2b61be33d40523',1,'pixel::Level::camera()']]],
   ['can_5ffit',['can_fit',['../structpixel_1_1pack_1_1_pack_node.html#a106addb740c67e52ea781ecbfb778d22',1,'pixel::pack::PackNode']]],
   ['center_5fat',['center_at',['../classpixel_1_1graphics_1_1_camera.html#a3f67a033a8b22e83c78ecfb2f9fc52a7',1,'pixel::graphics::Camera::center_at(float x, float y)'],['../classpixel_1_1graphics_1_1_camera.html#ac011c85f13b10176b023d9e02f73f1f7',1,'pixel::graphics::Camera::center_at(const glm::vec2 &amp;)']]],
   ['change_5fto_5fapp_5fdir',['change_to_app_dir',['../classpixel_1_1_app.html#a658ae7b4b2f3fd60a7ff9dc51f0536cf',1,'pixel::App']]],
@@ -16,11 +16,9 @@ var searchData=
   ['collide_5frow',['collide_row',['../classpixel_1_1collision_1_1_collision_map.html#af2f5629a4500bba2d172964d740699b1',1,'pixel::collision::CollisionMap']]],
   ['collisionmap',['CollisionMap',['../classpixel_1_1collision_1_1_collision_map.html#ad4b43c70e9f33a560d2f9ed9f0a2455c',1,'pixel::collision::CollisionMap']]],
   ['collisionrect',['CollisionRect',['../structpixel_1_1_collision_rect.html#a14ea06c0ee6db6c90f5eeb8fbe3c6482',1,'pixel::CollisionRect::CollisionRect()=default'],['../structpixel_1_1_collision_rect.html#aeed0de93db2825d27cd42b989c18e0d6',1,'pixel::CollisionRect::CollisionRect(const CollisionRect &amp;)=default'],['../structpixel_1_1_collision_rect.html#a3d8affd0df241b963e39f0448935eeed',1,'pixel::CollisionRect::CollisionRect(glm::vec2 center, glm::vec2 half_size, glm::vec2 delta, glm::ivec2 tile_size)']]],
-  ['color',['color',['../classtetrominos_1_1_tetromino.html#a5e37ff45ae960fee40e4c139ee1e88dc',1,'tetrominos::Tetromino']]],
   ['compile_5fshader',['compile_shader',['../namespacepixel_1_1graphics.html#a46b2582a20b7efd452ad00943782116f',1,'pixel::graphics']]],
   ['componentsforattributetype',['componentsForAttributeType',['../buffer_8cpp.html#afa8fa4fb7371d1051d84b6c41beb39ab',1,'buffer.cpp']]],
   ['copy',['copy',['../classpixel_1_1graphics_1_1_sprite_animation.html#a9645ce48ccaf3a207038a9bb61373f68',1,'pixel::graphics::SpriteAnimation']]],
-  ['cross_5f2d',['cross_2d',['../rider_8cpp.html#a3aa0b31e4421dd348035c5b331356ada',1,'rider.cpp']]],
   ['current_5ffps',['current_fps',['../classpixel_1_1_app.html#ad0e93eac0baa03b3921e048ee773fef0',1,'pixel::App']]],
   ['current_5fframe',['current_frame',['../classpixel_1_1graphics_1_1_sprite_animation.html#a2dea97818dcf960df3375c0070f8e0e4',1,'pixel::graphics::SpriteAnimation']]],
   ['current_5ftile_5fid',['current_tile_id',['../classpixel_1_1_tile_layer_1_1_tile_animation.html#a30537e1452f40ebd8a67370e425714c2',1,'pixel::TileLayer::TileAnimation']]]

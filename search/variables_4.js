@@ -10,6 +10,5 @@ var searchData=
   ['delta_5fsign',['delta_sign',['../structpixel_1_1_tile_map_collider.html#ae99cfd47ccd272a4c95cfd39d77a586a',1,'pixel::TileMapCollider']]],
   ['depth_5f',['depth_',['../classpixel_1_1graphics_1_1_texture.html#ade4b92ccd4463916dbda3256ee1cbd14',1,'pixel::graphics::Texture']]],
   ['down',['down',['../structpixel_1_1pack_1_1_pack_node.html#a21d64fe74713de90912922f7aff1c768',1,'pixel::pack::PackNode']]],
-  ['dt',['DT',['../particles_8cpp.html#a6017ffae59f47b16d8bf2070452f1405',1,'DT():&#160;particles.cpp'],['../particles2_8cpp.html#a6017ffae59f47b16d8bf2070452f1405',1,'DT():&#160;particles2.cpp'],['../rocket_8cpp.html#a6017ffae59f47b16d8bf2070452f1405',1,'DT():&#160;rocket.cpp']]],
   ['duration',['duration',['../structpixel_1_1graphics_1_1_sprite_animation_1_1_frame.html#af34e2c86d249c6d29e730ea20e8f301e',1,'pixel::graphics::SpriteAnimation::Frame::duration()'],['../structpixel_1_1_tileset_1_1_tile_1_1_animation_1_1_frame.html#ad0960c88d6e0ced5743a22809b922b6e',1,'pixel::Tileset::Tile::Animation::Frame::duration()']]]
 ];

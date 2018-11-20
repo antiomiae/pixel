@@ -16,8 +16,5 @@ var searchData=
   ['g_5ftime',['g_Time',['../imgui__impl__glfw_8cpp.html#aeadcd9b9799016abf222f5cb112c9997',1,'imgui_impl_glfw.cpp']]],
   ['g_5fvbohandle',['g_VboHandle',['../imgui__impl__opengl3_8cpp.html#a137cb22f50258ade706c87cd18d7da60',1,'imgui_impl_opengl3.cpp']]],
   ['g_5fverthandle',['g_VertHandle',['../imgui__impl__opengl3_8cpp.html#acedc104460433c4391002d40fad4c4d0',1,'imgui_impl_opengl3.cpp']]],
-  ['g_5fwindow',['g_Window',['../imgui__impl__glfw_8cpp.html#ae8d6764a756d7aae38cef1abf0d30229',1,'imgui_impl_glfw.cpp']]],
-  ['generator',['generator',['../particles_8cpp.html#af59783448e75cddb0d724fe38601c083',1,'particles.cpp']]],
-  ['gravity',['GRAVITY',['../rider_8cpp.html#a48e56f4d6787b67d97b4655a84e7c3f1',1,'rider.cpp']]],
-  ['ground_5ffriction',['ground_friction',['../struct_guy.html#aaba4a782aa832e46b0a8e071b3f9e2cc',1,'Guy']]]
+  ['g_5fwindow',['g_Window',['../imgui__impl__glfw_8cpp.html#ae8d6764a756d7aae38cef1abf0d30229',1,'imgui_impl_glfw.cpp']]]
 ];
