@@ -19,6 +19,12 @@ public:
         glm::vec3 position{};
         glm::vec3 tex_coord{};
         glm::vec4 color{};
+
+        Vertex(glm::vec3 position, glm::vec3 tex_coord, glm::vec4 color)
+            : position(position),
+              tex_coord(tex_coord),
+              color(color)
+        { }
     };
 
     struct Triangle
@@ -35,7 +41,7 @@ public:
             Vertex vertices[3];
         };
 
-        Triangle(glm::vec3 a, glm::vec3 b, glm::vec3 c)
+        Triangle(Vertex a, Vertex b, Vertex c)
             : a{a},
               b{b},
               c{c}
