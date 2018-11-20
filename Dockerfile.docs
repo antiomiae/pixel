@@ -1,6 +1,6 @@
 FROM ubuntu:artful
 
-RUN apt-get update && apt-get install -y build-essential doxygen
+RUN apt-get install -y build-essential doxygen
 
 WORKDIR /src
 
