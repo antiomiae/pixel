@@ -36,6 +36,8 @@ var searchData=
   ['glfwclientapi_5fopengl',['GlfwClientApi_OpenGL',['../imgui__impl__glfw_8cpp.html#abfd5392e93ee3c4e7f86cc5515e2d413a4bdb1206a80d2fecbccc1ba13a194189',1,'imgui_impl_glfw.cpp']]],
   ['glfwclientapi_5funknown',['GlfwClientApi_Unknown',['../imgui__impl__glfw_8cpp.html#abfd5392e93ee3c4e7f86cc5515e2d413a64b18e86183bf2f895418038ae86fd97',1,'imgui_impl_glfw.cpp']]],
   ['glfwclientapi_5fvulkan',['GlfwClientApi_Vulkan',['../imgui__impl__glfw_8cpp.html#abfd5392e93ee3c4e7f86cc5515e2d413aea35a390f6542022f5704637f7cbefb5',1,'imgui_impl_glfw.cpp']]],
+  ['glm_5fenable_5fexperimental',['GLM_ENABLE_EXPERIMENTAL',['../math_8h.html#abd75661fe7969e19439052a5f69ba5d1',1,'math.h']]],
+  ['glm_5fmessages',['GLM_MESSAGES',['../math_8h.html#abb6cbd1d1eb90a7e496e1e5606b7b635',1,'math.h']]],
   ['gpu_5fparticles_2ecpp',['gpu_particles.cpp',['../gpu__particles_8cpp.html',1,'']]],
   ['graphics_2ecpp',['graphics.cpp',['../graphics_8cpp.html',1,'']]],
   ['graphics_2eh',['graphics.h',['../graphics_8h.html',1,'']]],
