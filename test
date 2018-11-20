@@ -3,4 +3,4 @@ set -euo pipefail
 IFS=$'\n\t'
 
 ./build
-build-make/bin/pixel_test pixel
+build-make/bin/pixel_test pixel $@
