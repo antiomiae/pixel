@@ -13,7 +13,7 @@ using namespace pixel::input;
 using namespace pixel::renderers;
 
 
-class SpriteRenderer2
+class SpriteRenderer2 : public TexturedTriangleRenderer
 {
 public:
     using Triangle = TexturedTriangleRenderer::Triangle;
@@ -104,6 +104,10 @@ public:
         );
     }
 
+    void render(Texture& texture_atlas, Camera& camera) {
+        TexturedTriangleRenderer::render(tris_, texture_atlas, camera);
+    }
+
 private:
     vector<Triangle> tris_;
     Level& level_;
@@ -113,7 +117,7 @@ private:
 void start(int argc, char** argv)
 {
     glm::ivec2 virtual_window_size = glm::vec2{320, 240};
-    glm::ivec2 actual_window_size = virtual_window_size * 3;
+    glm::ivec2 actual_window_size = virtual_window_size * 2;
 
     pixel::init(actual_window_size, virtual_window_size, &argc, argv);
 
@@ -121,13 +125,24 @@ void start(int argc, char** argv)
 
     Level level{virtual_window_size};
 
-    level.load_sprites({"assets/guy.png", "assets/rocket.png"});
+    level.load_sprites({"assets/rocket.png"});
+
+    SpriteBatch batch;
 
     SpriteRenderer2 sp2{level};
 
+    auto rocket = level.get_sprite("assets/rocket.png");
+    rocket.position = {160, 120};
+
+    sp2.add_sprite(rocket);
+    batch.add(rocket);
+
     pixel::app().set_tick_callback(
         [&] {
-            sp2.add_sprite(level.get_sprite("assets/rocket.png"));
+            level.begin_render();
+            sp2.render(level.sprite_texture(), level.camera());
+            //level.renderer_group().get<SpriteRenderer>().render(batch.sprites(), level.sprite_texture(), level.camera());
+            level.finish_render();
         }
     );
 
