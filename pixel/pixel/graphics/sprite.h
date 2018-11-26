@@ -36,6 +36,8 @@ public:
 
     glm::vec4 tint{0.0, 0.0, 0.0, 0.0};
 
+    glm::vec2 scale{1.0, 1.0};
+
     float angle{0.f};
 
     uint32_t flip_flags{0};

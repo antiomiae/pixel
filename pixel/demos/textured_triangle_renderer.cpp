@@ -4,6 +4,7 @@
 #include <pixel/level.h>
 #include <vector>
 #include <array>
+#include <sstream>
 
 
 using namespace std;
@@ -13,11 +14,56 @@ using namespace pixel::input;
 using namespace pixel::renderers;
 
 
+using Triangle = TexturedTriangleRenderer::Triangle;
+using Vertex = TexturedTriangleRenderer::Vertex;
+
+string debug_print(const glm::vec2& v, int indent = 0) {
+    stringstream s;
+    string pad = string(indent, ' ');
+    s << pad << "vec2 {" << v.x << ", " << v.y << "}";
+    return s.str();
+}
+
+string debug_print(const glm::vec3& v, int indent = 0) {
+    stringstream s;
+    string pad = string(indent, ' ');
+    s << pad << "vec3 {" << v.x << ", " << v.y << ", " << v.z << "}";
+    return s.str();
+}
+
+string debug_print(const glm::vec4& v, int indent = 0) {
+    stringstream s;
+    string pad = string(indent, ' ');
+    s << pad << "vec4 {" << v.x << ", " << v.y << ", " << v.z << ", " << v.w << "}";
+    return s.str();
+}
+
+string debug_print(const Vertex& v, int indent = 0) {
+    stringstream s;
+    string pad = string(indent, ' ');
+    s << "Vertex {\n"
+      << pad << "  position = " << debug_print(v.position, 0) << endl
+      << pad << "  color = " << debug_print(v.color, 0) << endl
+      << pad << "  tex_coord = " << debug_print(v.tex_coord, 0) << endl
+      << pad << "}";
+    return s.str();
+}
+
+string debug_print(const Triangle& t, int indent = 0) {
+    stringstream s;
+    string pad = string(indent, ' ');
+    s << "Triangle {\n"
+      << pad << "  a = " << debug_print(t.a, indent+2) << endl
+      << pad << "  b = " << debug_print(t.b, indent+2) << endl
+      << pad << "  c = " << debug_print(t.c, indent+2) << endl
+      << pad << "}";
+    return s.str();
+}
+
+
 class SpriteRenderer2 : public TexturedTriangleRenderer
 {
 public:
-    using Triangle = TexturedTriangleRenderer::Triangle;
-    using Vertex = TexturedTriangleRenderer::Vertex;
 
 
     explicit SpriteRenderer2(Level& level)
@@ -35,8 +81,8 @@ public:
 
         auto texture_region = sprite.texture_region;
         auto size = glm::vec2(texture_region.w, texture_region.h);
-        auto half_size = glm::vec2(texture_region.w, texture_region.h) / 2.0f;
-        auto center = glm::vec3(sprite.position + size * (-0.5f - sprite.center), 0);
+        auto half_size = glm::vec2(texture_region.w, texture_region.h) * sprite.scale / 2.0f;
+        auto center = glm::vec3(sprite.position + size * sprite.scale * (0.5f - sprite.center), 0);
         // fill corners with w, h centered quad, rotate by angle
         // add center to each corner, build triangles
         array<glm::vec3, 4> corners = {
@@ -47,7 +93,7 @@ public:
         };
 
 
-        auto rotate_matrix = glm::rotate(glm::mat3(), sprite.angle);
+        auto rotate_matrix = glm::rotate(glm::mat3(1), sprite.angle);
 
         std::transform(
             begin(corners), end(corners), begin(corners),
@@ -57,10 +103,10 @@ public:
         auto layer = sprite.texture_region.layer;
 
         array<glm::vec3, 4> texture_corners = {
-            glm::vec3{0, 0, layer},
-            glm::vec3{1, 0, layer},
             glm::vec3{0, 1, layer},
-            glm::vec3{1, 1, layer}
+            glm::vec3{1, 1, layer},
+            glm::vec3{0, 0, layer},
+            glm::vec3{1, 0, layer}
         };
 
         std::for_each(
@@ -102,6 +148,10 @@ public:
                 Vertex(corners[3], texture_corners[3], sprite.color)
             )
         );
+
+        for(const auto& triangle : tris_) {
+            cout << debug_print(triangle) << endl;
+        }
     }
 
     void render(Texture& texture_atlas, Camera& camera) {
@@ -121,18 +171,20 @@ void start(int argc, char** argv)
 
     pixel::init(actual_window_size, virtual_window_size, &argc, argv);
 
-    pixel::app().set_background_color({1, 1, 1, 1});
+    pixel::app().set_background_color({0.1, 0.1, 0.1, 1});
 
     Level level{virtual_window_size};
 
-    level.load_sprites({"assets/rocket.png"});
+    level.load_sprites({"assets/guy.png"});
 
     SpriteBatch batch;
 
     SpriteRenderer2 sp2{level};
 
-    auto rocket = level.get_sprite("assets/rocket.png");
+    auto rocket = level.get_sprite("assets/guy.png");
     rocket.position = {160, 120};
+    rocket.center = {0.0, 0.0};
+    rocket.scale = {2, 2};
 
     sp2.add_sprite(rocket);
     batch.add(rocket);
@@ -141,7 +193,6 @@ void start(int argc, char** argv)
         [&] {
             level.begin_render();
             sp2.render(level.sprite_texture(), level.camera());
-            //level.renderer_group().get<SpriteRenderer>().render(batch.sprites(), level.sprite_texture(), level.camera());
             level.finish_render();
         }
     );
