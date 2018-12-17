@@ -160,7 +160,7 @@ ADD_SUBDIRECTORY(lib/glm)
 ADD_SUBDIRECTORY(lib/sol2)
 ADD_SUBDIRECTORY(lib/tmxlite/tmxlite)
 
-TARGET_INCLUDE_DIRECTORIES(pixel PUBLIC . lib/imgui lib/soloud/include lib/glm)
+TARGET_INCLUDE_DIRECTORIES(pixel PUBLIC . lib/imgui lib/soloud/include lib/glm lib/stb)
 
 TARGET_LINK_LIBRARIES(
     pixel

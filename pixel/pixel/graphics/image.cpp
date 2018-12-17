@@ -1,6 +1,7 @@
 #include "image.h"
 #include "graphics.h"
-#include <tinypng/png.h>
+#include <stb_image.h>
+#include <lib/tinypng/tinypng/png.h>
 #include "../util/util.h"
 #include "../error.h"
 
@@ -16,11 +17,15 @@ ImageData load_png(const string& path)
         pixel_error("file does not exist at path: " + path);
     }
 
-    tinypng::PNG png(path);
+    int x, y, n;
 
-    ImageData out(png.getWidth(), png.getHeight());
+    uint8_t* raw_pixels = stbi_load(path.c_str(), &x, &y, &n, 0);
 
-    memcpy(out.data, png.buffer(), out.length());
+    ImageData out(x, y);
+
+    memcpy(out.data, raw_pixels, x * y * n);
+
+    stbi_image_free(raw_pixels);
 
     return out;
 };
