@@ -16,3 +16,6 @@
 [submodule "pixel/lib/soloud"]
 	path = pixel/lib/soloud
 	url = https://github.com/jarikomppa/soloud.git
+[submodule "pixel/lib/stb"]
+	path = pixel/lib/stb
+	url = https://github.com/nothings/stb.git
