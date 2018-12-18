@@ -89,12 +89,6 @@ Inheritance diagram for pixel::renderers::SpriteRenderer:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6cfab8f07a6c8d63a79e9cdc5986c157"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1renderers_1_1_sprite_renderer.html#a6cfab8f07a6c8d63a79e9cdc5986c157">SpriteRenderer</a> ()</td></tr>
 <tr class="separator:a6cfab8f07a6c8d63a79e9cdc5986c157"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6c9d54e5cebe36e7ecd843a53445569"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1renderers_1_1_sprite_renderer.html#af6c9d54e5cebe36e7ecd843a53445569">initVertexBuffer</a> ()</td></tr>
-<tr class="separator:af6c9d54e5cebe36e7ecd843a53445569"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14b5699f99d5f1e9bb73decbeeb39843"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1renderers_1_1_sprite_renderer.html#a14b5699f99d5f1e9bb73decbeeb39843">initIndexBuffer</a> ()</td></tr>
-<tr class="separator:a14b5699f99d5f1e9bb73decbeeb39843"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a336fe8591357d7460538650207fd7c1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1renderers_1_1_sprite_renderer.html#a336fe8591357d7460538650207fd7c1a">bindAttributes</a> ()</td></tr>
-<tr class="separator:a336fe8591357d7460538650207fd7c1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af507aa5085fd868090efc1d1b4f77bf9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classpixel_1_1graphics_1_1_shader.html">Shader</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1renderers_1_1_sprite_renderer.html#af507aa5085fd868090efc1d1b4f77bf9">program</a> ()</td></tr>
 <tr class="separator:af507aa5085fd868090efc1d1b4f77bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add4389770559120140b109dbb240aa36"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1renderers_1_1_sprite_renderer.html#add4389770559120140b109dbb240aa36">render</a> (const vector&lt; <a class="el" href="classpixel_1_1graphics_1_1_sprite.html">pixel::graphics::Sprite</a> &gt; &amp;sprites, <a class="el" href="classpixel_1_1graphics_1_1_texture.html">Texture</a> &amp;atlas_texture, <a class="el" href="classpixel_1_1graphics_1_1_camera.html">Camera</a> &amp;camera)</td></tr>
@@ -107,6 +101,12 @@ Public Member Functions</h2></td></tr>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:aaa47b879c31ad9df2f2792a5392655f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1renderers_1_1_sprite_renderer.html#aaa47b879c31ad9df2f2792a5392655f3">init</a> ()</td></tr>
 <tr class="separator:aaa47b879c31ad9df2f2792a5392655f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6c9d54e5cebe36e7ecd843a53445569"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1renderers_1_1_sprite_renderer.html#af6c9d54e5cebe36e7ecd843a53445569">initVertexBuffer</a> ()</td></tr>
+<tr class="separator:af6c9d54e5cebe36e7ecd843a53445569"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14b5699f99d5f1e9bb73decbeeb39843"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1renderers_1_1_sprite_renderer.html#a14b5699f99d5f1e9bb73decbeeb39843">initIndexBuffer</a> ()</td></tr>
+<tr class="separator:a14b5699f99d5f1e9bb73decbeeb39843"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a336fe8591357d7460538650207fd7c1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classpixel_1_1renderers_1_1_sprite_renderer.html#a336fe8591357d7460538650207fd7c1a">bindAttributes</a> ()</td></tr>
+<tr class="separator:a336fe8591357d7460538650207fd7c1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
@@ -145,6 +145,9 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void pixel::renderers::SpriteRenderer::bindAttributes </td>
@@ -153,6 +156,11 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -187,6 +195,9 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void pixel::renderers::SpriteRenderer::initIndexBuffer </td>
@@ -195,6 +206,11 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -204,6 +220,9 @@ Private Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void pixel::renderers::SpriteRenderer::initVertexBuffer </td>
@@ -212,6 +231,11 @@ Private Attributes</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
