@@ -66,6 +66,7 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">image.cpp File Reference</div>  </div>
@@ -74,7 +75,7 @@ $(function() {
 <div class="textblock"><code>#include &quot;<a class="el" href="image_8h_source.html">image.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="graphics_8h_source.html">graphics.h</a>&quot;</code><br />
 <code>#include &lt;stb_image.h&gt;</code><br />
-<code>#include &lt;lib/tinypng/tinypng/png.h&gt;</code><br />
+<code>#include &lt;stb_image_write.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="util_8h_source.html">../util/util.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="error_8h_source.html">../error.h</a>&quot;</code><br />
 </div><table class="memberdecls">
@@ -83,6 +84,13 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacepixel_1_1graphics"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepixel_1_1graphics.html">pixel::graphics</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a18372412ad2fc3ce1e3240b3cf0efe78"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="image_8cpp.html#a18372412ad2fc3ce1e3240b3cf0efe78">STB_IMAGE_IMPLEMENTATION</a></td></tr>
+<tr class="separator:a18372412ad2fc3ce1e3240b3cf0efe78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefe397a94e8feddc652f92ef40ce9597"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="image_8cpp.html#aefe397a94e8feddc652f92ef40ce9597">STB_IMAGE_WRITE_IMPLEMENTATION</a></td></tr>
+<tr class="separator:aefe397a94e8feddc652f92ef40ce9597"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a10dcd0aca5e9567469b717e72e090572"><td class="memItemLeft" align="right" valign="top">ImageData&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepixel_1_1graphics.html#a10dcd0aca5e9567469b717e72e090572">pixel::graphics::load_png</a> (const string &amp;path)</td></tr>
@@ -90,6 +98,35 @@ Functions</h2></td></tr>
 <tr class="memitem:a202dcdb746e8d6064ca1b3a0f3f54987"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepixel_1_1graphics.html#a202dcdb746e8d6064ca1b3a0f3f54987">pixel::graphics::save_png</a> (const ImageData &amp;img, const std::string &amp;path)</td></tr>
 <tr class="separator:a202dcdb746e8d6064ca1b3a0f3f54987"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a18372412ad2fc3ce1e3240b3cf0efe78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18372412ad2fc3ce1e3240b3cf0efe78">&#9670;&nbsp;</a></span>STB_IMAGE_IMPLEMENTATION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STB_IMAGE_IMPLEMENTATION</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aefe397a94e8feddc652f92ef40ce9597"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefe397a94e8feddc652f92ef40ce9597">&#9670;&nbsp;</a></span>STB_IMAGE_WRITE_IMPLEMENTATION</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STB_IMAGE_WRITE_IMPLEMENTATION</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
