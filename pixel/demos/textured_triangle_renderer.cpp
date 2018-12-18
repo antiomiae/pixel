@@ -190,8 +190,8 @@ void start(int argc, char** argv)
     rocket.scale = {1, 1};
 
     auto count = 0u;
-    for (auto i = 0u; i <= 320.0f / rocket.texture_region.w * 3; ++i) {
-        for (auto j = 0u; j <= 240.0f / rocket.texture_region.h * 30; ++j) {
+    for (auto i = 0u; i <= 320.0f / rocket.texture_region.w; ++i) {
+        for (auto j = 0u; j <= 240.0f / rocket.texture_region.h; ++j) {
             auto sprite = rocket;
             sprite.position.x = i * sprite.texture_region.w/3.0f;
             sprite.position.y = j * sprite.texture_region.h/30.0f;

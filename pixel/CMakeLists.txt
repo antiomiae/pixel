@@ -44,12 +44,6 @@ list(APPEND pixel_sources
     pixel/graphics/texture_atlas.cpp
     pixel/input/input.cpp
     pixel/input/input.h
-    pixel/lua/wrap_camera.cpp
-    pixel/lua/wrap_collision.cpp
-    pixel/lua/wrap_glm.cpp
-    pixel/lua/wrap_image_data.cpp
-    pixel/lua/wrap_opengl.cpp
-    pixel/lua/wrap_tileset.cpp
     pixel/math.h
     pixel/pixel.h
     pixel/system/system.cpp
@@ -91,6 +85,12 @@ list(APPEND pixel_sources
 IF (PIXEL_LUA_BINDING)
   list(APPEND pixel_sources
       pixel/lua/binding.cpp
+      pixel/lua/wrap_camera.cpp
+      pixel/lua/wrap_collision.cpp
+      pixel/lua/wrap_glm.cpp
+      pixel/lua/wrap_image_data.cpp
+      pixel/lua/wrap_opengl.cpp
+      pixel/lua/wrap_tileset.cpp
       pixel/lua/binding.h
       )
 ENDIF (PIXEL_LUA_BINDING)

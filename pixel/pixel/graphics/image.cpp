@@ -1,7 +1,9 @@
 #include "image.h"
 #include "graphics.h"
+#define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
-#include <lib/tinypng/tinypng/png.h>
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#include <stb_image_write.h>
 #include "../util/util.h"
 #include "../error.h"
 
@@ -19,11 +21,11 @@ ImageData load_png(const string& path)
 
     int x, y, n;
 
-    uint8_t* raw_pixels = stbi_load(path.c_str(), &x, &y, &n, 0);
+    uint8_t* raw_pixels = stbi_load(path.c_str(), &x, &y, &n, 4);
 
     ImageData out(x, y);
 
-    memcpy(out.data, raw_pixels, x * y * n);
+    memcpy(out.data, raw_pixels, (size_t) x * y * n);
 
     stbi_image_free(raw_pixels);
 
@@ -33,9 +35,7 @@ ImageData load_png(const string& path)
 
 bool save_png(const ImageData& img, const std::string& path)
 {
-    tinypng::PNG png(img.width, img.height, img.data);
-
-    return png.writeToFile(path);
+    return stbi_write_png(path.c_str(), img.width, img.height, img.bpp, img.data, 0);
 }
 
 
