@@ -29,7 +29,7 @@ void pixel::init(glm::ivec2 actual_window_size, glm::ivec2 virtual_window_size,
         app().set_app_dir(string{argv[1]});
         app().change_to_app_dir();
 
-        argv[0] = argv[2];
+        argv = &argv[2];
         *argc -= 2;
     }
 
