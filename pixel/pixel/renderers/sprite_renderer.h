@@ -17,9 +17,6 @@ class SpriteRenderer : public Renderer
 
 public:
     SpriteRenderer();
-    void initVertexBuffer();
-    void initIndexBuffer();
-    void bindAttributes();
     Shader& program();
     void render(const vector<pixel::graphics::Sprite>& sprites, Texture& atlas_texture, Camera& camera);
 
@@ -31,7 +28,9 @@ private:
     Shader program_;
 
     void init();
-    
+    void initVertexBuffer();
+    void initIndexBuffer();
+    void bindAttributes();
 };
 
 };

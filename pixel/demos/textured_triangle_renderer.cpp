@@ -75,9 +75,9 @@ public:
 
     void add_sprite(const Sprite& sprite)
     {
-        if (tris_.size() == tris_.capacity()) {
-            return;
-        }
+//        if (tris_.size() == tris_.capacity()) {
+//            return;
+//        }
 
         auto texture_region = sprite.texture_region;
         auto size = glm::vec2(texture_region.w, texture_region.h);
@@ -91,7 +91,6 @@ public:
             glm::vec3{-half_size.x, half_size.y, 0}, // TL
             glm::vec3{half_size.x, half_size.y, 0}  // TR
         };
-
 
         auto rotate_matrix = glm::rotate(glm::mat3(1), sprite.angle);
 
@@ -149,13 +148,19 @@ public:
             )
         );
 
-        for(const auto& triangle : tris_) {
-            cout << debug_print(triangle) << endl;
-        }
+//        for(const auto& triangle : tris_) {
+//            cout << debug_print(triangle) << endl;
+//        }
     }
 
-    void render(Texture& texture_atlas, Camera& camera) {
+    void render(Texture& texture_atlas, Camera& camera)
+    {
         TexturedTriangleRenderer::render(tris_, texture_atlas, camera);
+    }
+
+    void clear()
+    {
+        tris_.clear();
     }
 
 private:
@@ -177,23 +182,33 @@ void start(int argc, char** argv)
 
     level.load_sprites({"assets/guy.png"});
 
-    SpriteBatch batch;
-
     SpriteRenderer2 sp2{level};
 
     auto rocket = level.get_sprite("assets/guy.png");
     rocket.position = {160, 120};
     rocket.center = {0.0, 0.0};
-    rocket.scale = {2, 2};
+    rocket.scale = {1, 1};
 
-    sp2.add_sprite(rocket);
-    batch.add(rocket);
+    auto count = 0u;
+    for (auto i = 0u; i <= 320.0f / rocket.texture_region.w * 3; ++i) {
+        for (auto j = 0u; j <= 240.0f / rocket.texture_region.h * 30; ++j) {
+            auto sprite = rocket;
+            sprite.position.x = i * sprite.texture_region.w/3.0f;
+            sprite.position.y = j * sprite.texture_region.h/30.0f;
+            sp2.add_sprite(sprite);
+            count++;
+        }
+    }
+    cout << "sprites: " << count << endl;
 
     pixel::app().set_tick_callback(
         [&] {
+
+
             level.begin_render();
             sp2.render(level.sprite_texture(), level.camera());
             level.finish_render();
+
         }
     );
 
