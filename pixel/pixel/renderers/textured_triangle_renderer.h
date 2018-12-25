@@ -29,19 +29,11 @@ public:
 
     struct Triangle
     {
-        union
-        {
-            struct
-            {
-                Vertex a;
-                Vertex b;
-                Vertex c;
-            };
+        Vertex a;
+        Vertex b;
+        Vertex c;
 
-            Vertex vertices[3];
-        };
-
-        Triangle(Vertex a, Vertex b, Vertex c)
+        Triangle(const Vertex& a, const Vertex& b, const Vertex& c)
             : a{a},
               b{b},
               c{c}
