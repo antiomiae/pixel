@@ -4,7 +4,7 @@ var searchData=
   ['textureatlas',['TextureAtlas',['../classpixel_1_1graphics_1_1_texture_atlas.html',1,'pixel::graphics']]],
   ['texturedtrianglerenderer',['TexturedTriangleRenderer',['../classpixel_1_1renderers_1_1_textured_triangle_renderer.html',1,'pixel::renderers']]],
   ['textureregion',['TextureRegion',['../structpixel_1_1graphics_1_1_texture_region.html',1,'pixel::graphics']]],
-  ['tile',['Tile',['../structpixel_1_1_tileset_1_1_tile.html',1,'pixel::Tileset::Tile'],['../structpixel_1_1_tile_layer_1_1_tile.html',1,'pixel::TileLayer::Tile']]],
+  ['tile',['Tile',['../structpixel_1_1_tile_layer_1_1_tile.html',1,'pixel::TileLayer::Tile'],['../structpixel_1_1_tileset_1_1_tile.html',1,'pixel::Tileset::Tile']]],
   ['tileanimation',['TileAnimation',['../classpixel_1_1_tile_layer_1_1_tile_animation.html',1,'pixel::TileLayer']]],
   ['tileatlas',['TileAtlas',['../classpixel_1_1_tile_atlas.html',1,'pixel']]],
   ['tilecoordinate',['TileCoordinate',['../structpixel_1_1_tile_coordinate.html',1,'pixel']]],
