@@ -9,3 +9,6 @@ foreach(fname ${demo_sources})
   add_executable(${target_name} ${fname})
   target_link_libraries(${target_name} pixel)
 endforeach(fname ${demo_sources})
+
+
+add_subdirectory(golf)
