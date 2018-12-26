@@ -155,7 +155,6 @@ ADD_DEPENDENCIES(pixel pixel_source_version)
 SET(TMXLITE_STATIC_LIB ON)
 SET(GLM_TEST_ENABLE OFF)
 
-ADD_SUBDIRECTORY(lib/tinypng)
 ADD_SUBDIRECTORY(lib/glm)
 ADD_SUBDIRECTORY(lib/sol2)
 ADD_SUBDIRECTORY(lib/tmxlite/tmxlite)
@@ -164,7 +163,7 @@ TARGET_INCLUDE_DIRECTORIES(pixel PUBLIC . lib/imgui lib/soloud/include lib/glm l
 
 TARGET_LINK_LIBRARIES(
     pixel
-    PUBLIC Boost::system Boost::filesystem tinypng glfw glew::glew tmxlite
+    PUBLIC Boost::system Boost::filesystem glfw glew::glew tmxlite
     Lua::lua_lib
     sol2
 )
