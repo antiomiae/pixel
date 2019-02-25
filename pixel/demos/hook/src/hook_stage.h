@@ -7,6 +7,8 @@ class HookStage : public Stage
 {
 public:
     virtual void update() override;
+
+    virtual void on_load() override;
 };
 
 

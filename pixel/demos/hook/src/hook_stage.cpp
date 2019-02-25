@@ -4,3 +4,10 @@
 void HookStage::update()
 {
 }
+
+void HookStage::on_load()
+{
+    load_sprites({
+        "demos/hook/assets/body.png"
+    });
+}
