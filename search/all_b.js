@@ -14,7 +14,7 @@ var searchData=
   ['layers_5f',['layers_',['../classpixel_1_1graphics_1_1_texture_atlas.html#a3bd29372dd04c522a4cde4227d577946',1,'pixel::graphics::TextureAtlas::layers_()'],['../classpixel_1_1_tile_map.html#af24b467f025449cae2612dad8e9c2e2a',1,'pixel::TileMap::layers_()']]],
   ['layout',['Layout',['../struct_layout.html',1,'Layout'],['../struct_layout.html#a1239c2d12968bcfd073571e91e01f30a',1,'Layout::Layout()']]],
   ['length',['length',['../structpixel_1_1graphics_1_1_image_data.html#a41d28d028c9f1d42f8174557e3ead7b3',1,'pixel::graphics::ImageData::length()'],['../classpixel_1_1_line_segment.html#ad3bac4aae966e09f98586c47f70dee44',1,'pixel::LineSegment::length()']]],
-  ['level',['Level',['../classpixel_1_1_level.html',1,'pixel::Level'],['../classpixel_1_1_level.html#a34cfbd2212f4bfcc3cfd68b6ad8093e9',1,'pixel::Level::Level()']]],
+  ['level',['Level',['../classpixel_1_1_level.html',1,'pixel::Level'],['../classpixel_1_1_level.html#aaad86f96a7983462d99f13f7fe806346',1,'pixel::Level::Level()'],['../classpixel_1_1_level.html#a34cfbd2212f4bfcc3cfd68b6ad8093e9',1,'pixel::Level::Level(glm::ivec2 window_size)']]],
   ['level_2eh',['level.h',['../level_8h.html',1,'']]],
   ['line_5frenderer_2ecpp',['line_renderer.cpp',['../line__renderer_8cpp.html',1,'']]],
   ['line_5frenderer_2eh',['line_renderer.h',['../line__renderer_8h.html',1,'']]],

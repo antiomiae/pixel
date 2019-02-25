@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>pixel: pixel::RenderContext Struct Reference</title>
+<title>pixel: pixel::graphics::RenderContext Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -60,50 +60,50 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacepixel.html">pixel</a></li><li class="navelem"><a class="el" href="structpixel_1_1_render_context.html">RenderContext</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacepixel.html">pixel</a></li><li class="navelem"><a class="el" href="namespacepixel_1_1graphics.html">graphics</a></li><li class="navelem"><a class="el" href="structpixel_1_1graphics_1_1_render_context.html">RenderContext</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="structpixel_1_1_render_context-members.html">List of all members</a>  </div>
+<a href="structpixel_1_1graphics_1_1_render_context-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">pixel::RenderContext Struct Reference</div>  </div>
+<div class="title">pixel::graphics::RenderContext Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>Information about the global rendering setup.  
- <a href="structpixel_1_1_render_context.html#details">More...</a></p>
+ <a href="structpixel_1_1graphics_1_1_render_context.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="render__context_8h_source.html">pixel/graphics/render_context.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae08ab393a489732b6a0c38fa50adae56"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1_render_context.html#ae08ab393a489732b6a0c38fa50adae56">RenderContext</a> ()=default</td></tr>
-<tr class="separator:ae08ab393a489732b6a0c38fa50adae56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afce278c9af21fb8f991cd506b0e6248b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1_render_context.html#afce278c9af21fb8f991cd506b0e6248b">RenderContext</a> (const glm::ivec2 &amp;real_size, const glm::ivec2 &amp;virtual_size, const glm::vec4 &amp;color)</td></tr>
+<tr class="memitem:a2535638eb91d512a04ad599a14da0044"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1graphics_1_1_render_context.html#a2535638eb91d512a04ad599a14da0044">RenderContext</a> ()=default</td></tr>
+<tr class="separator:a2535638eb91d512a04ad599a14da0044"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afce278c9af21fb8f991cd506b0e6248b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1graphics_1_1_render_context.html#afce278c9af21fb8f991cd506b0e6248b">RenderContext</a> (const glm::ivec2 &amp;real_size, const glm::ivec2 &amp;virtual_size, const glm::vec4 &amp;color)</td></tr>
 <tr class="separator:afce278c9af21fb8f991cd506b0e6248b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a337152d3d3362d25ef7b0ddab3cddd41"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1_render_context.html#a337152d3d3362d25ef7b0ddab3cddd41">projection</a> () const</td></tr>
+<tr class="memitem:a337152d3d3362d25ef7b0ddab3cddd41"><td class="memItemLeft" align="right" valign="top">glm::mat4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1graphics_1_1_render_context.html#a337152d3d3362d25ef7b0ddab3cddd41">projection</a> () const</td></tr>
 <tr class="memdesc:a337152d3d3362d25ef7b0ddab3cddd41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Orthographic projection matrix derived from <code>window_size</code> and <code>pixel_scale</code> Transforms the region [(0, 0), (window_size / pixel_scale)] to [(-1, -1), (1, 1)].  <a href="#a337152d3d3362d25ef7b0ddab3cddd41">More...</a><br /></td></tr>
 <tr class="separator:a337152d3d3362d25ef7b0ddab3cddd41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aca15b0c7467b431a824c5adaf8286fbb"><td class="memItemLeft" align="right" valign="top">glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1_render_context.html#aca15b0c7467b431a824c5adaf8286fbb">window_size</a> {0, 0}</td></tr>
-<tr class="memdesc:aca15b0c7467b431a824c5adaf8286fbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensions of window.  <a href="#aca15b0c7467b431a824c5adaf8286fbb">More...</a><br /></td></tr>
-<tr class="separator:aca15b0c7467b431a824c5adaf8286fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcece4a5b1d51b27cb4083efdb5e9e58"><td class="memItemLeft" align="right" valign="top">glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1_render_context.html#afcece4a5b1d51b27cb4083efdb5e9e58">virtual_window_size</a> {0, 0}</td></tr>
-<tr class="memdesc:afcece4a5b1d51b27cb4083efdb5e9e58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensions of virtual drawing area.  <a href="#afcece4a5b1d51b27cb4083efdb5e9e58">More...</a><br /></td></tr>
-<tr class="separator:afcece4a5b1d51b27cb4083efdb5e9e58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafda602522210ff2cd46ff0cb8ec6396"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1_render_context.html#aafda602522210ff2cd46ff0cb8ec6396">default_clear_color</a> {0.0, 0.0, 0.0, 1.0}</td></tr>
-<tr class="separator:aafda602522210ff2cd46ff0cb8ec6396"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a409e395e5b7e4c8ab3cee89d1c28dd13"><td class="memItemLeft" align="right" valign="top">glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1graphics_1_1_render_context.html#a409e395e5b7e4c8ab3cee89d1c28dd13">window_size</a> {0, 0}</td></tr>
+<tr class="memdesc:a409e395e5b7e4c8ab3cee89d1c28dd13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensions of window.  <a href="#a409e395e5b7e4c8ab3cee89d1c28dd13">More...</a><br /></td></tr>
+<tr class="separator:a409e395e5b7e4c8ab3cee89d1c28dd13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4713ab7de1afb4d20923cbc9ec1f1bb4"><td class="memItemLeft" align="right" valign="top">glm::ivec2&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1graphics_1_1_render_context.html#a4713ab7de1afb4d20923cbc9ec1f1bb4">virtual_window_size</a> {0, 0}</td></tr>
+<tr class="memdesc:a4713ab7de1afb4d20923cbc9ec1f1bb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensions of virtual drawing area.  <a href="#a4713ab7de1afb4d20923cbc9ec1f1bb4">More...</a><br /></td></tr>
+<tr class="separator:a4713ab7de1afb4d20923cbc9ec1f1bb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8231d4a90ec8530be1178ba8ffba692e"><td class="memItemLeft" align="right" valign="top">glm::vec4&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpixel_1_1graphics_1_1_render_context.html#a8231d4a90ec8530be1178ba8ffba692e">default_clear_color</a> {0.0, 0.0, 0.0, 1.0}</td></tr>
+<tr class="separator:a8231d4a90ec8530be1178ba8ffba692e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Information about the global rendering setup. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae08ab393a489732b6a0c38fa50adae56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae08ab393a489732b6a0c38fa50adae56">&#9670;&nbsp;</a></span>RenderContext() <span class="overload">[1/2]</span></h2>
+<a id="a2535638eb91d512a04ad599a14da0044"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2535638eb91d512a04ad599a14da0044">&#9670;&nbsp;</a></span>RenderContext() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -112,7 +112,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">pixel::RenderContext::RenderContext </td>
+          <td class="memname">pixel::graphics::RenderContext::RenderContext </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -183,28 +183,28 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="aafda602522210ff2cd46ff0cb8ec6396"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aafda602522210ff2cd46ff0cb8ec6396">&#9670;&nbsp;</a></span>default_clear_color</h2>
+<a id="a8231d4a90ec8530be1178ba8ffba692e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8231d4a90ec8530be1178ba8ffba692e">&#9670;&nbsp;</a></span>default_clear_color</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::vec4 pixel::RenderContext::default_clear_color {0.0, 0.0, 0.0, 1.0}</td>
+          <td class="memname">glm::vec4 pixel::graphics::RenderContext::default_clear_color {0.0, 0.0, 0.0, 1.0}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="afcece4a5b1d51b27cb4083efdb5e9e58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afcece4a5b1d51b27cb4083efdb5e9e58">&#9670;&nbsp;</a></span>virtual_window_size</h2>
+<a id="a4713ab7de1afb4d20923cbc9ec1f1bb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4713ab7de1afb4d20923cbc9ec1f1bb4">&#9670;&nbsp;</a></span>virtual_window_size</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::ivec2 pixel::RenderContext::virtual_window_size {0, 0}</td>
+          <td class="memname">glm::ivec2 pixel::graphics::RenderContext::virtual_window_size {0, 0}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -213,14 +213,14 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="aca15b0c7467b431a824c5adaf8286fbb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca15b0c7467b431a824c5adaf8286fbb">&#9670;&nbsp;</a></span>window_size</h2>
+<a id="a409e395e5b7e4c8ab3cee89d1c28dd13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a409e395e5b7e4c8ab3cee89d1c28dd13">&#9670;&nbsp;</a></span>window_size</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">glm::ivec2 pixel::RenderContext::window_size {0, 0}</td>
+          <td class="memname">glm::ivec2 pixel::graphics::RenderContext::window_size {0, 0}</td>
         </tr>
       </table>
 </div><div class="memdoc">

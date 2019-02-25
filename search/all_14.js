@@ -15,6 +15,7 @@ var searchData=
   ['vertical',['Vertical',['../namespacepixel.html#ae48689ae70c617dbaac708f876530246a06ce2a25e5d12c166a36f654dbea6012',1,'pixel']]],
   ['view_5fmatrix',['view_matrix',['../classpixel_1_1graphics_1_1_camera.html#a74393c9a842e9129aec56d94029be94b',1,'pixel::graphics::Camera']]],
   ['view_5frect',['view_rect',['../classpixel_1_1graphics_1_1_camera.html#a6b14915efaefd421f2cafa2cef532d45',1,'pixel::graphics::Camera']]],
-  ['virtual_5fwindow_5fsize',['virtual_window_size',['../structpixel_1_1_render_context.html#afcece4a5b1d51b27cb4083efdb5e9e58',1,'pixel::RenderContext']]],
+  ['virtual_5frender_5ftarget_5f',['virtual_render_target_',['../classpixel_1_1_app.html#a4d8608c17da6b9688987026d273dbb68',1,'pixel::App']]],
+  ['virtual_5fwindow_5fsize',['virtual_window_size',['../structpixel_1_1graphics_1_1_render_context.html#a4713ab7de1afb4d20923cbc9ec1f1bb4',1,'pixel::graphics::RenderContext']]],
   ['visit_5ftiles',['visit_tiles',['../classpixel_1_1_tile_layer.html#a6afe2fb19edcbd579c223d12e0244796',1,'pixel::TileLayer']]]
 ];

@@ -58,7 +58,7 @@ var searchData=
   ['tileregistry',['TileRegistry',['../classpixel_1_1_tileset.html#a07353350c368c82275a5f821b0b2ee94',1,'pixel::Tileset']]],
   ['tiles',['tiles',['../classpixel_1_1_tile_layer_1_1_tile_animation.html#aa149a12e4eae31c60714565b2d64861e',1,'pixel::TileLayer::TileAnimation::tiles()'],['../classpixel_1_1_tile_layer.html#a7e26612b03d22048540c4a117761dcc3',1,'pixel::TileLayer::tiles()'],['../classpixel_1_1_tileset.html#a3c1a733757e487ddabf79488c748e3eb',1,'pixel::Tileset::tiles()']]],
   ['tiles_5f',['tiles_',['../classpixel_1_1_tile_layer.html#ab94b13dc20c47ddf7e26546bdcfff497',1,'pixel::TileLayer::tiles_()'],['../classpixel_1_1_tileset.html#a3037828f512098ac7c6637ceb4819181',1,'pixel::Tileset::tiles_()']]],
-  ['tileset',['Tileset',['../classpixel_1_1_tileset.html',1,'pixel::Tileset'],['../classpixel_1_1_tileset.html#a4ba3df1394c0dbf5f2d1ab38545d5bcc',1,'pixel::Tileset::Tileset()'],['../classpixel_1_1_tile_map.html#a8c23bb5298f9287a200e29d0eb49ec2d',1,'pixel::TileMap::tileset()']]],
+  ['tileset',['Tileset',['../classpixel_1_1_tileset.html',1,'pixel::Tileset'],['../classpixel_1_1_tile_map.html#a8c23bb5298f9287a200e29d0eb49ec2d',1,'pixel::TileMap::tileset()'],['../classpixel_1_1_tileset.html#a4ba3df1394c0dbf5f2d1ab38545d5bcc',1,'pixel::Tileset::Tileset()']]],
   ['tileset_2ecpp',['tileset.cpp',['../tileset_8cpp.html',1,'']]],
   ['tileset_2eh',['tileset.h',['../tileset_8h.html',1,'']]],
   ['tileset_5f',['tileset_',['../classpixel_1_1_tile_map.html#a03c3fb17814bbbf8dc344870499e7b76',1,'pixel::TileMap']]],
@@ -74,6 +74,6 @@ var searchData=
   ['translate',['translate',['../classpixel_1_1graphics_1_1_camera.html#aff3960e6c58a8474096eb86b6e1a2b14',1,'pixel::graphics::Camera::translate(float x, float y)'],['../classpixel_1_1graphics_1_1_camera.html#aa3c02a27599eebb5d3b380f852bb86ec',1,'pixel::graphics::Camera::translate(const glm::vec2 &amp;)']]],
   ['transpose',['transpose',['../structpixel_1_1graphics_1_1_image_data.html#acc355668b6865b064f2b25bbc9e65acd',1,'pixel::graphics::ImageData']]],
   ['triangle',['Triangle',['../structpixel_1_1renderers_1_1_textured_triangle_renderer_1_1_triangle.html',1,'pixel::renderers::TexturedTriangleRenderer::Triangle'],['../structpixel_1_1renderers_1_1_textured_triangle_renderer_1_1_triangle.html#a0cd8c3e5133f33b97c737a17be122090',1,'pixel::renderers::TexturedTriangleRenderer::Triangle::Triangle()']]],
-  ['type',['type',['../struct_layout.html#a039d56a72da89806f7019c12c8ab3ea7',1,'Layout::type()'],['../structpixel_1_1graphics_1_1_attribute.html#a47a5857b9ac8a25c031e14e083afaf59',1,'pixel::graphics::Attribute::type()'],['../structpixel_1_1_tileset_1_1_tile.html#aea4a964f0eb344459f06a7e9c5552f95',1,'pixel::Tileset::Tile::type()'],['../classpixel_1_1_rect.html#a7890b7a80decee4efccf587d4f5b13d7',1,'pixel::Rect::Type()']]],
+  ['type',['Type',['../classpixel_1_1_rect.html#a7890b7a80decee4efccf587d4f5b13d7',1,'pixel::Rect::Type()'],['../struct_layout.html#a039d56a72da89806f7019c12c8ab3ea7',1,'Layout::type()'],['../structpixel_1_1graphics_1_1_attribute.html#a47a5857b9ac8a25c031e14e083afaf59',1,'pixel::graphics::Attribute::type()'],['../structpixel_1_1_tileset_1_1_tile.html#aea4a964f0eb344459f06a7e9c5552f95',1,'pixel::Tileset::Tile::type()']]],
   ['types_2eh',['types.h',['../types_8h.html',1,'']]]
 ];

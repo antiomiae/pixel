@@ -5,5 +5,6 @@ var searchData=
   ['vec',['vec',['../structpixel_1_1graphics_1_1_texture_region.html#a601dcf79e495665067db2ada792fb41d',1,'pixel::graphics::TextureRegion']]],
   ['velocity',['velocity',['../structpixel_1_1physics_1_1_particle.html#aeb398c754abaf10684ec83f313b412b3',1,'pixel::physics::Particle::velocity()'],['../structpixel_1_1physics_1_1_velocity_verlet_particle.html#afa0b0bf5ee69fefdd550bffb4f4952b4',1,'pixel::physics::VelocityVerletParticle::velocity()']]],
   ['vertex_5fbuffer_5f',['vertex_buffer_',['../classpixel_1_1renderers_1_1_sprite_renderer.html#a4907ff1ac58e93aececba68932e157cd',1,'pixel::renderers::SpriteRenderer::vertex_buffer_()'],['../classpixel_1_1renderers_1_1_textured_triangle_renderer.html#acba6b870827a673e69946b928d2d65dc',1,'pixel::renderers::TexturedTriangleRenderer::vertex_buffer_()']]],
-  ['virtual_5fwindow_5fsize',['virtual_window_size',['../structpixel_1_1_render_context.html#afcece4a5b1d51b27cb4083efdb5e9e58',1,'pixel::RenderContext']]]
+  ['virtual_5frender_5ftarget_5f',['virtual_render_target_',['../classpixel_1_1_app.html#a4d8608c17da6b9688987026d273dbb68',1,'pixel::App']]],
+  ['virtual_5fwindow_5fsize',['virtual_window_size',['../structpixel_1_1graphics_1_1_render_context.html#a4713ab7de1afb4d20923cbc9ec1f1bb4',1,'pixel::graphics::RenderContext']]]
 ];

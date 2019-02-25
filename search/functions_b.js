@@ -5,7 +5,7 @@ var searchData=
   ['layers',['layers',['../classpixel_1_1graphics_1_1_texture_atlas.html#ad136be893ba018ccd08e735371c8550a',1,'pixel::graphics::TextureAtlas::layers()'],['../classpixel_1_1_tile_map.html#a40f23bebe94eee1130692085235c14d5',1,'pixel::TileMap::layers()']]],
   ['layout',['Layout',['../struct_layout.html#a1239c2d12968bcfd073571e91e01f30a',1,'Layout']]],
   ['length',['length',['../structpixel_1_1graphics_1_1_image_data.html#a41d28d028c9f1d42f8174557e3ead7b3',1,'pixel::graphics::ImageData::length()'],['../classpixel_1_1_line_segment.html#ad3bac4aae966e09f98586c47f70dee44',1,'pixel::LineSegment::length()']]],
-  ['level',['Level',['../classpixel_1_1_level.html#a34cfbd2212f4bfcc3cfd68b6ad8093e9',1,'pixel::Level']]],
+  ['level',['Level',['../classpixel_1_1_level.html#aaad86f96a7983462d99f13f7fe806346',1,'pixel::Level::Level()'],['../classpixel_1_1_level.html#a34cfbd2212f4bfcc3cfd68b6ad8093e9',1,'pixel::Level::Level(glm::ivec2 window_size)']]],
   ['linerenderer',['LineRenderer',['../classpixel_1_1renderers_1_1_line_renderer.html#adf08d52089304ffbcdb6430b4d40c241',1,'pixel::renderers::LineRenderer']]],
   ['linesegment',['LineSegment',['../classpixel_1_1_line_segment.html#a0ad3d24c8192c89774e7caf277168d39',1,'pixel::LineSegment::LineSegment()=default'],['../classpixel_1_1_line_segment.html#a908ff0ace1fa46fa4ddc23d0f4413b18',1,'pixel::LineSegment::LineSegment(float x0, float y0, float x1, float y1)'],['../classpixel_1_1_line_segment.html#a56604ff09c729b19318c769d038116e8',1,'pixel::LineSegment::LineSegment(glm::vec2 p0, glm::vec2 p1)']]],
   ['link_5fprogram',['link_program',['../namespacepixel_1_1graphics.html#abc8f110adf4be5b76408feb64a945f48',1,'pixel::graphics']]],
