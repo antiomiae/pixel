@@ -243,9 +243,6 @@ void start(int argc, char** argv)
 
     pixel::init(actual_window_size, virtual_window_size, &argc, argv);
 
-    OffscreenRenderTarget render_target{};
-    render_target.set_window_size(virtual_window_size);
-
     Level level(virtual_window_size);
 
     Physics physics;
@@ -315,27 +312,9 @@ void start(int argc, char** argv)
 
             update();
 
-            glClear(GL_COLOR_BUFFER_BIT);
-
-            render_target.activate();
-
-            glClear(GL_COLOR_BUFFER_BIT);
-
             /* do rendering */
             render();
             /* end */
-
-            render_target.deactivate();
-
-            /* blit virtual window to actual window */
-            render_target.draw(
-                glm::ivec4(
-                    0,
-                    0,
-                    app().render_context().window_size.x,
-                    app().render_context().window_size.y
-                )
-            );
         }
     );
 

@@ -50,25 +50,14 @@ int main(int argc, char* argv[])
 
     Camera camera({0, 0}, {0, 0, 2000, 2000});
 
-    OffscreenRenderTarget render_target{};
-
-    render_target.set_window_size(virtual_window_size);
-    camera.set_window_size(render_target.window_size());
+    camera.set_window_size(virtual_window_size);
 
     pixel::app().set_tick_callback(
         [&] {
             tile_map->update(1 / 60.0);
 
-            render_target.activate();
-            glClear(GL_COLOR_BUFFER_BIT);
-
             renderer.render(*tile_map, camera);
 
-            render_target.deactivate();
-
-            glClear(GL_COLOR_BUFFER_BIT);
-
-            render_target.draw(glm::ivec4(0, 0, actual_window_size.x, actual_window_size.y));
         }
     );
 

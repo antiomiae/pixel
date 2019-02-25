@@ -14,11 +14,16 @@ using namespace graphics;
 class Level
 {
 public:
+    Level()
+    {
+        window_size_ = pixel::app().render_context().virtual_window_size;
+        camera_.set_window_size(window_size_);
+    }
+
     Level(glm::ivec2 window_size)
         : window_size_(window_size)
     {
         camera_.set_window_size(window_size);
-        render_target_.set_window_size(window_size);
     }
 
     Camera& camera()
@@ -28,24 +33,10 @@ public:
 
     void begin_render()
     {
-        glClear(GL_COLOR_BUFFER_BIT);
-        //render_target_.activate();
-        glClear(GL_COLOR_BUFFER_BIT);
     }
 
     void finish_render()
     {
-//        render_target_.deactivate();
-//
-//        /* blit virtual window to actual window */
-//        render_target_.draw(
-//            glm::ivec4(
-//                0,
-//                0,
-//                pixel::app().render_context().window_size.x,
-//                pixel::app().render_context().window_size.y
-//            )
-//        );
     }
 
     renderers::RendererGroup& renderer_group()
@@ -97,7 +88,6 @@ private:
     renderers::RendererGroup renderer_group_;
     TextureAtlas texture_atlas_;
     Texture sprite_texture_;
-    OffscreenRenderTarget render_target_{};
     unique_ptr<TileMap> tile_map_;
 };
 

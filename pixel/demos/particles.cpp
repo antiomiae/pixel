@@ -180,10 +180,7 @@ int main(int argc, char* argv[])
 
     Camera camera({0, 0}, {0, 0, 2000, 2000});
 
-    OffscreenRenderTarget render_target{};
-
-    render_target.set_window_size(virtual_window_size);
-    camera.set_window_size(render_target.window_size());
+    camera.set_window_size(virtual_window_size);
 
     vector<VelocityVerletParticle> particles{100};
 
@@ -227,31 +224,10 @@ int main(int argc, char* argv[])
 
             }
 
-
-            glClear(GL_COLOR_BUFFER_BIT);
-
-
-            render_target.activate();
-
-            //glClear(GL_COLOR_BUFFER_BIT);
-
             /* do rendering */
             render_particles(particles, renderer_group.get<renderers::LineRenderer>(), camera);
             /* end */
 
-            render_target.deactivate();
-
-
-
-            /* blit virtual window to actual window */
-            render_target.draw(
-                glm::ivec4(
-                    0,
-                    0,
-                    app().render_context().window_size.x,
-                    app().render_context().window_size.y
-                )
-            );
         }
     );
 

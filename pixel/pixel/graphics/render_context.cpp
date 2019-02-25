@@ -3,7 +3,7 @@
 
 #include "render_context.h"
 
-using namespace pixel;
+using namespace pixel::graphics;
 
 
 RenderContext::RenderContext(const glm::ivec2& real_size, const glm::ivec2& virtual_size, const glm::vec4& color)

@@ -93,6 +93,9 @@ void App::init(int flags)
     imgui_setup(window_);
 
     audio_controller_.init();
+
+    virtual_render_target_ = make_unique<graphics::OffscreenRenderTarget>();
+    virtual_render_target_->set_window_size(render_context_.virtual_window_size);
 }
 
 void App::update_render_context()
@@ -122,9 +125,27 @@ void App::run()
 
         glfwPollEvents();
 
+        virtual_render_target_->activate();
+        // clear virtual buffer
+        glClear(GL_COLOR_BUFFER_BIT);
+
         if (tick_callback_) {
             tick_callback_();
         }
+
+        virtual_render_target_->deactivate();
+        // clear default/main buffer
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        /* blit virtual window to actual window */
+        virtual_render_target_->draw(
+            glm::ivec4(
+                0,
+                0,
+                render_context_.window_size.x,
+                render_context_.window_size.y
+            )
+        );
 
         imgui_render();
 
@@ -161,7 +182,7 @@ void App::late_tick()
     limiter.delay(fps_counter_.timeSinceFrameStart());
 }
 
-RenderContext& App::render_context()
+graphics::RenderContext& App::render_context()
 {
     return render_context_;
 }

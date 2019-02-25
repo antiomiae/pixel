@@ -41,7 +41,7 @@ public:
     void set_background_color(glm::vec4);
 
     GLFWwindow* window();
-    RenderContext& render_context();
+    graphics::RenderContext& render_context();
     AudioController& audio_controller();
 
     float current_fps();
@@ -58,13 +58,15 @@ private:
 
     pixel::time::FrameCounter fps_counter_{};
 
-    RenderContext render_context_{
+    graphics::RenderContext render_context_{
         DEFAULT_WINDOW_SIZE,
         DEFAULT_PIXEL_SCALE * DEFAULT_WINDOW_SIZE,
         DEFAULT_CLEAR_COLOR
     };
 
     AudioController audio_controller_;
+
+    unique_ptr<graphics::OffscreenRenderTarget> virtual_render_target_;
 };
 
 App& app();

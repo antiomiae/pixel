@@ -24,10 +24,7 @@ int main(int argc, char* argv[])
 
     Camera camera({0, 0}, {0, 0, 2000, 2000});
 
-    OffscreenRenderTarget render_target{};
-
-    render_target.set_window_size(virtual_window_size);
-    camera.set_window_size(render_target.window_size());
+    camera.set_window_size(virtual_window_size);
 
     renderers::RendererGroup rg{};
 
@@ -64,26 +61,11 @@ int main(int argc, char* argv[])
         [&] {
             glClear(GL_COLOR_BUFFER_BIT);
 
-            render_target.activate();
-
-            glClear(GL_COLOR_BUFFER_BIT);
-
             line_renderer.render(lines, camera);
 
             line_renderer.render(colored_lines, camera);
 
-            render_target.deactivate();
-
             auto rc = app().render_context();
-            /* blit virtual window to actual window */
-            render_target.draw(
-                glm::ivec4(
-                    0,
-                    0,
-                    rc.window_size.x,
-                    rc.window_size.y
-                )
-            );
         }
     );
 

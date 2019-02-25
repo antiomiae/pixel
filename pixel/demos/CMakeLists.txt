@@ -12,3 +12,4 @@ endforeach(fname ${demo_sources})
 
 
 add_subdirectory(golf)
+add_subdirectory(hook)

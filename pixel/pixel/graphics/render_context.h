@@ -3,7 +3,7 @@
 
 #include "pixel/math.h"
 
-namespace pixel
+namespace pixel::graphics
 {
 /**
  * Information about the global rendering setup
