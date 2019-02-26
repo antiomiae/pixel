@@ -9,6 +9,11 @@ public:
     virtual void update() override;
 
     virtual void on_load() override;
+
+    virtual void on_enter() override;
+
+private:
+    pixel::Sprite body_sprite_;
 };
 
 

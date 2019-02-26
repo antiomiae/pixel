@@ -7,5 +7,6 @@
 #include "line_renderer.h"
 #include "sprite_renderer.h"
 #include "tile_map_renderer.h"
+#include "textured_triangle_renderer.h"
 
 #endif //PIXEL_RENDERERS_H

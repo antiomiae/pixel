@@ -55,6 +55,17 @@ public:
         sprite_texture_ = texture_atlas_.as_texture();
     }
 
+    void load_sprites(vector<pair<string,string>> const& paths)
+    {
+        texture_atlas_.start_batch();
+        for_each(begin(paths), end(paths), [&](auto& path_pair) { texture_atlas_.add_image(path_pair.first, path_pair.second); });
+        texture_atlas_.stop_batch();
+
+        cout << texture_atlas_.debug_print() << endl;
+
+        sprite_texture_ = texture_atlas_.as_texture();
+    }
+
     Sprite get_sprite(string const& path)
     {
         Sprite s;
