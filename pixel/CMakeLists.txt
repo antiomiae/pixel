@@ -108,7 +108,7 @@ file(GLOB soloud_sources
     lib/soloud/src/backend/alsa/soloud_alsa.cpp
     lib/soloud/src/backend/coreaudio/soloud_coreaudio.cpp)
 
-ADD_LIBRARY(pixel ${pixel_sources} ${soloud_sources} pixel/audio/audio.cpp pixel/audio/audio.h pixel/animation/animation.cpp pixel/animation/animation.h pixel/animation/animation_group.cpp pixel/animation/animation_group.h pixel/animation/lambda_animation.cpp pixel/animation/lambda_animation.h pixel/renderers/textured_triangle_renderer.cpp pixel/renderers/textured_triangle_renderer.h)
+ADD_LIBRARY(pixel ${pixel_sources} ${soloud_sources} pixel/audio/audio.cpp pixel/audio/audio.h pixel/animation/animation.cpp pixel/animation/animation.h pixel/animation/animation_group.cpp pixel/animation/animation_group.h pixel/animation/lambda_animation.cpp pixel/animation/lambda_animation.h pixel/renderers/textured_triangle_renderer.cpp pixel/renderers/textured_triangle_renderer.h pixel/input/input_device.cpp pixel/input/input_device.h pixel/input/input_keyboard.cpp pixel/input/input_keyboard.h pixel/input/input_button_base.cpp pixel/input/input_button_base.h)
 
 target_compile_options(pixel PUBLIC -march=native)
 

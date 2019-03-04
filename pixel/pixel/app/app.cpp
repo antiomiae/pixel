@@ -6,6 +6,7 @@
 #include <pixel/error.h>
 #include <pixel/time/frame_rate_limiter.h>
 #include <pixel/imgui/gui.h>
+#include <pixel/input/input.h>
 
 
 namespace pixel
@@ -87,6 +88,8 @@ void App::init(int flags)
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     //glfwSetInputMode(window_, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+
+    pixel::input::Keyboard::register_callback(window_);
 
     set_clear_color(render_context_.default_clear_color);
 

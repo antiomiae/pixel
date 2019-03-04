@@ -32,6 +32,4 @@ void pixel::init(glm::ivec2 actual_window_size, glm::ivec2 virtual_window_size,
         argv = &argv[2];
         *argc -= 2;
     }
-
-    input::Keyboard::register_callback(app().window());
 }
