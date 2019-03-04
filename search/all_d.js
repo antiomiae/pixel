@@ -10,5 +10,8 @@ var searchData=
   ['node_2ecpp',['node.cpp',['../node_8cpp.html',1,'']]],
   ['node_2eh',['node.h',['../node_8h.html',1,'']]],
   ['node_3c_20gameobject_20_3e',['Node&lt; GameObject &gt;',['../classpixel_1_1_node.html',1,'pixel']]],
-  ['none',['None',['../namespacepixel.html#ae48689ae70c617dbaac708f876530246a6adf97f83acf6453d4a6a4b1070f3754',1,'pixel']]]
+  ['none',['None',['../namespacepixel.html#ae48689ae70c617dbaac708f876530246a6adf97f83acf6453d4a6a4b1070f3754',1,'pixel']]],
+  ['num_5faxes',['num_axes',['../classpixel_1_1input_1_1_input_device.html#a81382d9ee103d188738270fc55a71d0d',1,'pixel::input::InputDevice']]],
+  ['num_5fbuttons',['num_buttons',['../classpixel_1_1input_1_1_input_button_base.html#a56511c6bd523f56e2816140222f58946',1,'pixel::input::InputButtonBase::num_buttons()'],['../classpixel_1_1input_1_1_input_device.html#ab08aeaa84c7259861395af9aa4dcda8b',1,'pixel::input::InputDevice::num_buttons()']]],
+  ['num_5fbuttons_5f',['num_buttons_',['../classpixel_1_1input_1_1_input_button_base.html#a33395f6fd8161669886b6d3241945d81',1,'pixel::input::InputButtonBase']]]
 ];
