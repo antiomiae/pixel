@@ -1,6 +1,7 @@
 var searchData=
 [
   ['main',['main',['../script__runner_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'script_runner.cpp']]],
+  ['make_5fcontext_5fcurrent',['make_context_current',['../classpixel_1_1_glfw_platform.html#ad8940dcb930eb974c9699b8a263e5392',1,'pixel::GlfwPlatform::make_context_current()'],['../classpixel_1_1_platform.html#a2d2f0ca126dd53226ddac1b97965dc28',1,'pixel::Platform::make_context_current()']]],
   ['map_5fanalog',['MAP_ANALOG',['../imgui__impl__glfw_8cpp.html#ad181101ed89f4155bbc97eccffea135b',1,'imgui_impl_glfw.cpp']]],
   ['map_5fbutton',['MAP_BUTTON',['../imgui__impl__glfw_8cpp.html#a0720760ecc7d8768f926a5b2ba4af07d',1,'imgui_impl_glfw.cpp']]],
   ['map_5fheight_5f',['map_height_',['../classpixel_1_1collision_1_1_collision_map.html#a5675e0fd02f93fe970816d8ed1006dcb',1,'pixel::collision::CollisionMap']]],

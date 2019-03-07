@@ -2,6 +2,7 @@ var searchData=
 [
   ['data',['data',['../structpixel_1_1graphics_1_1_image_data.html#a0ae00692d59dfe806c4fc4717c4a8598',1,'pixel::graphics::ImageData']]],
   ['data_5ftype_5f',['data_type_',['../classpixel_1_1graphics_1_1_texture.html#ad818eb8ac090e194827761713f348fbe',1,'pixel::graphics::Texture']]],
+  ['de_5finit',['de_init',['../classpixel_1_1_platform.html#af69f670718d441dccb26841e89f58876',1,'pixel::Platform']]],
   ['deactivate',['deactivate',['../classpixel_1_1graphics_1_1_vao.html#a7c448f1487dd0a1b903fee8eb1771619',1,'pixel::graphics::Vao::deactivate()'],['../classpixel_1_1graphics_1_1_shader.html#aad387a892fb3fea54dfab9ba697f8fb3',1,'pixel::graphics::Shader::deactivate()'],['../classpixel_1_1graphics_1_1_offscreen_render_target.html#af4578733da935ecefd9d8e00032ff59c',1,'pixel::graphics::OffscreenRenderTarget::deactivate()']]],
   ['debug_5fname_5f',['debug_name_',['../classpixel_1_1graphics_1_1_shader.html#a8b05b646d9f6daa0483587f3f884b5ee',1,'pixel::graphics::Shader']]],
   ['debug_5fprint',['debug_print',['../classpixel_1_1graphics_1_1_texture_atlas.html#abd450c2c9d3b37d750dcf797eeb5f315',1,'pixel::graphics::TextureAtlas::debug_print()'],['../structpixel_1_1_collision_rect.html#a3bec42a9a22712dab2612730c79d2a73',1,'pixel::CollisionRect::debug_print()'],['../namespacepixel_1_1graphics.html#a2100850f8ada660a1c6f2ae69d902904',1,'pixel::graphics::debug_print()']]],

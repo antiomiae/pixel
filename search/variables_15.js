@@ -4,7 +4,7 @@ var searchData=
   ['width',['width',['../structpixel_1_1graphics_1_1_image_data.html#a783c857c18bf3d306f08ff990d0a0387',1,'pixel::graphics::ImageData']]],
   ['width_5f',['width_',['../classpixel_1_1graphics_1_1_texture.html#abeadd53ba95c1d93a3c89660d9548167',1,'pixel::graphics::Texture::width_()'],['../classpixel_1_1_tile_layer.html#a5a2c300689cf5fd25f44eea6b1ac5cd7',1,'pixel::TileLayer::width_()']]],
   ['window',['window',['../structpixel_1_1binding_1_1_window_wrapper.html#a49a1d44217292fc1af03654b8a78b8f1',1,'pixel::binding::WindowWrapper']]],
-  ['window_5f',['window_',['../classpixel_1_1_app.html#aaec703aee9656cf040b8c9f5eb4fc3ad',1,'pixel::App']]],
+  ['window_5f',['window_',['../classpixel_1_1_app.html#aaec703aee9656cf040b8c9f5eb4fc3ad',1,'pixel::App::window_()'],['../classpixel_1_1_glfw_platform.html#abffc9f22f1dae22d4806ec07f408583c',1,'pixel::GlfwPlatform::window_()']]],
   ['window_5fsize',['window_size',['../structpixel_1_1graphics_1_1_render_context.html#a409e395e5b7e4c8ab3cee89d1c28dd13',1,'pixel::graphics::RenderContext']]],
   ['window_5fsize_5f',['window_size_',['../classpixel_1_1graphics_1_1_camera.html#a1273eb22b376c868e91c9ed57ffc876f',1,'pixel::graphics::Camera::window_size_()'],['../classpixel_1_1_level.html#a78cacb1f43a1a29c8a812c72ee805c4f',1,'pixel::Level::window_size_()']]]
 ];

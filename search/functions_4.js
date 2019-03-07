@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['de_5finit',['de_init',['../classpixel_1_1_platform.html#af69f670718d441dccb26841e89f58876',1,'pixel::Platform']]],
   ['deactivate',['deactivate',['../classpixel_1_1graphics_1_1_vao.html#a7c448f1487dd0a1b903fee8eb1771619',1,'pixel::graphics::Vao::deactivate()'],['../classpixel_1_1graphics_1_1_shader.html#aad387a892fb3fea54dfab9ba697f8fb3',1,'pixel::graphics::Shader::deactivate()'],['../classpixel_1_1graphics_1_1_offscreen_render_target.html#af4578733da935ecefd9d8e00032ff59c',1,'pixel::graphics::OffscreenRenderTarget::deactivate()']]],
   ['debug_5fprint',['debug_print',['../classpixel_1_1graphics_1_1_texture_atlas.html#abd450c2c9d3b37d750dcf797eeb5f315',1,'pixel::graphics::TextureAtlas::debug_print()'],['../structpixel_1_1_collision_rect.html#a3bec42a9a22712dab2612730c79d2a73',1,'pixel::CollisionRect::debug_print()'],['../namespacepixel_1_1graphics.html#a2100850f8ada660a1c6f2ae69d902904',1,'pixel::graphics::debug_print()']]],
   ['debug_5fsave',['debug_save',['../classpixel_1_1_tile_atlas.html#aafcead07e2b9443341f3a8bc88ad003b',1,'pixel::TileAtlas']]],
