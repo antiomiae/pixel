@@ -47,7 +47,7 @@ void GlfwPlatform::init()
 
     glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
-    window_ = glfwCreateWindow(render_context_.window_size.x, render_context_.window_size.y, "pixel", nullptr, nullptr);
+    //window_ = glfwCreateWindow(render_context_.window_size.x, render_context_.window_size.y, "pixel", nullptr, nullptr);
 
     error_unless(window_, "glfwCreateWindow failed!");
 

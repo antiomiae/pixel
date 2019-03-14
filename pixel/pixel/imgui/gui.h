@@ -1,7 +1,7 @@
 #ifndef PIXEL_MAIN_GUI_H
 #define PIXEL_MAIN_GUI_H
 
-#include <GLFW/glfw3.h>
+struct GLFWwindow;
 
 namespace pixel {
 

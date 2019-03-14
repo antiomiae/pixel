@@ -66,7 +66,7 @@ void App::init(int flags)
 
 void App::update_render_context()
 {
-    render_context_.window_size = window_size(window_);
+    //render_context_.window_size = window_size(window_);
 }
 
 void App::run()
