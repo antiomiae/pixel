@@ -13,12 +13,19 @@ class Window;
 class Platform
 {
 public:
+    class Configuration
+    {
+    public:
+        int window_width;
+        int window_height;
+    };
+
     ~Platform() = default;
 
     /**
      * Entrypoint to initialize platform
      */
-    virtual void init() {};
+    virtual void init(Configuration config) {};
     /**
      * Entrypoint to teardown platform
      */

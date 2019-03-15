@@ -14,7 +14,7 @@ class GlfwWindow;
 class GlfwPlatform : public Platform
 {
 public:
-    void init() override;
+    void init(Configuration config) override;
     Window* get_window() override;
 
     void make_context_current() override;

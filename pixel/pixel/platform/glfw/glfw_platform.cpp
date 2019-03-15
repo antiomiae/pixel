@@ -2,16 +2,13 @@
 #include <iostream>
 #include <unistd.h>
 
+#include "common.h"
 #include "glfw_platform.h"
 #include "glfw_window.h"
 #include <pixel/error.h>
 #include <pixel/time/frame_rate_limiter.h>
 #include <pixel/input/input.h>
 
-#define GLFW_INCLUDE_NONE
-
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
 
 using namespace pixel;
 
@@ -30,7 +27,7 @@ glm::ivec2 window_size(GLFWwindow* window)
     return {w, h};
 };
 
-void GlfwPlatform::init()
+void GlfwPlatform::init(Configuration config)
 {
     if (!glfwInit()) {
         cout << "glwInit failed!" << endl;
@@ -47,11 +44,12 @@ void GlfwPlatform::init()
 
     glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
-    //window_ = glfwCreateWindow(render_context_.window_size.x, render_context_.window_size.y, "pixel", nullptr, nullptr);
+    window_ = make_unique<pixel::GlfwWindow>(config.window_width, config.window_height, "pixel");
+    auto glfw_window = glfwCreateWindow(config.window_width, config.window_height, "pixel", nullptr, nullptr);
 
-    error_unless(window_, "glfwCreateWindow failed!");
+    error_unless(glfw_window, "glfwCreateWindow failed!");
 
-    glfwMakeContextCurrent(window_);
+    glfwMakeContextCurrent(glfw_window);
 
     glfwSwapInterval(1);
 
